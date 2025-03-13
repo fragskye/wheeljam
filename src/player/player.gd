@@ -3,14 +3,28 @@ class_name Player extends CharacterBody3D
 @onready var camera: Camera3D = %PlayerCamera
 @onready var camera_rig: PlayerCameraRig = %PlayerCameraRig
 
+@export var inventory_minimum_slots: int = 7
 var inventory: Array[ItemData] = []
+var inventory_selected: int = 0
 
 const SPEED: float = 5.0
 const JUMP_VELOCITY: float = 4.5
 
 func _ready() -> void:
-	Global.player = self
+	for i: int in inventory_minimum_slots:
+		inventory.push_back(null)
 	SignalBus.item_picked_up.connect(_on_item_picked_up)
+	Global.player = self
+
+func _process(delta: float) -> void:
+	if InputManager.get_input_state() != InputManager.InputState.FIRST_PERSON:
+		return
+	
+	if Input.is_action_just_pressed("pause"):
+		InputManager.push_input_state(InputManager.InputState.MENU)
+	
+	if Input.is_action_just_pressed("inventory"):
+		InputManager.push_input_state(InputManager.InputState.INVENTORY)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -36,3 +50,42 @@ func _physics_process(delta: float) -> void:
 
 func _on_item_picked_up(item: Item) -> void:
 	inventory.push_back(item.data)
+	flush_inventory()
+
+func flush_inventory() -> void:
+	var idx: int = 0
+	while idx < inventory.size():
+		if inventory[idx] == null:
+			inventory.remove_at(idx)
+			if idx < inventory_selected:
+				inventory_selected -= 1;
+			idx -= 1
+		idx += 1
+	
+	var inventory_size: int = inventory.size()
+	if inventory_size > 0:
+		while inventory_selected < 0:
+			inventory_selected += inventory_size
+		while inventory_selected >= inventory_size:
+			inventory_selected -= inventory_size
+	
+	for i: int in inventory_minimum_slots - inventory.size():
+		inventory.push_back(null)
+	
+	SignalBus.inventory_flushed.emit()
+
+func get_inventory_item(idx: int) -> ItemData:
+	var inventory_size: int = inventory.size()
+	while idx < 0:
+		idx += inventory_size
+	while idx >= inventory_size:
+		idx -= inventory_size
+	return inventory[idx]
+
+func set_inventory_selected(selected: int) -> void:
+	var inventory_size: int = inventory.size()
+	while selected < 0:
+		selected += inventory_size
+	while selected >= inventory_size:
+		selected -= inventory_size
+	inventory_selected = selected

@@ -16,13 +16,6 @@ func _ready() -> void:
 	roll = rotation_degrees.z
 	SignalBus.item_picked_up.connect(_on_item_picked_up)
 
-func _process(delta: float) -> void:
-	if InputManager.get_input_state() != InputManager.InputState.FIRST_PERSON:
-		return
-	
-	if Input.is_action_just_pressed("pause"):
-		InputManager.push_input_state(InputManager.InputState.MENU)
-
 func _unhandled_input(event: InputEvent) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.FIRST_PERSON:
 		return
@@ -50,10 +43,4 @@ func update_angles() -> void:
 	rotate_object_local(Vector3.FORWARD, deg_to_rad(roll))
 
 func _on_item_picked_up(item: Item) -> void:
-	var tween: Tween = get_tree().create_tween()
-	tween.set_ease(Tween.EASE_OUT)
-	tween.set_trans(Tween.TRANS_QUINT)
-	tween.tween_property(item, "global_transform", item_pickup_target_start.global_transform, 0.6)
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(item, "global_transform", item_pickup_target_end.global_transform, 0.3)
-	tween.tween_callback(item.queue_free)
+	item.play_pickup_anim(item_pickup_target_start, item_pickup_target_end)

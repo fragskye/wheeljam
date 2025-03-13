@@ -5,8 +5,7 @@ class_name PauseLayer extends CanvasLayer
 var _input_state_changed_this_frame: bool = false
 
 func _ready() -> void:
-	pause_menu.visible = false
-	#pause_menu.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	pause_menu.hide()
 	InputManager.input_state_changed.connect(_on_input_state_changed)
 
 func _process(delta: float) -> void:
@@ -23,11 +22,11 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 	
 	match old_state:
 		InputManager.InputState.MENU:
-			pause_menu.visible = false
+			pause_menu.hide()
 	
 	match new_state:
 		InputManager.InputState.MENU:
-			pause_menu.visible = true
+			pause_menu.show()
 
 func _on_resume_button_pressed() -> void:
 	if InputManager.get_input_state() != InputManager.InputState.MENU:

@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://caoneprh3fic"]
+
+[ext_resource type="Script" uid="uid://brvwl4xkt25ym" path="res://src/ui/inventory_carousel.gd" id="1_vu3ma"]
+
+[sub_resource type="Curve" id="Curve_vu3ma"]
+_limits = [-1.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, -0.05), -0.25, 0.0, 0, 0, Vector2(0.15, 0), 0.25, 0.25, 0, 0, Vector2(0.85, 1), 0.25, 0.25, 0, 0, Vector2(1, 1.05), 0.0, 1.25, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_g35et"]
+_data = [Vector2(0, 0.2), 0.0, 0.0, 0, 0, Vector2(0.5, 0.6), 1.0, -1.0, 0, 0, Vector2(1, 0.2), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_tuy37"]
+_data = [Vector2(0, 0), 0.0, 4.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="InventoryCarousel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vu3ma")
+hover_percentage = 0.3
+hover_fast_percentage = 0.1
+carousel_item_position = SubResource("Curve_vu3ma")
+carousel_item_scale = SubResource("Curve_g35et")
+carousel_item_alpha = SubResource("Curve_tuy37")
+
+[node name="Carousel" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CarouselReference" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CarouselTargetLeft" type="Control" parent="CarouselReference"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CarouselTargetRight" type="Control" parent="CarouselReference"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HoverLeft" type="Control" parent="CarouselReference"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="HoverLeftFast" type="Control" parent="CarouselReference/HoverLeft"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="HoverRight" type="Control" parent="CarouselReference"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="HoverRightFast" type="Control" parent="CarouselReference/HoverRight"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+
+[connection signal="mouse_entered" from="CarouselReference/HoverLeft" to="." method="_on_hover_left_mouse_entered"]
+[connection signal="mouse_exited" from="CarouselReference/HoverLeft" to="." method="_on_hover_left_mouse_exited"]
+[connection signal="mouse_entered" from="CarouselReference/HoverLeft/HoverLeftFast" to="." method="_on_hover_left_fast_mouse_entered"]
+[connection signal="mouse_exited" from="CarouselReference/HoverLeft/HoverLeftFast" to="." method="_on_hover_left_fast_mouse_exited"]
+[connection signal="mouse_entered" from="CarouselReference/HoverRight" to="." method="_on_hover_right_mouse_entered"]
+[connection signal="mouse_exited" from="CarouselReference/HoverRight" to="." method="_on_hover_right_mouse_exited"]
+[connection signal="mouse_entered" from="CarouselReference/HoverRight/HoverRightFast" to="." method="_on_hover_right_fast_mouse_entered"]
+[connection signal="mouse_exited" from="CarouselReference/HoverRight/HoverRightFast" to="." method="_on_hover_right_fast_mouse_exited"]

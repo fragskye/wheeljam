@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx1f47jvxrqnm"]
+
+[ext_resource type="Script" uid="uid://hduaovkp6xuv" path="res://src/ui/item_renderer.gd" id="1_3jvt1"]
+
+[sub_resource type="Environment" id="Environment_3jvt1"]
+tonemap_mode = 2
+
+[sub_resource type="World3D" id="World3D_7l4e7"]
+environment = SubResource("Environment_3jvt1")
+
+[sub_resource type="BoxMesh" id="BoxMesh_3jvt1"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="ItemRenderer" type="SubViewport"]
+own_world_3d = true
+world_3d = SubResource("World3D_7l4e7")
+transparent_bg = true
+msaa_3d = 3
+render_target_update_mode = 0
+script = ExtResource("1_3jvt1")
+animation_speed = 60.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 0.3, 0.3, 0.3)
+fov = 50.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.12941, 0.224144, 0, 0.866025, 0.5, -0.258819, -0.482963, 0.836516, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_3jvt1")
+
+[node name="VisualRoot" type="Node3D" parent="."]
+unique_name_in_owner = true
