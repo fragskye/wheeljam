@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cbnvfglvi7a8s"]
+
+[ext_resource type="Shader" uid="uid://cuyv2jxhf4d12" path="res://shaders/standard_palette.gdshader" id="1_s13hp"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_s13hp")
+shader_parameter/render_in_front = false

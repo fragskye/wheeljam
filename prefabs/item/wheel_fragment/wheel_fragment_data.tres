@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="WheelFragmentData" load_steps=2 format=3 uid="uid://b751qos2k6s81"]
+
+[ext_resource type="Script" uid="uid://bmxe267u4atcw" path="res://src/item/wheel_fragment_data.gd" id="1_18d08"]
+
+[resource]
+script = ExtResource("1_18d08")
+multiplier = 1.0
+metadata/_custom_type_script = "uid://bmxe267u4atcw"
