@@ -1,6 +1,6 @@
 extends Node
 
-enum InputState { MENU, FIRST_PERSON, INSPECTING }
+enum InputState { MENU, FIRST_PERSON, INVENTORY }
 
 signal input_state_changed(old_state: InputState, new_state: InputState)
 
@@ -9,8 +9,9 @@ const DEFAULT_INPUT_STATE: InputState = InputState.FIRST_PERSON
 var input_state_stack: Array[InputState] = []
 
 func _ready() -> void:
+	input_state_stack.push_back(DEFAULT_INPUT_STATE)
 	input_state_changed.connect(_on_input_state_changed)
-	pop_input_state()
+	input_state_changed.emit(DEFAULT_INPUT_STATE, DEFAULT_INPUT_STATE)
 
 func _on_input_state_changed(old_state: InputState, new_state: InputState) -> void:
 	match new_state:

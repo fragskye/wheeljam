@@ -16,7 +16,17 @@ func _ready() -> void:
 	roll = rotation_degrees.z
 	SignalBus.item_picked_up.connect(_on_item_picked_up)
 
+func _process(delta: float) -> void:
+	if InputManager.get_input_state() != InputManager.InputState.FIRST_PERSON:
+		return
+	
+	if Input.is_action_just_pressed("pause"):
+		InputManager.push_input_state(InputManager.InputState.MENU)
+
 func _unhandled_input(event: InputEvent) -> void:
+	if InputManager.get_input_state() != InputManager.InputState.FIRST_PERSON:
+		return
+	
 	if event is InputEventMouseMotion:
 		var event_mouse_motion: InputEventMouseMotion = event as InputEventMouseMotion
 		pitch -= event_mouse_motion.relative.y * 0.1 * look_sensitivity

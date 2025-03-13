@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=7 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://cc572s3y8nxpm" path="res://prefabs/ui/pause_layer.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ynrxp5rdqm7r" path="res://prefabs/item/wheel_fragment/wheel_fragment.tscn" id="3_feb5d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
@@ -36,3 +37,5 @@ size = Vector3(6, 1, 6)
 
 [node name="WheelFragment" parent="." instance=ExtResource("3_feb5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.8, 0)
+
+[node name="PauseLayer" parent="." instance=ExtResource("3_fc0e3")]
