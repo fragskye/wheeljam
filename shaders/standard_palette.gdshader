@@ -19,7 +19,7 @@ void vertex() {
 void fragment() {
 	float inv_texel_density = 1.0 / texel_density;
 	float inv_value_noise_texture_size = 1.0 / value_noise_texture_size;
-	
+
 	vec3 abs_local_normal = abs(local_normal);
 	float max_xz = max(abs_local_normal.x, abs_local_normal.z);
 	float max_yz = max(abs_local_normal.y, abs_local_normal.z);

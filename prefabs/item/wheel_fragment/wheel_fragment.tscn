@@ -1,13 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ynrxp5rdqm7r"]
+[gd_scene load_steps=5 format=3 uid="uid://ynrxp5rdqm7r"]
 
 [ext_resource type="Script" uid="uid://dtu0a8hypmrm" path="res://src/item/wheel_fragment.gd" id="1_rlpjy"]
 [ext_resource type="Resource" uid="uid://b751qos2k6s81" path="res://prefabs/item/wheel_fragment/wheel_fragment_data.tres" id="2_swqem"]
-[ext_resource type="Material" uid="uid://cbnvfglvi7a8s" path="res://prefabs/item/wheel_fragment/wheel_fragment_material.tres" id="3_3dbl6"]
+[ext_resource type="PackedScene" uid="uid://6c5ucfomh1dt" path="res://prefabs/item/wheel_fragment/wheel_fragment_visual.tscn" id="3_swqem"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fc0e3"]
-size = Vector3(0.2, 0.2, 0.2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_r0kvw"]
 size = Vector3(0.2, 0.2, 0.2)
 
 [node name="WheelFragment" type="Area3D"]
@@ -19,6 +16,4 @@ metadata/_custom_type_script = "uid://dtu0a8hypmrm"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_fc0e3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_r0kvw")
-surface_material_override/0 = ExtResource("3_3dbl6")
+[node name="WheelFragmentVisual" parent="." instance=ExtResource("3_swqem")]
