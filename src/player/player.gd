@@ -3,11 +3,14 @@ class_name Player extends CharacterBody3D
 @onready var camera: Camera3D = %PlayerCamera
 @onready var camera_rig: PlayerCameraRig = %PlayerCameraRig
 
+var inventory: Array[ItemData] = []
+
 const SPEED: float = 5.0
 const JUMP_VELOCITY: float = 4.5
 
 func _ready() -> void:
 	Global.player = self
+	SignalBus.item_picked_up.connect(_on_item_picked_up)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -30,3 +33,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func _on_item_picked_up(item: Item) -> void:
+	inventory.push_back(item.data)

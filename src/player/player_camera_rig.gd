@@ -40,6 +40,10 @@ func update_angles() -> void:
 	rotate_object_local(Vector3.FORWARD, deg_to_rad(roll))
 
 func _on_item_picked_up(item: Item) -> void:
-	var tween: Tween = get_tree().create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	var tween: Tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(item, "global_transform", item_pickup_target_start.global_transform, 0.6)
-	tween.tween_property(item, "global_transform", item_pickup_target_end.global_transform, 0.6)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(item, "global_transform", item_pickup_target_end.global_transform, 0.3)
+	tween.tween_callback(item.queue_free)
