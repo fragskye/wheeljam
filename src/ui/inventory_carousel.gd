@@ -28,7 +28,8 @@ func _ready() -> void:
 	_update_item_positions()
 
 func _process(delta: float) -> void:
-	if InputManager.get_input_state() != InputManager.InputState.INVENTORY:
+	var input_state: InputManager.InputState = InputManager.get_input_state()
+	if input_state != InputManager.InputState.INVENTORY && input_state != InputManager.InputState.FIGHT:
 		return
 	
 	_update_item_positions()

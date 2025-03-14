@@ -1,6 +1,6 @@
 extends Node
 
-enum InputState { MENU, FIRST_PERSON, INVENTORY }
+enum InputState { MENU, FIRST_PERSON, INVENTORY, FIGHT }
 
 signal input_state_changed(old_state: InputState, new_state: InputState)
 

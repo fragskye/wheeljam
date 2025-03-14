@@ -1,11 +1,14 @@
 class_name InteractionSystem extends Node3D
 
+@onready var collision_shape_3d: CollisionShape3D = %CollisionShape3D
 @onready var pcam: PhantomCamera3D = %PhantomCamera3D
 
 @export var reach_distance: float = 1.0
 @export_flags_3d_physics var blocker_mask: int = 0xFFFFFFFF
 @export_flags_3d_physics var interactable_mask: int = 0xFFFFFFFF
 @export var sphere_shape: SphereShape3D = null
+
+@export var debug: bool = false
 
 var hovering: CollisionObject3D = null
 
@@ -15,8 +18,10 @@ func _process(delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.FIRST_PERSON:
 		return
 	
-	if hovering && Input.is_action_just_pressed("interact"):
-		if hovering.has_method("interact"):
+	if hovering:
+		if debug:
+			DebugDraw2D.set_text("hovering", hovering.name, 0, Color.WHITE, 0.0)
+		if Input.is_action_just_pressed("interact") && hovering.has_method("interact"):
 			hovering.interact()
 
 func is_interactable(node: Node) -> bool:
@@ -57,11 +62,11 @@ func _update_hovering() -> void:
 	var motion_results: PackedFloat32Array = space_state.cast_motion(sphere_query)
 	if motion_results.size() >= 2 && motion_results[1] < 1.0:
 		sphere_query.transform.origin += sphere_query.motion * motion_results[1]
-		var sphere_results: Array[Dictionary] = space_state.intersect_shape(sphere_query, 1)
-		if sphere_results.size() > 0:
-			var node: Node3D = sphere_results[0]["collider"]
-			if is_interactable(node):
-				hovering = node as CollisionObject3D
-				return
+	var sphere_results: Array[Dictionary] = space_state.intersect_shape(sphere_query, 1)
+	if sphere_results.size() > 0:
+		var node: Node3D = sphere_results[0]["collider"]
+		if is_interactable(node):
+			hovering = node as CollisionObject3D
+			return
 	
 	hovering = null
