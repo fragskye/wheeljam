@@ -22,8 +22,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseMotion:
 		var event_mouse_motion: InputEventMouseMotion = event as InputEventMouseMotion
-		pitch -= event_mouse_motion.relative.y * 0.1 * look_sensitivity
-		yaw -= event_mouse_motion.relative.x * 0.1 * look_sensitivity
+		pitch -= event_mouse_motion.screen_relative.y * 0.1 * look_sensitivity
+		yaw -= event_mouse_motion.screen_relative.x * 0.1 * look_sensitivity
 		normalize_angles()
 		update_angles()
 

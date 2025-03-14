@@ -1,5 +1,5 @@
 @tool
-extends Node3D
+class_name Line3D extends Node3D
 
 @export var uv_size = 1.0 : set = set_uv_size # (float,0.0,100.0)
 @export var material: Material = null : set = set_material

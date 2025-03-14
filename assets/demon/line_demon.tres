@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cq7ehqwsowtx7"]
+
+[ext_resource type="Shader" uid="uid://bvfvlcf1hjj0m" path="res://shaders/line_demon.gdshader" id="1_4o3c8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4o3c8")
+shader_parameter/line_width = 0.1
+shader_parameter/glow_width = 0.0
+shader_parameter/tangent_facing = false
+shader_parameter/rounded = true
+shader_parameter/jitter_amount = 0.1
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/glow_curve = 0.0

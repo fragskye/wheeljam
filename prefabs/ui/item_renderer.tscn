@@ -15,7 +15,6 @@ size = Vector3(0.2, 0.2, 0.2)
 own_world_3d = true
 world_3d = SubResource("World3D_7l4e7")
 transparent_bg = true
-msaa_3d = 3
 render_target_update_mode = 0
 script = ExtResource("1_3jvt1")
 animation_speed = 60.0

@@ -16,7 +16,7 @@ transition = 0
 ease = 2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2jcq"]
-radius = 0.25
+radius = 0.35
 
 [node name="Player" type="CharacterBody3D"]
 physics_interpolation_mode = 1

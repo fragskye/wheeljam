@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvoj74fsnvnbf"]
+
+[ext_resource type="Shader" uid="uid://co6reqe1u8ski" path="res://shaders/post_process/jitter.gdshader" id="1_77da4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hett"]
+shader = ExtResource("1_77da4")
+shader_parameter/jitter_amount = 0.5
+
+[node name="PostProcessLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1hett")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
