@@ -18,11 +18,14 @@ var _selected_wheel_slice: int = 0
 var _target_wheel_rotation: float = 0.0
 var _wheel_rotation: float = 0.0
 
+var _needs_more_pages: bool = true
+
 func _ready() -> void:
 	update_slices()
 	battle_menu.hide()
 	battle_menu.process_mode = Node.PROCESS_MODE_DISABLED
 	InputManager.input_state_changed.connect(_on_input_state_changed)
+	SignalBus.battle_player_turn_complete.connect(_on_battle_player_turn_complete)
 	
 func _process(_delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.BATTLE:
@@ -85,6 +88,19 @@ func update_slices() -> void:
 
 func _on_inventory_carousel_item_pressed(data: ItemData) -> void:
 	wheel_slices[_selected_wheel_slice].set_item(data)
+	
+	var empty_slot: bool = false
+	for wheel_slice: WheelSlice in wheel_slices:
+		if wheel_slice.inventory_item.data == null:
+			empty_slot = true
+	if !empty_slot:
+		_needs_more_pages = false
+		inventory_carousel.hide()
+		inventory_carousel.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_wheel_slice_pressed(index: int, data: ItemData) -> void:
 	_selected_wheel_slice = index
+
+func _on_battle_player_turn_complete() -> void:
+	# TODO: check if any pages are burned
+	pass
