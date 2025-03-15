@@ -4,15 +4,22 @@ class_name Demon extends Node3D
 
 @export var data: DemonData = null
 
+@export var debug_face: bool = false
+
 var _previewed_index: int = 0
 var _verdict: DemonVerdict = null
 
 func _ready() -> void:
+	data.ready()
 	_on_battle_player_action_previewed(_previewed_index)
 	SignalBus.battle_begin.connect(_on_battle_begin)
 	SignalBus.battle_player_action_previewed.connect(_on_battle_player_action_previewed)
 	SignalBus.battle_player_action_selected.connect(_on_battle_player_action_selected)
 	demon_face_visual.data = data
+
+func _process(_delta: float) -> void:
+	if debug_face:
+		demon_face_visual.set_face(_get_face())
 
 func _on_battle_begin() -> void:
 	_on_battle_player_action_previewed(_previewed_index)
@@ -27,7 +34,7 @@ func _on_battle_player_action_selected(_index: int) -> void:
 
 func _get_face() -> DemonFace:
 	var faces_size: int = data.faces.size()
-	if faces_size == 1:
+	if debug_face || faces_size == 1:
 		return data.faces[0]
 	var opinion_index: float = float(_verdict.opinion) / float(DemonVerdict.MAX_OPINION) * (faces_size - 1)
 	var lower_index: int = floor(opinion_index)

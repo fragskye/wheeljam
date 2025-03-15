@@ -7,7 +7,7 @@ class_name DemonData extends Resource
 
 var verdicts: Array[DemonVerdict] = []
 
-func begin_battle() -> void:
+func ready() -> void:
 	# Backup a random seed for after this function uses the set seed
 	#var random_seed: int = randi()
 	#seed(seed)

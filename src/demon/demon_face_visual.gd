@@ -35,10 +35,10 @@ func set_face(face: DemonFace) -> void:
 
 func _process(delta: float) -> void:
 	while _update_delay < 0.0:
-		_update_delay += 1.0 / update_framerate
+		_update_delay = maxf(0.0, _update_delay + 1.0 / update_framerate)
 		var spike: bool = false
 		while _variance_spike_delay < 0.0:
-			_variance_spike_delay += randf_range(_face.variance_spike_delay_min, _face.variance_spike_delay_max)
+			_variance_spike_delay = maxf(0.0, _variance_spike_delay + randf_range(_face.variance_spike_delay_min, _face.variance_spike_delay_max))
 			_variance_spike_duration = randi_range(_face.variance_spike_duration_min, _face.variance_spike_duration_max)
 		if _variance_spike_duration > 0:
 			_variance_spike_duration -= 1
@@ -52,11 +52,11 @@ func update_face(spike: bool) -> void:
 	for line: Line3D in eye_left.get_children():
 		line.position.y = _face.eyes_height
 		line.rotation_degrees.z = -(90 + _face.eyes_tilt)
-		set_line(line, _face.eyes_inner, _face.eyes_outer, variance)
+		set_line(line, -_face.eyes_inner, -_face.eyes_outer, variance)
 	for line: Line3D in eye_right.get_children():
 		line.position.y = _face.eyes_height
 		line.rotation_degrees.z = 90 + _face.eyes_tilt
-		set_line(line, _face.eyes_inner, _face.eyes_outer, variance)
+		set_line(line, -_face.eyes_inner, -_face.eyes_outer, variance)
 	lower_mouth.scale.x = _face.lower_mouth_scale
 	for line: Line3D in lower_mouth.get_children():
 		var mouth_percent: float = remap(absf(remap(line.position.x, _lower_mouth_x_min, _lower_mouth_x_max, -1.0, 1.0)), 0.0, 1.0, 0.0, 1.0)

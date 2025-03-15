@@ -2,7 +2,7 @@ class_name FinalDemonData extends DemonData
 
 var moves_passed: int = 0
 
-func begin_battle() -> void:
+func ready() -> void:
 	verdicts = default_verdicts.duplicate()
 	SignalBus.battle_player_action_selected.connect(_on_battle_player_action_selected)
 
