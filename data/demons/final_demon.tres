@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="FinalDemonData" load_steps=11 format=3 uid="uid://cj8qs5jdusig"]
+
+[ext_resource type="Script" uid="uid://0vtxy5taq1hf" path="res://src/demon/demon_verdict.gd" id="1_fdn17"]
+[ext_resource type="Script" uid="uid://cot7e077uk6a" path="res://src/demon/demon_face.gd" id="2_o8kyo"]
+[ext_resource type="Script" uid="uid://wnm2xf7dr5ej" path="res://src/demon/final_demon_data.gd" id="3_dxm5x"]
+
+[sub_resource type="Resource" id="Resource_gx135"]
+script = ExtResource("1_fdn17")
+opinion = 0
+multiplier = -2.0
+metadata/_custom_type_script = "uid://0vtxy5taq1hf"
+
+[sub_resource type="Resource" id="Resource_g8c6a"]
+script = ExtResource("1_fdn17")
+opinion = 1
+multiplier = -1.5
+metadata/_custom_type_script = "uid://0vtxy5taq1hf"
+
+[sub_resource type="Resource" id="Resource_njhek"]
+script = ExtResource("1_fdn17")
+opinion = 2
+multiplier = -1.0
+metadata/_custom_type_script = "uid://0vtxy5taq1hf"
+
+[sub_resource type="Resource" id="Resource_72y6n"]
+script = ExtResource("1_fdn17")
+opinion = 3
+multiplier = 5.0
+metadata/_custom_type_script = "uid://0vtxy5taq1hf"
+
+[sub_resource type="Resource" id="Resource_jg002"]
+script = ExtResource("2_o8kyo")
+eyes_inner = 0.0
+eyes_outer = 0.0
+eyes_height = 0.25
+eyes_tilt = 90.0
+lower_mouth_scale = 1.15
+lower_mouth_inner_bottom = 0.1
+lower_mouth_inner_top = 0.25
+lower_mouth_outer_bottom = 0.5
+lower_mouth_outer_top = 0.5
+upper_mouth_scale = 1.0
+upper_mouth_inner_bottom = -0.25
+upper_mouth_inner_top = -0.1
+upper_mouth_outer_bottom = 0.0
+upper_mouth_outer_top = 0.0
+variance = 0.001
+variance_spike = 1.0
+variance_spike_duration_min = 1
+variance_spike_duration_max = 3
+variance_spike_delay_min = 1.0
+variance_spike_delay_max = 4.0
+metadata/_custom_type_script = "uid://cot7e077uk6a"
+
+[sub_resource type="Curve" id="Curve_8vg5x"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_k1bno"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[resource]
+script = ExtResource("3_dxm5x")
+faces = Array[ExtResource("2_o8kyo")]([SubResource("Resource_jg002")])
+default_verdicts = Array[ExtResource("1_fdn17")]([SubResource("Resource_gx135"), SubResource("Resource_g8c6a"), SubResource("Resource_njhek"), SubResource("Resource_72y6n")])
+lower_mouth_inner_outer_curve = SubResource("Curve_8vg5x")
+upper_mouth_inner_outer_curve = SubResource("Curve_k1bno")
+metadata/_custom_type_script = "uid://wnm2xf7dr5ej"

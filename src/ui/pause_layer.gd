@@ -6,9 +6,10 @@ var _input_state_changed_this_frame: bool = false
 
 func _ready() -> void:
 	pause_menu.hide()
+	pause_menu.process_mode = Node.PROCESS_MODE_DISABLED
 	InputManager.input_state_changed.connect(_on_input_state_changed)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.MENU:
 		return
 	
@@ -23,9 +24,11 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 	match old_state:
 		InputManager.InputState.MENU:
 			pause_menu.hide()
+			pause_menu.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	match new_state:
 		InputManager.InputState.MENU:
+			pause_menu.process_mode = Node.PROCESS_MODE_INHERIT
 			pause_menu.show()
 
 func _on_resume_button_pressed() -> void:

@@ -16,7 +16,7 @@ func _ready() -> void:
 	SignalBus.item_picked_up.connect(_on_item_picked_up)
 	Global.player = self
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.FIRST_PERSON:
 		return
 	

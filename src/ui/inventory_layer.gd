@@ -7,9 +7,10 @@ var _input_state_changed_this_frame: bool = false
 
 func _ready() -> void:
 	inventory_menu.hide()
+	inventory_menu.process_mode = Node.PROCESS_MODE_DISABLED
 	InputManager.input_state_changed.connect(_on_input_state_changed)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.INVENTORY:
 		return
 	
@@ -24,13 +25,16 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 	match old_state:
 		InputManager.InputState.INVENTORY:
 			inventory_menu.hide()
+			inventory_menu.process_mode = Node.PROCESS_MODE_DISABLED
 			Global.player.flush_inventory()
 	
 	match new_state:
 		InputManager.InputState.INVENTORY:
+			Global.player.flush_inventory()
+			inventory_menu.process_mode = Node.PROCESS_MODE_INHERIT
 			inventory_menu.show()
 
-func _on_resume_button_pressed() -> void:
+func _on_close_button_pressed() -> void:
 	if InputManager.get_input_state() != InputManager.InputState.INVENTORY:
 		return
 	

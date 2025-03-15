@@ -12,7 +12,7 @@ class_name InteractionSystem extends Node3D
 
 var hovering: CollisionObject3D = null
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_update_hovering()
 	
 	if InputManager.get_input_state() != InputManager.InputState.FIRST_PERSON:

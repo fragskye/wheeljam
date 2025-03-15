@@ -1,6 +1,6 @@
 shader_type spatial;
 render_mode skip_vertex_transform;
-render_mode blend_add;
+//render_mode blend_add;
 render_mode unshaded;
 
 #include "res://addons/godot-polyliner/shaders/include/polyliner_inc.gdshaderinc"

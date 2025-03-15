@@ -2,3 +2,8 @@ extends Node
 
 signal item_picked_up(item: Item)
 signal inventory_flushed()
+signal battle_begin()
+signal battle_end()
+signal battle_player_action_previewed(index: int)
+signal battle_player_action_selected(index: int)
+signal battle_player_turn_complete()

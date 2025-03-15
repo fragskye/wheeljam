@@ -7,6 +7,7 @@
 [node name="InventoryItem" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 1
 script = ExtResource("1_rhav3")
 
 [node name="DropShadow" type="TextureRect" parent="."]
@@ -38,3 +39,18 @@ pivot_offset = Vector2(256, 256)
 unique_name_in_owner = true
 handle_input_locally = false
 render_target_update_mode = 4
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(256, 256)
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

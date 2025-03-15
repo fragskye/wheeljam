@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbe8xh5x4nagu"]
+
+[ext_resource type="Script" uid="uid://cgcaq2isobnhk" path="res://src/ui/wheel_slice.gd" id="1_n0ds1"]
+[ext_resource type="PackedScene" uid="uid://28e4cfswtgqf" path="res://prefabs/ui/inventory_item.tscn" id="2_p2v5j"]
+
+[node name="WheelSlice" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_n0ds1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(256, 256)
+mouse_filter = 1
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(256, 256)
+
+[node name="InventoryItem" parent="." instance=ExtResource("2_p2v5j")]
+unique_name_in_owner = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="InventoryItem" to="." method="_on_inventory_item_pressed"]

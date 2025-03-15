@@ -10,6 +10,12 @@ var pitch: float = 0.0
 var yaw: float = 0.0
 var roll: float = 0.0
 
+func _enter_tree() -> void:
+	pass
+
+func _exit_tree() -> void:
+	pass
+
 func _ready() -> void:
 	pitch = rotation_degrees.x
 	yaw = rotation_degrees.y

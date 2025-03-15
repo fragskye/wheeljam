@@ -18,12 +18,12 @@ class_name DemonFace extends Resource
 @export var upper_mouth_outer_bottom: float = -0.25
 @export var upper_mouth_outer_top: float = 0.25
 @export_group("Variance")
-@export var variance: float = 0.0
-@export var variance_spike: float = 0.0
-@export var variance_spike_duration_min: int = 0
-@export var variance_spike_duration_max: int = 0
-@export var variance_spike_delay_min: float = 0.0
-@export var variance_spike_delay_max: float = 0.0
+@export var variance: float = 0.0 ## Random jitter applied to all line points
+@export var variance_spike: float = 0.0 ## The spike is an increased jitter value used for brief, infrequent moments of instability
+@export var variance_spike_duration_min: int = 0 ## Minimum amount of frames the spike should last (demon face updates at a fixed lower framerate)
+@export var variance_spike_duration_max: int = 0 ## Maximum amount of frames the spike should last (demon face updates at a fixed lower framerate)
+@export var variance_spike_delay_min: float = 0.0 ## Minimum amount of time between spikes, in seconds
+@export var variance_spike_delay_max: float = 0.0 ## Maximum amount of time between spikes, in seconds
 
 func lerp(to: DemonFace, weight: float) -> DemonFace:
 	var result: DemonFace = DemonFace.new()
@@ -43,8 +43,8 @@ func lerp(to: DemonFace, weight: float) -> DemonFace:
 	result.upper_mouth_outer_top = lerpf(upper_mouth_outer_top, to.upper_mouth_outer_top, weight)
 	result.variance = lerpf(variance, to.variance, weight)
 	result.variance_spike = lerpf(variance_spike, to.variance_spike, weight)
-	result.variance_spike_duration_min = roundf(lerpf(variance_spike_duration_min, to.variance_spike_duration_min, weight))
-	result.variance_spike_duration_max = roundf(lerpf(variance_spike_duration_max, to.variance_spike_duration_max, weight))
+	result.variance_spike_duration_min = roundi(lerpf(variance_spike_duration_min, to.variance_spike_duration_min, weight))
+	result.variance_spike_duration_max = roundi(lerpf(variance_spike_duration_max, to.variance_spike_duration_max, weight))
 	result.variance_spike_delay_min = lerpf(variance_spike_delay_min, to.variance_spike_delay_min, weight)
 	result.variance_spike_delay_max = lerpf(variance_spike_delay_max, to.variance_spike_delay_max, weight)
 	return result

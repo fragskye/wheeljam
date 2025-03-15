@@ -1,6 +1,6 @@
 extends Node
 
-enum InputState { MENU, FIRST_PERSON, INVENTORY, FIGHT }
+enum InputState { MENU, FIRST_PERSON, INVENTORY, BATTLE }
 
 signal input_state_changed(old_state: InputState, new_state: InputState)
 
@@ -13,7 +13,7 @@ func _ready() -> void:
 	input_state_changed.connect(_on_input_state_changed)
 	input_state_changed.emit(DEFAULT_INPUT_STATE, DEFAULT_INPUT_STATE)
 
-func _on_input_state_changed(old_state: InputState, new_state: InputState) -> void:
+func _on_input_state_changed(_old_state: InputState, new_state: InputState) -> void:
 	match new_state:
 		InputState.FIRST_PERSON:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
