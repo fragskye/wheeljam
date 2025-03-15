@@ -24,8 +24,9 @@ func set_item(item_data: ItemData) -> void:
 	clear_item()
 	_item_data = item_data
 	if item_data != null:
-		var visual: Node3D = item_data.visual_scene.instantiate()
+		var visual: ItemVisual = item_data.visual_scene.instantiate()
 		visual_root.add_child(visual)
+		visual.set_item_data(item_data)
 
 func start_animating() -> void:
 	animating = true

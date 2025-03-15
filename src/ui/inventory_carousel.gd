@@ -55,7 +55,7 @@ func _post_cycle_left() -> void:
 	Global.player.set_inventory_selected(Global.player.inventory_selected - 1)
 	_carousel_rotation_percentage = 0.0
 	animating = false
-	_update_inventory_items()
+	update_inventory_items()
 	_update_item_positions()
 
 func cycle_right(fast: bool) -> void:
@@ -72,7 +72,7 @@ func _post_cycle_right() -> void:
 	Global.player.set_inventory_selected(Global.player.inventory_selected + 1)
 	_carousel_rotation_percentage = 0.0
 	animating = false
-	_update_inventory_items()
+	update_inventory_items()
 	_update_item_positions()
 
 func _update_item_positions() -> void:
@@ -91,26 +91,29 @@ func _update_item_positions() -> void:
 		carousel_item.modulate = Color(1.0, 1.0, 1.0, carousel_item_alpha.sample(percentage))
 		carousel_item.z_index = roundi(remap(scale_percentage, 0.0, 1.0, 0.0, floorf(float(carousel_items - 1) * 0.5)))
 
-func _update_inventory_items() -> void:
+func update_inventory_items() -> void:
+	var middle_item: InventoryItem = _get_middle_carousel_item()
 	var inventory_offset: int = -floori(float(carousel_items) * 0.5)
 	for idx: int in carousel.get_child_count():
 		var carousel_item: InventoryItem = carousel.get_child(idx)
 		carousel_item.set_item(Global.player.get_inventory_item(Global.player.inventory_selected + idx + inventory_offset))
-		carousel_item.item_renderer.stop_animating()
-	_get_middle_carousel_item().item_renderer.start_animating()
+		if carousel_item == middle_item:
+			if !carousel_item.item_renderer.animating:
+				middle_item.item_renderer.start_animating()
+		else:
+			carousel_item.item_renderer.stop_animating()
 
 func _get_middle_carousel_item() -> InventoryItem:
 	return carousel.get_child(floori(float(carousel_items) * 0.5))
 
 func _on_item_picked_up(_item: Item) -> void:
-	_update_inventory_items()
+	update_inventory_items()
 
 func _on_inventory_flushed() -> void:
-	_update_inventory_items()
+	update_inventory_items()
 
 func _on_carousel_item_pressed(data: ItemData) -> void:
 	item_pressed.emit(data)
-
 
 func _on_left_button_pressed() -> void:
 	pass # Replace with function body.

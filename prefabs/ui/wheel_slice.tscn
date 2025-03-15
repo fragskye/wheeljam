@@ -38,6 +38,39 @@ mouse_filter = 2
 script = ExtResource("3_flcn6")
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
+[node name="HoverOutline" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_flcn6")
+color = Color(0.864675, 0.864675, 0.864675, 1)
+fill = false
+
+[node name="SelectedOutline" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_flcn6")
+fill = false
+
 [node name="Tint" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -69,4 +102,6 @@ pivot_offset = Vector2(256, 256)
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="mouse_entered" from="TextureButton" to="." method="preview"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

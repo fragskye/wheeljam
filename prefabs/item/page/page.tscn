@@ -7,10 +7,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_fc0e3"]
 size = Vector3(0.2, 0.2, 0.2)
 
-[node name="Page" type="Area3D"]
+[node name="Page" type="Area3D" node_paths=PackedStringArray("visual")]
 collision_layer = 4
 script = ExtResource("1_rlpjy")
 data = ExtResource("2_swqem")
+visual = NodePath("PageVisual")
 metadata/_custom_type_script = "uid://dtu0a8hypmrm"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

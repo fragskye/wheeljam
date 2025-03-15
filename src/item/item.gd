@@ -1,6 +1,11 @@
 class_name Item extends Area3D
 
 @export var data: ItemData = null
+@export var visual: ItemVisual = null
+
+func _ready() -> void:
+	if visual != null:
+		visual.set_item_data(data)
 
 func interact() -> void:
 	SignalBus.item_picked_up.emit(self)

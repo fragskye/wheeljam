@@ -37,7 +37,7 @@ func rotate_wheel(slices: int) -> void:
 		_wheel_rotation -= wheel_slice_count
 	_wheel_rotation_visual_offset = slices * -90
 	var tween: Tween = get_tree().create_tween()
-	tween.tween_property(self, "_wheel_rotation_visual_offset", 0.0, 0.25)
+	tween.tween_property(self, "_wheel_rotation_visual_offset", 0.0, 0.2)
 	
 func _process(_delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.BATTLE:
@@ -83,7 +83,6 @@ func update_slices() -> void:
 	
 	var scale: float = (wheel.size.y * 0.4) / 512.0
 	
-	# TODO: OH MY GOD. the wheel slices should not turn. the items placed on them should be separate. oh my god what am i doing
 	for wheel_slice_idx: int in wheel_slice_count:
 		var slice_percentage: float = float(wheel_slice_idx) / float(wheel_slice_count)
 		var slice_angle: float = slice_percentage * TAU - (PI * 0.5)
@@ -114,6 +113,7 @@ func update_slices() -> void:
 		wheel_slice.position = (wheel.size.y * 0.3) * Vector2(cos(slice_angle), sin(slice_angle))
 		wheel_slice.scale = scale * Vector2(1.0, 1.0)
 		wheel_slice.angle = slice_angle
+		wheel_slice.selected_highlight = _needs_more_pages && wheel_slice_idx == _selected_wheel_slice
 		
 		wheel_wedge.position = (wheel.size.y * 0.3) * Vector2(cos(wedge_angle), sin(wedge_angle))
 		wheel_wedge.scale = scale * Vector2(1.0, 1.0)
@@ -124,6 +124,8 @@ func _on_inventory_carousel_item_pressed(data: ItemData) -> void:
 	
 	if _wheel_wedges[_selected_wheel_slice].data == null:
 		_wheel_wedges[_selected_wheel_slice].set_item(data)
+		Global.player.inventory[Global.player.inventory.find(data)] = null
+		inventory_carousel.update_inventory_items()
 		
 		var empty_slot: bool = false
 		for wheel_wedge: InventoryItem in _wheel_wedges:
