@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6c5ucfomh1dt"]
+
+[ext_resource type="Material" uid="uid://cbnvfglvi7a8s" path="res://prefabs/item/page/page_material.tres" id="1_fl4w8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r0kvw"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="PageVisual" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_r0kvw")
+surface_material_override/0 = ExtResource("1_fl4w8")

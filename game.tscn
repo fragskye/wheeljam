@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://cc572s3y8nxpm" path="res://prefabs/ui/pause_layer.tscn" id="3_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://ynrxp5rdqm7r" path="res://prefabs/item/wheel_fragment/wheel_fragment.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://ynrxp5rdqm7r" path="res://prefabs/item/page/page.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://cvoj74fsnvnbf" path="res://prefabs/ui/post_process_layer.tscn" id="3_ryrav"]
 [ext_resource type="PackedScene" uid="uid://sb11wcnhnfwt" path="res://prefabs/ui/inventory_layer.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://iv1sljhrecsc" path="res://prefabs/demon.tscn" id="5_7jktm"]
@@ -43,16 +43,16 @@ size = Vector3(6, 1, 6)
 
 [node name="Demon" parent="." instance=ExtResource("5_7jktm")]
 
-[node name="WheelFragment" parent="." instance=ExtResource("3_feb5d")]
+[node name="Page" parent="." instance=ExtResource("3_feb5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.8, 0)
 
-[node name="WheelFragment2" parent="." instance=ExtResource("3_feb5d")]
+[node name="Page2" parent="." instance=ExtResource("3_feb5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.7, 0.4)
 
-[node name="WheelFragment3" parent="." instance=ExtResource("3_feb5d")]
+[node name="Page3" parent="." instance=ExtResource("3_feb5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 1, 0.9)
 
-[node name="WheelFragment4" parent="." instance=ExtResource("3_feb5d")]
+[node name="Page4" parent="." instance=ExtResource("3_feb5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.6, 1.3)
 
 [node name="PostProcessLayer" parent="." instance=ExtResource("3_ryrav")]

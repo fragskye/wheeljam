@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WheelFragmentData" load_steps=3 format=3 uid="uid://b751qos2k6s81"]
 
-[ext_resource type="Script" uid="uid://bmxe267u4atcw" path="res://src/item/wheel_fragment_data.gd" id="1_18d08"]
-[ext_resource type="PackedScene" uid="uid://6c5ucfomh1dt" path="res://prefabs/item/wheel_fragment/wheel_fragment_visual.tscn" id="2_ouoe6"]
+[ext_resource type="Script" uid="uid://bmxe267u4atcw" path="res://src/item/page_data.gd" id="1_18d08"]
+[ext_resource type="PackedScene" uid="uid://6c5ucfomh1dt" path="res://prefabs/item/page/page_visual.tscn" id="2_ouoe6"]
 
 [resource]
 script = ExtResource("1_18d08")
