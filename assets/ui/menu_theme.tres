@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ci1ksef1ugpre"]
+
+[ext_resource type="FontFile" uid="uid://d3j2sq1rf3cg4" path="res://assets/fonts/not_jam/slab_serif_11/NotJamSlabSerif11.ttf" id="1_ppmnc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ppmnc"]
+
+[resource]
+Button/font_sizes/font_size = 11
+Button/fonts/font = ExtResource("1_ppmnc")
+ButtonNoFocusOutline/base_type = &"Button"
+ButtonNoFocusOutline/colors/font_color = Color(1, 1, 1, 1)
+ButtonNoFocusOutline/colors/font_focus_color = Color(1, 1, 1, 1)
+ButtonNoFocusOutline/colors/font_hover_color = Color(1, 1, 1, 1)
+ButtonNoFocusOutline/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+ButtonNoFocusOutline/colors/font_pressed_color = Color(1, 1, 1, 1)
+ButtonNoFocusOutline/styles/focus = SubResource("StyleBoxEmpty_ppmnc")
+Label/font_sizes/font_size = 11
+Label/fonts/font = ExtResource("1_ppmnc")
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 16
+MarginContainer/constants/margin_right = 16
+MarginContainer/constants/margin_top = 16

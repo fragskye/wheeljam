@@ -8,8 +8,6 @@ signal item_pressed(item: ItemData)
 @onready var carousel_target_left: Control = %CarouselTargetLeft
 @onready var carousel_target_right: Control = %CarouselTargetRight
 
-@export var hover_percentage: float = 0.0
-@export var hover_fast_percentage: float = 0.0
 @export var cycle_duration: float = 0.3
 @export var cycle_fast_duration: float = 0.15
 @export var carousel_items: int = 9
@@ -42,28 +40,6 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_pressed("inventory_right"):
 		cycle_right(Input.is_action_pressed("inventory_speed_modifier"))
-	
-	# incredibly annoying: hovering callbacks weren't working when i tried to manage the hover areas using controls
-	# so instead i have to do this mess of mouse position coordinate checks
-	var hover_size: float = size.x * hover_percentage
-	var hover_fast_size: float = size.x * hover_fast_percentage
-	
-	var mouse_pos: Vector2 = get_global_mouse_position()
-	var left: float = global_position.x
-	var right: float = global_position.x + size.x
-	var top: float = global_position.y
-	var bottom: float = global_position.y + size.y
-	if mouse_pos.x >= left && mouse_pos.x <= right && mouse_pos.y >= top && mouse_pos.y <= bottom:
-		if mouse_pos.x - left < hover_size:
-			if mouse_pos.x - left < hover_fast_size:
-				cycle_left(true)
-			else:
-				cycle_left(false)
-		if right - mouse_pos.x < hover_size:
-			if right - mouse_pos.x < hover_fast_size:
-				cycle_right(true)
-			else:
-				cycle_right(false)
 
 func cycle_left(fast: bool) -> void:
 	if animating:
@@ -113,7 +89,7 @@ func _update_item_positions() -> void:
 		carousel_item.global_position = target_left.lerp(target_right, carousel_item_position.sample(percentage))
 		carousel_item.scale = (size.y / 512.0) * carousel_item_scale.sample(percentage) * Vector2(1.0, 1.0)
 		carousel_item.modulate = Color(1.0, 1.0, 1.0, carousel_item_alpha.sample(percentage))
-		carousel_item.z_index = carousel_items * roundi(remap(scale_percentage, 0.0, 1.0, 0.0, floorf(float(carousel_items - 1) * 0.5)))
+		carousel_item.z_index = roundi(remap(scale_percentage, 0.0, 1.0, 0.0, floorf(float(carousel_items - 1) * 0.5)))
 
 func _update_inventory_items() -> void:
 	var inventory_offset: int = -floori(float(carousel_items) * 0.5)
@@ -134,3 +110,7 @@ func _on_inventory_flushed() -> void:
 
 func _on_carousel_item_pressed(data: ItemData) -> void:
 	item_pressed.emit(data)
+
+
+func _on_left_button_pressed() -> void:
+	pass # Replace with function body.

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc572s3y8nxpm"]
+[gd_scene load_steps=2 format=3 uid="uid://cc572s3y8nxpm"]
 
 [ext_resource type="Script" uid="uid://cji1nvsflarsx" path="res://src/ui/pause_layer.gd" id="1_5mdu6"]
-[ext_resource type="Theme" uid="uid://ci1ksef1ugpre" path="res://prefabs/ui/menu_theme.tres" id="2_yg4lw"]
 
 [node name="PauseLayer" type="CanvasLayer"]
 script = ExtResource("1_5mdu6")
@@ -31,7 +30,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_yg4lw")
 
 [node name="Control" type="Control" parent="PauseMenu/MarginContainer"]
 layout_mode = 2

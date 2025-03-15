@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://caoneprh3fic"]
+[gd_scene load_steps=7 format=3 uid="uid://caoneprh3fic"]
 
 [ext_resource type="Script" uid="uid://brvwl4xkt25ym" path="res://src/ui/inventory_carousel.gd" id="1_vu3ma"]
+[ext_resource type="Texture2D" uid="uid://h6qgp8f68jos" path="res://assets/ui/arrow_left_button.png" id="3_51apu"]
+[ext_resource type="Texture2D" uid="uid://cwa8udsoqxem7" path="res://assets/ui/arrow_right_button.png" id="4_mh5c7"]
 
 [sub_resource type="Curve" id="Curve_vu3ma"]
 _limits = [-1.0, 2.0, 0.0, 1.0]
@@ -16,6 +18,7 @@ _data = [Vector2(0, 0), 0.0, 4.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2
 point_count = 3
 
 [node name="InventoryCarousel" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,8 +26,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vu3ma")
-hover_percentage = 0.3
-hover_fast_percentage = 0.1
 carousel_item_position = SubResource("Curve_vu3ma")
 carousel_item_scale = SubResource("Curve_g35et")
 carousel_item_alpha = SubResource("Curve_tuy37")
@@ -68,3 +69,34 @@ anchor_bottom = 0.5
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="LeftButton" type="Button" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 38.0
+grow_vertical = 2
+theme_type_variation = &"ButtonNoFocusOutline"
+text = "Q"
+icon = ExtResource("3_51apu")
+flat = true
+
+[node name="RightButton" type="Button" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"ButtonNoFocusOutline"
+text = "E"
+icon = ExtResource("4_mh5c7")
+flat = true
+icon_alignment = 2
+
+[connection signal="pressed" from="LeftButton" to="." method="cycle_left" binds= [true]]
+[connection signal="pressed" from="RightButton" to="." method="cycle_right" binds= [true]]

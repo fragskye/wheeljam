@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://sb11wcnhnfwt"]
+[gd_scene load_steps=3 format=3 uid="uid://sb11wcnhnfwt"]
 
 [ext_resource type="Script" uid="uid://drql3gjtoyp2h" path="res://src/ui/inventory_layer.gd" id="1_sjulx"]
-[ext_resource type="Theme" uid="uid://ci1ksef1ugpre" path="res://prefabs/ui/menu_theme.tres" id="2_4mjo8"]
 [ext_resource type="PackedScene" uid="uid://caoneprh3fic" path="res://prefabs/ui/inventory_carousel.tscn" id="3_wdq5t"]
 
 [node name="InventoryLayer" type="CanvasLayer"]
@@ -32,7 +31,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_4mjo8")
 
 [node name="Control" type="Control" parent="InventoryMenu/MarginContainer"]
 layout_mode = 2
