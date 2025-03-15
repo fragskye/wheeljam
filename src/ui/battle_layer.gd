@@ -2,12 +2,15 @@ class_name BattleLayer extends CanvasLayer
 
 const WHEEL_SLICE: PackedScene = preload("res://prefabs/ui/wheel_slice.tscn")
 const INVENTORY_ITEM: PackedScene = preload("res://prefabs/ui/inventory_item.tscn")
+const MOVES_PER_TURN: int = 3
 
 @onready var battle_menu: Control = %BattleMenu
 @onready var inventory_carousel: InventoryCarousel = %InventoryCarousel
 @onready var wheel: Control = %Wheel
 @onready var wheel_slices: Control = %WheelSlices
 @onready var wheel_wedges: Control = %WheelWedges
+@onready var battle_health: ColorRect = %BattleHealth
+@onready var battle_health_fill: ColorRect = %BattleHealthFill
 
 @export var wheel_slice_count: int = 0
 
@@ -21,6 +24,7 @@ var _wheel_rotation: int = 0
 var _wheel_rotation_visual_offset: float = 0.0
 
 var _needs_more_pages: bool = true
+var _moves_in_turn: int = 0
 
 func _ready() -> void:
 	update_slices()
@@ -28,6 +32,7 @@ func _ready() -> void:
 	battle_menu.process_mode = Node.PROCESS_MODE_DISABLED
 	InputManager.input_state_changed.connect(_on_input_state_changed)
 	SignalBus.battle_player_turn_complete.connect(_on_battle_player_turn_complete)
+	SignalBus.battle_demon_health_changed.connect(_on_battle_demon_health_changed)
 
 func rotate_wheel(slices: int) -> void:
 	_wheel_rotation += slices
@@ -122,30 +127,71 @@ func _on_inventory_carousel_item_pressed(data: ItemData) -> void:
 	if data is not PageData:
 		return
 	
-	if _wheel_wedges[_selected_wheel_slice].data == null:
-		_wheel_wedges[_selected_wheel_slice].set_item(data)
+	var target_wedge: int = _selected_wheel_slice - _wheel_rotation
+	while target_wedge < 0:
+		target_wedge += wheel_slice_count
+	while target_wedge >= wheel_slice_count:
+		target_wedge -= wheel_slice_count
+	if _wheel_wedges[target_wedge].data == null:
+		_wheel_wedges[target_wedge].set_item(data)
 		Global.player.inventory[Global.player.inventory.find(data)] = null
 		inventory_carousel.update_inventory_items()
 		
 		var empty_slot: bool = false
-		for wheel_wedge: InventoryItem in _wheel_wedges:
+		var empty_slot_idx: int = 0
+		for wheel_slice_idx: int in wheel_slice_count:
+			var wheel_wedge: InventoryItem = _wheel_wedges[wheel_slice_idx]
 			if wheel_wedge.data == null:
 				empty_slot = true
+				empty_slot_idx = wheel_slice_idx + _wheel_rotation
+				break
 		if !empty_slot:
 			_needs_more_pages = false
 			inventory_carousel.hide()
 			inventory_carousel.process_mode = Node.PROCESS_MODE_DISABLED
+		else:
+			while empty_slot_idx < 0:
+				empty_slot_idx += wheel_slice_count
+			while empty_slot_idx >= wheel_slice_count:
+				empty_slot_idx -= wheel_slice_count
+			_selected_wheel_slice = empty_slot_idx
 
 func _on_wheel_slice_pressed(index: int) -> void:
-	_selected_wheel_slice = index
+	if get_wedge_page(index) == null:
+		_selected_wheel_slice = index
 	if !_needs_more_pages:
+		_moves_in_turn += 1
 		_wheel_slices[index].disabled = true
-		SignalBus.battle_player_action_selected.emit(index, get_wedge_page(index).multiplier)
+		var page: PageData = get_wedge_page(index)
+		SignalBus.battle_player_action_selected.emit(index, page.multiplier)
+		page.pending_burn = true
 		rotate_wheel(1)
+		if _moves_in_turn >= MOVES_PER_TURN:
+			SignalBus.battle_player_turn_complete.emit()
+			_moves_in_turn = 0
 
 func _on_battle_player_turn_complete() -> void:
 	# TODO: check if any pages are burned
-	pass
+	for wheel_slice_idx: int in wheel_slice_count:
+		var wheel_slice: WheelSlice = _wheel_slices[wheel_slice_idx]
+		wheel_slice.disabled = false
+		
+		var wheel_wedge: InventoryItem = _wheel_wedges[wheel_slice_idx]
+		var page: PageData = wheel_wedge.data as PageData
+		if page.pending_burn:
+			if page.burning:
+				wheel_wedge.set_item(null)
+				_selected_wheel_slice = wheel_slice_idx + _wheel_rotation
+				while _selected_wheel_slice < 0:
+					_selected_wheel_slice += wheel_slice_count
+				while _selected_wheel_slice >= wheel_slice_count:
+					_selected_wheel_slice -= wheel_slice_count
+				_needs_more_pages = true
+			else:
+				page.burning = true
+				page.pending_burn = false
+			inventory_carousel.process_mode = Node.PROCESS_MODE_INHERIT
+			inventory_carousel.show()
 
 func get_wedge_page(slice: int) -> PageData:
 	slice -= _wheel_rotation
@@ -154,3 +200,6 @@ func get_wedge_page(slice: int) -> PageData:
 	while slice >= wheel_slice_count:
 		slice -= wheel_slice_count
 	return _wheel_wedges[slice].data as PageData
+
+func _on_battle_demon_health_changed(percentage: float, absolute: float, delta: float, from_action: bool) -> void:
+	battle_health_fill.custom_minimum_size.x = battle_health.size.x * percentage

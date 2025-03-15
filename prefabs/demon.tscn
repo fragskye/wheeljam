@@ -24,7 +24,7 @@ curve = SubResource("Curve_4ginn")
 [sub_resource type="CurveTexture" id="CurveTexture_4ginn"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jg002"]
-emission_shape_scale = Vector3(1.5, 1.25, 0)
+emission_shape_scale = Vector3(1.5, 1.25, 1)
 emission_shape = 1
 emission_sphere_radius = 1.0
 spread = 0.0
@@ -60,7 +60,7 @@ cull_mask = 1048575
 h_offset = 0.0
 v_offset = 0.0
 projection = 0
-fov = 60.0
+fov = 65.0
 size = 1.0
 frustum_offset = Vector2(0, 0)
 near = 0.05
@@ -230,7 +230,6 @@ points = PackedVector3Array(0, -0.25, 0, 0, 0.25, 0)
 metadata/_custom_type_script = "uid://dy1abvq1gxe7j"
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="DemonFaceVisual"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)
 sorting_offset = -2.0
 amount = 128
 process_material = SubResource("ParticleProcessMaterial_jg002")
@@ -238,7 +237,7 @@ draw_pass_1 = SubResource("QuadMesh_4ginn")
 
 [node name="DemonPhantomCamera" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -0.8, 0.5, 2)
+transform = Transform3D(0.991445, 0.028251, 0.127432, 0, 0.976296, -0.21644, -0.130526, 0.214588, 0.967944, -1.1, 0.4, 2.5)
 script = ExtResource("6_d7vdu")
 tween_resource = SubResource("Resource_mhmxw")
 camera_3d_resource = SubResource("Resource_n73ql")

@@ -16,6 +16,7 @@ func clear_item() -> void:
 	stop_animating()
 	for child: Node in visual_root.get_children():
 		child.queue_free()
+	render_target_update_mode = SubViewport.UPDATE_ONCE
 
 func get_item() -> ItemData:
 	return _item_data
@@ -27,16 +28,15 @@ func set_item(item_data: ItemData) -> void:
 		var visual: ItemVisual = item_data.visual_scene.instantiate()
 		visual_root.add_child(visual)
 		visual.set_item_data(item_data)
+		render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE
 
 func start_animating() -> void:
 	animating = true
-	render_target_update_mode = SubViewport.UPDATE_ALWAYS
 
 func stop_animating() -> void:
 	animating = false
 	rotation = 0.0
 	visual_root.rotation_degrees = Vector3(0.0, 0.0, 0.0)
-	render_target_update_mode = SubViewport.UPDATE_ONCE
 
 func _process(delta: float) -> void:
 	if animating:

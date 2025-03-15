@@ -1,5 +1,7 @@
 class_name DemonData extends Resource
 
+@export var max_health: float = 0.0
+@export var health_drain: float = 0.0 ## The amount of HP lost per second
 @export var faces: Array[DemonFace] = []
 @export var default_verdicts: Array[DemonVerdict] = []
 @export var lower_mouth_inner_outer_curve: Curve = null

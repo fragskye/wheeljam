@@ -9,17 +9,24 @@ class_name Demon extends Node3D
 var _previewed_index: int = 0
 var _verdict: DemonVerdict = null
 
+var health: float = 0.0
+
 func _ready() -> void:
 	data.ready()
+	health = data.max_health * 0.5
 	_on_battle_player_action_previewed(_previewed_index)
 	SignalBus.battle_begin.connect(_on_battle_begin)
 	SignalBus.battle_player_action_previewed.connect(_on_battle_player_action_previewed)
 	SignalBus.battle_player_action_selected.connect(_on_battle_player_action_selected)
 	demon_face_visual.data = data
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if debug_face:
 		demon_face_visual.set_face(_get_face())
+	
+	var drain: float = -data.health_drain * delta
+	health += drain
+	SignalBus.battle_demon_health_changed.emit(health / data.max_health, health, drain, false)
 
 func _on_battle_begin() -> void:
 	_on_battle_player_action_previewed(_previewed_index)
@@ -32,6 +39,8 @@ func _on_battle_player_action_previewed(index: int) -> void:
 func _on_battle_player_action_selected(index: int, multiplier: float) -> void:
 	_verdict = data.evaluate(index)
 	var result: float = _verdict.multiplier * multiplier
+	health += result
+	SignalBus.battle_demon_health_changed.emit(health / data.max_health, health, result, true)
 	print("index", index)
 	print("verdict mult", _verdict.multiplier)
 	print("mult", multiplier)
