@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cgcaq2isobnhk" path="res://src/ui/wheel_slice.gd" id="1_n0ds1"]
 [ext_resource type="Texture2D" uid="uid://clc3bupff8p6" path="res://icon.svg" id="2_5hteh"]
-[ext_resource type="PackedScene" uid="uid://28e4cfswtgqf" path="res://prefabs/ui/inventory_item.tscn" id="2_p2v5j"]
+[ext_resource type="Script" uid="uid://dii85i5vkg2sb" path="res://src/ui/wheel_slice_background.gd" id="3_flcn6"]
 
 [node name="WheelSlice" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-mouse_filter = 1
 script = ExtResource("1_n0ds1")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="ImageBackground" type="TextureRect" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -25,9 +24,49 @@ grow_vertical = 2
 pivot_offset = Vector2(256, 256)
 texture = ExtResource("2_5hteh")
 
-[node name="InventoryItem" parent="." instance=ExtResource("2_p2v5j")]
+[node name="Background" type="Control" parent="."]
 unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_flcn6")
+color = Color(0.12549, 0.12549, 0.12549, 1)
 
-[connection signal="focus_entered" from="InventoryItem" to="." method="preview"]
-[connection signal="mouse_entered" from="InventoryItem" to="." method="preview"]
-[connection signal="pressed" from="InventoryItem" to="." method="_on_inventory_item_pressed"]
+[node name="Tint" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_flcn6")
+color = Color(0, 0, 0, 0.501961)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(256, 256)
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="preview"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

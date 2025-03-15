@@ -29,8 +29,13 @@ func _on_battle_player_action_previewed(index: int) -> void:
 	_verdict = data.evaluate(index)
 	demon_face_visual.set_face(_get_face())
 
-func _on_battle_player_action_selected(_index: int) -> void:
-	pass
+func _on_battle_player_action_selected(index: int, multiplier: float) -> void:
+	_verdict = data.evaluate(index)
+	var result: float = _verdict.multiplier * multiplier
+	print("index", index)
+	print("verdict mult", _verdict.multiplier)
+	print("mult", multiplier)
+	print(result)
 
 func _get_face() -> DemonFace:
 	var faces_size: int = data.faces.size()

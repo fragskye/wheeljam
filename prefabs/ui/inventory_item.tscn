@@ -7,7 +7,6 @@
 [node name="InventoryItem" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-mouse_filter = 1
 script = ExtResource("1_rhav3")
 
 [node name="DropShadow" type="TextureRect" parent="."]
@@ -19,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(256, 256)
+mouse_filter = 2
 texture = ExtResource("2_ghvo8")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -34,6 +34,7 @@ offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(256, 256)
+mouse_filter = 2
 
 [node name="ItemRenderer" parent="SubViewportContainer" instance=ExtResource("1_a2ltt")]
 unique_name_in_owner = true
@@ -52,6 +53,5 @@ offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(256, 256)
-mouse_filter = 1
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
