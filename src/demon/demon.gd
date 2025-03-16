@@ -1,9 +1,9 @@
 class_name Demon extends Node3D
 
 @onready var demon_face_visual: DemonFaceVisual = %DemonFaceVisual
+@onready var demon_pcam: PhantomCamera3D = %DemonPhantomCamera
 
 @export var data: DemonData = null
-
 @export var debug_face: bool = false
 
 var _previewed_index: int = 0
@@ -16,6 +16,7 @@ func _ready() -> void:
 	health = data.max_health * 0.5
 	_on_battle_player_action_previewed(_previewed_index)
 	SignalBus.battle_begin.connect(_on_battle_begin)
+	SignalBus.battle_end.connect(_on_battle_end)
 	SignalBus.battle_player_action_previewed.connect(_on_battle_player_action_previewed)
 	SignalBus.battle_player_action_selected.connect(_on_battle_player_action_selected)
 	demon_face_visual.data = data
@@ -24,12 +25,20 @@ func _process(delta: float) -> void:
 	if debug_face:
 		demon_face_visual.set_face(_get_face())
 	
-	var drain: float = -data.health_drain * delta
-	health += drain
-	SignalBus.battle_demon_health_changed.emit(health / data.max_health, health, drain, false)
+	if health > 0 && health < data.max_health:
+		var drain: float = -data.health_drain * delta
+		health = clampf(health + drain, 0.0, data.max_health)
+		SignalBus.battle_demon_health_changed.emit(health / data.max_health, health, drain, false)
+		if health <= 0:
+			SignalBus.battle_lost.emit()
+			SignalBus.battle_end.emit()
 
 func _on_battle_begin() -> void:
+	demon_pcam.priority = 2
 	_on_battle_player_action_previewed(_previewed_index)
+
+func _on_battle_end() -> void:
+	demon_pcam.priority = 0
 
 func _on_battle_player_action_previewed(index: int) -> void:
 	_previewed_index = index
@@ -39,8 +48,14 @@ func _on_battle_player_action_previewed(index: int) -> void:
 func _on_battle_player_action_selected(index: int, multiplier: float) -> void:
 	_verdict = data.evaluate(index)
 	var result: float = _verdict.multiplier * multiplier
-	health += result
+	health = clampf(health + result, 0.0, data.max_health)
 	SignalBus.battle_demon_health_changed.emit(health / data.max_health, health, result, true)
+	if health <= 0:
+		SignalBus.battle_lost.emit()
+		SignalBus.battle_end.emit()
+	if health >= data.max_health:
+		SignalBus.battle_won.emit()
+		SignalBus.battle_end.emit()
 	print("index", index)
 	print("verdict mult", _verdict.multiplier)
 	print("mult", multiplier)

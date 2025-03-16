@@ -50,8 +50,8 @@ size = Vector2(4, 4)
 
 [sub_resource type="Resource" id="Resource_mhmxw"]
 script = ExtResource("7_h6laj")
-duration = 2.0
-transition = 2
+duration = 0.5
+transition = 4
 ease = 0
 
 [sub_resource type="Resource" id="Resource_n73ql"]

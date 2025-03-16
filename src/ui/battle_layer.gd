@@ -33,6 +33,8 @@ func _ready() -> void:
 	InputManager.input_state_changed.connect(_on_input_state_changed)
 	SignalBus.battle_player_turn_complete.connect(_on_battle_player_turn_complete)
 	SignalBus.battle_demon_health_changed.connect(_on_battle_demon_health_changed)
+	SignalBus.battle_lost.connect(_on_battle_lost)
+	SignalBus.battle_won.connect(_on_battle_won)
 
 func rotate_wheel(slices: int) -> void:
 	_wheel_rotation += slices
@@ -86,7 +88,7 @@ func update_slices() -> void:
 	while _wheel_slices.size() > wheel_slice_count:
 		_wheel_slices.pop_back()
 	
-	var scale: float = (wheel.size.y * 0.4) / 512.0
+	var slice_scale: float = (wheel.size.y * 0.4) / 512.0
 	
 	for wheel_slice_idx: int in wheel_slice_count:
 		var slice_percentage: float = float(wheel_slice_idx) / float(wheel_slice_count)
@@ -116,12 +118,12 @@ func update_slices() -> void:
 			wheel_wedge = wheel_wedges.get_child(wheel_slice_idx)
 		
 		wheel_slice.position = (wheel.size.y * 0.3) * Vector2(cos(slice_angle), sin(slice_angle))
-		wheel_slice.scale = scale * Vector2(1.0, 1.0)
+		wheel_slice.scale = slice_scale * Vector2(1.0, 1.0)
 		wheel_slice.angle = slice_angle
 		wheel_slice.selected_highlight = _needs_more_pages && wheel_slice_idx == _selected_wheel_slice
 		
 		wheel_wedge.position = (wheel.size.y * 0.3) * Vector2(cos(wedge_angle), sin(wedge_angle))
-		wheel_wedge.scale = scale * Vector2(1.0, 1.0)
+		wheel_wedge.scale = slice_scale * Vector2(1.0, 1.0)
 
 func _on_inventory_carousel_item_pressed(data: ItemData) -> void:
 	if data is not PageData:
@@ -172,7 +174,7 @@ func _on_wheel_slice_pressed(index: int) -> void:
 			_moves_in_turn = 0
 
 func _on_battle_player_turn_complete() -> void:
-	# TODO: check if any pages are burned
+	var pages_burned: int = 0
 	for wheel_slice_idx: int in wheel_slice_count:
 		var wheel_slice: WheelSlice = _wheel_slices[wheel_slice_idx]
 		wheel_slice.disabled = false
@@ -187,14 +189,14 @@ func _on_battle_player_turn_complete() -> void:
 					_selected_wheel_slice += wheel_slice_count
 				while _selected_wheel_slice >= wheel_slice_count:
 					_selected_wheel_slice -= wheel_slice_count
+				pages_burned += 1
 				_needs_more_pages = true
 			else:
 				page.burning = true
 				page.pending_burn = false
-			
-			if _needs_more_pages:
-				inventory_carousel.process_mode = Node.PROCESS_MODE_INHERIT
-				inventory_carousel.show()
+	if _needs_more_pages:
+		inventory_carousel.process_mode = Node.PROCESS_MODE_INHERIT
+		inventory_carousel.show()
 
 func get_wedge_page(slice: int) -> PageData:
 	slice -= _wheel_rotation
@@ -204,5 +206,11 @@ func get_wedge_page(slice: int) -> PageData:
 		slice -= wheel_slice_count
 	return _wheel_wedges[slice].data as PageData
 
-func _on_battle_demon_health_changed(percentage: float, absolute: float, delta: float, from_action: bool) -> void:
+func _on_battle_demon_health_changed(percentage: float, _absolute: float, _delta: float, _from_action: bool) -> void:
 	battle_health_fill.custom_minimum_size.x = battle_health.size.x * percentage
+
+func _on_battle_lost() -> void:
+	InputManager.switch_input_state(InputManager.InputState.GAME_OVER)
+
+func _on_battle_won() -> void:
+	InputManager.pop_input_state()

@@ -1,12 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=23 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://dpeyf7gihu6qk" path="res://src/game.gd" id="1_hve3p"]
+[ext_resource type="Script" uid="uid://dtlro6n6x0vt4" path="res://src/demon/demon_data.gd" id="2_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://cc572s3y8nxpm" path="res://prefabs/ui/pause_layer.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://ynrxp5rdqm7r" path="res://prefabs/item/page/page.tscn" id="3_feb5d"]
+[ext_resource type="Resource" uid="uid://cmwcbxgd4k4r3" path="res://data/demons/tutorial_demon.tres" id="3_iotsf"]
 [ext_resource type="PackedScene" uid="uid://cvoj74fsnvnbf" path="res://prefabs/ui/post_process_layer.tscn" id="3_ryrav"]
 [ext_resource type="PackedScene" uid="uid://sb11wcnhnfwt" path="res://prefabs/ui/inventory_layer.tscn" id="4_fc0e3"]
+[ext_resource type="Resource" uid="uid://cj8qs5jdusig" path="res://data/demons/final_demon.tres" id="4_iotsf"]
 [ext_resource type="Script" uid="uid://bmxe267u4atcw" path="res://src/item/page_data.gd" id="4_vef74"]
-[ext_resource type="PackedScene" uid="uid://iv1sljhrecsc" path="res://prefabs/demon.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://6c5ucfomh1dt" path="res://prefabs/item/page/page_visual.tscn" id="5_hve3p"]
 [ext_resource type="PackedScene" uid="uid://bb0jfvecfuu5d" path="res://prefabs/ui/battle_layer.tscn" id="7_eow3j"]
 
@@ -75,6 +78,8 @@ metadata/_custom_type_script = "uid://bmxe267u4atcw"
 
 [node name="Game" type="Node3D"]
 physics_interpolation_mode = 1
+script = ExtResource("1_hve3p")
+demons = Array[ExtResource("2_mfdv2")]([ExtResource("3_iotsf"), ExtResource("4_iotsf")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h2yge")
@@ -91,8 +96,6 @@ use_collision = true
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 size = Vector3(6, 1, 6)
-
-[node name="Demon" parent="." instance=ExtResource("5_7jktm")]
 
 [node name="Page" parent="." instance=ExtResource("3_feb5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.8, 0)

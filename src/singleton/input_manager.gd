@@ -1,6 +1,6 @@
 extends Node
 
-enum InputState { MENU, FIRST_PERSON, INVENTORY, BATTLE }
+enum InputState { MENU, FIRST_PERSON, INVENTORY, BATTLE, GAME_OVER }
 
 signal input_state_changed(old_state: InputState, new_state: InputState)
 
@@ -35,4 +35,10 @@ func pop_input_state() -> void:
 	input_state_stack.pop_back()
 	if input_state_stack.is_empty():
 		input_state_stack.push_back(DEFAULT_INPUT_STATE)
+	input_state_changed.emit(old_state, get_input_state())
+
+func switch_input_state(state: InputState) -> void:
+	var old_state: InputState = get_input_state()
+	input_state_stack.pop_back()
+	input_state_stack.push_back(state)
 	input_state_changed.emit(old_state, get_input_state())

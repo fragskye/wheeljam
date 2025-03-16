@@ -62,6 +62,8 @@ point_count = 2
 
 [resource]
 script = ExtResource("3_dxm5x")
+max_health = 0.0
+health_drain = 0.0
 faces = Array[ExtResource("2_o8kyo")]([SubResource("Resource_jg002")])
 default_verdicts = Array[ExtResource("1_fdn17")]([SubResource("Resource_gx135"), SubResource("Resource_g8c6a"), SubResource("Resource_njhek"), SubResource("Resource_72y6n")])
 lower_mouth_inner_outer_curve = SubResource("Curve_8vg5x")
