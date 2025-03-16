@@ -197,6 +197,10 @@ func _on_battle_player_turn_complete() -> void:
 	if _needs_more_pages:
 		inventory_carousel.process_mode = Node.PROCESS_MODE_INHERIT
 		inventory_carousel.show()
+		if pages_burned == 1:
+			NotificationLayer.show_toast("That page burned up. I need a new one...")
+		else:
+			NotificationLayer.show_toast("Those pages burned up. I need new ones...")
 
 func get_wedge_page(slice: int) -> PageData:
 	slice -= _wheel_rotation

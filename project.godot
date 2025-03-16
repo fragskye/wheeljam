@@ -34,9 +34,11 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 InputManager="*res://src/singleton/input_manager.gd"
 SignalBus="*res://src/singleton/signal_bus.gd"
 Global="*res://src/singleton/global.gd"
+NotificationLayer="*res://prefabs/ui/notification_layer.tscn"
 
 [debug]
 
+gdscript/warnings/unused_signal=0
 gdscript/warnings/untyped_declaration=2
 gdscript/warnings/inferred_declaration=2
 gdscript/warnings/unsafe_property_access=2
