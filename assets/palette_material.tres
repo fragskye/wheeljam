@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cdsbt6x5l774a"]
+
+[ext_resource type="Shader" uid="uid://cuyv2jxhf4d12" path="res://shaders/standard_palette.gdshader" id="1_cc77q"]
+[ext_resource type="Texture2D" uid="uid://coydxr26h1udh" path="res://assets/palette.png" id="2_wlmc6"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cc77q")
+shader_parameter/palette = ExtResource("2_wlmc6")

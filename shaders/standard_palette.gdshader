@@ -8,6 +8,8 @@ global uniform float texel_density;
 global uniform sampler2D value_noise_texture : filter_nearest;
 global uniform float value_noise_texture_size;
 
+uniform sampler2D palette : hint_default_white, filter_nearest, source_color, repeat_disable;
+
 varying vec3 local_pos;
 varying vec3 local_normal;
 
@@ -25,6 +27,6 @@ void fragment() {
 	float max_yz = max(abs_local_normal.y, abs_local_normal.z);
 	vec2 local_planar_uv = abs_local_normal.y >= max_xz ? local_pos.xz : abs_local_normal.x >= max_yz ? local_pos.zy : local_pos.xy;
 	vec4 value_random = texture(value_noise_texture, local_planar_uv * inv_value_noise_texture_size * texel_density);
-	ALBEDO = vec3(1.0);
-	ALBEDO *= remap(value_random.x, 0.0, 1.0, 0.8, 1.0);
+	ALBEDO = texture(palette, UV + vec2(0.0, value_random.x * 0.125)).rgb;
+	//ALBEDO *= remap(value_random.x, 0.0, 1.0, 0.8, 1.0);
 }

@@ -87,6 +87,7 @@ far = 4000.0
 metadata/_custom_type_script = "uid://cbjrdq7ived0u"
 
 [node name="Demon" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 script = ExtResource("1_tsgxh")
 data = ExtResource("2_6x10w")
 

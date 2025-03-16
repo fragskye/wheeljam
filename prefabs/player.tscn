@@ -1,13 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://fxwwwabbrtv"]
+[gd_scene load_steps=12 format=3 uid="uid://fxwwwabbrtv"]
 
 [ext_resource type="Script" uid="uid://5jsevxsehuo8" path="res://src/player/player.gd" id="1_1txc5"]
 [ext_resource type="Script" uid="uid://bh6wq1q5fxuey" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_r66lb"]
 [ext_resource type="Script" uid="uid://boel5hma2thn2" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_1txc5"]
 [ext_resource type="Script" uid="uid://dnai1tqqessum" path="res://src/player/player_camera_rig.gd" id="2_ht1c8"]
 [ext_resource type="Script" uid="uid://drx004wv0kjc5" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_ht1c8"]
+[ext_resource type="Script" uid="uid://p3rffxq11yq4" path="res://src/camera_shake.gd" id="5_u51tk"]
 [ext_resource type="Script" uid="uid://dj5wa11rc1q6d" path="res://src/player/interaction_system.gd" id="6_g2jcq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dm0k"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u51tk"]
+noise_type = 3
+frequency = 1.0
+fractal_type = 0
 
 [sub_resource type="Resource" id="Resource_g2jcq"]
 script = ExtResource("2_1txc5")
@@ -33,11 +39,25 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 script = ExtResource("2_ht1c8")
 
-[node name="PhantomCamera3D" type="Node3D" parent="PlayerCameraRig"]
+[node name="CameraShake" type="Node3D" parent="PlayerCameraRig" node_paths=PackedStringArray("pcam")]
+unique_name_in_owner = true
+script = ExtResource("5_u51tk")
+pcam = NodePath("PhantomCamera3D")
+noise = SubResource("FastNoiseLite_u51tk")
+rotation_scale_x = 5.0
+rotation_scale_y = 5.0
+rotation_scale_z = 5.0
+position_scale_x = 0.05
+position_scale_y = 0.05
+position_scale_z = 0.05
+
+[node name="PhantomCamera3D" type="Node3D" parent="PlayerCameraRig/CameraShake"]
 unique_name_in_owner = true
 script = ExtResource("1_r66lb")
 priority = 1
 tween_resource = SubResource("Resource_g2jcq")
+tween_on_load = false
+_preview_noise = false
 metadata/_custom_type_script = "uid://bh6wq1q5fxuey"
 
 [node name="ItemPickupTargetStart" type="Node3D" parent="PlayerCameraRig"]
@@ -45,6 +65,13 @@ transform = Transform3D(0.984808, -0.0151344, -0.172987, 0, 0.996195, -0.0871557
 
 [node name="ItemPickupTargetEnd" type="Node3D" parent="PlayerCameraRig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -0.6)
+
+[node name="InteractionSystem" type="Node3D" parent="."]
+script = ExtResource("6_g2jcq")
+reach_distance = 2.0
+blocker_mask = 4278190081
+interactable_mask = 4278190084
+sphere_shape = SubResource("SphereShape3D_g2jcq")
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 unique_name_in_owner = true
@@ -56,10 +83,3 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("3_ht1c8")
 metadata/_custom_type_script = "uid://drx004wv0kjc5"
-
-[node name="InteractionSystem" type="Node3D" parent="."]
-script = ExtResource("6_g2jcq")
-reach_distance = 2.0
-blocker_mask = 4278190081
-interactable_mask = 4278190084
-sphere_shape = SubResource("SphereShape3D_g2jcq")

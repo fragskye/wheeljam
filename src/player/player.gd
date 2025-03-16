@@ -2,6 +2,7 @@ class_name Player extends CharacterBody3D
 
 @onready var camera: Camera3D = %PlayerCamera
 @onready var camera_rig: PlayerCameraRig = %PlayerCameraRig
+@onready var camera_shake: CameraShake = %CameraShake
 
 @export var inventory_minimum_slots: int = 7
 var inventory: Array[ItemData] = []

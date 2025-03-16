@@ -263,4 +263,3 @@ func get_noise_emitter_layer() -> int:
 	return noise_emitter_layer
 
 	#endregion
-
