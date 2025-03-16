@@ -149,6 +149,7 @@ func _on_inventory_carousel_item_pressed(data: ItemData) -> void:
 			_needs_more_pages = false
 			inventory_carousel.hide()
 			inventory_carousel.process_mode = Node.PROCESS_MODE_DISABLED
+			Global.player.flush_inventory()
 		else:
 			while empty_slot_idx < 0:
 				empty_slot_idx += wheel_slice_count
@@ -190,8 +191,10 @@ func _on_battle_player_turn_complete() -> void:
 			else:
 				page.burning = true
 				page.pending_burn = false
-			inventory_carousel.process_mode = Node.PROCESS_MODE_INHERIT
-			inventory_carousel.show()
+			
+			if _needs_more_pages:
+				inventory_carousel.process_mode = Node.PROCESS_MODE_INHERIT
+				inventory_carousel.show()
 
 func get_wedge_page(slice: int) -> PageData:
 	slice -= _wheel_rotation
