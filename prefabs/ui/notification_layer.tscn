@@ -191,6 +191,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Background2" type="TextureRect" parent="NotificationMenu/Control"]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 6
@@ -209,6 +210,7 @@ mouse_filter = 2
 texture = ExtResource("2_yisdb")
 
 [node name="Background1" type="TextureRect" parent="NotificationMenu/Control"]
+unique_name_in_owner = true
 modulate = Color(0, 0, 0, 0)
 layout_mode = 1
 anchors_preset = 6

@@ -5,11 +5,14 @@ class_name Player extends CharacterBody3D
 @onready var camera_shake: CameraShake = %CameraShake
 
 @export var inventory_minimum_slots: int = 7
+
+@export var move_speed: float = 5.0
+
+@export var move_smoothing_accel: float = 0.1
+@export var move_smoothing_decel: float = 0.1
+
 var inventory: Array[ItemData] = []
 var inventory_selected: int = 0
-
-const SPEED: float = 5.0
-const JUMP_VELOCITY: float = 4.5
 
 func _ready() -> void:
 	for i: int in inventory_minimum_slots:
@@ -32,20 +35,18 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction: Vector3 = (camera_rig.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction: Vector3 = (camera_rig.global_basis * Vector3(input_dir.x, 0, input_dir.y))
+	direction.y = 0.0
+	direction = direction.normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = Util.temporal_lerp(velocity.x, direction.x * move_speed, move_smoothing_accel, delta)
+		velocity.z = Util.temporal_lerp(velocity.z, direction.z * move_speed, move_smoothing_accel, delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = Util.temporal_lerp(velocity.x, 0.0, move_smoothing_decel, delta)
+		velocity.z = Util.temporal_lerp(velocity.z, 0.0, move_smoothing_decel, delta)
 
 	move_and_slide()
 

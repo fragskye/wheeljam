@@ -28,6 +28,8 @@ radius = 0.1
 physics_interpolation_mode = 1
 collision_layer = 2
 script = ExtResource("1_1txc5")
+move_smoothing_accel = 0.125
+move_smoothing_decel = 0.25
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 unique_name_in_owner = true
@@ -44,12 +46,12 @@ unique_name_in_owner = true
 script = ExtResource("5_u51tk")
 pcam = NodePath("PhantomCamera3D")
 noise = SubResource("FastNoiseLite_u51tk")
-rotation_scale_x = 5.0
-rotation_scale_y = 5.0
-rotation_scale_z = 5.0
-position_scale_x = 0.05
-position_scale_y = 0.05
-position_scale_z = 0.05
+rotation_scale_x = 10.0
+rotation_scale_y = 10.0
+rotation_scale_z = 10.0
+position_scale_x = 0.075
+position_scale_y = 0.075
+position_scale_z = 0.075
 
 [node name="PhantomCamera3D" type="Node3D" parent="PlayerCameraRig/CameraShake"]
 unique_name_in_owner = true
