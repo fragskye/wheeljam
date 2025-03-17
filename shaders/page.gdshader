@@ -8,8 +8,10 @@ global uniform float texel_density;
 global uniform sampler2D value_noise_texture : filter_nearest;
 global uniform float value_noise_texture_size;
 
-uniform sampler2D albedo_texture : hint_default_white, filter_nearest, source_color, repeat_enable;
-uniform bool emissive = false;
+uniform sampler2D page_base_texture : hint_default_white, filter_nearest, source_color, repeat_enable;
+uniform sampler2D page_illustration_texture : hint_default_white, filter_nearest, source_color, repeat_enable;
+uniform sampler2D page_text_texture : hint_default_white, filter_nearest, source_color, repeat_enable;
+instance uniform int page = 1;
 uniform float noise = 0.1;
 
 varying vec3 local_pos;
@@ -29,11 +31,13 @@ void fragment() {
 	float max_yz = max(abs_local_normal.y, abs_local_normal.z);
 	vec2 local_planar_uv = abs_local_normal.y >= max_xz ? local_pos.xz : abs_local_normal.x >= max_yz ? local_pos.zy : local_pos.xy;
 	vec4 value_random = texture(value_noise_texture, local_planar_uv * inv_value_noise_texture_size * texel_density);
-	vec4 albedo = texture(albedo_texture, UV);
-	ALBEDO = albedo.rgb;
+	vec4 page_base = texture(page_base_texture, UV * vec2(0.25, 1.0) + vec2(mod(float(page - 1), 4.0) * 0.25, 0.0));
+	vec4 page_illustration = texture(page_illustration_texture, UV * vec2(0.1, 1.0) + vec2(floor(float(page) / 15.0) * 0.1, 0.0));
+	vec4 page_text = texture(page_text_texture, UV * vec2(0.1, 1.0) + vec2(mod(float(page - 1), 10.0) * 0.1, 0.0));
+	ALBEDO = page_base.rgb;
+	ALBEDO = mix(ALBEDO, page_illustration.rgb, page_illustration.a);
+	ALBEDO = mix(ALBEDO, page_text.rgb, page_text.a);
 	ALBEDO *= remap(value_random.x, 0.0, 1.0, 1.0 - noise, 1.0);
-	ALPHA = albedo.a;
-	if (emissive) {
-		EMISSION = ALBEDO;
-	}
+	EMISSION = mix(vec3(0.0), page_illustration.rgb, page_illustration.a * 0.5);
+	ALPHA = page_base.a;
 }

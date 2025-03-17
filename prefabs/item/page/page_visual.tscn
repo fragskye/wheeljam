@@ -1,22 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://6c5ucfomh1dt"]
 
-[ext_resource type="Material" uid="uid://cbnvfglvi7a8s" path="res://prefabs/item/page/page_material.tres" id="1_fl4w8"]
 [ext_resource type="Script" uid="uid://c8nc4slsgdnhj" path="res://src/item/page_visual.gd" id="1_hiw1b"]
+[ext_resource type="FontFile" uid="uid://dxmua77i337bx" path="res://assets/fonts/not_jam/undead_pixel_light_8/Undead Pixel 8.ttf" id="3_1qyil"]
 [ext_resource type="FontFile" uid="uid://d3j2sq1rf3cg4" path="res://assets/fonts/not_jam/slab_serif_11/NotJamSlabSerif11.ttf" id="3_4dsu4"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_r0kvw"]
-size = Vector3(0.2, 0.2, 0.2)
+[ext_resource type="ArrayMesh" uid="uid://cyh8t11k0dni5" path="res://assets/models/page_Page.res" id="3_o5f8t"]
 
 [node name="PageVisual" type="Node3D"]
 script = ExtResource("1_hiw1b")
 
-[node name="MeshInstance" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_r0kvw")
-surface_material_override/0 = ExtResource("1_fl4w8")
-
 [node name="PendingBurnLabel" type="Label3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
 billboard = 1
 no_depth_test = true
 texture_filter = 0
@@ -27,18 +22,44 @@ outline_size = 8
 
 [node name="MultiplierLabel" type="Label3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
+sorting_offset = 0.02
+sorting_use_aabb_center = false
 pixel_size = 0.01
-billboard = 1
-no_depth_test = true
+offset = Vector2(9, -15)
+shaded = true
 texture_filter = 0
-text = "unset"
-font = ExtResource("3_4dsu4")
-font_size = 11
-outline_size = 4
+outline_render_priority = 0
+outline_modulate = Color(0, 0, 0, 0)
+text = "1x"
+font = ExtResource("3_1qyil")
+font_size = 8
+outline_size = 5
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="MultiplierLabelShadow" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
+sorting_offset = 0.01
+sorting_use_aabb_center = false
+pixel_size = 0.01
+offset = Vector2(9, -15)
+shaded = true
+texture_filter = 0
+outline_render_priority = 0
+modulate = Color(1, 1, 1, 0)
+text = "1x"
+font = ExtResource("3_1qyil")
+font_size = 8
+outline_size = 5
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="BurningLabel" type="Label3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+visible = false
 billboard = 1
 no_depth_test = true
 texture_filter = 0
@@ -46,3 +67,9 @@ text = "Burning"
 font = ExtResource("3_4dsu4")
 font_size = 11
 outline_size = 8
+
+[node name="PageMesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+sorting_use_aabb_center = false
+instance_shader_parameters/page = 1
+mesh = ExtResource("3_o5f8t")

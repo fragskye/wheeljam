@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cbnvfglvi7a8s"]
 
-[ext_resource type="Shader" uid="uid://cuyv2jxhf4d12" path="res://shaders/standard_palette.gdshader" id="1_s13hp"]
+[ext_resource type="Shader" uid="uid://c1h2dbuji7wll" path="res://shaders/page.gdshader" id="1_8htry"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_s13hp")
+shader = ExtResource("1_8htry")

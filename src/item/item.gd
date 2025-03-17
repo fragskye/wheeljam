@@ -21,7 +21,8 @@ func play_pickup_anim(target_start: Node3D, target_end: Node3D) -> void:
 	tween.tween_callback(queue_free)
 
 func _pickup_anim(progress: float, original_transform: Transform3D, target_start: Node3D, target_end: Node3D) -> void:
+	# TODO: why the hell is this flickering when you turn the camera mid-animation
 	if progress < 1.0:
-		global_transform = original_transform.interpolate_with(target_start.get_global_transform_interpolated(), progress)
+		global_transform = original_transform.interpolate_with(target_start.global_transform, progress)
 	else:
-		global_transform = target_start.get_global_transform_interpolated().interpolate_with(target_end.get_global_transform_interpolated(), progress - 1.0)
+		global_transform = target_start.global_transform.interpolate_with(target_end.global_transform, progress - 1.0)

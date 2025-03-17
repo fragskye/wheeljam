@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=27 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dpeyf7gihu6qk" path="res://src/game.gd" id="1_hve3p"]
@@ -15,51 +15,58 @@
 [ext_resource type="PackedScene" uid="uid://bb0jfvecfuu5d" path="res://prefabs/ui/battle_layer.tscn" id="7_eow3j"]
 [ext_resource type="Script" uid="uid://drx004wv0kjc5" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_80cx4"]
 
-[sub_resource type="Resource" id="Resource_vef74"]
-script = ExtResource("4_vef74")
-multiplier = 1.0
-burning = false
-visual_scene = ExtResource("5_hve3p")
-metadata/_custom_type_script = "uid://bmxe267u4atcw"
-
-[sub_resource type="Resource" id="Resource_mfdv2"]
-script = ExtResource("4_vef74")
-multiplier = 2.0
-burning = false
-visual_scene = ExtResource("5_hve3p")
-metadata/_custom_type_script = "uid://bmxe267u4atcw"
-
-[sub_resource type="Resource" id="Resource_hve3p"]
-script = ExtResource("4_vef74")
-multiplier = 2.0
-burning = false
-visual_scene = ExtResource("5_hve3p")
-metadata/_custom_type_script = "uid://bmxe267u4atcw"
-
-[sub_resource type="Resource" id="Resource_iotsf"]
-script = ExtResource("4_vef74")
-multiplier = 3.0
-burning = false
-visual_scene = ExtResource("5_hve3p")
-metadata/_custom_type_script = "uid://bmxe267u4atcw"
-
 [sub_resource type="Resource" id="Resource_215e1"]
 script = ExtResource("4_vef74")
-multiplier = 3.0
-burning = false
-visual_scene = ExtResource("5_hve3p")
-metadata/_custom_type_script = "uid://bmxe267u4atcw"
-
-[sub_resource type="Resource" id="Resource_lc2xo"]
-script = ExtResource("4_vef74")
-multiplier = 4.0
+multiplier = 2.0
 burning = false
 visual_scene = ExtResource("5_hve3p")
 metadata/_custom_type_script = "uid://bmxe267u4atcw"
 
 [sub_resource type="Resource" id="Resource_7sc4i"]
 script = ExtResource("4_vef74")
+multiplier = 3.0
+burning = false
+visual_scene = ExtResource("5_hve3p")
+metadata/_custom_type_script = "uid://bmxe267u4atcw"
+
+[sub_resource type="Resource" id="Resource_80cx4"]
+script = ExtResource("4_vef74")
 multiplier = 4.0
+burning = false
+visual_scene = ExtResource("5_hve3p")
+metadata/_custom_type_script = "uid://bmxe267u4atcw"
+
+[sub_resource type="Resource" id="Resource_e8heu"]
+script = ExtResource("4_vef74")
+multiplier = 5.0
+burning = false
+visual_scene = ExtResource("5_hve3p")
+metadata/_custom_type_script = "uid://bmxe267u4atcw"
+
+[sub_resource type="Resource" id="Resource_rvswv"]
+script = ExtResource("4_vef74")
+multiplier = 6.0
+burning = false
+visual_scene = ExtResource("5_hve3p")
+metadata/_custom_type_script = "uid://bmxe267u4atcw"
+
+[sub_resource type="Resource" id="Resource_boyg6"]
+script = ExtResource("4_vef74")
+multiplier = 7.0
+burning = false
+visual_scene = ExtResource("5_hve3p")
+metadata/_custom_type_script = "uid://bmxe267u4atcw"
+
+[sub_resource type="Resource" id="Resource_e36ub"]
+script = ExtResource("4_vef74")
+multiplier = 8.0
+burning = false
+visual_scene = ExtResource("5_hve3p")
+metadata/_custom_type_script = "uid://bmxe267u4atcw"
+
+[sub_resource type="Resource" id="Resource_hb5m1"]
+script = ExtResource("4_vef74")
+multiplier = 105.0
 burning = false
 visual_scene = ExtResource("5_hve3p")
 metadata/_custom_type_script = "uid://bmxe267u4atcw"
@@ -88,35 +95,39 @@ time_between_demons = 30.0
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.9, 0, 15)
 
 [node name="Page" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.8, 0)
-
-[node name="Page5" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.8, 0.3)
-data = SubResource("Resource_vef74")
+transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 0, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 10)
 
 [node name="Page2" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.7, 0.4)
-data = SubResource("Resource_mfdv2")
-
-[node name="Page6" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.7, 1)
-data = SubResource("Resource_hve3p")
-
-[node name="Page3" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 1, 0.9)
-data = SubResource("Resource_iotsf")
-
-[node name="Page7" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1, 1.8)
+transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 0, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 9.5)
 data = SubResource("Resource_215e1")
 
+[node name="Page3" parent="." instance=ExtResource("3_feb5d")]
+transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 0, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 8.5)
+data = SubResource("Resource_7sc4i")
+
 [node name="Page4" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.6, 1.3)
-data = SubResource("Resource_lc2xo")
+transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 0, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 7.5)
+data = SubResource("Resource_80cx4")
+
+[node name="Page5" parent="." instance=ExtResource("3_feb5d")]
+transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 8.57915e-16, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 6.5)
+data = SubResource("Resource_e8heu")
+
+[node name="Page6" parent="." instance=ExtResource("3_feb5d")]
+transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 8.57915e-16, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 5.5)
+data = SubResource("Resource_rvswv")
+
+[node name="Page7" parent="." instance=ExtResource("3_feb5d")]
+transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 1.71583e-15, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 4.5)
+data = SubResource("Resource_boyg6")
 
 [node name="Page8" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.6, 1.7)
-data = SubResource("Resource_7sc4i")
+transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 1.71583e-15, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 3.5)
+data = SubResource("Resource_e36ub")
+
+[node name="Page9" parent="." instance=ExtResource("3_feb5d")]
+transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 2.57374e-15, -4.37114e-08, 1, 0.258819, -0.965926, -4.22219e-08, 0.2, 0, 2)
+data = SubResource("Resource_hb5m1")
 
 [node name="PostProcessLayer" parent="." instance=ExtResource("3_ryrav")]
 

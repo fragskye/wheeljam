@@ -47,6 +47,7 @@ func update_angles() -> void:
 	rotate_object_local(Vector3.UP, deg_to_rad(yaw))
 	rotate_object_local(Vector3.RIGHT, deg_to_rad(pitch))
 	rotate_object_local(Vector3.FORWARD, deg_to_rad(roll))
+	SignalBus.camera_rig_updated.emit(self)
 
 func _on_item_picked_up(item: Item) -> void:
 	item.play_pickup_anim(item_pickup_target_start, item_pickup_target_end)

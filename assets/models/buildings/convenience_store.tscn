@@ -153,7 +153,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.5, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -19.8)
 
 [node name="DevilishDeals" parent="." index="36" instance=ExtResource("10_r4sb1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 1.5, 0)
+transform = Transform3D(0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 0, 0, 1, 2.25, 1.5, 0)
 
 [node name="CheapSin" parent="." index="37" instance=ExtResource("11_hsvi2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1.25, 0)
+transform = Transform3D(0.999391, 0.0348995, 0, -0.0348995, 0.999391, 0, 0, 0, 1, -4.5, 1.25, 0)

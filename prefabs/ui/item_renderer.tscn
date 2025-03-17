@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://hduaovkp6xuv" path="res://src/ui/item_renderer.gd" id="1_3jvt1"]
 
 [sub_resource type="Environment" id="Environment_3jvt1"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.7
 tonemap_mode = 2
 
 [sub_resource type="World3D" id="World3D_7l4e7"]
@@ -20,15 +23,18 @@ script = ExtResource("1_3jvt1")
 animation_speed = 60.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 0.3, 0.3, 0.3)
+transform = Transform3D(0.996195, -0.00759612, 0.0868241, 0, 0.996195, 0.0871557, -0.0871557, -0.0868241, 0.992404, 0.1, 0.1, 0.5)
 fov = 50.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.965926, -0.12941, 0.224144, 0, 0.866025, 0.5, -0.258819, -0.482963, 0.836516, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="DebugCube" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("BoxMesh_3jvt1")
 
 [node name="VisualRoot" type="Node3D" parent="."]
 unique_name_in_owner = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+light_energy = 0.3
+omni_range = 10.0
+omni_attenuation = 0.0
