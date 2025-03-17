@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://fxwwwabbrtv"]
+[gd_scene load_steps=13 format=3 uid="uid://fxwwwabbrtv"]
 
 [ext_resource type="Script" uid="uid://5jsevxsehuo8" path="res://src/player/player.gd" id="1_1txc5"]
 [ext_resource type="Script" uid="uid://bh6wq1q5fxuey" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_r66lb"]
 [ext_resource type="Script" uid="uid://boel5hma2thn2" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_1txc5"]
 [ext_resource type="Script" uid="uid://dnai1tqqessum" path="res://src/player/player_camera_rig.gd" id="2_ht1c8"]
-[ext_resource type="Script" uid="uid://drx004wv0kjc5" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_ht1c8"]
 [ext_resource type="Script" uid="uid://p3rffxq11yq4" path="res://src/camera_shake.gd" id="5_u51tk"]
 [ext_resource type="Script" uid="uid://dj5wa11rc1q6d" path="res://src/player/interaction_system.gd" id="6_g2jcq"]
+[ext_resource type="Script" uid="uid://cbjrdq7ived0u" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="6_u51tk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dm0k"]
 
@@ -20,6 +20,19 @@ script = ExtResource("2_1txc5")
 duration = 1.0
 transition = 0
 ease = 2
+
+[sub_resource type="Resource" id="Resource_kbsxf"]
+script = ExtResource("6_u51tk")
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://cbjrdq7ived0u"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2jcq"]
 radius = 0.1
@@ -59,6 +72,7 @@ script = ExtResource("1_r66lb")
 priority = 1
 tween_resource = SubResource("Resource_g2jcq")
 tween_on_load = false
+camera_3d_resource = SubResource("Resource_kbsxf")
 _preview_noise = false
 metadata/_custom_type_script = "uid://bh6wq1q5fxuey"
 
@@ -74,14 +88,3 @@ reach_distance = 2.0
 blocker_mask = 4278190081
 interactable_mask = 4278190084
 sphere_shape = SubResource("SphereShape3D_g2jcq")
-
-[node name="PlayerCamera" type="Camera3D" parent="."]
-unique_name_in_owner = true
-physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-
-[node name="PhantomCameraHost" type="Node" parent="PlayerCamera"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("3_ht1c8")
-metadata/_custom_type_script = "uid://drx004wv0kjc5"

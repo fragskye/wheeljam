@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl4av7gyci7fs"]
+
+[ext_resource type="PackedScene" uid="uid://dewsxf3k8te4q" path="res://assets/models/props/book_store/ceiling_light.glb" id="1_cffyy"]
+[ext_resource type="Material" uid="uid://cdsbt6x5l774a" path="res://assets/palette_material.tres" id="2_a026v"]
+
+[node name="CeilingLightOff" instance=ExtResource("1_cffyy")]
+
+[node name="CeilingLight" parent="." index="0"]
+surface_material_override/1 = ExtResource("2_a026v")

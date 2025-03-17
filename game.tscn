@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=28 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dpeyf7gihu6qk" path="res://src/game.gd" id="1_hve3p"]
@@ -12,9 +12,10 @@
 [ext_resource type="Script" uid="uid://bmxe267u4atcw" path="res://src/item/page_data.gd" id="4_vef74"]
 [ext_resource type="PackedScene" uid="uid://6c5ucfomh1dt" path="res://prefabs/item/page/page_visual.tscn" id="5_hve3p"]
 [ext_resource type="PackedScene" uid="uid://bb0jfvecfuu5d" path="res://prefabs/ui/battle_layer.tscn" id="7_eow3j"]
-[ext_resource type="PackedScene" uid="uid://bem8jp0bhn2aa" path="res://assets/meshes/ground.glb" id="13_lc2xo"]
-[ext_resource type="PackedScene" uid="uid://dtlr4fnfqrp1s" path="res://assets/meshes/buildings/book_store.tscn" id="14_215e1"]
+[ext_resource type="PackedScene" uid="uid://bem8jp0bhn2aa" path="res://assets/models/ground.glb" id="13_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://dtlr4fnfqrp1s" path="res://assets/models/buildings/book_store.tscn" id="14_215e1"]
 [ext_resource type="VoxelGIData" uid="uid://s54iwihf0in0" path="res://game.VoxelGI_data.res" id="15_7sc4i"]
+[ext_resource type="Script" uid="uid://drx004wv0kjc5" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_80cx4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -28,9 +29,14 @@ background_mode = 2
 sky = SubResource("Sky_0xm2m")
 tonemap_mode = 2
 glow_enabled = true
-fog_enabled = true
 fog_light_color = Color(0.21998, 0.201387, 0.188098, 1)
 fog_density = 0.15
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.15
+volumetric_fog_albedo = Color(0.219608, 0.2, 0.188235, 1)
+volumetric_fog_length = 128.0
+volumetric_fog_detail_spread = 1.0
+volumetric_fog_ambient_inject = 1.0
 
 [sub_resource type="Resource" id="Resource_vef74"]
 script = ExtResource("4_vef74")
@@ -81,6 +87,9 @@ burning = false
 visual_scene = ExtResource("5_hve3p")
 metadata/_custom_type_script = "uid://bmxe267u4atcw"
 
+[sub_resource type="FogMaterial" id="FogMaterial_80cx4"]
+density = -0.2
+
 [node name="Game" type="Node3D"]
 physics_interpolation_mode = 1
 script = ExtResource("1_hve3p")
@@ -97,7 +106,7 @@ light_indirect_energy = 3.0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.9, 0, 14)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.9, 0, 15)
 
 [node name="Page" parent="." instance=ExtResource("3_feb5d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.8, 0)
@@ -142,9 +151,25 @@ unique_name_in_owner = true
 [node name="ground" parent="." instance=ExtResource("13_lc2xo")]
 
 [node name="book_store" parent="." instance=ExtResource("14_215e1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 15)
 
 [node name="VoxelGI" type="VoxelGI" parent="."]
 subdiv = 3
 size = Vector3(256, 256, 256)
 data = ExtResource("15_7sc4i")
+
+[node name="PlayerCamera" type="Camera3D" parent="."]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.9, 1.5, 15)
+
+[node name="PhantomCameraHost" type="Node" parent="PlayerCamera"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("16_80cx4")
+metadata/_custom_type_script = "uid://drx004wv0kjc5"
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -10)
+size = Vector3(6, 6, 10)
+material = SubResource("FogMaterial_80cx4")

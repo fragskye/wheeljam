@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv5jwhx1ugi8t"]
+
+[ext_resource type="PackedScene" uid="uid://cp42uhsmf30dn" path="res://assets/models/props/book_store/counter.glb" id="1_vsxjd"]
+
+[node name="Counter" instance=ExtResource("1_vsxjd")]

@@ -162,6 +162,7 @@ inventory_speed_modifier={
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
 lights_and_shadows/directional_shadow/16_bits=false
 textures/default_filters/anisotropic_filtering_level=0
+environment/volumetric_fog/volume_depth=128
 anti_aliasing/quality/use_debanding=true
 
 [shader_globals]

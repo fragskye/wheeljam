@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ctashwyemsgcf"]
+
+[ext_resource type="Shader" uid="uid://cuyv2jxhf4d12" path="res://shaders/standard_palette.gdshader" id="1_agia7"]
+[ext_resource type="Texture2D" uid="uid://coydxr26h1udh" path="res://assets/palette.png" id="2_iihv6"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_agia7")
+shader_parameter/palette = ExtResource("2_iihv6")
+shader_parameter/emissive = true

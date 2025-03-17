@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpffv2k2op1i0"]
+
+[ext_resource type="PackedScene" uid="uid://dewsxf3k8te4q" path="res://assets/models/props/book_store/ceiling_light.glb" id="1_qkfbt"]
+
+[node name="CeilingLightOn" instance=ExtResource("1_qkfbt")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137, 0)
+light_energy = 0.25
+light_bake_mode = 1
+omni_range = 1.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.137, 0)
+light_indirect_energy = 2.0
+light_bake_mode = 1
+spot_angle = 90.0
