@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://iv6yqa2731vu"]
+
+[ext_resource type="PackedScene" uid="uid://0ghfyjq0tjc0" path="res://assets/models/props/trash_2.glb" id="1_k2xtr"]
+
+[node name="Trash2" instance=ExtResource("1_k2xtr")]

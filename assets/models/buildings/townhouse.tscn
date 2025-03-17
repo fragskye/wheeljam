@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://qvkb0oc211jc"]
+
+[ext_resource type="PackedScene" uid="uid://b3dhitohaphoi" path="res://assets/models/buildings/townhouse.glb" id="1_8ehem"]
+
+[node name="Townhouse" instance=ExtResource("1_8ehem")]
