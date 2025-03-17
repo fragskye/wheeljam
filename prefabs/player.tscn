@@ -41,6 +41,7 @@ radius = 0.1
 physics_interpolation_mode = 1
 collision_layer = 2
 script = ExtResource("1_1txc5")
+move_speed = 3.5
 move_smoothing_accel = 0.125
 move_smoothing_decel = 0.25
 

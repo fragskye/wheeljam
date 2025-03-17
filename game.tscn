@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=26 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dpeyf7gihu6qk" path="res://src/game.gd" id="1_hve3p"]
@@ -64,11 +64,23 @@ burning = false
 visual_scene = ExtResource("5_hve3p")
 metadata/_custom_type_script = "uid://bmxe267u4atcw"
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_215e1"]
+size = Vector3(100, 4, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7sc4i"]
+size = Vector3(20, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_80cx4"]
+size = Vector3(4, 4, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e8heu"]
+size = Vector3(10, 4, 12)
+
 [node name="Game" type="Node3D"]
 physics_interpolation_mode = 1
 script = ExtResource("1_hve3p")
 demons = Array[ExtResource("2_mfdv2")]([ExtResource("3_iotsf"), ExtResource("4_iotsf")])
-time_between_demons = 10.0
+time_between_demons = 30.0
 
 [node name="Environment" parent="." instance=ExtResource("5_215e1")]
 
@@ -125,3 +137,27 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("16_80cx4")
 metadata/_custom_type_script = "uid://drx004wv0kjc5"
+
+[node name="SpawnDemonArea" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnDemonArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_215e1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SpawnDemonArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7)
+shape = SubResource("BoxShape3D_7sc4i")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="SpawnDemonArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 17)
+shape = SubResource("BoxShape3D_80cx4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="SpawnDemonArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -11)
+shape = SubResource("BoxShape3D_e8heu")
+
+[connection signal="body_entered" from="SpawnDemonArea" to="." method="_on_spawn_demon_area_body_entered"]
+[connection signal="body_exited" from="SpawnDemonArea" to="." method="_on_spawn_demon_area_body_exited"]

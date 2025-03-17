@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=15 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
 [ext_resource type="PackedScene" uid="uid://dtlr4fnfqrp1s" path="res://assets/models/buildings/book_store.tscn" id="2_poig3"]
 [ext_resource type="PackedScene" uid="uid://qvkb0oc211jc" path="res://assets/models/buildings/townhouse.tscn" id="3_2eiut"]
 [ext_resource type="PackedScene" uid="uid://cbjfho2l0nlyj" path="res://assets/models/props/trash_1.tscn" id="4_oqxhg"]
+[ext_resource type="PackedScene" uid="uid://m0rajcpmr5iu" path="res://assets/models/props/fence.glb" id="5_2eiut"]
 [ext_resource type="PackedScene" uid="uid://iv6yqa2731vu" path="res://assets/models/props/trash_2.tscn" id="5_4sbom"]
+[ext_resource type="PackedScene" uid="uid://b5ecugm0yh0ww" path="res://assets/models/buildings/convenience_store.tscn" id="5_oqxhg"]
 [ext_resource type="PackedScene" uid="uid://cnb603evaxq8k" path="res://assets/models/props/trash_3.tscn" id="6_2bfpd"]
 [ext_resource type="PackedScene" uid="uid://ba1xcvqntdjcb" path="res://assets/models/props/wreckage_1.tscn" id="7_3jj1w"]
 
@@ -25,6 +27,7 @@ ssao_light_affect = 1.0
 glow_enabled = true
 fog_light_color = Color(0.21998, 0.201387, 0.188098, 1)
 fog_density = 0.15
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.15
 volumetric_fog_albedo = Color(0.219608, 0.2, 0.188235, 1)
 volumetric_fog_length = 128.0
@@ -41,7 +44,7 @@ environment = SubResource("Environment_h2yge")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_energy = 0.25
+light_energy = 0.1
 light_indirect_energy = 3.0
 shadow_enabled = true
 
@@ -69,6 +72,18 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0
 [node name="Townhouse3" parent="." instance=ExtResource("3_2eiut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0.1, -7)
 
+[node name="ConvenienceStore" parent="." instance=ExtResource("5_oqxhg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, -5)
+
+[node name="fence" parent="." instance=ExtResource("5_2eiut")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 39, 0.1, -7)
+
+[node name="fence2" parent="." instance=ExtResource("5_2eiut")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 39, 0.1, -5)
+
+[node name="fence3" parent="." instance=ExtResource("5_2eiut")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 37, 0.1, -5)
+
 [node name="Trash" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
@@ -93,6 +108,18 @@ transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 26.6954,
 [node name="Trash7" parent="Trash" instance=ExtResource("6_2bfpd")]
 transform = Transform3D(-0.832854, 0, 0.553493, 0, 1, 0, -0.553493, 0, -0.832854, -23.2735, 9.53674e-07, 6.47683)
 
+[node name="Trash8" parent="Trash" instance=ExtResource("5_4sbom")]
+transform = Transform3D(-0.0266306, 0, -0.999645, 0, 1, 0, 0.999645, 0, -0.0266306, 39.2507, -1.19209e-07, -6.0913)
+
+[node name="Trash9" parent="Trash" instance=ExtResource("4_oqxhg")]
+transform = Transform3D(0.949906, 0, 0.312534, 0, 1, 0, -0.312534, 0, 0.949906, -4.52039, -4.76837e-07, -6.7017)
+
+[node name="Trash10" parent="Trash" instance=ExtResource("5_4sbom")]
+transform = Transform3D(0.182218, 0, 0.983258, 0, 1, 0, -0.983258, 0, 0.182218, -4.94371, -1.19209e-07, -7.35352)
+
+[node name="Trash9" parent="." instance=ExtResource("6_2bfpd")]
+transform = Transform3D(0.420624, 0, -0.907235, 0, 1, 0, 0.907235, 0, 0.420624, 38.551, 0.1, -7.06515)
+
 [node name="Wreckage" type="Node3D" parent="."]
 
 [node name="Wreckage1" parent="Wreckage" instance=ExtResource("7_3jj1w")]
@@ -102,4 +129,4 @@ transform = Transform3D(0.663848, 0, -0.747868, 0, 1, 0, 0.747868, 0, 0.663848, 
 transform = Transform3D(-0.245764, 0, 0.96933, 0, 1, 0, -0.96933, 0, -0.245764, -56.0061, 0, 0.271761)
 
 [node name="Wreckage3" parent="Wreckage" instance=ExtResource("7_3jj1w")]
-transform = Transform3D(0.999588, 0, 0.0287066, 0, 1, 0, -0.0287066, 0, 0.999588, 0.380364, 0, -16.8297)
+transform = Transform3D(0.901153, 0, -0.433502, 0, 1, 0, 0.433502, 0, 0.901153, 1.39394, 0, -17.9642)
