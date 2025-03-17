@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cghnud24kx3x2"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_b6jnf"]
+[ext_resource type="Material" uid="uid://d4exoo5sepvtd" path="res://assets/posters/devilish_deals.tres" id="2_m67c1"]
+
+[node name="DevilishDeals" instance=ExtResource("1_b6jnf")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_m67c1")

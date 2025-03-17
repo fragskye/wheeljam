@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://belcob6edkw2q"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_tcvij"]
+[ext_resource type="Material" uid="uid://ckpiqnpgfebgs" path="res://assets/posters/bitter_unholy.tres" id="2_tcvij"]
+
+[node name="BitterUnholy" instance=ExtResource("1_tcvij")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_tcvij")

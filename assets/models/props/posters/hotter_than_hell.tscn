@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b72df0qxfj7d3"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_ujqx2"]
+[ext_resource type="Material" uid="uid://8vjnkmk71m7e" path="res://assets/posters/hotter_than_hell.tres" id="2_ujqx2"]
+
+[node name="HotterThanHell" instance=ExtResource("1_ujqx2")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ujqx2")

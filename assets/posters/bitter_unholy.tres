@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ckpiqnpgfebgs"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_sypv2"]
+[ext_resource type="Texture2D" uid="uid://b81r7dqetdjj2" path="res://assets/posters/bitter_unholy.png" id="2_sypv2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_sypv2")
+shader_parameter/albedo = ExtResource("2_sypv2")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1
