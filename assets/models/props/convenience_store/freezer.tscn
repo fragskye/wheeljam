@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs0f1vstr3ok0"]
+
+[ext_resource type="PackedScene" uid="uid://cu0v5qlemmjgm" path="res://assets/models/props/convenience_store/freezer.glb" id="1_k6v5e"]
+
+[node name="Freezer" instance=ExtResource("1_k6v5e")]

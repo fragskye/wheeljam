@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=17 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://b5ecugm0yh0ww" path="res://assets/models/buildings/convenience_store.tscn" id="5_oqxhg"]
 [ext_resource type="PackedScene" uid="uid://cnb603evaxq8k" path="res://assets/models/props/trash_3.tscn" id="6_2bfpd"]
 [ext_resource type="PackedScene" uid="uid://ba1xcvqntdjcb" path="res://assets/models/props/wreckage_1.tscn" id="7_3jj1w"]
+[ext_resource type="PackedScene" uid="uid://bfr5sqtuj00pl" path="res://assets/models/props/convenience_store/cardboard_box_2.tscn" id="10_2bfpd"]
+[ext_resource type="PackedScene" uid="uid://d2in713yw3yem" path="res://assets/models/props/convenience_store/cardboard_box_1.tscn" id="11_3jj1w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -116,6 +118,15 @@ transform = Transform3D(0.949906, 0, 0.312534, 0, 1, 0, -0.312534, 0, 0.949906, 
 
 [node name="Trash10" parent="Trash" instance=ExtResource("5_4sbom")]
 transform = Transform3D(0.182218, 0, 0.983258, 0, 1, 0, -0.983258, 0, 0.182218, -4.94371, -1.19209e-07, -7.35352)
+
+[node name="CardboardBox2" parent="Trash" instance=ExtResource("10_2bfpd")]
+transform = Transform3D(0.574991, 0, 0.81816, 0, 1, 0, -0.81816, 0, 0.574991, -4.63523, 0, -8.662)
+
+[node name="CardboardBox1" parent="Trash" instance=ExtResource("11_3jj1w")]
+transform = Transform3D(-0.0771366, 0, 0.997021, 0, 1, 0, -0.997021, 0, -0.0771366, -4.69749, 0, -9.18886)
+
+[node name="CardboardBox3" parent="Trash" instance=ExtResource("11_3jj1w")]
+transform = Transform3D(0.913233, 0, 0.407438, 0, 1, 0, -0.407438, 0, 0.913233, -4.626, 0.4, -8.638)
 
 [node name="Trash9" parent="." instance=ExtResource("6_2bfpd")]
 transform = Transform3D(0.420624, 0, -0.907235, 0, 1, 0, 0.907235, 0, 0.420624, 38.551, 0.1, -7.06515)

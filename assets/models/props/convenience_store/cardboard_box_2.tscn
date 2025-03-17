@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfr5sqtuj00pl"]
+
+[ext_resource type="PackedScene" uid="uid://cnmwc1n0n13rk" path="res://assets/models/props/convenience_store/cardboard_box_2.glb" id="1_j8d1g"]
+
+[node name="CardboardBox2" instance=ExtResource("1_j8d1g")]
