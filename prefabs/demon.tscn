@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://cbjrdq7ived0u" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="9_6x10w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gmw8p"]
-size = Vector3(4, 4, 1)
+size = Vector3(4, 4, 3)
 
 [sub_resource type="Curve" id="Curve_4ginn"]
 _data = [Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.0, 0.0, 0, 0]
@@ -96,7 +96,7 @@ collision_layer = 4
 script = ExtResource("3_h6laj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DemonInteract"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.5)
 shape = SubResource("BoxShape3D_gmw8p")
 
 [node name="DemonFaceVisual" type="Node3D" parent="."]

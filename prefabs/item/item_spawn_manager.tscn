@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmfhmrtalei7j"]
+
+[ext_resource type="Script" uid="uid://c5b4jb3qmpxib" path="res://src/item/item_spawn_manager.gd" id="1_57f5y"]
+
+[node name="ItemSpawnManager" type="Node"]
+script = ExtResource("1_57f5y")
+metadata/_custom_type_script = "uid://c5b4jb3qmpxib"

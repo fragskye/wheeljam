@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=31 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dpeyf7gihu6qk" path="res://src/game.gd" id="1_hve3p"]
@@ -13,7 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://duy00aiwunpfy" path="res://environment.tscn" id="5_215e1"]
 [ext_resource type="PackedScene" uid="uid://6c5ucfomh1dt" path="res://prefabs/item/page/page_visual.tscn" id="5_hve3p"]
 [ext_resource type="PackedScene" uid="uid://bb0jfvecfuu5d" path="res://prefabs/ui/battle_layer.tscn" id="7_eow3j"]
+[ext_resource type="PackedScene" uid="uid://cmfhmrtalei7j" path="res://prefabs/item/item_spawn_manager.tscn" id="15_7sc4i"]
+[ext_resource type="Script" uid="uid://ckctay6gbi6sb" path="res://src/item/item_spawn_pool.gd" id="15_e8heu"]
 [ext_resource type="Script" uid="uid://drx004wv0kjc5" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_80cx4"]
+[ext_resource type="Resource" uid="uid://cesk022ld4qbv" path="res://data/item_spawn_pools/pool_0.tres" id="16_rvswv"]
+[ext_resource type="Resource" uid="uid://cficv3skkd8ni" path="res://data/item_spawn_pools/pool_1.tres" id="17_rvswv"]
 
 [sub_resource type="Resource" id="Resource_215e1"]
 script = ExtResource("4_vef74")
@@ -137,6 +141,9 @@ data = SubResource("Resource_hb5m1")
 
 [node name="BattleLayer" parent="." instance=ExtResource("7_eow3j")]
 unique_name_in_owner = true
+
+[node name="ItemSpawnManager" parent="." instance=ExtResource("15_7sc4i")]
+spawn_pools = Array[ExtResource("15_e8heu")]([ExtResource("16_rvswv"), ExtResource("17_rvswv")])
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 unique_name_in_owner = true

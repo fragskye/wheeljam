@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://lg6btqew2gfg"]
+
+[ext_resource type="Script" uid="uid://dujs7hpw38kcc" path="res://src/item/item_spawn.gd" id="1_ipxrh"]
+
+[node name="ItemSpawn" type="Node3D" groups=["item_spawn"]]
+script = ExtResource("1_ipxrh")
+random_angle = 15.0
+random_position = Vector3(0.05, 0, 0.05)
+metadata/_custom_type_script = "uid://dujs7hpw38kcc"

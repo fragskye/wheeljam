@@ -16,6 +16,7 @@ func play_pickup_anim(target_start: Node3D, target_end: Node3D) -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUINT)
 	tween.tween_method(_pickup_anim.bind(global_transform, target_start, target_end), 0.0, 1.0, 0.6)
+	tween.tween_method(_pickup_anim.bind(global_transform, target_start, target_end), 1.0, 1.0, 0.2)
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_method(_pickup_anim.bind(global_transform, target_start, target_end), 1.0, 2.0, 0.3)
 	tween.tween_callback(queue_free)
