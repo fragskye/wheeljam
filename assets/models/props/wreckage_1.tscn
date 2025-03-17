@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba1xcvqntdjcb"]
+
+[ext_resource type="PackedScene" uid="uid://2jaqjlrb1m2e" path="res://assets/models/props/wreckage_1.glb" id="1_8dwny"]
+
+[node name="Wreckage1" instance=ExtResource("1_8dwny")]

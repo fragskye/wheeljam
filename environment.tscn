@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://duy00aiwunpfy"]
+
+[ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
+[ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
+[ext_resource type="PackedScene" uid="uid://dtlr4fnfqrp1s" path="res://assets/models/buildings/book_store.tscn" id="2_poig3"]
+[ext_resource type="PackedScene" uid="uid://qvkb0oc211jc" path="res://assets/models/buildings/townhouse.tscn" id="3_2eiut"]
+[ext_resource type="PackedScene" uid="uid://cbjfho2l0nlyj" path="res://assets/models/props/trash_1.tscn" id="4_oqxhg"]
+[ext_resource type="PackedScene" uid="uid://iv6yqa2731vu" path="res://assets/models/props/trash_2.tscn" id="5_4sbom"]
+[ext_resource type="PackedScene" uid="uid://cnb603evaxq8k" path="res://assets/models/props/trash_3.tscn" id="6_2bfpd"]
+[ext_resource type="PackedScene" uid="uid://ba1xcvqntdjcb" path="res://assets/models/props/wreckage_1.tscn" id="7_3jj1w"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_0xm2m"]
+sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
+
+[sub_resource type="Environment" id="Environment_h2yge"]
+background_mode = 2
+sky = SubResource("Sky_0xm2m")
+tonemap_mode = 2
+ssao_enabled = true
+ssao_light_affect = 1.0
+glow_enabled = true
+fog_light_color = Color(0.21998, 0.201387, 0.188098, 1)
+fog_density = 0.15
+volumetric_fog_density = 0.15
+volumetric_fog_albedo = Color(0.219608, 0.2, 0.188235, 1)
+volumetric_fog_length = 128.0
+volumetric_fog_detail_spread = 1.0
+volumetric_fog_ambient_inject = 1.0
+
+[sub_resource type="FogMaterial" id="FogMaterial_80cx4"]
+density = -0.2
+
+[node name="Environment" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h2yge")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 0.25
+light_indirect_energy = 3.0
+shadow_enabled = true
+
+[node name="VoxelGI" type="VoxelGI" parent="."]
+subdiv = 3
+size = Vector3(256, 256, 256)
+data = ExtResource("1_poig3")
+
+[node name="Ground" parent="." instance=ExtResource("1_pk5nr")]
+
+[node name="BookStore" parent="." instance=ExtResource("2_poig3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 15)
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -10)
+size = Vector3(6, 6, 10)
+material = SubResource("FogMaterial_80cx4")
+
+[node name="Townhouse" parent="." instance=ExtResource("3_2eiut")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20, 0.1, 7)
+
+[node name="Townhouse2" parent="." instance=ExtResource("3_2eiut")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0.1, 7)
+
+[node name="Townhouse3" parent="." instance=ExtResource("3_2eiut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0.1, -7)
+
+[node name="Trash" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Trash1" parent="Trash" instance=ExtResource("4_oqxhg")]
+transform = Transform3D(-0.962578, 0, -0.271004, 0, 1, 0, 0.271004, 0, -0.962578, -10.6421, -2.38419e-07, 6.36045)
+
+[node name="Trash2" parent="Trash" instance=ExtResource("4_oqxhg")]
+transform = Transform3D(-0.691866, 0, 0.722026, 0, 1, 0, -0.722026, 0, -0.691866, 10.644, -2.38419e-07, 6.2378)
+
+[node name="Trash3" parent="Trash" instance=ExtResource("5_4sbom")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8.80166, -1.19209e-07, 5.02882)
+
+[node name="Trash4" parent="Trash" instance=ExtResource("5_4sbom")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -17.0597, -1.19209e-07, 6.90198)
+
+[node name="Trash5" parent="Trash" instance=ExtResource("5_4sbom")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 17.365, -1.19209e-07, 6.90459)
+
+[node name="Trash6" parent="Trash" instance=ExtResource("6_2bfpd")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 26.6954, 0, 6.44142)
+
+[node name="Trash7" parent="Trash" instance=ExtResource("6_2bfpd")]
+transform = Transform3D(-0.832854, 0, 0.553493, 0, 1, 0, -0.553493, 0, -0.832854, -23.2735, 9.53674e-07, 6.47683)
+
+[node name="Wreckage" type="Node3D" parent="."]
+
+[node name="Wreckage1" parent="Wreckage" instance=ExtResource("7_3jj1w")]
+transform = Transform3D(0.663848, 0, -0.747868, 0, 1, 0, 0.747868, 0, 0.663848, 43.9939, 0, -0.206262)
+
+[node name="Wreckage2" parent="Wreckage" instance=ExtResource("7_3jj1w")]
+transform = Transform3D(-0.245764, 0, 0.96933, 0, 1, 0, -0.96933, 0, -0.245764, -56.0061, 0, 0.271761)
+
+[node name="Wreckage3" parent="Wreckage" instance=ExtResource("7_3jj1w")]
+transform = Transform3D(0.999588, 0, 0.0287066, 0, 1, 0, -0.0287066, 0, 0.999588, 0.380364, 0, -16.8297)

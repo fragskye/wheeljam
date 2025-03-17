@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=22 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dpeyf7gihu6qk" path="res://src/game.gd" id="1_hve3p"]
@@ -10,39 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://sb11wcnhnfwt" path="res://prefabs/ui/inventory_layer.tscn" id="4_fc0e3"]
 [ext_resource type="Resource" uid="uid://cj8qs5jdusig" path="res://data/demons/final_demon.tres" id="4_iotsf"]
 [ext_resource type="Script" uid="uid://bmxe267u4atcw" path="res://src/item/page_data.gd" id="4_vef74"]
+[ext_resource type="PackedScene" uid="uid://duy00aiwunpfy" path="res://environment.tscn" id="5_215e1"]
 [ext_resource type="PackedScene" uid="uid://6c5ucfomh1dt" path="res://prefabs/item/page/page_visual.tscn" id="5_hve3p"]
 [ext_resource type="PackedScene" uid="uid://bb0jfvecfuu5d" path="res://prefabs/ui/battle_layer.tscn" id="7_eow3j"]
-[ext_resource type="PackedScene" uid="uid://bem8jp0bhn2aa" path="res://assets/models/ground.glb" id="13_lc2xo"]
-[ext_resource type="PackedScene" uid="uid://dtlr4fnfqrp1s" path="res://assets/models/buildings/book_store.tscn" id="14_215e1"]
-[ext_resource type="VoxelGIData" uid="uid://s54iwihf0in0" path="res://game.VoxelGI_data.res" id="15_7sc4i"]
 [ext_resource type="Script" uid="uid://drx004wv0kjc5" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_80cx4"]
-[ext_resource type="PackedScene" uid="uid://qvkb0oc211jc" path="res://assets/models/buildings/townhouse.tscn" id="17_e8heu"]
-[ext_resource type="PackedScene" uid="uid://cbjfho2l0nlyj" path="res://assets/models/props/trash_1.tscn" id="18_rvswv"]
-[ext_resource type="PackedScene" uid="uid://iv6yqa2731vu" path="res://assets/models/props/trash_2.tscn" id="19_boyg6"]
-[ext_resource type="PackedScene" uid="uid://cnb603evaxq8k" path="res://assets/models/props/trash_3.tscn" id="20_e36ub"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-
-[sub_resource type="Sky" id="Sky_0xm2m"]
-sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
-
-[sub_resource type="Environment" id="Environment_h2yge"]
-background_mode = 2
-sky = SubResource("Sky_0xm2m")
-tonemap_mode = 2
-ssao_enabled = true
-ssao_light_affect = 1.0
-glow_enabled = true
-fog_light_color = Color(0.21998, 0.201387, 0.188098, 1)
-fog_density = 0.15
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.15
-volumetric_fog_albedo = Color(0.219608, 0.2, 0.188235, 1)
-volumetric_fog_length = 128.0
-volumetric_fog_detail_spread = 1.0
-volumetric_fog_ambient_inject = 1.0
 
 [sub_resource type="Resource" id="Resource_vef74"]
 script = ExtResource("4_vef74")
@@ -93,23 +64,13 @@ burning = false
 visual_scene = ExtResource("5_hve3p")
 metadata/_custom_type_script = "uid://bmxe267u4atcw"
 
-[sub_resource type="FogMaterial" id="FogMaterial_80cx4"]
-density = -0.2
-
 [node name="Game" type="Node3D"]
 physics_interpolation_mode = 1
 script = ExtResource("1_hve3p")
 demons = Array[ExtResource("2_mfdv2")]([ExtResource("3_iotsf"), ExtResource("4_iotsf")])
 time_between_demons = 10.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_h2yge")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_energy = 0.25
-light_indirect_energy = 3.0
-shadow_enabled = true
+[node name="Environment" parent="." instance=ExtResource("5_215e1")]
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.9, 0, 15)
@@ -154,16 +115,6 @@ data = SubResource("Resource_7sc4i")
 [node name="BattleLayer" parent="." instance=ExtResource("7_eow3j")]
 unique_name_in_owner = true
 
-[node name="ground" parent="." instance=ExtResource("13_lc2xo")]
-
-[node name="book_store" parent="." instance=ExtResource("14_215e1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 15)
-
-[node name="VoxelGI" type="VoxelGI" parent="."]
-subdiv = 3
-size = Vector3(256, 256, 256)
-data = ExtResource("15_7sc4i")
-
 [node name="PlayerCamera" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
@@ -174,38 +125,3 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("16_80cx4")
 metadata/_custom_type_script = "uid://drx004wv0kjc5"
-
-[node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -10)
-size = Vector3(6, 6, 10)
-material = SubResource("FogMaterial_80cx4")
-
-[node name="Townhouse" parent="." instance=ExtResource("17_e8heu")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20, 0.1, 7)
-
-[node name="Townhouse2" parent="." instance=ExtResource("17_e8heu")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0.1, 7)
-
-[node name="Trash" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-
-[node name="Trash1" parent="Trash" instance=ExtResource("18_rvswv")]
-transform = Transform3D(-0.962578, 0, -0.271004, 0, 1, 0, 0.271004, 0, -0.962578, -10.6421, -2.38419e-07, 6.36045)
-
-[node name="Trash2" parent="Trash" instance=ExtResource("18_rvswv")]
-transform = Transform3D(-0.691866, 0, 0.722026, 0, 1, 0, -0.722026, 0, -0.691866, 10.644, -2.38419e-07, 6.2378)
-
-[node name="Trash3" parent="Trash" instance=ExtResource("19_boyg6")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8.80166, -1.19209e-07, 5.02882)
-
-[node name="Trash4" parent="Trash" instance=ExtResource("19_boyg6")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -17.0597, -1.19209e-07, 6.90198)
-
-[node name="Trash5" parent="Trash" instance=ExtResource("19_boyg6")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 17.365, -1.19209e-07, 6.90459)
-
-[node name="Trash6" parent="Trash" instance=ExtResource("20_e36ub")]
-transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 26.6954, 0, 6.44142)
-
-[node name="Trash7" parent="Trash" instance=ExtResource("20_e36ub")]
-transform = Transform3D(-0.832854, 0, 0.553493, 0, 1, 0, -0.553493, 0, -0.832854, -23.2735, 9.53674e-07, 6.47683)
