@@ -4,6 +4,8 @@ const WHEEL_SLICE: PackedScene = preload("res://prefabs/ui/wheel_slice.tscn")
 const INVENTORY_ITEM: PackedScene = preload("res://prefabs/ui/inventory_item.tscn")
 const MOVES_PER_TURN: int = 3
 
+signal demon_verdict_anim_finished()
+
 @onready var battle_menu: Control = %BattleMenu
 @onready var inventory_carousel: InventoryCarousel = %InventoryCarousel
 @onready var wheel: Control = %Wheel
@@ -11,8 +13,20 @@ const MOVES_PER_TURN: int = 3
 @onready var wheel_wedges: Control = %WheelWedges
 @onready var battle_health: ColorRect = %BattleHealth
 @onready var battle_health_fill: ColorRect = %BattleHealthFill
+@onready var explanation: HBoxContainer = %Explanation
+@onready var page_mult_label: Label = %PageMultLabel
+@onready var demon_mult_label: Label = %DemonMultLabel
+@onready var result_label: Label = %ResultLabel
 
 @export var wheel_slice_count: int = 0
+
+@export var explanation_good_color: Color = Color.WHITE
+@export var explanation_neutral_color: Color = Color.WHITE
+@export var explanation_bad_color: Color = Color.WHITE
+
+var _demon_verdict_queue: Array[Array] = []
+var _accepting_new_demon_verdict: bool = true
+var _playing_demon_verdict: bool = false
 
 var _wheel_slices: Array[WheelSlice] = []
 var _wheel_wedges: Array[InventoryItem] = []
@@ -35,6 +49,8 @@ func _ready() -> void:
 	SignalBus.battle_demon_health_changed.connect(_on_battle_demon_health_changed)
 	SignalBus.battle_lost.connect(_on_battle_lost)
 	SignalBus.battle_won.connect(_on_battle_won)
+	SignalBus.battle_demon_verdict.connect(_on_battle_demon_verdict)
+	explanation.modulate = Color.TRANSPARENT
 
 func rotate_wheel(slices: int) -> void:
 	_wheel_rotation += slices
@@ -54,6 +70,9 @@ func _process(_delta: float) -> void:
 		rotate_wheel(1)
 	
 	update_slices()
+	
+	if _accepting_new_demon_verdict && _demon_verdict_queue.size() > 0:
+		_play_demon_verdict()
 	
 	_input_state_changed_this_frame = false
 
@@ -214,7 +233,102 @@ func _on_battle_demon_health_changed(percentage: float, _absolute: float, _delta
 	battle_health_fill.custom_minimum_size.x = battle_health.size.x * percentage
 
 func _on_battle_lost() -> void:
+	# REALLY??? THIS IS HOW I DISABLE A CONTROL WITHOUT REMOVING IT FROM THE HIERARCHY AND MESSING UP MY LAYOUT???
+	wheel.propagate_call("set_mouse_filter", [Control.MOUSE_FILTER_IGNORE])
+	wheel.process_mode = Node.PROCESS_MODE_DISABLED
+	wheel.modulate = Color.TRANSPARENT
+	inventory_carousel.propagate_call("set_mouse_filter", [Control.MOUSE_FILTER_IGNORE])
+	inventory_carousel.process_mode = Node.PROCESS_MODE_DISABLED
+	inventory_carousel.modulate = Color.TRANSPARENT
+	SignalBus.battle_end.emit()
 	InputManager.switch_input_state(InputManager.InputState.GAME_OVER)
 
 func _on_battle_won() -> void:
+	wheel.propagate_call("set_mouse_filter", [Control.MOUSE_FILTER_IGNORE])
+	wheel.process_mode = Node.PROCESS_MODE_DISABLED
+	wheel.modulate = Color.TRANSPARENT
+	inventory_carousel.propagate_call("set_mouse_filter", [Control.MOUSE_FILTER_IGNORE])
+	inventory_carousel.process_mode = Node.PROCESS_MODE_DISABLED
+	inventory_carousel.modulate = Color.TRANSPARENT
+	
+	if _playing_demon_verdict:
+		await demon_verdict_anim_finished
+	
+	SignalBus.battle_end.emit()
 	InputManager.pop_input_state()
+
+func _on_battle_demon_verdict(page_mult: float, demon_mult: float, result: float) -> void:
+	_demon_verdict_queue.push_back([page_mult, demon_mult, result])
+	if _accepting_new_demon_verdict:
+		_play_demon_verdict()
+
+func _play_demon_verdict() -> void:
+	_accepting_new_demon_verdict = false
+	_playing_demon_verdict = true
+	var demon_verdict: Array = _demon_verdict_queue.pop_front()
+	var page_mult: float = demon_verdict[0]
+	var demon_mult: float = demon_verdict[1]
+	var result: float = demon_verdict[2]
+	
+	explanation.modulate = Color.WHITE
+	page_mult_label.hide()
+	demon_mult_label.hide()
+	result_label.hide()
+	
+	page_mult_label.text = str(page_mult)
+	demon_mult_label.text = str(demon_mult)
+	result_label.text = str(result)
+	
+	# is there seriously no built-in format specifier for this?
+	if page_mult_label.text.ends_with(".0"):
+		page_mult_label.text = page_mult_label.text.substr(0, page_mult_label.text.length() - 2)
+	if demon_mult_label.text.ends_with(".0"):
+		demon_mult_label.text = demon_mult_label.text.substr(0, demon_mult_label.text.length() - 2)
+	if result_label.text.ends_with(".0"):
+		result_label.text = result_label.text.substr(0, result_label.text.length() - 2)
+	
+	if demon_mult > 0:
+		demon_mult_label.modulate = explanation_good_color
+	elif demon_mult < 0:
+		demon_mult_label.modulate = explanation_bad_color
+	else:
+		demon_mult_label.modulate = explanation_neutral_color
+	
+	if result > 0:
+		result_label.modulate = explanation_good_color
+	elif result < 0:
+		result_label.modulate = explanation_bad_color
+	else:
+		result_label.modulate = explanation_neutral_color
+	
+	var page_mult_label_pos: Vector2 = page_mult_label.global_position
+	var demon_mult_label_pos: Vector2 = demon_mult_label.global_position
+	var result_label_pos: Vector2 = result_label.global_position
+	
+	var step_duration: float = 0.4
+	
+	var tween: Tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	page_mult_label.global_position = page_mult_label_pos + Vector2(-40.0, 0.0)
+	page_mult_label.scale = Vector2(1.6, 1.6)
+	tween.tween_property(page_mult_label, "visible", true, 0.0)
+	tween.tween_property(page_mult_label, "global_position", page_mult_label_pos, step_duration)
+	tween.parallel().tween_property(page_mult_label, "scale", Vector2.ONE, step_duration)
+	demon_mult_label.global_position = demon_mult_label_pos + Vector2(0.0, -40.0)
+	demon_mult_label.scale = Vector2(1.6, 1.6)
+	tween.tween_property(demon_mult_label, "visible", true, 0.0)
+	tween.tween_property(demon_mult_label, "global_position", demon_mult_label_pos, step_duration)
+	tween.parallel().tween_property(demon_mult_label, "scale", Vector2.ONE, step_duration)
+	result_label.scale = Vector2(2.2, 2.2)
+	tween.tween_property(result_label, "visible", true, 0.0)
+	tween.tween_property(result_label, "scale", Vector2(1.6, 1.6), step_duration)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(explanation, "modulate", Color.TRANSPARENT, 0.6)
+	await tween.finished
+	
+	if _demon_verdict_queue.size() == 0:
+		demon_verdict_anim_finished.emit()
+	
+	_playing_demon_verdict = false
+	_accepting_new_demon_verdict = true

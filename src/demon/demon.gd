@@ -31,7 +31,6 @@ func _process(delta: float) -> void:
 		SignalBus.battle_demon_health_changed.emit(health / data.max_health, health, drain, false)
 		if health <= 0:
 			SignalBus.battle_lost.emit()
-			SignalBus.battle_end.emit()
 
 func _on_battle_begin() -> void:
 	demon_pcam.priority = 2
@@ -48,14 +47,13 @@ func _on_battle_player_action_previewed(index: int) -> void:
 func _on_battle_player_action_selected(index: int, multiplier: float) -> void:
 	_verdict = data.evaluate(index)
 	var result: float = _verdict.multiplier * multiplier
+	SignalBus.battle_demon_verdict.emit(multiplier, _verdict.multiplier, result)
 	health = clampf(health + result, 0.0, data.max_health)
 	SignalBus.battle_demon_health_changed.emit(health / data.max_health, health, result, true)
 	if health <= 0:
 		SignalBus.battle_lost.emit()
-		SignalBus.battle_end.emit()
 	if health >= data.max_health:
 		SignalBus.battle_won.emit()
-		SignalBus.battle_end.emit()
 	print("index", index)
 	print("verdict mult", _verdict.multiplier)
 	print("mult", multiplier)

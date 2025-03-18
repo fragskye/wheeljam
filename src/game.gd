@@ -19,7 +19,7 @@ func _ready() -> void:
 	SignalBus.battle_won.connect(_on_battle_won)
 	SignalBus.battle_lost.connect(_on_battle_lost)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _can_spawn_demon && _in_spawn_demon_area:
 		spawn_next_demon()
 
@@ -41,6 +41,7 @@ func spawn_next_demon() -> void:
 	NotificationLayer.show_toast("What was that?")
 
 func _on_battle_won() -> void:
+	await battle_layer.demon_verdict_anim_finished
 	demon.queue_free()
 	demon_index += 1
 	if demon_index < demons.size():
@@ -52,8 +53,8 @@ func _on_battle_won() -> void:
 func _on_battle_lost() -> void:
 	pass
 
-func _on_spawn_demon_area_body_entered(body: Node3D) -> void:
+func _on_spawn_demon_area_body_entered(_body: Node3D) -> void:
 	_in_spawn_demon_area = true
 
-func _on_spawn_demon_area_body_exited(body: Node3D) -> void:
+func _on_spawn_demon_area_body_exited(_body: Node3D) -> void:
 	_in_spawn_demon_area = false

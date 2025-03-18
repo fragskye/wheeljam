@@ -17,13 +17,13 @@ var shake_tween: Tween = null
 
 var _time: float = 0.0
 
-func shake(amount: float, duration: float, ease: Tween.EaseType = Tween.EaseType.EASE_IN_OUT, trans: Tween.TransitionType = Tween.TransitionType.TRANS_LINEAR) -> void:
+func shake(amount: float, duration: float, easing: Tween.EaseType = Tween.EaseType.EASE_IN_OUT, transition: Tween.TransitionType = Tween.TransitionType.TRANS_LINEAR) -> void:
 	if shake_tween != null && shake_tween.is_running():
 		shake_tween.stop()
 	shake_amount = amount
 	shake_tween = get_tree().create_tween()
-	shake_tween.set_ease(ease)
-	shake_tween.set_trans(trans)
+	shake_tween.set_ease(easing)
+	shake_tween.set_trans(transition)
 	shake_tween.tween_property(self, "shake_amount", 0.0, duration)
 
 func _process(delta: float) -> void:
