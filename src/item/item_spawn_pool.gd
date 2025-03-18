@@ -18,4 +18,5 @@ func create_items() -> Array[Item]:
 		page_data.multiplier = float(page_idx)
 		page.data = page_data
 		items.push_back(page)
+	items.shuffle()
 	return items
