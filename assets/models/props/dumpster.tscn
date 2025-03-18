@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://3awvl64l81xf"]
+
+[ext_resource type="PackedScene" uid="uid://irbllul1x4oi" path="res://assets/models/props/dumpster.glb" id="1_o5fsb"]
+
+[node name="Dumpster" instance=ExtResource("1_o5fsb")]
