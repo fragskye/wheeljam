@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=18 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://iv6yqa2731vu" path="res://assets/models/props/trash_2.tscn" id="5_4sbom"]
 [ext_resource type="PackedScene" uid="uid://b5ecugm0yh0ww" path="res://assets/models/buildings/convenience_store.tscn" id="5_oqxhg"]
 [ext_resource type="PackedScene" uid="uid://cnb603evaxq8k" path="res://assets/models/props/trash_3.tscn" id="6_2bfpd"]
+[ext_resource type="PackedScene" uid="uid://cw6hm2gbufl64" path="res://assets/models/buildings/laundromat.tscn" id="6_3jj1w"]
 [ext_resource type="PackedScene" uid="uid://ba1xcvqntdjcb" path="res://assets/models/props/wreckage_1.tscn" id="7_3jj1w"]
 [ext_resource type="PackedScene" uid="uid://bfr5sqtuj00pl" path="res://assets/models/props/convenience_store/cardboard_box_2.tscn" id="10_2bfpd"]
 [ext_resource type="PackedScene" uid="uid://d2in713yw3yem" path="res://assets/models/props/convenience_store/cardboard_box_1.tscn" id="11_3jj1w"]
@@ -74,8 +75,17 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0
 [node name="Townhouse3" parent="." instance=ExtResource("3_2eiut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0.1, -7)
 
+[node name="Townhouse4" parent="." instance=ExtResource("3_2eiut")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 60, 0.1, 7)
+
+[node name="Townhouse5" parent="." instance=ExtResource("3_2eiut")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 69, 0.1, -7)
+
 [node name="ConvenienceStore" parent="." instance=ExtResource("5_oqxhg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, -5)
+
+[node name="Laundromat" parent="." instance=ExtResource("6_3jj1w")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 40, 0.1, 5)
 
 [node name="fence" parent="." instance=ExtResource("5_2eiut")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 39, 0.1, -7)
@@ -119,6 +129,18 @@ transform = Transform3D(0.949906, 0, 0.312534, 0, 1, 0, -0.312534, 0, 0.949906, 
 [node name="Trash10" parent="Trash" instance=ExtResource("5_4sbom")]
 transform = Transform3D(0.182218, 0, 0.983258, 0, 1, 0, -0.983258, 0, 0.182218, -4.94371, -1.19209e-07, -7.35352)
 
+[node name="Trash11" parent="Trash" instance=ExtResource("6_2bfpd")]
+transform = Transform3D(-0.62512, 0, -0.780528, 0, 1, 0, 0.780528, 0, -0.62512, 34.5299, 0, 4.52982)
+
+[node name="Trash12" parent="Trash" instance=ExtResource("5_4sbom")]
+transform = Transform3D(-0.0537129, 0, -0.998556, 0, 1, 0, 0.998556, 0, -0.0537129, 29.896, -3.57628e-07, 5.91142)
+
+[node name="Trash13" parent="Trash" instance=ExtResource("6_2bfpd")]
+transform = Transform3D(0.420624, 0, -0.907235, 0, 1, 0, 0.907235, 0, 0.420624, 38.551, 0, -7.06515)
+
+[node name="Trash14" parent="Trash" instance=ExtResource("6_2bfpd")]
+transform = Transform3D(0.556441, 0, 0.830887, 0, 1, 0, -0.830887, 0, 0.556441, 39.5575, 0, -5.86011)
+
 [node name="CardboardBox2" parent="Trash" instance=ExtResource("10_2bfpd")]
 transform = Transform3D(0.574991, 0, 0.81816, 0, 1, 0, -0.81816, 0, 0.574991, -4.63523, 0, -8.662)
 
@@ -128,16 +150,19 @@ transform = Transform3D(-0.0771366, 0, 0.997021, 0, 1, 0, -0.997021, 0, -0.07713
 [node name="CardboardBox3" parent="Trash" instance=ExtResource("11_3jj1w")]
 transform = Transform3D(0.913233, 0, 0.407438, 0, 1, 0, -0.407438, 0, 0.913233, -4.626, 0.4, -8.638)
 
-[node name="Trash9" parent="." instance=ExtResource("6_2bfpd")]
-transform = Transform3D(0.420624, 0, -0.907235, 0, 1, 0, 0.907235, 0, 0.420624, 38.551, 0.1, -7.06515)
-
 [node name="Wreckage" type="Node3D" parent="."]
 
 [node name="Wreckage1" parent="Wreckage" instance=ExtResource("7_3jj1w")]
-transform = Transform3D(0.663848, 0, -0.747868, 0, 1, 0, 0.747868, 0, 0.663848, 43.9939, 0, -0.206262)
+transform = Transform3D(0.687468, 0, -0.726215, 0, 1, 0, 0.726215, 0, 0.687468, 45.546, 0, -0.156259)
 
 [node name="Wreckage2" parent="Wreckage" instance=ExtResource("7_3jj1w")]
 transform = Transform3D(-0.245764, 0, 0.96933, 0, 1, 0, -0.96933, 0, -0.245764, -56.0061, 0, 0.271761)
 
 [node name="Wreckage3" parent="Wreckage" instance=ExtResource("7_3jj1w")]
 transform = Transform3D(0.901153, 0, -0.433502, 0, 1, 0, 0.433502, 0, 0.901153, 1.39394, 0, -17.9642)
+
+[node name="Wreckage4" parent="Wreckage" instance=ExtResource("7_3jj1w")]
+transform = Transform3D(-0.107791, 0, -0.994174, 0, 1, 0, 0.994174, 0, -0.107791, 58.0067, 0, -2.7436)
+
+[node name="Wreckage5" parent="Wreckage" instance=ExtResource("7_3jj1w")]
+transform = Transform3D(0.575548, 0, 0.817768, 0, 1, 0, -0.817768, 0, 0.575548, 74.2876, 0, 1.57515)
