@@ -1,25 +1,226 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw6hm2gbufl64"]
+[gd_scene load_steps=7 format=3 uid="uid://cw6hm2gbufl64"]
 
 [ext_resource type="PackedScene" uid="uid://bdeqpmow0ka3a" path="res://assets/models/buildings/laundromat.glb" id="1_qb06g"]
 [ext_resource type="PackedScene" uid="uid://cpffv2k2op1i0" path="res://assets/models/props/book_store/ceiling_light_on.tscn" id="2_8xvpx"]
 [ext_resource type="PackedScene" uid="uid://dl4av7gyci7fs" path="res://assets/models/props/book_store/ceiling_light_off.tscn" id="3_c6osq"]
+[ext_resource type="PackedScene" uid="uid://d156vpmajrxwc" path="res://assets/models/props/laundromat/washer_closed.tscn" id="4_c6osq"]
+[ext_resource type="PackedScene" uid="uid://ukqq6tn7dqge" path="res://assets/models/props/convenience_store/shelf.tscn" id="5_0soog"]
+[ext_resource type="PackedScene" uid="uid://cjrmt6ihrc74f" path="res://assets/models/props/laundromat/bench.tscn" id="6_0rg1y"]
 
 [node name="Laundromat" instance=ExtResource("1_qb06g")]
 
 [node name="CeilingLightOn" parent="." index="2" instance=ExtResource("2_8xvpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 3, -5.8)
 
-[node name="CeilingLightOn2" parent="." index="3" instance=ExtResource("2_8xvpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3, -5)
+[node name="CeilingLightOn3" parent="." index="3" instance=ExtResource("2_8xvpx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 3, -10.8)
 
-[node name="CeilingLightOn3" parent="." index="4" instance=ExtResource("2_8xvpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3, -10)
+[node name="CeilingLightOff" parent="." index="4" instance=ExtResource("3_c6osq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 3, -15.8)
 
-[node name="CeilingLightOn4" parent="." index="5" instance=ExtResource("2_8xvpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3, -10)
+[node name="CeilingLightOn2" parent="." index="5" instance=ExtResource("2_8xvpx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3, -5.8)
 
-[node name="CeilingLightOn5" parent="." index="6" instance=ExtResource("2_8xvpx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3, -15)
+[node name="CeilingLightOff4" parent="." index="6" instance=ExtResource("3_c6osq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3, -10.8)
 
-[node name="CeilingLightOff" parent="." index="7" instance=ExtResource("3_c6osq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 3, -15)
+[node name="CeilingLightOff3" parent="." index="7" instance=ExtResource("3_c6osq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3, -15.8)
+
+[node name="CeilingLightOn6" parent="." index="8" instance=ExtResource("2_8xvpx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -5.8)
+
+[node name="CeilingLightOff2" parent="." index="9" instance=ExtResource("3_c6osq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -10.8)
+
+[node name="CeilingLightOn8" parent="." index="10" instance=ExtResource("2_8xvpx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -15.8)
+
+[node name="WasherClosed" parent="." index="11" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.8, 0, -5.5)
+
+[node name="WasherClosed2" parent="." index="12" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.8, 0, -6.5)
+
+[node name="WasherClosed3" parent="." index="13" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.8, 0, -7.5)
+
+[node name="WasherClosed4" parent="." index="14" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.8, 0, -8.5)
+
+[node name="WasherClosed5" parent="." index="15" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.8, 0, -9.5)
+
+[node name="WasherClosed6" parent="." index="16" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.8, 0, -10.5)
+
+[node name="WasherClosed7" parent="." index="17" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.8, 0, -11.5)
+
+[node name="WasherClosed8" parent="." index="18" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.8, 0, -12.5)
+
+[node name="WasherClosed9" parent="." index="19" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.8, 0, -13.5)
+
+[node name="WasherClosed10" parent="." index="20" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.8, 0, -14.5)
+
+[node name="WasherClosed11" parent="." index="21" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8, 0, -5.5)
+
+[node name="WasherClosed12" parent="." index="22" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8, 0, -6.5)
+
+[node name="WasherClosed13" parent="." index="23" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8, 0, -7.5)
+
+[node name="WasherClosed14" parent="." index="24" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8, 0, -8.5)
+
+[node name="WasherClosed15" parent="." index="25" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8, 0, -9.5)
+
+[node name="WasherClosed16" parent="." index="26" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8, 0, -10.5)
+
+[node name="WasherClosed17" parent="." index="27" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8, 0, -11.5)
+
+[node name="WasherClosed18" parent="." index="28" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8, 0, -12.5)
+
+[node name="WasherClosed19" parent="." index="29" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8, 0, -13.5)
+
+[node name="WasherClosed20" parent="." index="30" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8, 0, -14.5)
+
+[node name="WasherClosed21" parent="." index="31" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8, 0, -5.5)
+
+[node name="WasherClosed22" parent="." index="32" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8, 0, -6.5)
+
+[node name="WasherClosed23" parent="." index="33" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8, 0, -7.5)
+
+[node name="WasherClosed24" parent="." index="34" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8, 0, -8.5)
+
+[node name="WasherClosed25" parent="." index="35" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8, 0, -9.5)
+
+[node name="WasherClosed26" parent="." index="36" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8, 0, -10.5)
+
+[node name="WasherClosed27" parent="." index="37" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8, 0, -11.5)
+
+[node name="WasherClosed28" parent="." index="38" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8, 0, -12.5)
+
+[node name="WasherClosed29" parent="." index="39" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8, 0, -13.5)
+
+[node name="WasherClosed30" parent="." index="40" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.8, 0, -14.5)
+
+[node name="WasherClosed31" parent="." index="41" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2, 0, -5.5)
+
+[node name="WasherClosed32" parent="." index="42" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2, 0, -6.5)
+
+[node name="WasherClosed33" parent="." index="43" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2, 0, -7.5)
+
+[node name="WasherClosed34" parent="." index="44" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2, 0, -8.5)
+
+[node name="WasherClosed35" parent="." index="45" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2, 0, -9.5)
+
+[node name="WasherClosed36" parent="." index="46" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2, 0, -10.5)
+
+[node name="WasherClosed37" parent="." index="47" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2, 0, -11.5)
+
+[node name="WasherClosed38" parent="." index="48" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2, 0, -12.5)
+
+[node name="WasherClosed39" parent="." index="49" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2, 0, -13.5)
+
+[node name="WasherClosed40" parent="." index="50" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2, 0, -14.5)
+
+[node name="WasherClosed41" parent="." index="51" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0, -5.5)
+
+[node name="WasherClosed42" parent="." index="52" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0, -6.5)
+
+[node name="WasherClosed43" parent="." index="53" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0, -7.5)
+
+[node name="WasherClosed44" parent="." index="54" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0, -8.5)
+
+[node name="WasherClosed45" parent="." index="55" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0, -9.5)
+
+[node name="WasherClosed46" parent="." index="56" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0, -10.5)
+
+[node name="WasherClosed47" parent="." index="57" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0, -11.5)
+
+[node name="WasherClosed48" parent="." index="58" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0, -12.5)
+
+[node name="WasherClosed49" parent="." index="59" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0, -13.5)
+
+[node name="WasherClosed50" parent="." index="60" instance=ExtResource("4_c6osq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.2, 0, -14.5)
+
+[node name="Shelf" parent="." index="61" instance=ExtResource("5_0soog")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.8, 0, -2.6)
+
+[node name="CeilingLightOn4" parent="." index="62" instance=ExtResource("2_8xvpx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.9, 3, -2.6)
+
+[node name="Bench" parent="." index="63" instance=ExtResource("6_0rg1y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.3, 0, -7)
+
+[node name="Bench2" parent="." index="64" instance=ExtResource("6_0rg1y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.3, 0, -10)
+
+[node name="Bench3" parent="." index="65" instance=ExtResource("6_0rg1y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.3, 0, -13)
+
+[node name="Bench4" parent="." index="66" instance=ExtResource("6_0rg1y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.3, 0, -7)
+
+[node name="Bench5" parent="." index="67" instance=ExtResource("6_0rg1y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.3, 0, -10)
+
+[node name="Bench6" parent="." index="68" instance=ExtResource("6_0rg1y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.3, 0, -13)
+
+[node name="Bench7" parent="." index="69" instance=ExtResource("6_0rg1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8, 0, -2)
+
+[node name="Bench8" parent="." index="70" instance=ExtResource("6_0rg1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 0, -2)
+
+[node name="Bench10" parent="." index="71" instance=ExtResource("6_0rg1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8, 0, -18)
+
+[node name="Bench11" parent="." index="72" instance=ExtResource("6_0rg1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 0, -18)
+
+[node name="Bench9" parent="." index="73" instance=ExtResource("6_0rg1y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, -2.6)

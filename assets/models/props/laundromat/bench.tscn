@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjrmt6ihrc74f"]
+
+[ext_resource type="PackedScene" uid="uid://blnoatpbr3rp8" path="res://assets/models/props/laundromat/bench.glb" id="1_gxiu0"]
+
+[node name="Bench" instance=ExtResource("1_gxiu0")]

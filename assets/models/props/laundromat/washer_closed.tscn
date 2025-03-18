@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d156vpmajrxwc"]
+
+[ext_resource type="PackedScene" uid="uid://dvac5cy6oh8sf" path="res://assets/models/props/laundromat/washer.glb" id="1_4lpfw"]
+[ext_resource type="PackedScene" uid="uid://envbsietx3jq" path="res://assets/models/props/laundromat/washer_door.tscn" id="2_m6eye"]
+
+[node name="WasherClosed" instance=ExtResource("1_4lpfw")]
+
+[node name="WasherDoor" parent="." index="2" instance=ExtResource("2_m6eye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
