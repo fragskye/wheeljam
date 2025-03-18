@@ -42,10 +42,15 @@ func _update_hovering() -> void:
 	
 	# Simple raycast first for pixel-perfect object picking
 	var ray_query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(origin, origin + reach_distance * direction, interactable_mask | blocker_mask)
+	ray_query.hit_back_faces = true
+	ray_query.hit_from_inside = true
 	ray_query.collide_with_areas = true
 	
 	var ray_results: Dictionary = space_state.intersect_ray(ray_query)
+	var ray_distance: float = INF
 	if ray_results.size() > 0:
+		var hit_pos: Vector3 = ray_results["position"]
+		ray_distance = hit_pos.distance_to(ray_query.from) + 1e-3
 		var node: Node3D = ray_results["collider"]
 		if is_interactable(node):
 			hovering = node as CollisionObject3D
@@ -56,12 +61,13 @@ func _update_hovering() -> void:
 	sphere_query.shape = sphere_shape
 	sphere_query.transform = Transform3D(Basis.IDENTITY, origin)
 	sphere_query.motion = reach_distance * direction
-	sphere_query.collision_mask = interactable_mask | blocker_mask
+	sphere_query.collision_mask = interactable_mask# | blocker_mask
 	sphere_query.collide_with_areas = true
 	
 	var motion_results: PackedFloat32Array = space_state.cast_motion(sphere_query)
 	if motion_results.size() >= 2 && motion_results[1] < 1.0:
-		sphere_query.transform.origin += sphere_query.motion * motion_results[1]
+		sphere_query.transform.origin += sphere_query.motion * minf(ray_distance / reach_distance, motion_results[1])
+	
 	var sphere_results: Array[Dictionary] = space_state.intersect_shape(sphere_query, 1)
 	if sphere_results.size() > 0:
 		var node: Node3D = sphere_results[0]["collider"]
