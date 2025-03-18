@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=19 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ba1xcvqntdjcb" path="res://assets/models/props/wreckage_1.tscn" id="7_3jj1w"]
 [ext_resource type="PackedScene" uid="uid://bfr5sqtuj00pl" path="res://assets/models/props/convenience_store/cardboard_box_2.tscn" id="10_2bfpd"]
 [ext_resource type="PackedScene" uid="uid://d2in713yw3yem" path="res://assets/models/props/convenience_store/cardboard_box_1.tscn" id="11_3jj1w"]
+[ext_resource type="PackedScene" uid="uid://3awvl64l81xf" path="res://assets/models/props/dumpster.tscn" id="14_3gbvy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -46,9 +47,9 @@ density = -0.2
 environment = SubResource("Environment_h2yge")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.34202, 0.883022, 0.321394, 0, -0.34202, 0.939692, 0.939693, 0.321394, 0.116978, 0, 0, 0)
 light_energy = 0.1
-light_indirect_energy = 3.0
+light_indirect_energy = 2.5
 shadow_enabled = true
 
 [node name="VoxelGI" type="VoxelGI" parent="."]
@@ -139,7 +140,7 @@ transform = Transform3D(-0.0537129, 0, -0.998556, 0, 1, 0, 0.998556, 0, -0.05371
 transform = Transform3D(0.420624, 0, -0.907235, 0, 1, 0, 0.907235, 0, 0.420624, 38.551, 0, -7.06515)
 
 [node name="Trash14" parent="Trash" instance=ExtResource("6_2bfpd")]
-transform = Transform3D(0.556441, 0, 0.830887, 0, 1, 0, -0.830887, 0, 0.556441, 39.5575, 0, -5.86011)
+transform = Transform3D(0.987097, 0, -0.160123, 0, 1, 0, 0.160123, 0, 0.987097, 39.7826, 0, -4.98223)
 
 [node name="CardboardBox2" parent="Trash" instance=ExtResource("10_2bfpd")]
 transform = Transform3D(0.574991, 0, 0.81816, 0, 1, 0, -0.81816, 0, 0.574991, -4.63523, 0, -8.662)
@@ -153,7 +154,7 @@ transform = Transform3D(0.913233, 0, 0.407438, 0, 1, 0, -0.407438, 0, 0.913233, 
 [node name="Wreckage" type="Node3D" parent="."]
 
 [node name="Wreckage1" parent="Wreckage" instance=ExtResource("7_3jj1w")]
-transform = Transform3D(0.687468, 0, -0.726215, 0, 1, 0, 0.726215, 0, 0.687468, 45.546, 0, -0.156259)
+transform = Transform3D(0.687468, 0, -0.726215, 0, 1, 0, 0.726215, 0, 0.687468, 45.9216, -2.38419e-07, 0.159171)
 
 [node name="Wreckage2" parent="Wreckage" instance=ExtResource("7_3jj1w")]
 transform = Transform3D(-0.245764, 0, 0.96933, 0, 1, 0, -0.96933, 0, -0.245764, -56.0061, 0, 0.271761)
@@ -166,3 +167,45 @@ transform = Transform3D(-0.107791, 0, -0.994174, 0, 1, 0, 0.994174, 0, -0.107791
 
 [node name="Wreckage5" parent="Wreckage" instance=ExtResource("7_3jj1w")]
 transform = Transform3D(0.575548, 0, 0.817768, 0, 1, 0, -0.817768, 0, 0.575548, 74.2876, 0, 1.57515)
+
+[node name="Dumpsters" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Dumpster" parent="Dumpsters" instance=ExtResource("14_3gbvy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.3, 0, -10.9)
+
+[node name="Dumpster2" parent="Dumpsters" instance=ExtResource("14_3gbvy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7, 0, -6.3)
+
+[node name="Dumpster3" parent="Dumpsters" instance=ExtResource("14_3gbvy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.7, 0, -9.5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4.1, -20)
+use_collision = true
+size = Vector3(30, 8, 30)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.1, -44)
+use_collision = true
+size = Vector3(30, 8, 30)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 4.1, -15)
+use_collision = true
+size = Vector3(30, 8, 20)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 4.1, 15)
+use_collision = true
+size = Vector3(30, 8, 20)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78, 4.1, -15)
+use_collision = true
+size = Vector3(30, 8, 20)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 4.1, 15)
+use_collision = true
+size = Vector3(20, 8, 20)
