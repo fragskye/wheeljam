@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ofsd8f3sm6"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_bho5m"]
+[ext_resource type="Material" uid="uid://enggerko7fxd" path="res://assets/posters/cleanse_refresh.tres" id="2_bho5m"]
+
+[node name="CleanseRefresh" instance=ExtResource("1_bho5m")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_bho5m")

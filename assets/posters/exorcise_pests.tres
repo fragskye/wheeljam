@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://do6u0l7k10h4h"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_5o1ej"]
+[ext_resource type="Texture2D" uid="uid://c1bnrqqko7i5j" path="res://assets/posters/exorcise_pests.png" id="2_5o1ej"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5o1ej")
+shader_parameter/albedo_texture = ExtResource("2_5o1ej")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

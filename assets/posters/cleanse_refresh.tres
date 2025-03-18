@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://enggerko7fxd"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_0qila"]
+[ext_resource type="Texture2D" uid="uid://cvn6x2m2270aw" path="res://assets/posters/cleanse_refresh.png" id="2_0qila"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0qila")
+shader_parameter/albedo_texture = ExtResource("2_0qila")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

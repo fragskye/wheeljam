@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=20 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bfr5sqtuj00pl" path="res://assets/models/props/convenience_store/cardboard_box_2.tscn" id="10_2bfpd"]
 [ext_resource type="PackedScene" uid="uid://d2in713yw3yem" path="res://assets/models/props/convenience_store/cardboard_box_1.tscn" id="11_3jj1w"]
 [ext_resource type="PackedScene" uid="uid://3awvl64l81xf" path="res://assets/models/props/dumpster.tscn" id="14_3gbvy"]
+[ext_resource type="PackedScene" uid="uid://dq1j832yty063" path="res://assets/models/props/posters/eviction_notice.tscn" id="15_7q7v2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -209,3 +210,6 @@ size = Vector3(30, 8, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 4.1, 15)
 use_collision = true
 size = Vector3(20, 8, 20)
+
+[node name="EvictionNotice" parent="." instance=ExtResource("15_7q7v2")]
+transform = Transform3D(-0.999256, 0.0385622, -8.73577e-08, 0.0385622, 0.999256, 3.37122e-09, 8.74228e-08, 0, -1, 15.1691, 2.12969, 6.999)

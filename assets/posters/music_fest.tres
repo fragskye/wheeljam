@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://u88jyjmtpm2t"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_3cwa4"]
+[ext_resource type="Texture2D" uid="uid://ca7sqjgmkxcox" path="res://assets/posters/music_fest.png" id="2_3cwa4"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3cwa4")
+shader_parameter/albedo_texture = ExtResource("2_3cwa4")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

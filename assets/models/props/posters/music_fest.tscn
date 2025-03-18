@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckpjkfri55ger"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_ck1xy"]
+[ext_resource type="Material" uid="uid://u88jyjmtpm2t" path="res://assets/posters/music_fest.tres" id="2_ck1xy"]
+
+[node name="MusicFest" instance=ExtResource("1_ck1xy")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ck1xy")

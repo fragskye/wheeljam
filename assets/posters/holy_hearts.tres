@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cq211icgwgu0o"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_v5foc"]
+[ext_resource type="Texture2D" uid="uid://dmn5t0o7h70sv" path="res://assets/posters/holy_hearts.png" id="2_v5foc"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_v5foc")
+shader_parameter/albedo_texture = ExtResource("2_v5foc")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

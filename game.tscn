@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=32 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dpeyf7gihu6qk" path="res://src/game.gd" id="1_hve3p"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://drx004wv0kjc5" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_80cx4"]
 [ext_resource type="Resource" uid="uid://cesk022ld4qbv" path="res://data/item_spawn_pools/pool_0.tres" id="16_rvswv"]
 [ext_resource type="Resource" uid="uid://cficv3skkd8ni" path="res://data/item_spawn_pools/pool_1.tres" id="17_rvswv"]
+[ext_resource type="Resource" uid="uid://c3mhgc7hilvhl" path="res://data/item_spawn_pools/pool_2.tres" id="18_boyg6"]
 
 [sub_resource type="Resource" id="Resource_215e1"]
 script = ExtResource("4_vef74")
@@ -143,7 +144,7 @@ data = SubResource("Resource_hb5m1")
 unique_name_in_owner = true
 
 [node name="ItemSpawnManager" parent="." instance=ExtResource("15_7sc4i")]
-spawn_pools = Array[ExtResource("15_e8heu")]([ExtResource("16_rvswv"), ExtResource("17_rvswv")])
+spawn_pools = Array[ExtResource("15_e8heu")]([ExtResource("16_rvswv"), ExtResource("17_rvswv"), ExtResource("18_boyg6")])
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 unique_name_in_owner = true

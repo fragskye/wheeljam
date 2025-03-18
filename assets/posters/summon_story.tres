@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c0vreshffyvhk"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_lv2fs"]
+[ext_resource type="Texture2D" uid="uid://soejwaog7hl8" path="res://assets/posters/summon_story.png" id="2_lv2fs"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lv2fs")
+shader_parameter/albedo_texture = ExtResource("2_lv2fs")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

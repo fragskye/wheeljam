@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ef72lt2ch04a"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_cyr6l"]
+[ext_resource type="Material" uid="uid://d31xho02vdv7h" path="res://assets/posters/look_cat.tres" id="2_cyr6l"]
+
+[node name="LookCat" instance=ExtResource("1_cyr6l")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_cyr6l")

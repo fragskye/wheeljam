@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://1vykdjqak4gp"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_luy8d"]
+[ext_resource type="Texture2D" uid="uid://dhvu1rh5qa1fy" path="res://assets/posters/sacred_justice.png" id="2_luy8d"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_luy8d")
+shader_parameter/albedo_texture = ExtResource("2_luy8d")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1
