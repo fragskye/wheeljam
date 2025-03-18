@@ -8,6 +8,7 @@
 size = Vector3(0.2, 0.2, 0.2)
 
 [node name="Page" type="Area3D" node_paths=PackedStringArray("visual")]
+physics_interpolation_mode = 2
 collision_layer = 4
 script = ExtResource("1_rlpjy")
 data = ExtResource("2_swqem")

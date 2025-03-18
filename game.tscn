@@ -93,6 +93,17 @@ time_between_demons = 45.0
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.9, 0, 15)
 
+[node name="PlayerCamera" type="Camera3D" parent="."]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.9, 1.5, 15)
+
+[node name="PhantomCameraHost" type="Node" parent="PlayerCamera"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("16_80cx4")
+metadata/_custom_type_script = "uid://drx004wv0kjc5"
+
 [node name="Page" parent="." instance=ExtResource("3_feb5d")]
 transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 0, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 10)
 
@@ -135,17 +146,6 @@ unique_name_in_owner = true
 
 [node name="ItemSpawnManager" parent="." instance=ExtResource("15_7sc4i")]
 spawn_pools = Array[ExtResource("15_e8heu")]([ExtResource("16_rvswv"), ExtResource("17_rvswv"), ExtResource("18_boyg6")])
-
-[node name="PlayerCamera" type="Camera3D" parent="."]
-unique_name_in_owner = true
-physics_interpolation_mode = 1
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.9, 1.5, 15)
-
-[node name="PhantomCameraHost" type="Node" parent="PlayerCamera"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("16_80cx4")
-metadata/_custom_type_script = "uid://drx004wv0kjc5"
 
 [node name="SpawnDemonArea" type="Area3D" parent="."]
 unique_name_in_owner = true
