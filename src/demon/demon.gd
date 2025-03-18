@@ -5,6 +5,7 @@ class_name Demon extends Node3D
 
 @export var data: DemonData = null
 @export var debug_face: bool = false
+@export var debug_face_opinion: int = 0
 
 var _previewed_index: int = 0
 var _verdict: DemonVerdict = null
@@ -23,10 +24,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if debug_face:
+		_verdict = DemonVerdict.new()
+		_verdict.multiplier = 1.0
+		_verdict.opinion = debug_face_opinion
 		demon_face_visual.set_face(_get_face())
 	
 	if health > 0 && health < data.max_health:
-		var drain: float = -data.health_drain * delta
+		var in_battle: bool = InputManager.get_input_state() == InputManager.InputState.BATTLE
+		var drain: float = -(data.health_drain if in_battle else data.health_drain_outside_battle) * delta
 		health = clampf(health + drain, 0.0, data.max_health)
 		SignalBus.battle_demon_health_changed.emit(health / data.max_health, health, drain, false)
 		if health <= 0:
@@ -45,6 +50,7 @@ func _on_battle_player_action_previewed(index: int) -> void:
 	demon_face_visual.set_face(_get_face())
 
 func _on_battle_player_action_selected(index: int, multiplier: float) -> void:
+	# TODO: Call data.next_phase() when health passes midway point, play cinematic
 	_verdict = data.evaluate(index)
 	var result: float = _verdict.multiplier * multiplier
 	SignalBus.battle_demon_verdict.emit(multiplier, _verdict.multiplier, result)
@@ -61,7 +67,7 @@ func _on_battle_player_action_selected(index: int, multiplier: float) -> void:
 
 func _get_face() -> DemonFace:
 	var faces_size: int = data.faces.size()
-	if debug_face || faces_size == 1:
+	if faces_size == 1:
 		return data.faces[0]
 	var opinion_index: float = float(_verdict.opinion) / float(DemonVerdict.MAX_OPINION) * (faces_size - 1)
 	var lower_index: int = floor(opinion_index)

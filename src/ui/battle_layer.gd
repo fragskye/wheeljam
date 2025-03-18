@@ -27,6 +27,7 @@ signal demon_verdict_anim_finished()
 var _demon_verdict_queue: Array[Array] = []
 var _accepting_new_demon_verdict: bool = true
 var _playing_demon_verdict: bool = false
+var _battle_ending: bool = false
 
 var _wheel_slices: Array[WheelSlice] = []
 var _wheel_wedges: Array[InventoryItem] = []
@@ -168,8 +169,6 @@ func _on_inventory_carousel_item_pressed(data: ItemData) -> void:
 				break
 		if !empty_slot:
 			_needs_more_pages = false
-			inventory_carousel.hide()
-			inventory_carousel.process_mode = Node.PROCESS_MODE_DISABLED
 			Global.player.flush_inventory()
 		else:
 			while empty_slot_idx < 0:
@@ -213,9 +212,7 @@ func _on_battle_player_turn_complete() -> void:
 			else:
 				page.burning = true
 				page.pending_burn = false
-	if _needs_more_pages:
-		inventory_carousel.process_mode = Node.PROCESS_MODE_INHERIT
-		inventory_carousel.show()
+	if _needs_more_pages && !_battle_ending:
 		if pages_burned == 1:
 			NotificationLayer.show_toast("That page burned up. I need a new one...")
 		else:
@@ -233,6 +230,7 @@ func _on_battle_demon_health_changed(percentage: float, _absolute: float, _delta
 	battle_health_fill.custom_minimum_size.x = battle_health.size.x * percentage
 
 func _on_battle_lost() -> void:
+	_battle_ending = true
 	# REALLY??? THIS IS HOW I DISABLE A CONTROL WITHOUT REMOVING IT FROM THE HIERARCHY AND MESSING UP MY LAYOUT???
 	wheel.propagate_call("set_mouse_filter", [Control.MOUSE_FILTER_IGNORE])
 	wheel.process_mode = Node.PROCESS_MODE_DISABLED
@@ -244,6 +242,7 @@ func _on_battle_lost() -> void:
 	InputManager.switch_input_state(InputManager.InputState.GAME_OVER)
 
 func _on_battle_won() -> void:
+	_battle_ending = true
 	wheel.propagate_call("set_mouse_filter", [Control.MOUSE_FILTER_IGNORE])
 	wheel.process_mode = Node.PROCESS_MODE_DISABLED
 	wheel.modulate = Color.TRANSPARENT
@@ -303,7 +302,6 @@ func _play_demon_verdict() -> void:
 	
 	var page_mult_label_pos: Vector2 = page_mult_label.global_position
 	var demon_mult_label_pos: Vector2 = demon_mult_label.global_position
-	var result_label_pos: Vector2 = result_label.global_position
 	
 	var step_duration: float = 0.4
 	

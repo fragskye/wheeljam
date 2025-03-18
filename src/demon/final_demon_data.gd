@@ -14,7 +14,7 @@ func evaluate(index: int) -> DemonVerdict:
 		return default_verdicts[moves_passed]
 	return verdicts[index]
 
-func _on_battle_player_action_selected(index: int) -> void:
+func _on_battle_player_action_selected(index: int, multiplier: float) -> void:
 	if moves_passed < 4:
 		verdicts[index] = default_verdicts[moves_passed]
 		moves_passed += 1

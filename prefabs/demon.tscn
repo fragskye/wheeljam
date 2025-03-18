@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://iv1sljhrecsc"]
+[gd_scene load_steps=21 format=3 uid="uid://iv1sljhrecsc"]
 
 [ext_resource type="Script" uid="uid://dy1abvq1gxe7j" path="res://addons/godot-polyliner/Line3D/Line3D.gd" id="1_f34ap"]
 [ext_resource type="Script" uid="uid://cjnwh8o0g71pb" path="res://src/demon/demon.gd" id="1_tsgxh"]
-[ext_resource type="Resource" uid="uid://cmwcbxgd4k4r3" path="res://data/demons/tutorial_demon.tres" id="2_6x10w"]
 [ext_resource type="Script" uid="uid://upkyanp4bx8x" path="res://src/demon/demon_interact.gd" id="3_h6laj"]
 [ext_resource type="Script" uid="uid://dtn6jcikyjhjk" path="res://src/demon/demon_face_visual.gd" id="4_6x10w"]
 [ext_resource type="Material" uid="uid://cq7ehqwsowtx7" path="res://assets/demon/line_demon.tres" id="4_jg002"]
@@ -89,7 +88,6 @@ metadata/_custom_type_script = "uid://cbjrdq7ived0u"
 [node name="Demon" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
 script = ExtResource("1_tsgxh")
-data = ExtResource("2_6x10w")
 
 [node name="DemonInteract" type="Area3D" parent="."]
 collision_layer = 4

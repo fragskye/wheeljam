@@ -63,6 +63,18 @@ func flush_inventory() -> void:
 			idx -= 1
 		idx += 1
 	
+	inventory.sort_custom(func(a: ItemData, b: ItemData) -> bool:
+		var a_is_page: bool = a is PageData
+		var b_is_page: bool = b is PageData
+		if a_is_page && b_is_page:
+			var a_page: PageData = a as PageData
+			var b_page: PageData = b as PageData
+			return a_page.multiplier < b_page.multiplier
+		if a_is_page && !b_is_page:
+			return true
+		return false
+	)
+	
 	var inventory_size: int = inventory.size()
 	if inventory_size > 0:
 		while inventory_selected < 0:
