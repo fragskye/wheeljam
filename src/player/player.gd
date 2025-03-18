@@ -2,6 +2,7 @@ class_name Player extends CharacterBody3D
 
 @onready var camera_rig: PlayerCameraRig = %PlayerCameraRig
 @onready var camera_shake: CameraShake = %CameraShake
+@onready var interaction_system: InteractionSystem = $InteractionSystem
 
 @export var inventory_minimum_slots: int = 7
 
