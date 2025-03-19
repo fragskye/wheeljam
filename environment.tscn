@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=59 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://bug5opvybrvo2" path="res://data/audio_bus_snapshots/outside.tres" id="3_w1st6"]
 [ext_resource type="Resource" uid="uid://cm78cr18g8tf7" path="res://data/audio_bus_snapshots/book_store_muffle.tres" id="4_4qs8q"]
 [ext_resource type="PackedScene" uid="uid://cbjfho2l0nlyj" path="res://assets/models/props/trash_1.tscn" id="4_oqxhg"]
-[ext_resource type="PackedScene" uid="uid://m0rajcpmr5iu" path="res://assets/models/props/fence.glb" id="5_2eiut"]
 [ext_resource type="PackedScene" uid="uid://iv6yqa2731vu" path="res://assets/models/props/trash_2.tscn" id="5_4sbom"]
 [ext_resource type="Resource" uid="uid://r3odnorpnwkw" path="res://data/audio_bus_snapshots/book_store_back_muffle.tres" id="5_kmgvs"]
 [ext_resource type="PackedScene" uid="uid://b5ecugm0yh0ww" path="res://assets/models/buildings/convenience_store.tscn" id="5_oqxhg"]
@@ -39,6 +38,8 @@
 [ext_resource type="Resource" uid="uid://cl7mxqihu0mcy" path="res://data/audio_bus_snapshots/outside_far.tres" id="20_d0fiy"]
 [ext_resource type="Resource" uid="uid://boditwne6ylrr" path="res://data/audio_bus_snapshots/convenience_store.tres" id="21_b21av"]
 [ext_resource type="Resource" uid="uid://ryq86ah2cbe1" path="res://data/audio_bus_snapshots/convenience_store_back.tres" id="22_qfwe5"]
+[ext_resource type="PackedScene" uid="uid://bm63tpq5brvgq" path="res://assets/models/props/fence.tscn" id="31_n24yn"]
+[ext_resource type="PackedScene" uid="uid://j44mos08igvl" path="res://assets/models/buildings/thrift_store.tscn" id="31_xjwhs"]
 [ext_resource type="PackedScene" uid="uid://dy7lmv7xh3ua6" path="res://prefabs/progress_barrier.tscn" id="40_n24yn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
@@ -334,14 +335,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, -5)
 [node name="Laundromat" parent="." instance=ExtResource("6_3jj1w")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 40, 0.1, 5)
 
-[node name="fence" parent="." instance=ExtResource("5_2eiut")]
+[node name="ThriftStore" parent="." instance=ExtResource("31_xjwhs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, -5)
+
+[node name="Fences" type="Node3D" parent="."]
+
+[node name="Fence" parent="Fences" instance=ExtResource("31_n24yn")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 39, 0.1, -7)
 
-[node name="fence2" parent="." instance=ExtResource("5_2eiut")]
+[node name="Fence2" parent="Fences" instance=ExtResource("31_n24yn")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 39, 0.1, -5)
 
-[node name="fence3" parent="." instance=ExtResource("5_2eiut")]
+[node name="Fence3" parent="Fences" instance=ExtResource("31_n24yn")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 37, 0.1, -5)
+
+[node name="Fence4" parent="Fences" instance=ExtResource("31_n24yn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0.1, -9)
+
+[node name="Fence5" parent="Fences" instance=ExtResource("31_n24yn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0.1, -9)
 
 [node name="Trash" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -388,6 +400,9 @@ transform = Transform3D(0.420624, 0, -0.907235, 0, 1, 0, 0.907235, 0, 0.420624, 
 [node name="Trash14" parent="Trash" instance=ExtResource("6_2bfpd")]
 transform = Transform3D(0.987097, 0, -0.160123, 0, 1, 0, 0.160123, 0, 0.987097, 39.7826, 0, -4.98223)
 
+[node name="Trash15" parent="Trash" instance=ExtResource("6_2bfpd")]
+transform = Transform3D(0.674341, 0, -0.73842, 0, 1, 0, 0.73842, 0, 0.674341, -25.6035, 0, -8.40482)
+
 [node name="CardboardBox2" parent="Trash" instance=ExtResource("10_2bfpd")]
 transform = Transform3D(0.574991, 0, 0.81816, 0, 1, 0, -0.81816, 0, 0.574991, -4.63523, 0, -8.662)
 
@@ -426,6 +441,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7, 0, -6.3)
 [node name="Dumpster3" parent="Dumpsters" instance=ExtResource("14_3gbvy")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.7, 0, -9.5)
 
+[node name="Dumpster4" parent="Dumpsters" instance=ExtResource("14_3gbvy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8, 0, -8.2)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4.1, -20)
 use_collision = true
@@ -435,11 +453,6 @@ size = Vector3(30, 8, 30)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4.1, -44)
 use_collision = true
 size = Vector3(30, 8, 30)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 4.1, -15)
-use_collision = true
-size = Vector3(30, 8, 20)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 4.1, 15)
@@ -469,4 +482,12 @@ demon_requirement = 2
 
 [node name="ProgressBarrier3" parent="." instance=ExtResource("40_n24yn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31, 0, 0)
+demon_requirement = 3
+
+[node name="ProgressBarrier4" parent="." instance=ExtResource("40_n24yn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31.5, 0, 0)
+demon_requirement = 3
+
+[node name="ProgressBarrier5" parent="." instance=ExtResource("40_n24yn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -46.5, 0, 0)
 demon_requirement = 3

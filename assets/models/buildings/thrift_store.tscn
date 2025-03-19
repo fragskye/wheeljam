@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://j44mos08igvl"]
+
+[ext_resource type="PackedScene" uid="uid://bxug4e8qsnes5" path="res://assets/models/buildings/thrift_store.glb" id="1_ku10x"]
+[ext_resource type="PackedScene" uid="uid://cpffv2k2op1i0" path="res://assets/models/props/book_store/ceiling_light_on.tscn" id="2_djdqk"]
+[ext_resource type="PackedScene" uid="uid://dl4av7gyci7fs" path="res://assets/models/props/book_store/ceiling_light_off.tscn" id="3_1fumx"]
+
+[node name="ThriftStore" instance=ExtResource("1_ku10x")]
+
+[node name="CeilingLightOn" parent="." index="2" instance=ExtResource("2_djdqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 3, -5.8)
+
+[node name="CeilingLightOn5" parent="." index="3" instance=ExtResource("2_djdqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 3, -10.8)
+
+[node name="CeilingLightOn7" parent="." index="4" instance=ExtResource("2_djdqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 3, -15.8)
+
+[node name="CeilingLightOff" parent="." index="5" instance=ExtResource("3_1fumx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 3, -15.8)
+
+[node name="CeilingLightOff3" parent="." index="6" instance=ExtResource("3_1fumx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 3, -10.8)
+
+[node name="CeilingLightOff5" parent="." index="7" instance=ExtResource("3_1fumx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 3, -5.8)
+
+[node name="CeilingLightOn2" parent="." index="8" instance=ExtResource("2_djdqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3, -5.8)
+
+[node name="CeilingLightOff4" parent="." index="9" instance=ExtResource("3_1fumx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3, -10.8)
+
+[node name="CeilingLightOn6" parent="." index="10" instance=ExtResource("2_djdqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -5.8)
+
+[node name="CeilingLightOff2" parent="." index="11" instance=ExtResource("3_1fumx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -10.8)
+
+[node name="CeilingLightOn8" parent="." index="12" instance=ExtResource("2_djdqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 3, -15.8)
+
+[node name="CeilingLightOn9" parent="." index="13" instance=ExtResource("2_djdqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 3, -15.8)
