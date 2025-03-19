@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://deahws8ujyvbp"
+path="res://.godot/imported/Open Inventory Bag F.wav-2fd177eb46b83a0449b6a2a72101dcc1.sample"
+
+[deps]
+
+source_file="res://audio/ui/Open Inventory Bag F.wav"
+dest_files=["res://.godot/imported/Open Inventory Bag F.wav-2fd177eb46b83a0449b6a2a72101dcc1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

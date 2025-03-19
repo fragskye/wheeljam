@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://sb11wcnhnfwt"]
+[gd_scene load_steps=13 format=3 uid="uid://sb11wcnhnfwt"]
 
 [ext_resource type="Script" uid="uid://drql3gjtoyp2h" path="res://src/ui/inventory_layer.gd" id="1_sjulx"]
+[ext_resource type="AudioStream" uid="uid://cep0t1gepktw" path="res://audio/ui/Open Inventory Bag A.wav" id="2_uiav8"]
+[ext_resource type="AudioStream" uid="uid://dold1sf6j4xo8" path="res://audio/ui/Open Inventory Bag B.wav" id="3_iik8h"]
 [ext_resource type="PackedScene" uid="uid://caoneprh3fic" path="res://prefabs/ui/inventory_carousel.tscn" id="3_wdq5t"]
+[ext_resource type="AudioStream" uid="uid://bvioel2ykdnp1" path="res://audio/ui/Open Inventory Bag C.wav" id="4_qgkw4"]
+[ext_resource type="AudioStream" uid="uid://bpe24bm8eqk7t" path="res://audio/ui/Open Inventory Bag D.wav" id="5_abrfe"]
+[ext_resource type="AudioStream" uid="uid://dh55w5enp7sh3" path="res://audio/ui/Open Inventory Bag E.wav" id="6_j2pld"]
+[ext_resource type="AudioStream" uid="uid://deahws8ujyvbp" path="res://audio/ui/Open Inventory Bag F.wav" id="7_773s6"]
+[ext_resource type="AudioStream" uid="uid://cdlcya157x4ba" path="res://audio/ui/Close Inventory Bag A.wav" id="8_b5tyl"]
+[ext_resource type="AudioStream" uid="uid://b0pddp78s5nrq" path="res://audio/ui/Close Inventory Bag B.wav" id="9_4cnrx"]
+[ext_resource type="AudioStream" uid="uid://dgtjrmi84c1kj" path="res://audio/ui/Close Inventory Bag C.wav" id="10_n1mx3"]
+[ext_resource type="AudioStream" uid="uid://cyykcdwhq3l72" path="res://audio/ui/Close Inventory Bag D.wav" id="11_gmnk6"]
 
 [node name="InventoryLayer" type="CanvasLayer"]
 script = ExtResource("1_sjulx")
+inventory_open_audio = Array[AudioStream]([ExtResource("2_uiav8"), ExtResource("3_iik8h"), ExtResource("4_qgkw4"), ExtResource("5_abrfe"), ExtResource("6_j2pld"), ExtResource("7_773s6")])
+inventory_close_audio = Array[AudioStream]([ExtResource("8_b5tyl"), ExtResource("9_4cnrx"), ExtResource("10_n1mx3"), ExtResource("11_gmnk6")])
 
 [node name="InventoryMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -49,5 +61,10 @@ layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_bottom = 0.5
+
+[node name="InventorySFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+volume_db = -6.0
+panning_strength = 0.0
 
 [connection signal="pressed" from="InventoryMenu/MarginContainer/Control/CloseButton" to="." method="_on_close_button_pressed"]

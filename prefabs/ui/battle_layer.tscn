@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bb0jfvecfuu5d"]
+[gd_scene load_steps=14 format=3 uid="uid://bb0jfvecfuu5d"]
 
 [ext_resource type="Script" uid="uid://cd6kovq6y3p8d" path="res://src/ui/battle_layer.gd" id="1_ihokf"]
 [ext_resource type="PackedScene" uid="uid://caoneprh3fic" path="res://prefabs/ui/inventory_carousel.tscn" id="2_p1w5e"]
@@ -9,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://dyxurx1ux6qh6" path="res://audio/ui/Shoe Step Rug Hard C.wav" id="4_ev5fb"]
 [ext_resource type="AudioStream" uid="uid://hmocjajq8x2x" path="res://audio/ui/Shoe Step Rug Hard D.wav" id="5_555vs"]
 [ext_resource type="AudioStream" uid="uid://d0rtt0cvgw3nw" path="res://audio/ui/Shoe Step Rug Hard E.wav" id="6_0ch4s"]
+[ext_resource type="AudioStream" uid="uid://cwlcbaqdfu2nk" path="res://audio/ui/Wooden Box Scrape B.wav" id="8_njcxr"]
+[ext_resource type="AudioStream" uid="uid://fyvxoxadyyjf" path="res://audio/ui/Wooden Box Scrape C.wav" id="9_wekdu"]
+[ext_resource type="AudioStream" uid="uid://cn5ube4hgl26b" path="res://audio/ui/Wooden Box Scrape D.wav" id="10_iuvk8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v2g41"]
 font = ExtResource("2_xybdf")
@@ -23,6 +26,7 @@ explanation_good_color = Color(0.564706, 1, 0.564706, 1)
 explanation_neutral_color = Color(0.501961, 0.501961, 0.501961, 1)
 explanation_bad_color = Color(0.8, 0.12549, 0.12549, 1)
 wheel_place_audio = Array[AudioStream]([ExtResource("2_yfv3s"), ExtResource("3_yg6u1"), ExtResource("4_ev5fb"), ExtResource("5_555vs"), ExtResource("6_0ch4s")])
+wheel_turn_audio = Array[AudioStream]([ExtResource("8_njcxr"), ExtResource("9_wekdu"), ExtResource("10_iuvk8")])
 
 [node name="BattleMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -220,6 +224,12 @@ expand_mode = 1
 
 [node name="WheelPlaceSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
+panning_strength = 0.0
+
+[node name="WheelTurnSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+volume_db = -3.0
+pitch_scale = 1.2
 panning_strength = 0.0
 
 [connection signal="item_pressed" from="BattleMenu/InventoryCarousel" to="." method="_on_inventory_carousel_item_pressed"]

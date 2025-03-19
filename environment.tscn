@@ -1,7 +1,8 @@
-[gd_scene load_steps=56 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=57 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
+[ext_resource type="Script" uid="uid://dro7ry10c4jhr" path="res://src/environment.gd" id="1_rp2uv"]
 [ext_resource type="Script" uid="uid://83xvelsi5boc" path="res://addons/OvaniAmbiencePlugin/BusSnapshot.gd" id="2_7px3q"]
 [ext_resource type="PackedScene" uid="uid://dtlr4fnfqrp1s" path="res://assets/models/buildings/book_store.tscn" id="2_poig3"]
 [ext_resource type="PackedScene" uid="uid://qvkb0oc211jc" path="res://assets/models/buildings/townhouse.tscn" id="3_2eiut"]
@@ -105,8 +106,10 @@ volumetric_fog_ambient_inject = 1.0
 density = -0.2
 
 [node name="Environment" type="Node3D"]
+script = ExtResource("1_rp2uv")
 
 [node name="Outside" type="Area3D" parent="."]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -130,6 +133,7 @@ script = ExtResource("17_qfwe5")
 metadata/_custom_type_script = "uid://dih3swr18jk1u"
 
 [node name="BookStore" type="Area3D" parent="Outside"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -142,6 +146,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, 15)
 shape = SubResource("BoxShape3D_7px3q")
 
 [node name="BookStoreBack" type="Area3D" parent="Outside/BookStore"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -154,6 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, 21.75)
 shape = SubResource("BoxShape3D_w1st6")
 
 [node name="ConvenienceStore" type="Area3D" parent="Outside"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -166,6 +172,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.1, -15)
 shape = SubResource("BoxShape3D_mpsl3")
 
 [node name="ConvenienceStoreBack" type="Area3D" parent="Outside/ConvenienceStore"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -178,6 +185,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.1, -21.25)
 shape = SubResource("BoxShape3D_4qs8q")
 
 [node name="Laundromat" type="Area3D" parent="Outside"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -190,6 +198,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 3.1, 15)
 shape = SubResource("BoxShape3D_mbc85")
 
 [node name="LaundromatBack" type="Area3D" parent="Outside/Laundromat"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -202,6 +211,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 3.1, 21.75)
 shape = SubResource("BoxShape3D_rpk5l")
 
 [node name="CoffeeShop" type="Area3D" parent="Outside"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -214,6 +224,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
 shape = SubResource("BoxShape3D_4nqy1")
 
 [node name="CoffeeShopBack" type="Area3D" parent="Outside/CoffeeShop"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -226,6 +237,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
 shape = SubResource("BoxShape3D_rn5b3")
 
 [node name="Diner" type="Area3D" parent="Outside"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -238,6 +250,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
 shape = SubResource("BoxShape3D_pgkm7")
 
 [node name="DinerBack" type="Area3D" parent="Outside/Diner"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -250,6 +263,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
 shape = SubResource("BoxShape3D_454qq")
 
 [node name="ThriftStore" type="Area3D" parent="Outside"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
@@ -262,6 +276,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
 shape = SubResource("BoxShape3D_yma5d")
 
 [node name="ThriftStoreBack" type="Area3D" parent="Outside/ThriftStore"]
+unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")

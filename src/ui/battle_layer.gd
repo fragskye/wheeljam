@@ -18,6 +18,7 @@ signal demon_verdict_anim_finished()
 @onready var demon_mult_label: Label = %DemonMultLabel
 @onready var result_label: Label = %ResultLabel
 @onready var wheel_place_sfx: AudioStreamPlayer2D = %WheelPlaceSFX
+@onready var wheel_turn_sfx: AudioStreamPlayer2D = %WheelTurnSFX
 
 @export var wheel_slice_count: int = 0
 
@@ -26,6 +27,7 @@ signal demon_verdict_anim_finished()
 @export var explanation_bad_color: Color = Color.WHITE
 
 @export var wheel_place_audio: Array[AudioStream] = []
+@export var wheel_turn_audio: Array[AudioStream] = []
 
 var _demon_verdict_queue: Array[Array] = []
 var _accepting_new_demon_verdict: bool = true
@@ -57,6 +59,8 @@ func _ready() -> void:
 	explanation.modulate = Color.TRANSPARENT
 
 func rotate_wheel(slices: int) -> void:
+	wheel_turn_sfx.stream = wheel_turn_audio.pick_random()
+	wheel_turn_sfx.play()
 	_wheel_rotation += slices
 	while _wheel_rotation < 0:
 		_wheel_rotation += wheel_slice_count

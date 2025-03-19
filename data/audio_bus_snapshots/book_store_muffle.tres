@@ -10,7 +10,7 @@ wet = 0.1
 
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_4qs8q"]
 resource_name = "LowPassFilter"
-cutoff_hz = 500.0
+cutoff_hz = 1000.0
 
 [resource]
 script = ExtResource("1_iywyg")
