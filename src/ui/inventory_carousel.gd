@@ -7,6 +7,7 @@ signal item_pressed(item: ItemData)
 @onready var carousel: Control = %Carousel
 @onready var carousel_target_left: Control = %CarouselTargetLeft
 @onready var carousel_target_right: Control = %CarouselTargetRight
+@onready var scroll_sfx: AudioStreamPlayer2D = %ScrollSFX
 
 @export var cycle_duration: float = 0.3
 @export var cycle_fast_duration: float = 0.15
@@ -45,6 +46,7 @@ func cycle_left(fast: bool) -> void:
 	if animating:
 		return
 	
+	scroll_sfx.play()
 	_get_middle_carousel_item().item_renderer.stop_animating()
 	animating = true
 	var tween: Tween = get_tree().create_tween()
@@ -62,6 +64,7 @@ func cycle_right(fast: bool) -> void:
 	if animating:
 		return
 	
+	scroll_sfx.play()
 	_get_middle_carousel_item().item_renderer.stop_animating()
 	animating = true
 	var tween: Tween = get_tree().create_tween()

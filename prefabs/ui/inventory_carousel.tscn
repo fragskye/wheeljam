@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://caoneprh3fic"]
+[gd_scene load_steps=8 format=3 uid="uid://caoneprh3fic"]
 
 [ext_resource type="Script" uid="uid://brvwl4xkt25ym" path="res://src/ui/inventory_carousel.gd" id="1_vu3ma"]
 [ext_resource type="Texture2D" uid="uid://h6qgp8f68jos" path="res://assets/ui/arrow_left_button.png" id="3_51apu"]
+[ext_resource type="AudioStream" uid="uid://ca3w86igap7ti" path="res://audio/ui/Scroll Foley Single 001.wav" id="4_51apu"]
 [ext_resource type="Texture2D" uid="uid://cwa8udsoqxem7" path="res://assets/ui/arrow_right_button.png" id="4_mh5c7"]
 
 [sub_resource type="Curve" id="Curve_vu3ma"]
@@ -94,6 +95,11 @@ text = "E"
 icon = ExtResource("4_mh5c7")
 flat = true
 icon_alignment = 2
+
+[node name="ScrollSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_51apu")
+panning_strength = 0.0
 
 [connection signal="pressed" from="LeftButton" to="." method="cycle_left" binds= [true]]
 [connection signal="pressed" from="RightButton" to="." method="cycle_right" binds= [true]]

@@ -16,6 +16,8 @@ func _process(_delta: float) -> void:
 	update_visual()
 
 func update_visual() -> void:
+	if _page_data == null:
+		return
 	page_mesh.set_instance_shader_parameter("page", roundi(_page_data.multiplier))
 	multiplier_label.text = "%.fx" % _page_data.multiplier
 	multiplier_label_shadow.text = multiplier_label.text

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BusSnapshot" load_steps=4 format=3 uid="uid://ddaviin3anleg"]
+
+[ext_resource type="Script" uid="uid://83xvelsi5boc" path="res://addons/OvaniAmbiencePlugin/BusSnapshot.gd" id="1_d7dth"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_w1st6"]
+resource_name = "Reverb"
+room_size = 0.1
+hipass = 0.5
+wet = 0.1
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_4qs8q"]
+resource_name = "LowPassFilter"
+cutoff_hz = 300.0
+
+[resource]
+script = ExtResource("1_d7dth")
+Name = &"ConvenienceStoreBack"
+Volume = -4.0
+Effects = Array[AudioEffect]([SubResource("AudioEffectReverb_w1st6"), SubResource("AudioEffectLowPassFilter_4qs8q")])
+States = Array[bool]([true, true])

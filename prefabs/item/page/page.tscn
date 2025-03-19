@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://ynrxp5rdqm7r"]
+[gd_scene load_steps=10 format=3 uid="uid://ynrxp5rdqm7r"]
 
 [ext_resource type="Script" uid="uid://dtu0a8hypmrm" path="res://src/item/page.gd" id="1_rlpjy"]
 [ext_resource type="Resource" uid="uid://b751qos2k6s81" path="res://prefabs/item/page/page_data.tres" id="2_swqem"]
+[ext_resource type="AudioStream" uid="uid://dlilx4la32110" path="res://audio/item/paper/Pick Up Paper B.wav" id="3_77p3y"]
 [ext_resource type="PackedScene" uid="uid://6c5ucfomh1dt" path="res://prefabs/item/page/page_visual.tscn" id="3_swqem"]
+[ext_resource type="AudioStream" uid="uid://6ibpj3iokfcy" path="res://audio/item/paper/Pick Up Paper A.wav" id="4_3cfi4"]
+[ext_resource type="AudioStream" uid="uid://bmebwra22xeko" path="res://audio/item/paper/Pick Up Paper C.wav" id="4_s0aha"]
+[ext_resource type="Script" uid="uid://dih3swr18jk1u" path="res://addons/OvaniAmbiencePlugin/MovingAudioSource.gd" id="5_6o0ul"]
+[ext_resource type="AudioStream" uid="uid://cap4n6usrq56f" path="res://audio/item/paper/Pick Up Paper D.wav" id="5_cdgmh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fc0e3"]
 size = Vector3(0.2, 0.2, 0.2)
@@ -11,6 +16,7 @@ size = Vector3(0.2, 0.2, 0.2)
 physics_interpolation_mode = 2
 collision_layer = 4
 script = ExtResource("1_rlpjy")
+pick_up_audio = Array[AudioStream]([ExtResource("4_3cfi4"), ExtResource("3_77p3y"), ExtResource("4_s0aha"), ExtResource("5_cdgmh")])
 data = ExtResource("2_swqem")
 visual = NodePath("PageVisual")
 metadata/_custom_type_script = "uid://dtu0a8hypmrm"
@@ -19,3 +25,13 @@ metadata/_custom_type_script = "uid://dtu0a8hypmrm"
 shape = SubResource("BoxShape3D_fc0e3")
 
 [node name="PageVisual" parent="." instance=ExtResource("3_swqem")]
+
+[node name="PickUpSFX" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+attenuation_model = 3
+volume_db = -8.0
+
+[node name="PickUpSFXMovingAudioSource" type="Node3D" parent="PickUpSFX"]
+unique_name_in_owner = true
+script = ExtResource("5_6o0ul")
+metadata/_custom_type_script = "uid://dih3swr18jk1u"

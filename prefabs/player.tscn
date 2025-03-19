@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://fxwwwabbrtv"]
+[gd_scene load_steps=14 format=3 uid="uid://fxwwwabbrtv"]
 
 [ext_resource type="Script" uid="uid://5jsevxsehuo8" path="res://src/player/player.gd" id="1_1txc5"]
 [ext_resource type="Script" uid="uid://bh6wq1q5fxuey" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_r66lb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://p3rffxq11yq4" path="res://src/camera_shake.gd" id="5_u51tk"]
 [ext_resource type="Script" uid="uid://dj5wa11rc1q6d" path="res://src/player/interaction_system.gd" id="6_g2jcq"]
 [ext_resource type="Script" uid="uid://cbjrdq7ived0u" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="6_u51tk"]
+[ext_resource type="Script" uid="uid://ckfxwo28lrgnu" path="res://addons/OvaniAmbiencePlugin/AmbienceListener.gd" id="8_kbsxf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dm0k"]
 
@@ -89,3 +90,7 @@ reach_distance = 3.0
 blocker_mask = 4278190081
 interactable_mask = 4278190084
 sphere_shape = SubResource("SphereShape3D_g2jcq")
+
+[node name="AmbienceListener" type="Node" parent="."]
+script = ExtResource("8_kbsxf")
+metadata/_custom_type_script = "uid://ckfxwo28lrgnu"

@@ -1,20 +1,82 @@
-[gd_scene load_steps=20 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=56 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
+[ext_resource type="Script" uid="uid://83xvelsi5boc" path="res://addons/OvaniAmbiencePlugin/BusSnapshot.gd" id="2_7px3q"]
 [ext_resource type="PackedScene" uid="uid://dtlr4fnfqrp1s" path="res://assets/models/buildings/book_store.tscn" id="2_poig3"]
 [ext_resource type="PackedScene" uid="uid://qvkb0oc211jc" path="res://assets/models/buildings/townhouse.tscn" id="3_2eiut"]
+[ext_resource type="AudioStream" uid="uid://m361c8yjr41y" path="res://audio/ambient/Eerie Wind Loop A.wav" id="3_7px3q"]
+[ext_resource type="Resource" uid="uid://bug5opvybrvo2" path="res://data/audio_bus_snapshots/outside.tres" id="3_w1st6"]
+[ext_resource type="Resource" uid="uid://cm78cr18g8tf7" path="res://data/audio_bus_snapshots/book_store_muffle.tres" id="4_4qs8q"]
 [ext_resource type="PackedScene" uid="uid://cbjfho2l0nlyj" path="res://assets/models/props/trash_1.tscn" id="4_oqxhg"]
 [ext_resource type="PackedScene" uid="uid://m0rajcpmr5iu" path="res://assets/models/props/fence.glb" id="5_2eiut"]
 [ext_resource type="PackedScene" uid="uid://iv6yqa2731vu" path="res://assets/models/props/trash_2.tscn" id="5_4sbom"]
+[ext_resource type="Resource" uid="uid://r3odnorpnwkw" path="res://data/audio_bus_snapshots/book_store_back_muffle.tres" id="5_kmgvs"]
 [ext_resource type="PackedScene" uid="uid://b5ecugm0yh0ww" path="res://assets/models/buildings/convenience_store.tscn" id="5_oqxhg"]
 [ext_resource type="PackedScene" uid="uid://cnb603evaxq8k" path="res://assets/models/props/trash_3.tscn" id="6_2bfpd"]
 [ext_resource type="PackedScene" uid="uid://cw6hm2gbufl64" path="res://assets/models/buildings/laundromat.tscn" id="6_3jj1w"]
+[ext_resource type="Resource" uid="uid://8q0l3rsog2wt" path="res://data/audio_bus_snapshots/convenience_store_muffle.tres" id="6_xhao2"]
 [ext_resource type="PackedScene" uid="uid://ba1xcvqntdjcb" path="res://assets/models/props/wreckage_1.tscn" id="7_3jj1w"]
+[ext_resource type="Resource" uid="uid://ddaviin3anleg" path="res://data/audio_bus_snapshots/convenience_store_back_muffle.tres" id="7_d0fiy"]
+[ext_resource type="Resource" uid="uid://cu0waap06vfrt" path="res://data/audio_bus_snapshots/laundromat_muffle.tres" id="8_3y4r8"]
+[ext_resource type="Resource" uid="uid://1yg3l58c51xr" path="res://data/audio_bus_snapshots/laundromat_back_muffle.tres" id="9_b21av"]
 [ext_resource type="PackedScene" uid="uid://bfr5sqtuj00pl" path="res://assets/models/props/convenience_store/cardboard_box_2.tscn" id="10_2bfpd"]
+[ext_resource type="Resource" uid="uid://cspsc41u1j1nd" path="res://data/audio_bus_snapshots/coffee_shop_muffle.tres" id="10_qfwe5"]
 [ext_resource type="PackedScene" uid="uid://d2in713yw3yem" path="res://assets/models/props/convenience_store/cardboard_box_1.tscn" id="11_3jj1w"]
+[ext_resource type="Resource" uid="uid://cvit5yht56q1e" path="res://data/audio_bus_snapshots/coffee_shop_back_muffle.tres" id="11_rp2uv"]
+[ext_resource type="Resource" uid="uid://brow7g5mrmjdv" path="res://data/audio_bus_snapshots/diner_muffle.tres" id="12_n24yn"]
+[ext_resource type="Resource" uid="uid://ddc73s2pg32p5" path="res://data/audio_bus_snapshots/diner_back_muffle.tres" id="13_xjwhs"]
 [ext_resource type="PackedScene" uid="uid://3awvl64l81xf" path="res://assets/models/props/dumpster.tscn" id="14_3gbvy"]
+[ext_resource type="Resource" uid="uid://cdipobq4s2r8p" path="res://data/audio_bus_snapshots/thrift_store_muffle.tres" id="14_k4png"]
 [ext_resource type="PackedScene" uid="uid://dq1j832yty063" path="res://assets/models/props/posters/eviction_notice.tscn" id="15_7q7v2"]
+[ext_resource type="Resource" uid="uid://ds8wedjpyvnkb" path="res://data/audio_bus_snapshots/thrift_store_back_muffle.tres" id="15_e4ptm"]
+[ext_resource type="Script" uid="uid://cu73d416r8mwe" path="res://addons/OvaniAmbiencePlugin/AmbienceArea.gd" id="16_aai17"]
+[ext_resource type="Script" uid="uid://dih3swr18jk1u" path="res://addons/OvaniAmbiencePlugin/MovingAudioSource.gd" id="17_qfwe5"]
+[ext_resource type="Resource" uid="uid://dmreqxpv8yfyk" path="res://data/audio_bus_snapshots/outside_near.tres" id="17_xhao2"]
+[ext_resource type="Resource" uid="uid://barf7u1j7ycdw" path="res://data/audio_bus_snapshots/book_store.tres" id="18_d0fiy"]
+[ext_resource type="Resource" uid="uid://4jocthtg206i" path="res://data/audio_bus_snapshots/book_store_back.tres" id="19_3y4r8"]
+[ext_resource type="Resource" uid="uid://cl7mxqihu0mcy" path="res://data/audio_bus_snapshots/outside_far.tres" id="20_d0fiy"]
+[ext_resource type="Resource" uid="uid://boditwne6ylrr" path="res://data/audio_bus_snapshots/convenience_store.tres" id="21_b21av"]
+[ext_resource type="Resource" uid="uid://ryq86ah2cbe1" path="res://data/audio_bus_snapshots/convenience_store_back.tres" id="22_qfwe5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
+size = Vector3(512, 512, 512)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7px3q"]
+size = Vector3(19, 9, 19)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1st6"]
+size = Vector3(19, 9, 5.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpsl3"]
+size = Vector3(19, 4, 19)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4qs8q"]
+size = Vector3(19, 4, 6.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mbc85"]
+size = Vector3(19, 6, 19)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpk5l"]
+size = Vector3(19, 6, 5.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4nqy1"]
+size = Vector3(20, 6, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rn5b3"]
+size = Vector3(20, 6, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pgkm7"]
+size = Vector3(20, 6, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_454qq"]
+size = Vector3(20, 6, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yma5d"]
+size = Vector3(20, 6, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4yb3k"]
+size = Vector3(20, 6, 20)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -43,6 +105,173 @@ volumetric_fog_ambient_inject = 1.0
 density = -0.2
 
 [node name="Environment" type="Node3D"]
+
+[node name="Outside" type="Area3D" parent="."]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside"]
+shape = SubResource("BoxShape3D_aai17")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Outside"]
+stream = ExtResource("3_7px3q")
+attenuation_model = 3
+volume_db = -2.0
+autoplay = true
+panning_strength = 0.0
+bus = &"Outside"
+
+[node name="MovingAudioSource" type="Node3D" parent="Outside/AudioStreamPlayer3D"]
+script = ExtResource("17_qfwe5")
+metadata/_custom_type_script = "uid://dih3swr18jk1u"
+
+[node name="BookStore" type="Area3D" parent="Outside"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("17_xhao2"), ExtResource("18_d0fiy"), ExtResource("19_3y4r8"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/BookStore"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, 15)
+shape = SubResource("BoxShape3D_7px3q")
+
+[node name="BookStoreBack" type="Area3D" parent="Outside/BookStore"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("20_d0fiy"), ExtResource("18_d0fiy"), ExtResource("19_3y4r8"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/BookStore/BookStoreBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6, 21.75)
+shape = SubResource("BoxShape3D_w1st6")
+
+[node name="ConvenienceStore" type="Area3D" parent="Outside"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("17_xhao2"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("21_b21av"), ExtResource("22_qfwe5"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/ConvenienceStore"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.1, -15)
+shape = SubResource("BoxShape3D_mpsl3")
+
+[node name="ConvenienceStoreBack" type="Area3D" parent="Outside/ConvenienceStore"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("20_d0fiy"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("21_b21av"), ExtResource("22_qfwe5"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/ConvenienceStore/ConvenienceStoreBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2.1, -21.25)
+shape = SubResource("BoxShape3D_4qs8q")
+
+[node name="Laundromat" type="Area3D" parent="Outside"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/Laundromat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 3.1, 15)
+shape = SubResource("BoxShape3D_mbc85")
+
+[node name="LaundromatBack" type="Area3D" parent="Outside/Laundromat"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/Laundromat/LaundromatBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 3.1, 21.75)
+shape = SubResource("BoxShape3D_rpk5l")
+
+[node name="CoffeeShop" type="Area3D" parent="Outside"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/CoffeeShop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+shape = SubResource("BoxShape3D_4nqy1")
+
+[node name="CoffeeShopBack" type="Area3D" parent="Outside/CoffeeShop"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/CoffeeShop/CoffeeShopBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+shape = SubResource("BoxShape3D_rn5b3")
+
+[node name="Diner" type="Area3D" parent="Outside"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/Diner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+shape = SubResource("BoxShape3D_pgkm7")
+
+[node name="DinerBack" type="Area3D" parent="Outside/Diner"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/Diner/DinerBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+shape = SubResource("BoxShape3D_454qq")
+
+[node name="ThriftStore" type="Area3D" parent="Outside"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/ThriftStore"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+shape = SubResource("BoxShape3D_yma5d")
+
+[node name="ThriftStoreBack" type="Area3D" parent="Outside/ThriftStore"]
+collision_layer = 8388608
+collision_mask = 8388610
+script = ExtResource("16_aai17")
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+TransitionTime = 4.0
+metadata/_custom_type_script = "uid://cu73d416r8mwe"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/ThriftStore/ThriftStoreBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+shape = SubResource("BoxShape3D_4yb3k")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h2yge")

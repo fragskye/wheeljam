@@ -17,12 +17,15 @@ signal demon_verdict_anim_finished()
 @onready var page_mult_label: Label = %PageMultLabel
 @onready var demon_mult_label: Label = %DemonMultLabel
 @onready var result_label: Label = %ResultLabel
+@onready var wheel_place_sfx: AudioStreamPlayer2D = %WheelPlaceSFX
 
 @export var wheel_slice_count: int = 0
 
 @export var explanation_good_color: Color = Color.WHITE
 @export var explanation_neutral_color: Color = Color.WHITE
 @export var explanation_bad_color: Color = Color.WHITE
+
+@export var wheel_place_audio: Array[AudioStream] = []
 
 var _demon_verdict_queue: Array[Array] = []
 var _accepting_new_demon_verdict: bool = true
@@ -158,6 +161,8 @@ func _on_inventory_carousel_item_pressed(data: ItemData) -> void:
 		_wheel_wedges[target_wedge].set_item(data)
 		Global.player.inventory[Global.player.inventory.find(data)] = null
 		inventory_carousel.update_inventory_items()
+		wheel_place_sfx.stream = wheel_place_audio.pick_random()
+		wheel_place_sfx.play()
 		
 		var empty_slot: bool = false
 		var empty_slot_idx: int = 0

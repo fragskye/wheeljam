@@ -55,7 +55,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/game_plugin/plugin.cfg", "res://addons/godot-polyliner/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/OvaniAmbiencePlugin/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/game_plugin/plugin.cfg", "res://addons/godot-polyliner/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
 
 [global_group]
 
@@ -155,6 +155,7 @@ inventory_speed_modifier={
 3d_physics/layer_2="player"
 3d_physics/layer_3="interactable"
 3d_physics/layer_4="hostile"
+3d_physics/layer_24="environmental_ambience"
 
 [physics]
 

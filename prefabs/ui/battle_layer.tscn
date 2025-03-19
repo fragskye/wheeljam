@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb0jfvecfuu5d"]
+[gd_scene load_steps=11 format=3 uid="uid://bb0jfvecfuu5d"]
 
 [ext_resource type="Script" uid="uid://cd6kovq6y3p8d" path="res://src/ui/battle_layer.gd" id="1_ihokf"]
 [ext_resource type="PackedScene" uid="uid://caoneprh3fic" path="res://prefabs/ui/inventory_carousel.tscn" id="2_p1w5e"]
 [ext_resource type="FontFile" uid="uid://bexj87qb2mllv" path="res://assets/fonts/not_jam/giant_ui/Not Jam Giant UI 22.ttf" id="2_xybdf"]
+[ext_resource type="AudioStream" uid="uid://c0ucj3qcskmd4" path="res://audio/ui/Shoe Step Rug Hard A.wav" id="2_yfv3s"]
 [ext_resource type="Texture2D" uid="uid://chobkko7ab520" path="res://assets/ui/bottom_shadow_alt.png" id="3_ihokf"]
+[ext_resource type="AudioStream" uid="uid://cdmlhwpxrwjrn" path="res://audio/ui/Shoe Step Rug Hard B.wav" id="3_yg6u1"]
+[ext_resource type="AudioStream" uid="uid://dyxurx1ux6qh6" path="res://audio/ui/Shoe Step Rug Hard C.wav" id="4_ev5fb"]
+[ext_resource type="AudioStream" uid="uid://hmocjajq8x2x" path="res://audio/ui/Shoe Step Rug Hard D.wav" id="5_555vs"]
+[ext_resource type="AudioStream" uid="uid://d0rtt0cvgw3nw" path="res://audio/ui/Shoe Step Rug Hard E.wav" id="6_0ch4s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v2g41"]
 font = ExtResource("2_xybdf")
@@ -17,6 +22,7 @@ wheel_slice_count = 4
 explanation_good_color = Color(0.564706, 1, 0.564706, 1)
 explanation_neutral_color = Color(0.501961, 0.501961, 0.501961, 1)
 explanation_bad_color = Color(0.8, 0.12549, 0.12549, 1)
+wheel_place_audio = Array[AudioStream]([ExtResource("2_yfv3s"), ExtResource("3_yg6u1"), ExtResource("4_ev5fb"), ExtResource("5_555vs"), ExtResource("6_0ch4s")])
 
 [node name="BattleMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -211,5 +217,9 @@ grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("3_ihokf")
 expand_mode = 1
+
+[node name="WheelPlaceSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+panning_strength = 0.0
 
 [connection signal="item_pressed" from="BattleMenu/InventoryCarousel" to="." method="_on_inventory_carousel_item_pressed"]

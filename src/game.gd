@@ -33,11 +33,11 @@ func spawn_next_demon() -> void:
 	
 	# phantom camera's built-in noise seems to be broken in 4.4 :( it causes severe flickering
 	#demon_spawn_noise_emitter.emit()
-	Global.player.camera_shake.shake(1.0, 3.0)
+	Global.player.camera_shake.shake(1.0, 3.75)
 	demon = DEMON.instantiate()
 	demon.data = demons[demon_index]
 	add_child(demon)
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	NotificationLayer.show_toast("What was that?")
 
 func _on_battle_won() -> void:
