@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3fegp2nkjxk0"]
+
+[ext_resource type="PackedScene" uid="uid://bs84oy87rt27u" path="res://assets/models/props/book_store/book_shelf.glb" id="1_ukydr"]
+[ext_resource type="Script" uid="uid://bhx5nwufud41w" path="res://src/random/random_book_shelf.gd" id="2_vkws5"]
+
+[sub_resource type="Curve" id="Curve_vkws5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.25), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="RandomBookShelf" instance=ExtResource("1_ukydr")]
+script = ExtResource("2_vkws5")
+heights = Array[float]([0.1, 0.667, 1.333])
+width = 1.8
+depth = 0.1
+book_width = 0.1
+book_spacing_curve = SubResource("Curve_vkws5")

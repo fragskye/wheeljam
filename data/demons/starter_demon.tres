@@ -86,7 +86,7 @@ point_count = 2
 
 [resource]
 script = ExtResource("3_bhrlj")
-max_health = 220.0
+max_health = 300.0
 health_drain = 1.5
 health_drain_outside_battle = 0.5
 faces = Array[ExtResource("2_iosj8")]([SubResource("Resource_5t3bf"), SubResource("Resource_scfcj")])

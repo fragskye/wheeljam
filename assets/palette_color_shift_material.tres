@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ca6i5kl0ohomq"]
+
+[ext_resource type="Shader" uid="uid://6dkibk307uca" path="res://shaders/standard_palette_color_shift.gdshader" id="1_b6g4m"]
+[ext_resource type="Texture2D" uid="uid://coydxr26h1udh" path="res://assets/palette.png" id="2_y580n"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_b6g4m")
+shader_parameter/palette = ExtResource("2_y580n")
+shader_parameter/emissive = false

@@ -10,7 +10,7 @@ var _moved: bool = false
 func _ready() -> void:
 	check_move()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	check_move()
 
 func check_move() -> void:

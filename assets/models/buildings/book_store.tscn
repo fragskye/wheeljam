@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtlr4fnfqrp1s"]
+[gd_scene load_steps=10 format=3 uid="uid://dtlr4fnfqrp1s"]
 
 [ext_resource type="PackedScene" uid="uid://b6sakjckgrwg1" path="res://assets/models/buildings/book_store.glb" id="1_yrsso"]
+[ext_resource type="PackedScene" uid="uid://c3fegp2nkjxk0" path="res://assets/models/props/book_store/random_book_shelf.tscn" id="3_1dewe"]
 [ext_resource type="PackedScene" uid="uid://bbvsm7ws1yt3a" path="res://assets/models/props/book_store/book_shelf.tscn" id="3_a4bh8"]
 [ext_resource type="PackedScene" uid="uid://cv5jwhx1ugi8t" path="res://assets/models/props/book_store/counter.tscn" id="3_tyk1o"]
 [ext_resource type="PackedScene" uid="uid://bhhuhro66j5of" path="res://assets/models/props/book_store/display.tscn" id="4_h0gle"]
 [ext_resource type="PackedScene" uid="uid://cpffv2k2op1i0" path="res://assets/models/props/book_store/ceiling_light_on.tscn" id="5_ny8xk"]
+[ext_resource type="PackedScene" uid="uid://d21gwgvpaspum" path="res://assets/models/props/book_store/random_book.tscn" id="6_7ffvk"]
 [ext_resource type="PackedScene" uid="uid://dl4av7gyci7fs" path="res://assets/models/props/book_store/ceiling_light_off.tscn" id="6_b3px7"]
 [ext_resource type="PackedScene" uid="uid://4as8ptuj4lje" path="res://assets/models/props/posters/summon_story.tscn" id="7_b7k30"]
 
@@ -13,166 +15,166 @@
 [node name="Row" type="Node3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8, 0, 0)
 
-[node name="BookShelf" parent="Row" index="0" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf" parent="Row" index="0" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7)
 
-[node name="BookShelf2" parent="Row" index="1" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf2" parent="Row" index="1" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5)
 
-[node name="BookShelf3" parent="Row" index="2" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf3" parent="Row" index="2" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -3)
 
-[node name="BookShelf4" parent="Row" index="3" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf4" parent="Row" index="3" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1)
 
-[node name="BookShelf5" parent="Row" index="4" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf5" parent="Row" index="4" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 3)
 
-[node name="BookShelf6" parent="Row" index="5" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf6" parent="Row" index="5" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 5)
 
-[node name="BookShelf7" parent="Row" index="6" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf7" parent="Row" index="6" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 7)
 
 [node name="Row2" type="Node3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 0, 0)
 
-[node name="BookShelf" parent="Row2" index="0" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf" parent="Row2" index="0" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7)
 
-[node name="BookShelf2" parent="Row2" index="1" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf2" parent="Row2" index="1" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5)
 
-[node name="BookShelf3" parent="Row2" index="2" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf3" parent="Row2" index="2" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -3)
 
-[node name="BookShelf4" parent="Row2" index="3" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf4" parent="Row2" index="3" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1)
 
-[node name="BookShelf5" parent="Row2" index="4" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf5" parent="Row2" index="4" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 3)
 
-[node name="BookShelf6" parent="Row2" index="5" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf6" parent="Row2" index="5" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 5)
 
-[node name="BookShelf7" parent="Row2" index="6" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf7" parent="Row2" index="6" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 7)
 
 [node name="Row3" type="Node3D" parent="." index="4"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5.8, 0, 0)
 
-[node name="BookShelf" parent="Row3" index="0" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf" parent="Row3" index="0" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7)
 
-[node name="BookShelf2" parent="Row3" index="1" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf2" parent="Row3" index="1" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5)
 
-[node name="BookShelf3" parent="Row3" index="2" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf3" parent="Row3" index="2" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -3)
 
-[node name="BookShelf4" parent="Row3" index="3" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf4" parent="Row3" index="3" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 1)
 
-[node name="BookShelf5" parent="Row3" index="4" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf5" parent="Row3" index="4" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 3)
 
-[node name="BookShelf6" parent="Row3" index="5" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf6" parent="Row3" index="5" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 5)
 
-[node name="BookShelf7" parent="Row3" index="6" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf7" parent="Row3" index="6" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0.173648, -0.984808, 0, 0.984808, 0.173648, 1, 7.5904e-09, -4.30473e-08, -0.35, 0, 7)
 
 [node name="Row4" type="Node3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, 0)
 
-[node name="BookShelf" parent="Row4" index="0" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf" parent="Row4" index="0" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7)
 
-[node name="BookShelf2" parent="Row4" index="1" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf2" parent="Row4" index="1" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5)
 
-[node name="BookShelf3" parent="Row4" index="2" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf3" parent="Row4" index="2" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -3)
 
-[node name="BookShelf4" parent="Row4" index="3" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf4" parent="Row4" index="3" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1)
 
-[node name="BookShelf5" parent="Row4" index="4" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf5" parent="Row4" index="4" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 3)
 
-[node name="BookShelf6" parent="Row4" index="5" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf6" parent="Row4" index="5" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 5)
 
-[node name="BookShelf7" parent="Row4" index="6" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf7" parent="Row4" index="6" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 7)
 
 [node name="Row5" type="Node3D" parent="." index="6"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.8, 0, 0)
 
-[node name="BookShelf" parent="Row5" index="0" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf" parent="Row5" index="0" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7)
 
-[node name="BookShelf2" parent="Row5" index="1" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf2" parent="Row5" index="1" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5)
 
-[node name="BookShelf3" parent="Row5" index="2" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf3" parent="Row5" index="2" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -3)
 
-[node name="BookShelf4" parent="Row5" index="3" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf4" parent="Row5" index="3" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 1)
 
-[node name="BookShelf5" parent="Row5" index="4" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf5" parent="Row5" index="4" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 3)
 
-[node name="BookShelf6" parent="Row5" index="5" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf6" parent="Row5" index="5" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 5)
 
-[node name="BookShelf7" parent="Row5" index="6" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf7" parent="Row5" index="6" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 7)
 
 [node name="Row6" type="Node3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, 0)
 
-[node name="BookShelf" parent="Row6" index="0" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf" parent="Row6" index="0" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7)
 
-[node name="BookShelf2" parent="Row6" index="1" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf2" parent="Row6" index="1" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5)
 
-[node name="BookShelf3" parent="Row6" index="2" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf3" parent="Row6" index="2" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 5)
 
-[node name="BookShelf4" parent="Row6" index="3" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf4" parent="Row6" index="3" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 7)
 
 [node name="Row7" type="Node3D" parent="." index="8"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.8, 0, 0)
 
-[node name="BookShelf" parent="Row7" index="0" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf" parent="Row7" index="0" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7)
 
-[node name="BookShelf2" parent="Row7" index="1" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf2" parent="Row7" index="1" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5)
 
-[node name="BookShelf3" parent="Row7" index="2" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf3" parent="Row7" index="2" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 5)
 
-[node name="BookShelf4" parent="Row7" index="3" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf4" parent="Row7" index="3" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 7)
 
 [node name="Row10" type="Node3D" parent="." index="9"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.8, 0, 0)
 
-[node name="BookShelf" parent="Row10" index="0" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf" parent="Row10" index="0" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7)
 
-[node name="BookShelf2" parent="Row10" index="1" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf2" parent="Row10" index="1" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5)
 
-[node name="BookShelf3" parent="Row10" index="2" instance=ExtResource("3_a4bh8")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 5)
+[node name="RandomBookShelf3" parent="Row10" index="2" instance=ExtResource("3_1dewe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.53674e-07, 0, 5)
 
-[node name="BookShelf4" parent="Row10" index="3" instance=ExtResource("3_a4bh8")]
+[node name="RandomBookShelf4" parent="Row10" index="3" instance=ExtResource("3_1dewe")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 7)
 
 [node name="BookShelf" parent="." index="10" instance=ExtResource("3_a4bh8")]
@@ -196,8 +198,74 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 [node name="Display" parent="." index="16" instance=ExtResource("4_h0gle")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.8, 0, -6)
 
+[node name="RandomBook" parent="Display" index="2" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.7, 1.1, -1.5)
+
+[node name="RandomBook2" parent="Display" index="3" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.7, 1.1, -0.500003)
+
+[node name="RandomBook3" parent="Display" index="4" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.7, 1.1, 0.499996)
+
+[node name="RandomBook4" parent="Display" index="5" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.700001, 1.1, 1.5)
+
+[node name="RandomBook5" parent="Display" index="6" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.699998, 1.1, 1.5)
+
+[node name="RandomBook6" parent="Display" index="7" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.699998, 1.1, 0.499996)
+
+[node name="RandomBook7" parent="Display" index="8" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.7, 1.1, -0.500003)
+
+[node name="RandomBook8" parent="Display" index="9" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.7, 1.1, -1.5)
+
+[node name="RandomBook9" parent="Display" index="10" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0999999, 1.3, -1.1)
+
+[node name="RandomBook10" parent="Display" index="11" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0999999, 1.3, -0.100004)
+
+[node name="RandomBook11" parent="Display" index="12" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100001, 1.3, 0.899996)
+
 [node name="Display2" parent="." index="17" instance=ExtResource("4_h0gle")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.8, 0, 6)
+
+[node name="RandomBook" parent="Display2" index="2" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.7, 1.1, -1.5)
+
+[node name="RandomBook2" parent="Display2" index="3" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.7, 1.1, -0.500003)
+
+[node name="RandomBook3" parent="Display2" index="4" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.7, 1.1, 0.499996)
+
+[node name="RandomBook4" parent="Display2" index="5" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.700001, 1.1, 1.5)
+
+[node name="RandomBook5" parent="Display2" index="6" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.699998, 1.1, 1.5)
+
+[node name="RandomBook6" parent="Display2" index="7" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.699998, 1.1, 0.499996)
+
+[node name="RandomBook7" parent="Display2" index="8" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.7, 1.1, -0.500003)
+
+[node name="RandomBook8" parent="Display2" index="9" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.7, 1.1, -1.5)
+
+[node name="RandomBook9" parent="Display2" index="10" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0999999, 1.3, -1.1)
+
+[node name="RandomBook10" parent="Display2" index="11" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0999999, 1.3, -0.100004)
+
+[node name="RandomBook11" parent="Display2" index="12" instance=ExtResource("6_7ffvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100001, 1.3, 0.899996)
 
 [node name="Lights" type="Node3D" parent="." index="18"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)

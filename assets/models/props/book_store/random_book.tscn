@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d21gwgvpaspum"]
+
+[ext_resource type="PackedScene" uid="uid://d1db2g2eo7nnk" path="res://assets/models/props/book_store/book.glb" id="1_52421"]
+[ext_resource type="Script" uid="uid://bhh1mbepdbo0w" path="res://src/random/random_book.gd" id="2_qyqwy"]
+
+[node name="RandomBook" instance=ExtResource("1_52421")]
+script = ExtResource("2_qyqwy")
+hue_ranges = Array[Vector2]([Vector2(-0.05, 0.05), Vector2(0.25, 0.3), Vector2(0.6, 0.85)])
+saturation_ranges = Array[Vector2]([Vector2(0.8, 0.9), Vector2(0.6, 0.6), Vector2(0.6, 0.6)])
+value_ranges = Array[Vector2]([Vector2(1, 1), Vector2(0.6, 0.6), Vector2(0.8, 0.8)])
+min_scale = 0.8
+
+[node name="Book" parent="." index="0"]
+unique_name_in_owner = true
