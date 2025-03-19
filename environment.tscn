@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=58 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
@@ -39,6 +39,7 @@
 [ext_resource type="Resource" uid="uid://cl7mxqihu0mcy" path="res://data/audio_bus_snapshots/outside_far.tres" id="20_d0fiy"]
 [ext_resource type="Resource" uid="uid://boditwne6ylrr" path="res://data/audio_bus_snapshots/convenience_store.tres" id="21_b21av"]
 [ext_resource type="Resource" uid="uid://ryq86ah2cbe1" path="res://data/audio_bus_snapshots/convenience_store_back.tres" id="22_qfwe5"]
+[ext_resource type="PackedScene" uid="uid://dy7lmv7xh3ua6" path="res://prefabs/progress_barrier.tscn" id="40_n24yn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aai17"]
 size = Vector3(512, 512, 512)
@@ -457,3 +458,15 @@ size = Vector3(20, 8, 20)
 
 [node name="EvictionNotice" parent="." instance=ExtResource("15_7q7v2")]
 transform = Transform3D(-0.999256, 0.0385622, -8.73577e-08, 0.0385622, 0.999256, 3.37122e-09, 8.74228e-08, 0, -1, 15.1691, 2.12969, 6.999)
+
+[node name="ProgressBarrier" parent="." instance=ExtResource("40_n24yn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.5, 0, 0)
+demon_requirement = 1
+
+[node name="ProgressBarrier2" parent="." instance=ExtResource("40_n24yn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.5, 0, 0)
+demon_requirement = 2
+
+[node name="ProgressBarrier3" parent="." instance=ExtResource("40_n24yn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31, 0, 0)
+demon_requirement = 3

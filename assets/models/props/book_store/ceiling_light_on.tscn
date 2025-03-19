@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpffv2k2op1i0"]
+[gd_scene load_steps=4 format=3 uid="uid://cpffv2k2op1i0"]
 
 [ext_resource type="PackedScene" uid="uid://dewsxf3k8te4q" path="res://assets/models/props/book_store/ceiling_light.glb" id="1_qkfbt"]
+[ext_resource type="AudioStream" uid="uid://cybj8prdbs1jm" path="res://audio/ambient/Electric Hum Loop D.wav" id="2_h3rha"]
+[ext_resource type="Script" uid="uid://dih3swr18jk1u" path="res://addons/OvaniAmbiencePlugin/MovingAudioSource.gd" id="3_vbcxy"]
 
 [node name="CeilingLightOn" instance=ExtResource("1_qkfbt")]
 
@@ -15,3 +17,13 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.
 light_indirect_energy = 2.0
 light_bake_mode = 1
 spot_angle = 90.0
+
+[node name="HumSFX" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = ExtResource("2_h3rha")
+volume_db = -45.0
+pitch_scale = 0.8
+autoplay = true
+
+[node name="MovingAudioSource" type="Node3D" parent="HumSFX" index="0"]
+script = ExtResource("3_vbcxy")
+metadata/_custom_type_script = "uid://dih3swr18jk1u"

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy7lmv7xh3ua6"]
+
+[ext_resource type="Script" uid="uid://f5luxpstkusv" path="res://src/progress_barrier.gd" id="1_dp376"]
+[ext_resource type="PackedScene" uid="uid://46ukgr0odwav" path="res://assets/models/props/wreckage_2.tscn" id="1_fbl5a"]
+[ext_resource type="AudioStream" uid="uid://4pjg1ru1iw4r" path="res://audio/progress_barrier/Metal Screech Big D.wav" id="3_dp376"]
+[ext_resource type="Script" uid="uid://dih3swr18jk1u" path="res://addons/OvaniAmbiencePlugin/MovingAudioSource.gd" id="4_b8qse"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h4sgw"]
+size = Vector3(10, 3, 1)
+
+[node name="ProgressBarrier" type="AnimatableBody3D"]
+script = ExtResource("1_dp376")
+
+[node name="Wreckage2" parent="." instance=ExtResource("1_fbl5a")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_h4sgw")
+
+[node name="MoveSFX" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_dp376")
+attenuation_model = 3
+volume_db = -6.0
+pitch_scale = 0.6
+
+[node name="MovingAudioSource" type="Node3D" parent="MoveSFX"]
+script = ExtResource("4_b8qse")
+metadata/_custom_type_script = "uid://dih3swr18jk1u"

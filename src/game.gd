@@ -18,6 +18,7 @@ var _in_spawn_demon_area: bool = false
 func _ready() -> void:
 	SignalBus.battle_won.connect(_on_battle_won)
 	SignalBus.battle_lost.connect(_on_battle_lost)
+	Global.game = self
 
 func _process(_delta: float) -> void:
 	if _can_spawn_demon && _in_spawn_demon_area:

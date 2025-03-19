@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxvrn58l7q6wn"
+path="res://.godot/imported/Metal Scrape Big A.wav-be5d438d1ee59bd2be0add5d653947fd.sample"
+
+[deps]
+
+source_file="res://audio/progress_barrier/Metal Scrape Big A.wav"
+dest_files=["res://.godot/imported/Metal Scrape Big A.wav-be5d438d1ee59bd2be0add5d653947fd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

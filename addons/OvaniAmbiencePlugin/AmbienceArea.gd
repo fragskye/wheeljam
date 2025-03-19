@@ -222,6 +222,8 @@ func _exit_tree():
 
 var _childAmbiences : Array[StringName]
 func _on_area_entered(area_rid:RID, area:Area3D, area_shape_index:int, local_shape_index:int):
+	if area == null:
+		return
 	if (area.get_parent() is MovingAudioSource):
 		if (area.get_parent().get_parent() is AudioStreamPlayer3D):
 			var player : AudioStreamPlayer3D = area.get_parent().get_parent()
