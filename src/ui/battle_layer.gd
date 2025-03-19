@@ -17,8 +17,10 @@ signal demon_verdict_anim_finished()
 @onready var page_mult_label: Label = %PageMultLabel
 @onready var demon_mult_label: Label = %DemonMultLabel
 @onready var result_label: Label = %ResultLabel
+@onready var wheel_select_sfx: AudioStreamPlayer2D = %WheelSelectSFX
 @onready var wheel_place_sfx: AudioStreamPlayer2D = %WheelPlaceSFX
 @onready var wheel_turn_sfx: AudioStreamPlayer2D = %WheelTurnSFX
+@onready var explanation_sfx: AudioStreamPlayer2D = %ExplanationSFX
 
 @export var wheel_slice_count: int = 0
 
@@ -188,6 +190,7 @@ func _on_inventory_carousel_item_pressed(data: ItemData) -> void:
 
 func _on_wheel_slice_pressed(index: int) -> void:
 	if get_wedge_page(index) == null:
+		wheel_select_sfx.play()
 		_selected_wheel_slice = index
 	if !_needs_more_pages:
 		_moves_in_turn += 1
@@ -295,16 +298,24 @@ func _play_demon_verdict() -> void:
 	if result_label.text.ends_with(".0"):
 		result_label.text = result_label.text.substr(0, result_label.text.length() - 2)
 	
+	var demon_mult_pitch: float = 1.0
+	
 	if demon_mult > 0:
+		demon_mult_pitch = 1.05
 		demon_mult_label.modulate = explanation_good_color
 	elif demon_mult < 0:
+		demon_mult_pitch = 0.95
 		demon_mult_label.modulate = explanation_bad_color
 	else:
 		demon_mult_label.modulate = explanation_neutral_color
 	
+	var result_pitch: float = 1.0
+	
 	if result > 0:
+		result_pitch = 1.1
 		result_label.modulate = explanation_good_color
 	elif result < 0:
+		result_pitch = 0.9
 		result_label.modulate = explanation_bad_color
 	else:
 		result_label.modulate = explanation_neutral_color
@@ -314,6 +325,8 @@ func _play_demon_verdict() -> void:
 	
 	var step_duration: float = 0.4
 	
+	explanation_sfx.pitch_scale = 1.0
+	explanation_sfx.play()
 	var tween: Tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -324,10 +337,14 @@ func _play_demon_verdict() -> void:
 	tween.parallel().tween_property(page_mult_label, "scale", Vector2.ONE, step_duration)
 	demon_mult_label.global_position = demon_mult_label_pos + Vector2(0.0, -40.0)
 	demon_mult_label.scale = Vector2(1.6, 1.6)
+	tween.tween_property(explanation_sfx, "pitch_scale", demon_mult_pitch, 0.0)
+	tween.tween_callback(explanation_sfx.play)
 	tween.tween_property(demon_mult_label, "visible", true, 0.0)
 	tween.tween_property(demon_mult_label, "global_position", demon_mult_label_pos, step_duration)
 	tween.parallel().tween_property(demon_mult_label, "scale", Vector2.ONE, step_duration)
 	result_label.scale = Vector2(2.2, 2.2)
+	tween.tween_property(explanation_sfx, "pitch_scale", result_pitch, 0.0)
+	tween.tween_callback(explanation_sfx.play)
 	tween.tween_property(result_label, "visible", true, 0.0)
 	tween.tween_property(result_label, "scale", Vector2(1.6, 1.6), step_duration)
 	tween.set_ease(Tween.EASE_IN)

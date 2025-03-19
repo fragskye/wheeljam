@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b4f0i8upqtysu"
+path="res://.godot/imported/Dark Hover A.wav-7d1f1181ebd535e7480c8e0d86da0fd5.sample"
+
+[deps]
+
+source_file="res://audio/ui/Dark Hover A.wav"
+dest_files=["res://.godot/imported/Dark Hover A.wav-7d1f1181ebd535e7480c8e0d86da0fd5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

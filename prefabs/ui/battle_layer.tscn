@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bb0jfvecfuu5d"]
+[gd_scene load_steps=16 format=3 uid="uid://bb0jfvecfuu5d"]
 
 [ext_resource type="Script" uid="uid://cd6kovq6y3p8d" path="res://src/ui/battle_layer.gd" id="1_ihokf"]
 [ext_resource type="PackedScene" uid="uid://caoneprh3fic" path="res://prefabs/ui/inventory_carousel.tscn" id="2_p1w5e"]
@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://cwlcbaqdfu2nk" path="res://audio/ui/Wooden Box Scrape B.wav" id="8_njcxr"]
 [ext_resource type="AudioStream" uid="uid://fyvxoxadyyjf" path="res://audio/ui/Wooden Box Scrape C.wav" id="9_wekdu"]
 [ext_resource type="AudioStream" uid="uid://cn5ube4hgl26b" path="res://audio/ui/Wooden Box Scrape D.wav" id="10_iuvk8"]
+[ext_resource type="AudioStream" uid="uid://52tj2aaynhuo" path="res://audio/ui/Funk Select B edit.wav" id="13_0ch4s"]
+[ext_resource type="AudioStream" uid="uid://ca3w86igap7ti" path="res://audio/ui/Scroll Foley Single 001.wav" id="13_lnqey"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v2g41"]
 font = ExtResource("2_xybdf")
@@ -222,12 +224,26 @@ mouse_filter = 2
 texture = ExtResource("3_ihokf")
 expand_mode = 1
 
+[node name="WheelSelectSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_lnqey")
+volume_db = -3.0
+pitch_scale = 0.6
+panning_strength = 0.0
+
 [node name="WheelPlaceSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 panning_strength = 0.0
 
 [node name="WheelTurnSFX" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
+volume_db = -3.0
+pitch_scale = 1.2
+panning_strength = 0.0
+
+[node name="ExplanationSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_0ch4s")
 volume_db = -3.0
 pitch_scale = 1.2
 panning_strength = 0.0

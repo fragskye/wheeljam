@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_o44wt")
-page_start = 20
-page_end = 34
+page_start = 21
+page_end = 35
 free_spins = 0
 metadata/_custom_type_script = "uid://ckctay6gbi6sb"

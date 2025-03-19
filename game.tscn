@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=35 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dpeyf7gihu6qk" path="res://src/game.gd" id="1_hve3p"]
@@ -71,6 +71,20 @@ burning = false
 visual_scene = ExtResource("5_hve3p")
 metadata/_custom_type_script = "uid://bmxe267u4atcw"
 
+[sub_resource type="Resource" id="Resource_hb5m1"]
+script = ExtResource("4_vef74")
+multiplier = 9.0
+burning = false
+visual_scene = ExtResource("5_hve3p")
+metadata/_custom_type_script = "uid://bmxe267u4atcw"
+
+[sub_resource type="Resource" id="Resource_x5p1p"]
+script = ExtResource("4_vef74")
+multiplier = 10.0
+burning = false
+visual_scene = ExtResource("5_hve3p")
+metadata/_custom_type_script = "uid://bmxe267u4atcw"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_215e1"]
 size = Vector3(100, 4, 10)
 
@@ -106,35 +120,43 @@ script = ExtResource("16_80cx4")
 metadata/_custom_type_script = "uid://drx004wv0kjc5"
 
 [node name="Page" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 0, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 10)
+transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 0, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 11)
 
 [node name="Page2" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 0, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 9.5)
+transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 0, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 10.5)
 data = SubResource("Resource_215e1")
 
 [node name="Page3" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 0, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 8.5)
+transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 0, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 9.5)
 data = SubResource("Resource_7sc4i")
 
 [node name="Page4" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 0, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 7.5)
+transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 0, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 9)
 data = SubResource("Resource_80cx4")
 
 [node name="Page5" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 8.57915e-16, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 6.5)
+transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 8.57915e-16, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 8)
 data = SubResource("Resource_e8heu")
 
 [node name="Page6" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 8.57915e-16, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 5.5)
+transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 8.57915e-16, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 7.5)
 data = SubResource("Resource_rvswv")
 
 [node name="Page7" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 1.71583e-15, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 4.5)
+transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 1.71583e-15, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 6.5)
 data = SubResource("Resource_boyg6")
 
 [node name="Page8" parent="." instance=ExtResource("3_feb5d")]
-transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 1.71583e-15, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 3.5)
+transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 1.71583e-15, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 6)
 data = SubResource("Resource_e36ub")
+
+[node name="Page9" parent="." instance=ExtResource("3_feb5d")]
+transform = Transform3D(0.965926, 0.258819, 1.13133e-08, 0, -4.37114e-08, 1, 0.258819, -0.965926, -4.2222e-08, 0.7, 0.1, 5)
+data = SubResource("Resource_hb5m1")
+
+[node name="Page10" parent="." instance=ExtResource("3_feb5d")]
+transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 1.71583e-15, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -0.3, 0.1, 4.5)
+data = SubResource("Resource_x5p1p")
 
 [node name="PostProcessLayer" parent="." instance=ExtResource("3_ryrav")]
 
