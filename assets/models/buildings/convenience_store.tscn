@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dl4av7gyci7fs" path="res://assets/models/props/book_store/ceiling_light_off.tscn" id="3_1rpt1"]
 [ext_resource type="PackedScene" uid="uid://d2in713yw3yem" path="res://assets/models/props/convenience_store/cardboard_box_1.tscn" id="4_rvknt"]
 [ext_resource type="PackedScene" uid="uid://bfr5sqtuj00pl" path="res://assets/models/props/convenience_store/cardboard_box_2.tscn" id="5_je4ym"]
-[ext_resource type="PackedScene" uid="uid://ukqq6tn7dqge" path="res://assets/models/props/convenience_store/shelf.tscn" id="6_je4ym"]
+[ext_resource type="PackedScene" uid="uid://f353tjv83erx" path="res://assets/models/props/convenience_store/random_shelf.tscn" id="6_dvo48"]
 [ext_resource type="PackedScene" uid="uid://cv5jwhx1ugi8t" path="res://assets/models/props/book_store/counter.tscn" id="7_u6lnl"]
 [ext_resource type="PackedScene" uid="uid://cs0f1vstr3ok0" path="res://assets/models/props/convenience_store/freezer.tscn" id="8_r1joh"]
 [ext_resource type="PackedScene" uid="uid://cwldfqmrkvnn3" path="res://assets/models/props/convenience_store/shelf.glb" id="9_r1joh"]
@@ -72,55 +72,55 @@ transform = Transform3D(0.905931, 0, 0.423425, 0, 1, 0, -0.423425, 0, 0.905931, 
 [node name="Row" type="Node3D" parent="." index="20"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -0.2)
 
-[node name="Shelf" parent="Row" index="0" instance=ExtResource("6_je4ym")]
+[node name="RandomShelf" parent="Row" index="0" instance=ExtResource("6_dvo48")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, 0)
 
-[node name="Shelf2" parent="Row" index="1" instance=ExtResource("6_je4ym")]
+[node name="RandomShelf2" parent="Row" index="1" instance=ExtResource("6_dvo48")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2, 0, 0)
 
 [node name="Row2" type="Node3D" parent="." index="21"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.5, 0, -4.4)
 
-[node name="Shelf" parent="Row2" index="0" instance=ExtResource("6_je4ym")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, 0)
+[node name="RandomShelf" parent="Row2" index="0" instance=ExtResource("6_dvo48")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, 4.76837e-07)
 
-[node name="Shelf2" parent="Row2" index="1" instance=ExtResource("6_je4ym")]
+[node name="RandomShelf2" parent="Row2" index="1" instance=ExtResource("6_dvo48")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2, 0, 0)
 
 [node name="Row3" type="Node3D" parent="." index="22"]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -2.5, 0, -4.4)
 
-[node name="Shelf" parent="Row3" index="0" instance=ExtResource("6_je4ym")]
+[node name="RandomShelf" parent="Row3" index="0" instance=ExtResource("6_dvo48")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, 4.76837e-07)
 
-[node name="Shelf2" parent="Row3" index="1" instance=ExtResource("6_je4ym")]
+[node name="RandomShelf2" parent="Row3" index="1" instance=ExtResource("6_dvo48")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2, 0, 0)
 
 [node name="Row4" type="Node3D" parent="." index="23"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.5, 0, -8.6)
 
-[node name="Shelf" parent="Row4" index="0" instance=ExtResource("6_je4ym")]
+[node name="RandomShelf" parent="Row4" index="0" instance=ExtResource("6_dvo48")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, 0)
 
-[node name="Shelf2" parent="Row4" index="1" instance=ExtResource("6_je4ym")]
+[node name="RandomShelf2" parent="Row4" index="1" instance=ExtResource("6_dvo48")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2, 0, 0)
 
 [node name="Row5" type="Node3D" parent="." index="24"]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -2.5, 0, -8.6)
 
-[node name="Shelf" parent="Row5" index="0" instance=ExtResource("6_je4ym")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, 4.76837e-07)
+[node name="RandomShelf" parent="Row5" index="0" instance=ExtResource("6_dvo48")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, 0)
 
-[node name="Shelf2" parent="Row5" index="1" instance=ExtResource("6_je4ym")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2, 0, 0)
+[node name="RandomShelf2" parent="Row5" index="1" instance=ExtResource("6_dvo48")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2, 0, -9.53674e-07)
 
 [node name="Row6" type="Node3D" parent="." index="25"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.5, 0, -12.8)
 
-[node name="Shelf" parent="Row6" index="0" instance=ExtResource("6_je4ym")]
+[node name="RandomShelf" parent="Row6" index="0" instance=ExtResource("6_dvo48")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, 0)
 
-[node name="Shelf2" parent="Row6" index="1" instance=ExtResource("6_je4ym")]
+[node name="RandomShelf2" parent="Row6" index="1" instance=ExtResource("6_dvo48")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2, 0, 0)
 
 [node name="Counter" parent="." index="26" instance=ExtResource("7_u6lnl")]

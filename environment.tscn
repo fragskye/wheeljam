@@ -128,7 +128,6 @@ attenuation_model = 3
 volume_db = -2.0
 autoplay = true
 panning_strength = 0.0
-bus = &"Outside"
 
 [node name="MovingAudioSource" type="Node3D" parent="Outside/AudioStreamPlayer3D"]
 script = ExtResource("17_qfwe5")

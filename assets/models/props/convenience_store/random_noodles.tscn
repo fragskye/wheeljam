@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgupcdq8glyuc"]
+
+[ext_resource type="PackedScene" uid="uid://dkovgfnuexxyv" path="res://assets/models/props/convenience_store/noodles.glb" id="1_8fdf5"]
+[ext_resource type="Script" uid="uid://bhh1mbepdbo0w" path="res://src/random/random_mesh.gd" id="2_fyfk5"]
+
+[node name="RandomNoodles" node_paths=PackedStringArray("mesh") instance=ExtResource("1_8fdf5")]
+script = ExtResource("2_fyfk5")
+mesh = NodePath("Noodles")
+width = 0.2
+hue_ranges = Array[Vector2]([Vector2(0, 0), Vector2(0.25, 0.25), Vector2(0.65, 0.65)])
+saturation_ranges = Array[Vector2]([Vector2(1, 1), Vector2(0.8, 0.8), Vector2(0.8, 0.8)])
+value_ranges = Array[Vector2]([Vector2(0.6, 0.6), Vector2(0.8, 0.8), Vector2(0.8, 0.8)])

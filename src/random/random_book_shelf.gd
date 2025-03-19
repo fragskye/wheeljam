@@ -15,7 +15,7 @@ func _ready() -> void:
 	for height: float in heights:
 		var x: float = min_x + book_spacing_curve.sample(randf())
 		while x <= max_x - book_width:
-			var book: RandomBook = RANDOM_BOOK.instantiate()
+			var book: RandomMesh = RANDOM_BOOK.instantiate()
 			add_child(book)
 			book.position = Vector3(x, height, depth)
 			x += book_width + book_spacing_curve.sample(randf())

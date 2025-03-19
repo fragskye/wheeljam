@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhbjeourxt6bs"]
+
+[ext_resource type="PackedScene" uid="uid://clsbuxovo87ii" path="res://assets/models/props/convenience_store/chips.glb" id="1_gu02j"]
+[ext_resource type="Script" uid="uid://bhh1mbepdbo0w" path="res://src/random/random_mesh.gd" id="2_feapa"]
+
+[node name="RandomChips" node_paths=PackedStringArray("mesh") instance=ExtResource("1_gu02j")]
+script = ExtResource("2_feapa")
+mesh = NodePath("Chips")
+width = 0.25
+hue_ranges = Array[Vector2]([Vector2(0, 0), Vector2(0.1, 0.1), Vector2(0.3, 0.3), Vector2(0.5, 0.5)])
+saturation_ranges = Array[Vector2]([Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(0.8, 0.8)])
+value_ranges = Array[Vector2]([Vector2(1, 1), Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1)])
+min_scale = 0.9

@@ -1,0 +1,20 @@
+[gd_scene load_steps=7 format=3 uid="uid://f353tjv83erx"]
+
+[ext_resource type="PackedScene" uid="uid://cwldfqmrkvnn3" path="res://assets/models/props/convenience_store/shelf.glb" id="1_3vus8"]
+[ext_resource type="Script" uid="uid://cyxgvhey8rvff" path="res://src/random/random_shelf.gd" id="2_0ooic"]
+[ext_resource type="PackedScene" uid="uid://bhbjeourxt6bs" path="res://assets/models/props/convenience_store/random_chips.tscn" id="3_56w3k"]
+[ext_resource type="PackedScene" uid="uid://cl414vlbk84i0" path="res://assets/models/props/convenience_store/random_soda.tscn" id="4_dnj0r"]
+[ext_resource type="PackedScene" uid="uid://bgupcdq8glyuc" path="res://assets/models/props/convenience_store/random_noodles.tscn" id="4_rkxyb"]
+[ext_resource type="PackedScene" uid="uid://c2sg1lt1oi30g" path="res://assets/models/props/convenience_store/random_box.tscn" id="5_7pvt7"]
+
+[node name="RandomShelf" instance=ExtResource("1_3vus8")]
+script = ExtResource("2_0ooic")
+meshes = Array[PackedScene]([ExtResource("3_56w3k"), ExtResource("4_dnj0r"), ExtResource("5_7pvt7"), ExtResource("4_rkxyb")])
+heights = Array[float]([0.1, 0.45, 0.8, 1.15])
+width = 3.9
+depth = 0.1
+set_minimum = 2
+set_maxmimum = 5
+mesh_spacing_variance = 0.05
+gap_spacing = 0.25
+gap_spacing_variance = 0.05
