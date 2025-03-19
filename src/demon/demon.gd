@@ -2,6 +2,7 @@ class_name Demon extends Node3D
 
 @onready var demon_face_visual: DemonFaceVisual = %DemonFaceVisual
 @onready var demon_pcam: PhantomCamera3D = %DemonPhantomCamera
+@onready var next_phase_pcam: PhantomCamera3D = %NextPhasePhantomCamera
 
 @export var data: DemonData = null
 @export var debug_face: bool = false
@@ -11,6 +12,9 @@ var _previewed_index: int = 0
 var _verdict: DemonVerdict = null
 
 var health: float = 0.0
+
+var _in_next_phase: bool = false
+var _next_phase_health: float = 0.0
 
 func _ready() -> void:
 	data.ready()
@@ -38,6 +42,7 @@ func _process(delta: float) -> void:
 			SignalBus.battle_lost.emit()
 
 func _on_battle_begin() -> void:
+	_next_phase_health = health * 0.5 + data.max_health * 0.5
 	demon_pcam.priority = 2
 	_on_battle_player_action_previewed(_previewed_index)
 
@@ -58,8 +63,10 @@ func _on_battle_player_action_selected(index: int, multiplier: float) -> void:
 	SignalBus.battle_demon_health_changed.emit(health / data.max_health, health, result, true)
 	if health <= 0:
 		SignalBus.battle_lost.emit()
-	if health >= data.max_health:
+	elif health >= data.max_health:
 		SignalBus.battle_won.emit()
+	elif !_in_next_phase && health >= _next_phase_health:
+		start_next_phase()
 	print("index", index)
 	print("verdict mult", _verdict.multiplier)
 	print("mult", multiplier)
@@ -76,3 +83,19 @@ func _get_face() -> DemonFace:
 		return data.faces[lower_index]
 	else:
 		return data.faces[lower_index].lerp(data.faces[upper_index], opinion_index - floorf(opinion_index))
+
+func start_next_phase() -> void:
+	_in_next_phase = true
+	if !data.next_phase():
+		return
+	InputManager.push_input_state(InputManager.InputState.BATTLE_NEXT_PHASE)
+	next_phase_pcam.priority = 2
+	await get_tree().create_timer(2.5).timeout
+	NotificationLayer.show_toast("Something feels different...")
+	await get_tree().create_timer(5.0).timeout
+	var old_duration: float = demon_pcam.tween_resource.duration
+	demon_pcam.tween_resource.duration = 2.0
+	next_phase_pcam.priority = 0
+	await get_tree().create_timer(2.1).timeout
+	demon_pcam.tween_resource.duration = old_duration
+	InputManager.pop_input_state()

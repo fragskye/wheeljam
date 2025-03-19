@@ -21,8 +21,8 @@ func ready() -> void:
 	# Restore non-seeded random behavior
 	#seed(random_seed)
 
-func next_phase() -> void:
-	pass
+func next_phase() -> bool:
+	return false
 
 func evaluate(index: int) -> DemonVerdict:
 	return verdicts[index]

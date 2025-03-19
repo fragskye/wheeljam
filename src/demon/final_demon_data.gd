@@ -6,8 +6,9 @@ func ready() -> void:
 	verdicts = default_verdicts.duplicate()
 	SignalBus.battle_player_action_selected.connect(_on_battle_player_action_selected)
 
-func next_phase() -> void:
+func next_phase() -> bool:
 	moves_passed = 0
+	return true
 
 func evaluate(index: int) -> DemonVerdict:
 	if moves_passed < 4:
