@@ -1,6 +1,8 @@
 class_name Enemy extends CharacterBody3D
 
 @onready var navigation_agent_3d: NavigationAgent3D = %NavigationAgent3D
+@onready var armature: Node3D = %Armature
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 @export var move_slow_speed: float = 5.0
 @export var move_fast_speed: float = 5.0
@@ -10,6 +12,9 @@ class_name Enemy extends CharacterBody3D
 
 var target: Node3D = null
 var dismissed: bool = false
+
+func _ready() -> void:
+	animation_player.play("Run")
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -34,10 +39,13 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = Util.temporal_lerp(velocity.x, direction.x * move_speed, move_smoothing, delta)
 		velocity.z = Util.temporal_lerp(velocity.z, direction.z * move_speed, move_smoothing, delta)
+		armature.look_at(global_position + direction, Vector3.UP, true)
 	else:
 		velocity.x = Util.temporal_lerp(velocity.x, 0.0, move_smoothing, delta)
 		velocity.z = Util.temporal_lerp(velocity.z, 0.0, move_smoothing, delta)
-
+	
+	animation_player.speed_scale = velocity.length() * 0.375
+	 
 	move_and_slide()
 
 func recalculate_path() -> void:
