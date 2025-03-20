@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddkamo04ra5f8"]
+
+[ext_resource type="PackedScene" uid="uid://dlynqyur7utd6" path="res://assets/models/props/coffee_shop/overhead_light.glb" id="1_0ajtr"]
+[ext_resource type="Material" uid="uid://cdsbt6x5l774a" path="res://assets/palette_material.tres" id="2_3r7lx"]
+
+[node name="OverheadLightOff" instance=ExtResource("1_0ajtr")]
+
+[node name="OverheadLight" parent="." index="0"]
+surface_material_override/1 = ExtResource("2_3r7lx")

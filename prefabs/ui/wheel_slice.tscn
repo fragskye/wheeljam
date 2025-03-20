@@ -101,7 +101,7 @@ grow_vertical = 2
 pivot_offset = Vector2(256, 256)
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
-[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="mouse_entered" from="TextureButton" to="." method="preview"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

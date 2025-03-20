@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dgveri6qcmshl"]
+[gd_scene load_steps=18 format=3 uid="uid://dgveri6qcmshl"]
 
 [ext_resource type="PackedScene" uid="uid://dcbe2gu11t4j1" path="res://assets/models/buildings/diner.glb" id="1_abf47"]
 [ext_resource type="PackedScene" uid="uid://8kopfml7fq3t" path="res://assets/models/props/coffee_shop/table_with_chairs.tscn" id="2_1kbba"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dmgox4gepq8ql" path="res://assets/models/props/posters/diner_menu.tscn" id="12_3ukaf"]
 [ext_resource type="PackedScene" uid="uid://63u1fu45hh0m" path="res://assets/models/props/posters/bathroom_angel.tscn" id="13_whg0h"]
 [ext_resource type="PackedScene" uid="uid://c7pub3bgaarte" path="res://assets/models/props/posters/bathroom_devil.tscn" id="14_kyk0l"]
+[ext_resource type="PackedScene" uid="uid://b7gdbiqwjhgj8" path="res://assets/models/props/coffee_shop/overhead_light.tscn" id="16_p006g"]
+[ext_resource type="PackedScene" uid="uid://ddkamo04ra5f8" path="res://assets/models/props/coffee_shop/overhead_light_off.tscn" id="17_eckkm"]
 
 [node name="Diner" instance=ExtResource("1_abf47")]
 
@@ -282,3 +284,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45, 1.5, -20)
 
 [node name="BathroomDevil" parent="." index="75" instance=ExtResource("14_kyk0l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45, 1.5, -20)
+
+[node name="OverheadLight" parent="." index="76" instance=ExtResource("16_p006g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3, 2.5, -3.2)
+
+[node name="OverheadLight2" parent="." index="77" instance=ExtResource("16_p006g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3, 2.5, -7.2)
+
+[node name="OverheadLightOff5" parent="." index="78" instance=ExtResource("17_eckkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -3.2)
+
+[node name="OverheadLight4" parent="." index="79" instance=ExtResource("16_p006g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -7.2)
+
+[node name="OverheadLight5" parent="." index="80" instance=ExtResource("16_p006g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -11.2)
+
+[node name="OverheadLightOff4" parent="." index="81" instance=ExtResource("17_eckkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -15.2)
+
+[node name="OverheadLightOff2" parent="." index="82" instance=ExtResource("17_eckkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.5, -3.2)
+
+[node name="OverheadLightOff3" parent="." index="83" instance=ExtResource("17_eckkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.5, -7.2)
+
+[node name="OverheadLight9" parent="." index="84" instance=ExtResource("16_p006g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.5, -11.2)
+
+[node name="OverheadLight10" parent="." index="85" instance=ExtResource("16_p006g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.5, -15.2)
+
+[node name="OverheadLight11" parent="." index="86" instance=ExtResource("16_p006g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.5, -3.2)
+
+[node name="OverheadLightOff" parent="." index="87" instance=ExtResource("17_eckkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.5, -7.2)
+
+[node name="OverheadLight13" parent="." index="88" instance=ExtResource("16_p006g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.5, -11.2)
+
+[node name="OverheadLight14" parent="." index="89" instance=ExtResource("16_p006g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.5, -15.2)

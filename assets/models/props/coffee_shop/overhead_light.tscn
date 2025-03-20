@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7gdbiqwjhgj8"]
+
+[ext_resource type="PackedScene" uid="uid://dlynqyur7utd6" path="res://assets/models/props/coffee_shop/overhead_light.glb" id="1_j5ugr"]
+[ext_resource type="AudioStream" uid="uid://cybj8prdbs1jm" path="res://audio/ambient/Electric Hum Loop D.wav" id="2_pushs"]
+[ext_resource type="Script" uid="uid://dih3swr18jk1u" path="res://addons/OvaniAmbiencePlugin/MovingAudioSource.gd" id="3_0bkn8"]
+
+[node name="OverheadLight" instance=ExtResource("1_j5ugr")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+light_indirect_energy = 2.0
+omni_attenuation = 1.5
+
+[node name="HumSFX" type="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("2_pushs")
+volume_db = -35.0
+pitch_scale = 1.2
+autoplay = true
+
+[node name="MovingAudioSource" type="Node3D" parent="HumSFX" index="0"]
+script = ExtResource("3_0bkn8")
+metadata/_custom_type_script = "uid://dih3swr18jk1u"
