@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://j44mos08igvl"]
+[gd_scene load_steps=15 format=3 uid="uid://j44mos08igvl"]
 
 [ext_resource type="PackedScene" uid="uid://bxug4e8qsnes5" path="res://assets/models/buildings/thrift_store.glb" id="1_ku10x"]
 [ext_resource type="PackedScene" uid="uid://cpffv2k2op1i0" path="res://assets/models/props/book_store/ceiling_light_on.tscn" id="2_djdqk"]
@@ -6,6 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://borpd5kmoq8cl" path="res://assets/models/props/posters/cheap_virtue.tscn" id="4_6aq1n"]
 [ext_resource type="PackedScene" uid="uid://dq1xtmepo4okg" path="res://assets/models/props/posters/heavenly_deals.tscn" id="5_rqdts"]
 [ext_resource type="PackedScene" uid="uid://ckpjkfri55ger" path="res://assets/models/props/posters/music_fest.tscn" id="6_rqdts"]
+[ext_resource type="PackedScene" uid="uid://b8g8pfi1uck8l" path="res://assets/models/props/thrift_store/shirt_rack.tscn" id="7_cnf12"]
+[ext_resource type="PackedScene" uid="uid://dnchqjr674fh1" path="res://assets/models/props/posters/changeling_room.tscn" id="7_xb6b3"]
+[ext_resource type="PackedScene" uid="uid://bt1c2lt83han3" path="res://assets/models/props/thrift_store/pants_rack.tscn" id="8_t44q6"]
+[ext_resource type="PackedScene" uid="uid://dprtlqpkpxqys" path="res://assets/models/props/posters/bathroom.tscn" id="8_ucu5k"]
+[ext_resource type="PackedScene" uid="uid://ckoc25eokgkbp" path="res://assets/models/props/book_store/counter_small.tscn" id="9_t44q6"]
+[ext_resource type="PackedScene" uid="uid://cjrmt6ihrc74f" path="res://assets/models/props/laundromat/bench.tscn" id="10_g57xi"]
+[ext_resource type="PackedScene" uid="uid://lg6btqew2gfg" path="res://prefabs/item/item_spawn.tscn" id="11_mau85"]
+[ext_resource type="PackedScene" uid="uid://dk6fxydvaa5xi" path="res://assets/models/props/coffee_shop/chair.tscn" id="12_tt47g"]
 
 [node name="ThriftStore" instance=ExtResource("1_ku10x")]
 
@@ -53,3 +61,198 @@ transform = Transform3D(0.997839, 0.0656992, 0, -0.0656992, 0.997839, 0, 0, 0, 1
 
 [node name="MusicFest" parent="." index="16" instance=ExtResource("6_rqdts")]
 transform = Transform3D(0.999513, -0.0312014, 0, 0.0312014, 0.999513, 0, 0, 0, 1, 7.38716, 1.11068, 0)
+
+[node name="ChangelingRoom" parent="." index="17" instance=ExtResource("7_xb6b3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 1.3, -12.7)
+
+[node name="ChangelingRoom2" parent="." index="18" instance=ExtResource("7_xb6b3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 1.3, -12.1)
+
+[node name="Bathroom" parent="." index="19" instance=ExtResource("8_ucu5k")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.8, 1.5, -16.45)
+
+[node name="ShirtRack" parent="." index="20" instance=ExtResource("7_cnf12")]
+transform = Transform3D(0.998951, 0, 0.0457814, 0, 1, 0, -0.0457814, 0, 0.998951, 1.16223, 0, -0.859834)
+
+[node name="ShirtRack2" parent="." index="21" instance=ExtResource("7_cnf12")]
+transform = Transform3D(0.999273, 0, -0.0381262, 0, 1, 0, 0.0381262, 0, 0.999273, 5.48722, 0, -0.741811)
+
+[node name="ShirtRack3" parent="." index="22" instance=ExtResource("7_cnf12")]
+transform = Transform3D(0.995166, 0, -0.0982082, 0, 1, 0, 0.0982082, 0, 0.995166, 4.82376, 0, -4.37518)
+
+[node name="ShirtRack4" parent="." index="23" instance=ExtResource("7_cnf12")]
+transform = Transform3D(0.986441, 0, -0.164118, 0, 1, 0, 0.164118, 0, 0.986441, 0.808095, 2.38419e-07, -4.89342)
+
+[node name="ShirtRack5" parent="." index="24" instance=ExtResource("7_cnf12")]
+transform = Transform3D(0.264967, 0, -0.964257, 0, 1, 0, 0.964257, 0, 0.264967, -1.84556, 2.38419e-07, -7.31408)
+
+[node name="ShirtRack6" parent="." index="25" instance=ExtResource("7_cnf12")]
+transform = Transform3D(-0.277298, 0, -0.960784, 0, 1, 0, 0.960784, 0, -0.277298, -1.78014, 2.38419e-07, -11.3294)
+
+[node name="ShirtRack7" parent="." index="26" instance=ExtResource("7_cnf12")]
+transform = Transform3D(-0.966016, 0, -0.258482, 0, 1, 0, 0.258482, 0, -0.966016, 5.70857, 0, -18.8522)
+
+[node name="ShirtRack8" parent="." index="27" instance=ExtResource("7_cnf12")]
+transform = Transform3D(-0.785609, 0, -0.618724, 0, 1, 0, 0.618724, 0, -0.785609, 2.07891, 0, -17.0872)
+
+[node name="ShirtRack9" parent="." index="28" instance=ExtResource("7_cnf12")]
+transform = Transform3D(-0.95309, 0, 0.302686, 0, 1, 0, -0.302686, 0, -0.95309, -1.71716, 0, -16.4953)
+
+[node name="PantsRack" parent="." index="29" instance=ExtResource("8_t44q6")]
+transform = Transform3D(-0.00895338, 0, 0.99996, 0, 1, 0, -0.99996, 0, -0.00895338, -19.25, -2.38419e-07, -2.49911)
+
+[node name="PantsRack3" parent="." index="30" instance=ExtResource("8_t44q6")]
+transform = Transform3D(0.112561, 0, 0.993645, 0, 1, 0, -0.993645, 0, 0.112561, -8.43207, 0, -10.9544)
+
+[node name="PantsRack7" parent="." index="31" instance=ExtResource("8_t44q6")]
+transform = Transform3D(-0.703866, 0, 0.710333, 0, 1, 0, -0.710333, 0, -0.703866, -9.79167, 0, -5.53921)
+
+[node name="PantsRack4" parent="." index="32" instance=ExtResource("8_t44q6")]
+transform = Transform3D(-0.0371322, 0, 0.99931, 0, 1, 0, -0.99931, 0, -0.0371322, -8.29459, 0, -15.0336)
+
+[node name="PantsRack5" parent="." index="33" instance=ExtResource("8_t44q6")]
+transform = Transform3D(-0.560755, 0, 0.827982, 0, 1, 0, -0.827982, 0, -0.560755, -8.09454, 0, -17.9157)
+
+[node name="PantsRack6" parent="." index="34" instance=ExtResource("8_t44q6")]
+transform = Transform3D(-0.986395, 0, 0.164393, 0, 1, 0, -0.164393, 0, -0.986395, -13.364, 0, -16.9559)
+
+[node name="CounterSmall" parent="." index="35" instance=ExtResource("9_t44q6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -1.8)
+
+[node name="Chair" parent="." index="36" instance=ExtResource("12_tt47g")]
+transform = Transform3D(-0.112093, 0, 0.993698, 0, 1, 0, -0.993698, 0, -0.112093, -14.9917, 1.19209e-07, -0.767816)
+
+[node name="Bench" parent="." index="37" instance=ExtResource("10_g57xi")]
+transform = Transform3D(-0.0285497, 0, 0.999592, 0, 1, 0, -0.999592, 0, -0.0285497, -11.7262, 0, -11.6991)
+
+[node name="Bench4" parent="." index="38" instance=ExtResource("10_g57xi")]
+transform = Transform3D(0.0244148, 0, 0.999702, 0, 1, 0, -0.999702, 0, 0.0244148, -11.6569, 0, -8.45178)
+
+[node name="Bench5" parent="." index="39" instance=ExtResource("10_g57xi")]
+transform = Transform3D(-0.0178362, 0, 0.999841, 0, 1, 0, -0.999841, 0, -0.0178362, 9.19012, 0, -2.20513)
+
+[node name="Bench2" parent="." index="40" instance=ExtResource("10_g57xi")]
+transform = Transform3D(-0.0285497, 0, 0.999592, 0, 1, 0, -0.999592, 0, -0.0285497, 1.41114, 0, -11.3435)
+
+[node name="Bench3" parent="." index="41" instance=ExtResource("10_g57xi")]
+transform = Transform3D(-0.0916754, 0, 0.995789, 0, 1, 0, -0.995789, 0, -0.0916754, 1.6502, -4.76837e-07, -7.84472)
+
+[node name="ItemSpawn" parent="." index="42" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.698965, 0, 0.715156, 0, 1, 0, -0.715156, 0, 0.698965, -18.1807, 2.38419e-07, -4.34531)
+pool = 4
+
+[node name="ItemSpawn2" parent="." index="43" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.885734, 0, 0.464193, 0, 1, 0, -0.464193, 0, -0.885734, -17.5932, 2.38419e-07, -0.846082)
+pool = 4
+
+[node name="ItemSpawn3" parent="." index="44" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.798615, 0, -0.601843, 0, 1, 0, 0.601843, 0, -0.798615, -1.49193, 0, -0.73458)
+pool = 4
+
+[node name="ItemSpawn4" parent="." index="45" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.919787, 0, -0.392417, 0, 1, 0, 0.392417, 0, 0.919787, 7.48096, 2.38419e-07, -4.33585)
+pool = 4
+
+[node name="ItemSpawn5" parent="." index="46" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.838956, 0, -0.5442, 0, 1, 0, 0.5442, 0, -0.838956, 3.29845, 2.38419e-07, -5.78128)
+pool = 4
+
+[node name="ItemSpawn6" parent="." index="47" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.730877, 0, 0.682509, 0, 1, 0, -0.682509, 0, -0.730877, -0.667541, 2.38419e-07, -8.20805)
+pool = 4
+
+[node name="ItemSpawn7" parent="." index="48" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.254754, 0, -0.967006, 0, 1, 0, 0.967006, 0, -0.254754, 6.03262, 2.38419e-07, -16.2593)
+pool = 4
+
+[node name="ItemSpawn8" parent="." index="49" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.528912, 0, -0.848676, 0, 1, 0, 0.848676, 0, 0.528912, 7.60476, 0, -18.2236)
+pool = 4
+
+[node name="ItemSpawn9" parent="." index="50" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.764618, 0, -0.644484, 0, 1, 0, 0.644484, 0, 0.764618, 0.494603, 0, -19.0914)
+pool = 4
+
+[node name="ItemSpawn10" parent="." index="51" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.259814, 0, -0.965659, 0, 1, 0, 0.965659, 0, -0.259814, -0.45298, 0, -17.2967)
+pool = 4
+
+[node name="ItemSpawn11" parent="." index="52" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.989999, 0, 0.141074, 0, 1, 0, -0.141074, 0, 0.989999, -10.2347, 0, -18.6613)
+pool = 4
+
+[node name="ItemSpawn12" parent="." index="53" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.688329, 0, 0.725398, 0, 1, 0, -0.725398, 0, 0.688329, -17.0631, 0, -18.7242)
+pool = 4
+
+[node name="ItemSpawn13" parent="." index="54" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.889735, 0, 0.456477, 0, 1, 0, -0.456477, 0, -0.889735, -16.6539, 0, -15.9344)
+pool = 4
+
+[node name="ItemSpawn14" parent="." index="55" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.411196, 0, 0.911547, 0, 1, 0, -0.911547, 0, 0.411196, -13.021, 0, -14.0088)
+pool = 4
+
+[node name="ItemSpawn15" parent="." index="56" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.112145, 0, -0.993692, 0, 1, 0, 0.993692, 0, -0.112145, -9.18496, 2.38419e-07, -12.3919)
+pool = 4
+
+[node name="ItemSpawn16" parent="." index="57" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.917803, 0, 0.397036, 0, 1, 0, -0.397036, 0, 0.917803, -13.0544, 2.38419e-07, -6.42422)
+pool = 4
+
+[node name="ItemSpawn17" parent="." index="58" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.88312, 0, 0.469148, 0, 1, 0, -0.469148, 0, 0.88312, -3.33155, 2.38419e-07, -6.69968)
+pool = 4
+
+[node name="ItemSpawn18" parent="." index="59" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.855861, 0, -0.517206, 0, 1, 0, 0.517206, 0, 0.855861, -6.92556, 2.38419e-07, -14.1963)
+pool = 4
+
+[node name="ItemSpawn19" parent="." index="60" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.879416, 0, -0.476054, 0, 1, 0, 0.476054, 0, 0.879416, -11.7256, 0.5, -7.41011)
+pool = 4
+
+[node name="ItemSpawn20" parent="." index="61" instance=ExtResource("11_mau85")]
+transform = Transform3D(0.846389, 0, 0.532566, 0, 1, 0, -0.532566, 0, 0.846389, -11.7278, 0.5, -11.9944)
+pool = 4
+
+[node name="ItemSpawn21" parent="." index="62" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.970717, 0, -0.240228, 0, 1, 0, 0.240228, 0, -0.970717, 1.42548, 0.5, -12.1654)
+pool = 4
+
+[node name="ItemSpawn22" parent="." index="63" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.777542, 0, -0.628832, 0, 1, 0, 0.628832, 0, -0.777542, 1.4789, 0.500001, -10.2904)
+pool = 4
+
+[node name="ItemSpawn23" parent="." index="64" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.518102, 0, 0.855319, 0, 1, 0, -0.855319, 0, -0.518102, 1.73555, 0.500001, -6.85685)
+pool = 4
+
+[node name="ItemSpawn24" parent="." index="65" instance=ExtResource("11_mau85")]
+transform = Transform3D(-0.160502, 0, -0.987036, 0, 1, 0, 0.987036, 0, -0.160502, 9.19323, 0.500001, -0.98484)
+pool = 4
+
+[node name="ItemSpawn25" parent="." index="66" instance=ExtResource("11_mau85")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.8, 1.22987, -4.29231)
+pool = 5
+floating = true
+random_position = Vector3(0, 0.05, 0.05)
+
+[node name="ItemSpawn26" parent="." index="67" instance=ExtResource("11_mau85")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 1.35465, -7.7817)
+pool = 5
+floating = true
+random_position = Vector3(0, 0.05, 0.05)
+
+[node name="ItemSpawn27" parent="." index="68" instance=ExtResource("11_mau85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.65945, 1.07569, -19.8)
+pool = 5
+floating = true
+random_position = Vector3(0, 0.05, 0.05)
+
+[node name="ItemSpawn28" parent="." index="69" instance=ExtResource("11_mau85")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.8, 1.13982, -16.7706)
+pool = 5
+floating = true
+random_position = Vector3(0, 0.05, 0.05)

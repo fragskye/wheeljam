@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=38 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dpeyf7gihu6qk" path="res://src/game.gd" id="1_hve3p"]
@@ -23,6 +23,7 @@
 [ext_resource type="Resource" uid="uid://c3mhgc7hilvhl" path="res://data/item_spawn_pools/pool_2.tres" id="18_boyg6"]
 [ext_resource type="Resource" uid="uid://cosecpu6t6cwp" path="res://data/item_spawn_pools/pool_3.tres" id="22_qhcbd"]
 [ext_resource type="Resource" uid="uid://dmxe4ohscm4ia" path="res://data/item_spawn_pools/pool_4.tres" id="23_f1jbl"]
+[ext_resource type="Resource" uid="uid://b58t505vsi4v2" path="res://data/item_spawn_pools/pool_5.tres" id="24_f1jbl"]
 
 [sub_resource type="Resource" id="Resource_215e1"]
 script = ExtResource("4_vef74")
@@ -103,6 +104,7 @@ size = Vector3(10, 4, 12)
 physics_interpolation_mode = 1
 script = ExtResource("1_hve3p")
 demons = Array[ExtResource("2_mfdv2")]([ExtResource("3_iotsf"), ExtResource("5_e36ub"), ExtResource("4_iotsf")])
+demon_index = 10
 time_between_demons = 60.0
 
 [node name="Environment" parent="." instance=ExtResource("5_215e1")]
@@ -172,7 +174,7 @@ data = SubResource("Resource_x5p1p")
 unique_name_in_owner = true
 
 [node name="ItemSpawnManager" parent="." instance=ExtResource("15_7sc4i")]
-spawn_pools = Array[ExtResource("15_e8heu")]([ExtResource("16_rvswv"), ExtResource("17_rvswv"), ExtResource("18_boyg6"), ExtResource("22_qhcbd"), ExtResource("23_f1jbl")])
+spawn_pools = Array[ExtResource("15_e8heu")]([ExtResource("16_rvswv"), ExtResource("17_rvswv"), ExtResource("18_boyg6"), ExtResource("22_qhcbd"), ExtResource("23_f1jbl"), ExtResource("24_f1jbl")])
 
 [node name="SpawnDemonArea" type="Area3D" parent="."]
 unique_name_in_owner = true

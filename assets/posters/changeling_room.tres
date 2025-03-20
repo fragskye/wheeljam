@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c1yge6qjyxvfp"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_nm27y"]
+[ext_resource type="Texture2D" uid="uid://cpiskau37oyr3" path="res://assets/posters/changeling_room.png" id="2_nm27y"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nm27y")
+shader_parameter/albedo_texture = ExtResource("2_nm27y")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw6labdbsljt0"]
+
+[ext_resource type="PackedScene" uid="uid://x0ft8aqynl7t" path="res://assets/models/props/thrift_store/shirt.glb" id="1_uq8c3"]
+[ext_resource type="Script" uid="uid://bhh1mbepdbo0w" path="res://src/random/random_mesh.gd" id="2_1xagh"]
+
+[node name="Shirt" node_paths=PackedStringArray("mesh") instance=ExtResource("1_uq8c3")]
+script = ExtResource("2_1xagh")
+mesh = NodePath("Shirt")
+width = 0.075
+hue_ranges = Array[Vector2]([Vector2(0, 0.125), Vector2(0.3, 0.5), Vector2(0.65, 0.75)])
+saturation_ranges = Array[Vector2]([Vector2(0.7, 0.8), Vector2(0.4, 0.6), Vector2(0.6, 0.7)])
+value_ranges = Array[Vector2]([Vector2(0.9, 1), Vector2(0.5, 0.7), Vector2(0.7, 0.8)])
+min_scale = 0.7
+
+[node name="Shirt" parent="." index="0"]
+instance_shader_parameters/hue_shift = 0.0
+instance_shader_parameters/saturation_scalar = 1.0
+instance_shader_parameters/value_scalar = 1.0
