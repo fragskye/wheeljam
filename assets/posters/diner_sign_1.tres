@@ -1,11 +1,11 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d1f1x4ul2cl7h"]
 
 [ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_snxny"]
-[ext_resource type="Texture2D" uid="uid://bmnpuk73mivk4" path="res://assets/posters/book_store_sign_1.png" id="2_lo5sg"]
+[ext_resource type="Texture2D" uid="uid://cayet3wnmspn1" path="res://assets/posters/diner_sign_1.png" id="2_snxny"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_snxny")
-shader_parameter/albedo_texture = ExtResource("2_lo5sg")
+shader_parameter/albedo_texture = ExtResource("2_snxny")
 shader_parameter/emissive = false
 shader_parameter/noise = 0.1

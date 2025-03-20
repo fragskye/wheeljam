@@ -1,11 +1,11 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cr7jv3xmvx7u3"]
 
 [ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_xwwak"]
-[ext_resource type="Texture2D" uid="uid://bmnpuk73mivk4" path="res://assets/posters/book_store_sign_1.png" id="2_b3a4t"]
+[ext_resource type="Texture2D" uid="uid://c4l2cbsh36t8u" path="res://assets/posters/thrift_store_sign_1.png" id="2_xwwak"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_xwwak")
-shader_parameter/albedo_texture = ExtResource("2_b3a4t")
+shader_parameter/albedo_texture = ExtResource("2_xwwak")
 shader_parameter/emissive = false
 shader_parameter/noise = 0.1
