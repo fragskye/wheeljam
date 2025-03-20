@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=83 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
@@ -38,10 +38,18 @@
 [ext_resource type="Resource" uid="uid://cl7mxqihu0mcy" path="res://data/audio_bus_snapshots/outside_far.tres" id="20_d0fiy"]
 [ext_resource type="Resource" uid="uid://boditwne6ylrr" path="res://data/audio_bus_snapshots/convenience_store.tres" id="21_b21av"]
 [ext_resource type="Resource" uid="uid://ryq86ah2cbe1" path="res://data/audio_bus_snapshots/convenience_store_back.tres" id="22_qfwe5"]
+[ext_resource type="Resource" uid="uid://ptxsxe7f4q4e" path="res://data/audio_bus_snapshots/laundromat.tres" id="26_2xd3e"]
+[ext_resource type="Resource" uid="uid://b5mmf2shk0m4a" path="res://data/audio_bus_snapshots/laundromat_back.tres" id="27_frlnr"]
+[ext_resource type="Resource" uid="uid://d36ln11ypigp0" path="res://data/audio_bus_snapshots/coffee_shop.tres" id="28_yp2d7"]
+[ext_resource type="Resource" uid="uid://dsuee82dh1rn3" path="res://data/audio_bus_snapshots/coffee_shop_back.tres" id="29_72uil"]
+[ext_resource type="Resource" uid="uid://bymijovdp3ekg" path="res://data/audio_bus_snapshots/diner.tres" id="30_o4pb7"]
+[ext_resource type="Resource" uid="uid://14rtmqn8qsbj" path="res://data/audio_bus_snapshots/diner_back.tres" id="31_2qgkh"]
 [ext_resource type="PackedScene" uid="uid://bm63tpq5brvgq" path="res://assets/models/props/fence.tscn" id="31_n24yn"]
 [ext_resource type="PackedScene" uid="uid://j44mos08igvl" path="res://assets/models/buildings/thrift_store.tscn" id="31_xjwhs"]
+[ext_resource type="Resource" uid="uid://csqe13h64fueu" path="res://data/audio_bus_snapshots/thrift_store.tres" id="32_tq7la"]
 [ext_resource type="PackedScene" uid="uid://c43vjhmnrvhra" path="res://assets/models/buildings/coffee_shop.tscn" id="32_tvrpf"]
 [ext_resource type="PackedScene" uid="uid://dgveri6qcmshl" path="res://assets/models/buildings/diner.tscn" id="33_blbou"]
+[ext_resource type="Resource" uid="uid://bofiowelpdnao" path="res://data/audio_bus_snapshots/thrift_store_back.tres" id="33_cq6pa"]
 [ext_resource type="PackedScene" uid="uid://c86c7qhuy0fsf" path="res://assets/models/buildings/closed_building.tscn" id="34_blbou"]
 [ext_resource type="PackedScene" uid="uid://dy7lmv7xh3ua6" path="res://prefabs/progress_barrier.tscn" id="40_n24yn"]
 [ext_resource type="PackedScene" uid="uid://0urbdb1xsx0a" path="res://prefabs/enemy_exit.tscn" id="43_e4ptm"]
@@ -246,7 +254,7 @@ unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
-Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("17_xhao2"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("26_2xd3e"), ExtResource("27_frlnr"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
 TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
@@ -259,7 +267,7 @@ unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
-Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("20_d0fiy"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("26_2xd3e"), ExtResource("27_frlnr"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
 TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
@@ -272,7 +280,7 @@ unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
-Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("17_xhao2"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("28_yp2d7"), ExtResource("29_72uil"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
 TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
@@ -285,7 +293,7 @@ unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
-Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("20_d0fiy"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("28_yp2d7"), ExtResource("29_72uil"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
 TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
@@ -298,7 +306,7 @@ unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
-Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("17_xhao2"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("30_o4pb7"), ExtResource("31_2qgkh"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
 TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
@@ -311,7 +319,7 @@ unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
-Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("20_d0fiy"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("30_o4pb7"), ExtResource("31_2qgkh"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
 TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
@@ -324,7 +332,7 @@ unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
-Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("17_xhao2"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("32_tq7la"), ExtResource("33_cq6pa")])
 TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
@@ -337,7 +345,7 @@ unique_name_in_owner = true
 collision_layer = 8388608
 collision_mask = 8388610
 script = ExtResource("16_aai17")
-Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("3_w1st6"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("14_k4png"), ExtResource("15_e4ptm")])
+Snapshots = Array[ExtResource("2_7px3q")]([ExtResource("20_d0fiy"), ExtResource("4_4qs8q"), ExtResource("5_kmgvs"), ExtResource("6_xhao2"), ExtResource("7_d0fiy"), ExtResource("8_3y4r8"), ExtResource("9_b21av"), ExtResource("10_qfwe5"), ExtResource("11_rp2uv"), ExtResource("12_n24yn"), ExtResource("13_xjwhs"), ExtResource("32_tq7la"), ExtResource("33_cq6pa")])
 TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
