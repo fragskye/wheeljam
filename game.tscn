@@ -107,8 +107,7 @@ size = Vector3(10, 4, 12)
 physics_interpolation_mode = 1
 script = ExtResource("1_hve3p")
 demons = Array[ExtResource("2_mfdv2")]([ExtResource("3_iotsf"), ExtResource("5_e36ub"), ExtResource("5_vaj68"), ExtResource("6_xa8c5"), ExtResource("7_5b14r"), ExtResource("4_iotsf")])
-demon_index = 4
-time_between_demons = 60.0
+time_between_demons = 50.0
 
 [node name="Environment" parent="." instance=ExtResource("5_215e1")]
 

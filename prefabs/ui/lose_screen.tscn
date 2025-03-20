@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt1q4laq2htjd"]
+
+[ext_resource type="FontFile" uid="uid://bexj87qb2mllv" path="res://assets/fonts/not_jam/giant_ui/Not Jam Giant UI 22.ttf" id="1_1qd8k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p0qn8"]
+font = ExtResource("1_1qd8k")
+font_size = 22
+
+[node name="LoseScreen" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER!
+
+You failed to beat the demon.
+Better luck next time!
+
+A game by fragskye"
+label_settings = SubResource("LabelSettings_p0qn8")
+horizontal_alignment = 1
+vertical_alignment = 1

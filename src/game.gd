@@ -3,6 +3,9 @@ class_name Game extends Node3D
 const DEMON: PackedScene = preload("res://prefabs/demon.tscn")
 const BATTLE_LAYER: PackedScene = preload("res://prefabs/ui/battle_layer.tscn")
 
+const LOSE_SCREEN: PackedScene = preload("res://prefabs/ui/lose_screen.tscn")
+const WIN_SCREEN: PackedScene = preload("res://prefabs/ui/win_screen.tscn")
+
 @onready var battle_layer: BattleLayer = %BattleLayer
 @onready var spawn_demon_area: Area3D = %SpawnDemonArea
 
@@ -50,12 +53,14 @@ func _on_battle_won() -> void:
 	demon_index += 1
 	if demon_index < demons.size():
 		NotificationLayer.show_toast("More demons will be back soon. I need to prepare.")
+	else:
+		get_tree().change_scene_to_packed(WIN_SCREEN)
 	await spawn_demon_area.body_exited
 	await get_tree().create_timer(time_between_demons).timeout
 	_can_spawn_demon = true
 
 func _on_battle_lost() -> void:
-	pass
+	get_tree().change_scene_to_packed(LOSE_SCREEN)
 
 func _on_spawn_demon_area_body_entered(_body: Node3D) -> void:
 	_in_spawn_demon_area = true
