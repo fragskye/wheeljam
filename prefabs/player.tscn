@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://dih3swr18jk1u" path="res://addons/OvaniAmbiencePlugin/MovingAudioSource.gd" id="15_x0bak"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dm0k"]
+radius = 0.4
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_u51tk"]
 noise_type = 3
@@ -48,6 +49,7 @@ radius = 0.099
 [node name="Player" type="CharacterBody3D"]
 physics_interpolation_mode = 1
 collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_1txc5")
 move_speed = 3.5
 move_smoothing_accel = 0.125
@@ -93,9 +95,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -0.5)
 
 [node name="InteractionSystem" type="Node3D" parent="."]
 script = ExtResource("6_g2jcq")
-reach_distance = 3.0
-blocker_mask = 4278190081
-interactable_mask = 4278190084
+reach_distance = 3.5
+blocker_mask = 1
+interactable_mask = 12
 sphere_shape = SubResource("SphereShape3D_g2jcq")
 
 [node name="AmbienceListener" type="Node" parent="."]

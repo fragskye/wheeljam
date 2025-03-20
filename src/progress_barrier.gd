@@ -26,3 +26,4 @@ func check_move() -> void:
 	tween.tween_property(self, "global_position", global_position + Vector3(0.0, -3.1, 0.0), 5.0)
 	if play_sfx:
 		move_sfx.play()
+		Global.player.camera_shake.shake(0.1, 5.0)

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dacwgewqa1lmf"
+path="res://.godot/imported/Warp FM 001 edit.wav-4671ce76a56e0535ddd263302fafe5f3.sample"
+
+[deps]
+
+source_file="res://audio/enemy/Warp FM 001 edit.wav"
+dest_files=["res://.godot/imported/Warp FM 001 edit.wav-4671ce76a56e0535ddd263302fafe5f3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

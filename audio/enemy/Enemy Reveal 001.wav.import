@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://weaeu4rvqxil"
+path="res://.godot/imported/Enemy Reveal 001.wav-ff7e92e8d85a23bcd61ae736f3a50f19.sample"
+
+[deps]
+
+source_file="res://audio/enemy/Enemy Reveal 001.wav"
+dest_files=["res://.godot/imported/Enemy Reveal 001.wav-ff7e92e8d85a23bcd61ae736f3a50f19.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

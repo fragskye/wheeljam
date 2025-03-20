@@ -1,4 +1,4 @@
-extends Node3D
+extends NavigationRegion3D
 
 @onready var book_store: AmbienceArea3D = %BookStore
 

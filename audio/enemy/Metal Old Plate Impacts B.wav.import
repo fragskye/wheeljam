@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dipvdkdh2fg7f"
+path="res://.godot/imported/Metal Old Plate Impacts B.wav-bbc801ab9ad630115b569495d0e045c9.sample"
+
+[deps]
+
+source_file="res://audio/enemy/Metal Old Plate Impacts B.wav"
+dest_files=["res://.godot/imported/Metal Old Plate Impacts B.wav-bbc801ab9ad630115b569495d0e045c9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

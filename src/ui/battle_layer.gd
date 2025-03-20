@@ -100,6 +100,8 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 			Global.player.flush_inventory()
 			battle_menu.process_mode = Node.PROCESS_MODE_INHERIT
 			battle_menu.show()
+			for enemy: Node in get_tree().get_nodes_in_group("enemy"):
+				enemy.queue_free()
 
 func _on_close_button_pressed() -> void:
 	if InputManager.get_input_state() != InputManager.InputState.BATTLE:

@@ -17,7 +17,7 @@ spot_angle = 70.0
 
 [node name="HumSFX" type="AudioStreamPlayer3D" parent="." index="2"]
 stream = ExtResource("2_h3rha")
-volume_db = -45.0
+volume_db = -35.0
 pitch_scale = 0.8
 autoplay = true
 

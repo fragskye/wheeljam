@@ -3,3 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://2jaqjlrb1m2e" path="res://assets/models/props/wreckage_1.glb" id="1_8dwny"]
 
 [node name="Wreckage1" instance=ExtResource("1_8dwny")]
+
+[node name="@StaticBody3D@52514" parent="." index="1"]
+collision_layer = 16
+collision_mask = 2

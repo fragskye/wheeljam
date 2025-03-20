@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxwirtpiwryiu"]
+[gd_scene load_steps=14 format=3 uid="uid://dxwirtpiwryiu"]
 
 [ext_resource type="Script" uid="uid://ceme52vqmo744" path="res://src/ui/notification_layer.gd" id="1_itcna"]
 [ext_resource type="Texture2D" uid="uid://ym11e6iwn43k" path="res://assets/ui/toast_background.png" id="2_yisdb"]
 [ext_resource type="AudioStream" uid="uid://o88xg4swhuyp" path="res://audio/ui/Mystic Hover A.wav" id="3_iw35v"]
+[ext_resource type="AudioStream" uid="uid://dipvdkdh2fg7f" path="res://audio/enemy/Metal Old Plate Impacts B.wav" id="4_0kxqq"]
+[ext_resource type="AudioStream" uid="uid://dacwgewqa1lmf" path="res://audio/enemy/Warp FM 001 edit.wav" id="5_0kxqq"]
+[ext_resource type="AudioStream" uid="uid://3sjwr8gx716s" path="res://audio/enemy/Digital Disconnect Loop edit.wav" id="6_mm78n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yisdb"]
 outline_size = 8
@@ -179,6 +182,85 @@ _data = {
 &"toast_animation": SubResource("Animation_yisdb")
 }
 
+[sub_resource type="Animation" id="Animation_7q16a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HurtRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nrqf8"]
+resource_name = "hurt_animation"
+length = 11.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HurtRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 11),
+"transitions": PackedFloat32Array(1, 1, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%HurtAnimationPlayer/ImpactSFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%HurtAnimationPlayer/AmbientSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%HurtAnimationPlayer/AmbientSFX2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0kxqq"]
+_data = {
+&"RESET": SubResource("Animation_7q16a"),
+&"hurt_animation": SubResource("Animation_nrqf8")
+}
+
 [node name="NotificationLayer" type="CanvasLayer"]
 layer = 10
 script = ExtResource("1_itcna")
@@ -193,6 +275,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="HurtRect" type="ColorRect" parent="NotificationMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
 
 [node name="Control" type="Control" parent="NotificationMenu"]
 layout_mode = 1
@@ -246,8 +338,8 @@ texture = ExtResource("2_yisdb")
 [node name="Control" type="Control" parent="NotificationMenu/Control"]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
-offset_left = 300.0
-offset_right = 300.0
+offset_left = -10.0
+offset_right = -10.0
 mouse_filter = 2
 
 [node name="ToastLabel" type="Label" parent="NotificationMenu/Control/Control"]
@@ -278,4 +370,25 @@ libraries = {
 unique_name_in_owner = true
 stream = ExtResource("3_iw35v")
 pitch_scale = 0.8
+panning_strength = 0.0
+
+[node name="HurtAnimationPlayer" type="AnimationPlayer" parent="NotificationMenu"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_0kxqq")
+}
+
+[node name="ImpactSFX" type="AudioStreamPlayer2D" parent="NotificationMenu/HurtAnimationPlayer"]
+stream = ExtResource("4_0kxqq")
+volume_db = -3.0
+pitch_scale = 0.8
+panning_strength = 0.0
+
+[node name="AmbientSFX" type="AudioStreamPlayer2D" parent="NotificationMenu/HurtAnimationPlayer"]
+stream = ExtResource("5_0kxqq")
+volume_db = -3.0
+panning_strength = 0.0
+
+[node name="AmbientSFX2" type="AudioStreamPlayer2D" parent="NotificationMenu/HurtAnimationPlayer"]
+stream = ExtResource("6_mm78n")
 panning_strength = 0.0

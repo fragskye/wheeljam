@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://ckyrccaeq6a8h"]
+
+[ext_resource type="Script" uid="uid://cwfd25cby8bo8" path="res://src/foostep_controller.gd" id="1_qnk7q"]
+[ext_resource type="Script" uid="uid://dfap6ainrrgii" path="res://src/enemy.gd" id="1_u6on0"]
+[ext_resource type="AudioStream" uid="uid://cceybcsjb73of" path="res://audio/enemy/Bare Step Stone Hard A.wav" id="2_2nw32"]
+[ext_resource type="AudioStream" uid="uid://dr75sflafnxro" path="res://audio/enemy/Bare Step Stone Hard B.wav" id="3_u6on0"]
+[ext_resource type="AudioStream" uid="uid://k1u2usobkh0j" path="res://audio/enemy/Bare Step Stone Hard C.wav" id="4_ikd5g"]
+[ext_resource type="AudioStream" uid="uid://c44syyfsemn76" path="res://audio/enemy/Bare Step Stone Hard D.wav" id="5_geowp"]
+[ext_resource type="AudioStream" uid="uid://dwra2u0344rot" path="res://audio/enemy/Bare Step Stone Hard E.wav" id="6_rnd4m"]
+[ext_resource type="Script" uid="uid://dih3swr18jk1u" path="res://addons/OvaniAmbiencePlugin/MovingAudioSource.gd" id="7_2nw32"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ks3ws"]
+radius = 0.4
+height = 0.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xkwav"]
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u6on0"]
+
+[node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_u6on0")
+move_slow_speed = 2.0
+move_fast_speed = 4.5
+los_blocker_mask = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("SphereMesh_ks3ws")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("SphereShape3D_xkwav")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+unique_name_in_owner = true
+path_desired_distance = 0.25
+target_desired_distance = 0.25
+debug_enabled = true
+
+[node name="FootstepController" type="Node3D" parent="." node_paths=PackedStringArray("footstep_sfx")]
+script = ExtResource("1_qnk7q")
+pitch_variation = 0.1
+footstep_audio = Array[AudioStream]([ExtResource("2_2nw32"), ExtResource("3_u6on0"), ExtResource("4_ikd5g"), ExtResource("5_geowp"), ExtResource("6_rnd4m")])
+footstep_sfx = NodePath("FootstepSFX")
+metadata/_custom_type_script = "uid://cwfd25cby8bo8"
+
+[node name="FootstepSFX" type="AudioStreamPlayer3D" parent="FootstepController"]
+
+[node name="MovingAudioSource" type="Node3D" parent="FootstepController/FootstepSFX"]
+script = ExtResource("7_2nw32")
+metadata/_custom_type_script = "uid://dih3swr18jk1u"
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+autostart = true
+
+[node name="HurtBox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("SphereShape3D_u6on0")
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="timeout" from="Timer" to="." method="recalculate_path"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
