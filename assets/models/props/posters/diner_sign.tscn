@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://7f13djae63yu"]
+
+[ext_resource type="PackedScene" uid="uid://c8yvpvfcvrjks" path="res://assets/models/props/posters/poster_big_wide.glb" id="1_h6brw"]
+[ext_resource type="Material" uid="uid://d1f1x4ul2cl7h" path="res://assets/posters/diner_sign_1.tres" id="2_h6brw"]
+[ext_resource type="Material" uid="uid://tw2w2qf86cy4" path="res://assets/posters/diner_sign_2.tres" id="3_5v0b0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rv5f4"]
+resource_name = "Poster"
+cull_mode = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_de13u"]
+_surfaces = [{
+"aabb": AABB(0, 1.49012e-08, 0.001, 1.8, 1.2, 1e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "Poster",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wjndf"]
+resource_name = "poster_big_wide_PosterBigWide"
+_surfaces = [{
+"aabb": AABB(0, 1.49012e-08, 0.001, 1.8, 1.2, 1e-05),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_rv5f4"),
+"name": "Poster",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 128, 255, 255, 255, 255, 0, 0, 0, 128, 255, 255, 0, 0, 0, 0, 0, 128, 0, 0, 255, 255, 0, 0, 0, 128, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_de13u")
+
+[node name="DinerSign" instance=ExtResource("1_h6brw")]
+
+[node name="PosterBigWide" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, 0)
+surface_material_override/0 = ExtResource("2_h6brw")
+
+[node name="PosterBigWide2" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19209e-07, 0, 0)
+mesh = SubResource("ArrayMesh_wjndf")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_5v0b0")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://j44mos08igvl"]
+[gd_scene load_steps=16 format=3 uid="uid://j44mos08igvl"]
 
 [ext_resource type="PackedScene" uid="uid://bxug4e8qsnes5" path="res://assets/models/buildings/thrift_store.glb" id="1_ku10x"]
 [ext_resource type="PackedScene" uid="uid://cpffv2k2op1i0" path="res://assets/models/props/book_store/ceiling_light_on.tscn" id="2_djdqk"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cjrmt6ihrc74f" path="res://assets/models/props/laundromat/bench.tscn" id="10_g57xi"]
 [ext_resource type="PackedScene" uid="uid://lg6btqew2gfg" path="res://prefabs/item/item_spawn.tscn" id="11_mau85"]
 [ext_resource type="PackedScene" uid="uid://dk6fxydvaa5xi" path="res://assets/models/props/coffee_shop/chair.tscn" id="12_tt47g"]
+[ext_resource type="PackedScene" uid="uid://dticig5swarx6" path="res://assets/models/props/posters/thrift_store_sign.tscn" id="15_rp5ow"]
 
 [node name="ThriftStore" instance=ExtResource("1_ku10x")]
 
@@ -256,3 +257,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.8, 1
 pool = 5
 floating = true
 random_position = Vector3(0, 0.05, 0.05)
+
+[node name="ThriftStoreSign" parent="." index="70" instance=ExtResource("15_rp5ow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3, 2.3, 0)

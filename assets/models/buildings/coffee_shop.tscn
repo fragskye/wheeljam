@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c43vjhmnrvhra"]
+[gd_scene load_steps=23 format=3 uid="uid://c43vjhmnrvhra"]
 
 [ext_resource type="PackedScene" uid="uid://coyo25u8r85fa" path="res://assets/models/buildings/coffee_shop.glb" id="1_3ql2s"]
 [ext_resource type="PackedScene" uid="uid://8kopfml7fq3t" path="res://assets/models/props/coffee_shop/table_with_chairs.tscn" id="2_6w07d"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://belcob6edkw2q" path="res://assets/models/props/posters/bitter_unholy.tscn" id="18_04q2i"]
 [ext_resource type="PackedScene" uid="uid://b7gdbiqwjhgj8" path="res://assets/models/props/coffee_shop/overhead_light.tscn" id="20_h1dq3"]
 [ext_resource type="PackedScene" uid="uid://ddkamo04ra5f8" path="res://assets/models/props/coffee_shop/overhead_light_off.tscn" id="21_ry8nv"]
+[ext_resource type="PackedScene" uid="uid://cgklokqsjggcq" path="res://assets/models/props/posters/coffee_shop_sign.tscn" id="22_jsfct"]
 
 [node name="CoffeeShop" instance=ExtResource("1_3ql2s")]
 
@@ -260,3 +261,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -1.2)
 
 [node name="OverheadLight13" parent="." index="71" instance=ExtResource("20_h1dq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, -1.2)
+
+[node name="CoffeeShopSign" parent="." index="72" instance=ExtResource("22_jsfct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)

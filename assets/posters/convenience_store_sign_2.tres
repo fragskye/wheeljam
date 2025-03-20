@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c02pkoa4jb11q"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_x6har"]
+[ext_resource type="Texture2D" uid="uid://jrcsciw7yar2" path="res://assets/posters/convenience_store_sign_2.png" id="2_x6har"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_x6har")
+shader_parameter/albedo_texture = ExtResource("2_x6har")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://d0grgexiq06yu"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_esrhq"]
+[ext_resource type="Texture2D" uid="uid://bpjtlvihfr8ax" path="res://assets/posters/coffee_shop_sign_2.png" id="2_esrhq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_esrhq")
+shader_parameter/albedo_texture = ExtResource("2_esrhq")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

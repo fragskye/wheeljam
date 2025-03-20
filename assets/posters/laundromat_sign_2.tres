@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://xsf78rrcd753"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_oydi2"]
+[ext_resource type="Texture2D" uid="uid://brxkpq8c4d3m7" path="res://assets/posters/laundromat_sign_2.png" id="2_oydi2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_oydi2")
+shader_parameter/albedo_texture = ExtResource("2_oydi2")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

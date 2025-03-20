@@ -104,22 +104,22 @@ size = Vector3(19, 6, 19)
 size = Vector3(19, 6, 5.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4nqy1"]
-size = Vector3(20, 6, 20)
+size = Vector3(19, 6, 19)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rn5b3"]
-size = Vector3(20, 6, 20)
+size = Vector3(19, 6, 8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pgkm7"]
-size = Vector3(20, 6, 20)
+size = Vector3(29, 6, 29)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_454qq"]
-size = Vector3(20, 6, 20)
+size = Vector3(29, 6, 18)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yma5d"]
-size = Vector3(20, 6, 20)
+size = Vector3(29, 6, 19)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4yb3k"]
-size = Vector3(20, 6, 20)
+size = Vector3(29, 6, 6)
 
 [sub_resource type="FogMaterial" id="FogMaterial_80cx4"]
 density = -0.2
@@ -277,7 +277,7 @@ TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/CoffeeShop"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 3, 15)
 shape = SubResource("BoxShape3D_4nqy1")
 
 [node name="CoffeeShopBack" type="Area3D" parent="Outside/CoffeeShop"]
@@ -290,7 +290,7 @@ TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/CoffeeShop/CoffeeShopBack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 3, 21)
 shape = SubResource("BoxShape3D_rn5b3")
 
 [node name="Diner" type="Area3D" parent="Outside"]
@@ -303,7 +303,7 @@ TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/Diner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 3, -20)
 shape = SubResource("BoxShape3D_pgkm7")
 
 [node name="DinerBack" type="Area3D" parent="Outside/Diner"]
@@ -316,7 +316,7 @@ TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/Diner/DinerBack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 3, -26)
 shape = SubResource("BoxShape3D_454qq")
 
 [node name="ThriftStore" type="Area3D" parent="Outside"]
@@ -329,7 +329,7 @@ TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/ThriftStore"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 3, -15)
 shape = SubResource("BoxShape3D_yma5d")
 
 [node name="ThriftStoreBack" type="Area3D" parent="Outside/ThriftStore"]
@@ -342,7 +342,7 @@ TransitionTime = 1.0
 metadata/_custom_type_script = "uid://cu73d416r8mwe"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Outside/ThriftStore/ThriftStoreBack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 3, -21)
 shape = SubResource("BoxShape3D_4yb3k")
 
 [node name="Ground" parent="." instance=ExtResource("1_pk5nr")]
