@@ -18,7 +18,7 @@ func _ready() -> void:
 	var item_spawns: Array[Node] = get_tree().get_nodes_in_group("item_spawn")
 	item_spawns.shuffle()
 	
-	# Move all the floating item spawns to the front so they get taken up by the pages in the pool
+	# Move all the mandatory page item spawns to the front so they get taken up by the pages in the pool
 	# Quick bubble sort since the built-in sorting isn't stable
 	var i: int = 0
 	while i < item_spawns.size() - 1:
@@ -26,7 +26,7 @@ func _ready() -> void:
 			i += 1
 		var item_spawn: ItemSpawn = item_spawns[i] as ItemSpawn
 		var next_item_spawn: ItemSpawn = item_spawns[i + 1] as ItemSpawn
-		if next_item_spawn.floating && !item_spawn.floating:
+		if (next_item_spawn.mandatory_page || next_item_spawn.floating) && !(item_spawn.mandatory_page || item_spawn.floating):
 			item_spawns[i] = next_item_spawn
 			item_spawns[i + 1] = item_spawn
 			i -= 1
@@ -60,6 +60,6 @@ func _ready() -> void:
 		var item_count: int = spawn_pool_item_count[pool]
 		var spawns_count: int = spawn_pool_spawns_count[pool]
 		var spawns_used: int = spawn_pool_spawns_used[pool]
-		print("Pool %d has spawns for %d/%d items" % [pool, spawns_used, item_count])
+		print("Pool %d has spawns for %d/%d items (%d left over)" % [pool, spawns_used, item_count, spawns_count - spawns_used])
 		if spawns_used < item_count:
 			print("Not enough spawns for pool %d!" % pool)

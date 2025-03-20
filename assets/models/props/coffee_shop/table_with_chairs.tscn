@@ -1,18 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://8kopfml7fq3t"]
+[gd_scene load_steps=4 format=3 uid="uid://8kopfml7fq3t"]
 
 [ext_resource type="PackedScene" uid="uid://dh06h1470o4mg" path="res://assets/models/props/coffee_shop/table.glb" id="1_xwbiy"]
 [ext_resource type="PackedScene" uid="uid://dk6fxydvaa5xi" path="res://assets/models/props/coffee_shop/chair.tscn" id="2_k32p4"]
+[ext_resource type="Script" uid="uid://bqhi5qfarvtw0" path="res://src/random/table_with_chairs.gd" id="2_l5rqt"]
 
 [node name="TableWithChairs" instance=ExtResource("1_xwbiy")]
+script = ExtResource("2_l5rqt")
 
 [node name="Chair" parent="." index="2" instance=ExtResource("2_k32p4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, -0.9)
+unique_name_in_owner = true
+transform = Transform3D(0.999714, 0, 0.0239281, 0, 1, 0, -0.0239281, 0, 0.999714, -0.509546, 0, -0.804707)
 
 [node name="Chair2" parent="." index="3" instance=ExtResource("2_k32p4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, -0.9)
+unique_name_in_owner = true
+transform = Transform3D(0.998769, 0, 0.0496047, 0, 1, 0, -0.0496047, 0, 0.998769, 0.383773, 0, -0.825412)
 
 [node name="Chair3" parent="." index="4" instance=ExtResource("2_k32p4")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.45, 0, 0.9)
+unique_name_in_owner = true
+transform = Transform3D(-0.99979, 0, -0.020486, 0, 1, 0, 0.020486, 0, -0.99979, 0.491745, 0, 0.803743)
 
 [node name="Chair4" parent="." index="5" instance=ExtResource("2_k32p4")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.45, 0, 0.9)
+unique_name_in_owner = true
+transform = Transform3D(-0.997975, 0, -0.0636111, 0, 1, 0, 0.0636111, 0, -0.997975, -0.503625, 0, 0.908451)

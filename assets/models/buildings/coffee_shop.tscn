@@ -19,12 +19,15 @@
 
 [node name="TableWithChairs" parent="." index="2" instance=ExtResource("2_6w07d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0, -1.2)
+random_seed = 1481770805
 
 [node name="TableWithChairs2" parent="." index="3" instance=ExtResource("2_6w07d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0, -1.2)
+random_seed = 3450489814
 
 [node name="TableWithChairs4" parent="." index="4" instance=ExtResource("2_6w07d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, -1.2)
+random_seed = 2236990515
 
 [node name="Table2" parent="." index="5" instance=ExtResource("3_anyeu")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, -5.2)
@@ -43,6 +46,7 @@ transform = Transform3D(-0.13945, 0.989185, -0.0454723, -1.30996e-07, 0.0459209,
 
 [node name="TableWithChairs7" parent="." index="10" instance=ExtResource("2_6w07d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0, -5.2)
+random_seed = 2057168936
 
 [node name="Table3" parent="." index="11" instance=ExtResource("3_anyeu")]
 transform = Transform3D(-0.116948, 0, 0.993138, 0, 1, 0, -0.993138, 0, -0.116948, -4.08249, 2.38419e-07, -5.02283)
@@ -138,9 +142,10 @@ random_position = Vector3(0.05, 0.05, 0)
 [node name="ItemSpawn3" parent="." index="39" instance=ExtResource("11_pgook")]
 transform = Transform3D(0.887277, 0, -0.461238, 0, 1, 0, 0.461238, 0, 0.887277, -4.29272, 1.1, -8.48296)
 pool = 3
+mandatory_page = true
 
 [node name="ItemSpawn4" parent="." index="40" instance=ExtResource("11_pgook")]
-transform = Transform3D(0.887277, 0, -0.461238, 0, 1, 0, 0.461238, 0, 0.887277, -4.29272, 1.1, -8.48296)
+transform = Transform3D(0.981494, 0, -0.191494, 0, 1, 0, 0.191494, 0, 0.981494, -3.57692, 1.1, -8.55088)
 pool = 2
 
 [node name="ItemSpawn5" parent="." index="41" instance=ExtResource("11_pgook")]
