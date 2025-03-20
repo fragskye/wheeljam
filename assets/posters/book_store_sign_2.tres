@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://8yftxuntf5do"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_7xdc0"]
+[ext_resource type="Texture2D" uid="uid://bslv52gbtyhm8" path="res://assets/posters/book_store_sign_2.png" id="2_7xdc0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7xdc0")
+shader_parameter/albedo_texture = ExtResource("2_7xdc0")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

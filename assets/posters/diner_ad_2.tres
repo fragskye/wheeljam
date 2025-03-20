@@ -1,11 +1,11 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bq2ps5pgqu4ii"]
 
 [ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_0xqbr"]
-[ext_resource type="Texture2D" uid="uid://bq0nv6xmb4aut" path="res://assets/posters/devilish_deals.png" id="2_in5dx"]
+[ext_resource type="Texture2D" uid="uid://csi3bix1lnyit" path="res://assets/posters/diner_ad_2.png" id="2_72h0n"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_0xqbr")
-shader_parameter/albedo_texture = ExtResource("2_in5dx")
+shader_parameter/albedo_texture = ExtResource("2_72h0n")
 shader_parameter/emissive = false
 shader_parameter/noise = 0.1

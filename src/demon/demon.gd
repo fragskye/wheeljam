@@ -15,6 +15,7 @@ var health: float = 0.0
 
 var _in_next_phase: bool = false
 var _next_phase_health: float = 0.0
+var _next_phase_cutscene: bool = false
 
 func _ready() -> void:
 	data.ready()
@@ -33,7 +34,7 @@ func _process(delta: float) -> void:
 		_verdict.opinion = debug_face_opinion
 		demon_face_visual.set_face(_get_face())
 	
-	if health > 0 && health < data.max_health:
+	if !_next_phase_cutscene && health > 0 && health < data.max_health:
 		var in_battle: bool = InputManager.get_input_state() == InputManager.InputState.BATTLE
 		var drain: float = -(data.health_drain if in_battle else data.health_drain_outside_battle) * delta
 		health = clampf(health + drain, 0.0, data.max_health)
@@ -55,22 +56,25 @@ func _on_battle_player_action_previewed(index: int) -> void:
 	demon_face_visual.set_face(_get_face())
 
 func _on_battle_player_action_selected(index: int, multiplier: float) -> void:
-	# TODO: Call data.next_phase() when health passes midway point, play cinematic
 	_verdict = data.evaluate(index)
 	var result: float = _verdict.multiplier * multiplier
 	SignalBus.battle_demon_verdict.emit(multiplier, _verdict.multiplier, result)
 	health = clampf(health + result, 0.0, data.max_health)
 	SignalBus.battle_demon_health_changed.emit(health / data.max_health, health, result, true)
+	var next_phase: bool = false
 	if health <= 0:
 		SignalBus.battle_lost.emit()
 	elif health >= data.max_health:
 		SignalBus.battle_won.emit()
 	elif !_in_next_phase && health >= _next_phase_health:
-		start_next_phase()
+		next_phase = true
 	print("index", index)
 	print("verdict mult", _verdict.multiplier)
 	print("mult", multiplier)
 	print(result)
+	await get_tree().process_frame
+	if next_phase:
+		start_next_phase()
 
 func _get_face() -> DemonFace:
 	var faces_size: int = data.faces.size()
@@ -88,6 +92,7 @@ func start_next_phase() -> void:
 	_in_next_phase = true
 	if !data.next_phase():
 		return
+	_next_phase_cutscene = true
 	InputManager.push_input_state(InputManager.InputState.BATTLE_NEXT_PHASE)
 	next_phase_pcam.priority = 2
 	await get_tree().create_timer(2.5).timeout
@@ -99,3 +104,4 @@ func start_next_phase() -> void:
 	await get_tree().create_timer(2.1).timeout
 	demon_pcam.tween_resource.duration = old_duration
 	InputManager.pop_input_state()
+	_next_phase_cutscene = false

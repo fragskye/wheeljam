@@ -31,6 +31,8 @@ signal demon_verdict_anim_finished()
 @export var wheel_place_audio: Array[AudioStream] = []
 @export var wheel_turn_audio: Array[AudioStream] = []
 
+var cycles_per_turn: int = 1
+
 var _demon_verdict_queue: Array[Array] = []
 var _accepting_new_demon_verdict: bool = true
 var _playing_demon_verdict: bool = false
@@ -59,6 +61,7 @@ func _ready() -> void:
 	SignalBus.battle_won.connect(_on_battle_won)
 	SignalBus.battle_demon_verdict.connect(_on_battle_demon_verdict)
 	explanation.modulate = Color.TRANSPARENT
+	Global.battle_layer = self
 
 func rotate_wheel(slices: int) -> void:
 	wheel_turn_sfx.stream = wheel_turn_audio.pick_random()
@@ -68,7 +71,10 @@ func rotate_wheel(slices: int) -> void:
 		_wheel_rotation += wheel_slice_count
 	while _wheel_rotation >= wheel_slice_count:
 		_wheel_rotation -= wheel_slice_count
-	_wheel_rotation_visual_offset = slices * -90
+	if cycles_per_turn > 0:
+		_wheel_rotation_visual_offset = slices * -(360.0 / wheel_slice_count)
+	else:
+		_wheel_rotation_visual_offset = slices * -(360.0 / wheel_slice_count)
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(self, "_wheel_rotation_visual_offset", 0.0, 0.2)
 	
@@ -76,8 +82,8 @@ func _process(_delta: float) -> void:
 	if InputManager.get_input_state() != InputManager.InputState.BATTLE:
 		return
 	
-	if Input.is_action_just_pressed("debug_test"):
-		rotate_wheel(1)
+	#if Input.is_action_just_pressed("debug_test"):
+		#rotate_wheel(1)
 	
 	update_slices()
 	
@@ -200,7 +206,7 @@ func _on_wheel_slice_pressed(index: int) -> void:
 		var page: PageData = get_wedge_page(index)
 		SignalBus.battle_player_action_selected.emit(index, page.multiplier)
 		page.pending_burn = true
-		rotate_wheel(1)
+		rotate_wheel(cycles_per_turn)
 		if _moves_in_turn >= MOVES_PER_TURN:
 			SignalBus.battle_player_turn_complete.emit()
 			_moves_in_turn = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=75 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
@@ -143,6 +143,9 @@ size = Vector3(18, 2, 4)
 size = Vector3(4, 2, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_epsxb"]
+size = Vector3(4, 2, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_detkv"]
 size = Vector3(4, 2, 4)
 
 [node name="Environment" type="NavigationRegion3D"]
@@ -595,7 +598,7 @@ cooldown = 100.0
 metadata/_custom_type_script = "uid://bu6f4n12knmag"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnemySpawn5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -20.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -15.5)
 shape = SubResource("BoxShape3D_o3g65")
 
 [node name="EnemySpawn6" type="Area3D" parent="."]
@@ -613,3 +616,15 @@ shape = SubResource("BoxShape3D_kphls")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="EnemySpawn6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, -23.5)
 shape = SubResource("BoxShape3D_epsxb")
+
+[node name="EnemySpawn7" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 21)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("48_45ccp")
+cooldown = 120.0
+metadata/_custom_type_script = "uid://bu6f4n12knmag"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemySpawn7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -15)
+shape = SubResource("BoxShape3D_detkv")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=41 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dpeyf7gihu6qk" path="res://src/game.gd" id="1_hve3p"]
@@ -11,8 +11,11 @@
 [ext_resource type="Resource" uid="uid://cj8qs5jdusig" path="res://data/demons/final_demon.tres" id="4_iotsf"]
 [ext_resource type="Script" uid="uid://bmxe267u4atcw" path="res://src/item/page_data.gd" id="4_vef74"]
 [ext_resource type="PackedScene" uid="uid://duy00aiwunpfy" path="res://environment.tscn" id="5_215e1"]
-[ext_resource type="Resource" uid="uid://cko6ookdwrgb5" path="res://data/demons/starter_demon.tres" id="5_e36ub"]
+[ext_resource type="Resource" uid="uid://cko6ookdwrgb5" path="res://data/demons/demon_1.tres" id="5_e36ub"]
 [ext_resource type="PackedScene" uid="uid://6c5ucfomh1dt" path="res://prefabs/item/page/page_visual.tscn" id="5_hve3p"]
+[ext_resource type="Resource" uid="uid://b0io42a8pwqv7" path="res://data/demons/demon_2.tres" id="5_vaj68"]
+[ext_resource type="Resource" uid="uid://bgcnubnroop7m" path="res://data/demons/demon_3.tres" id="6_xa8c5"]
+[ext_resource type="Resource" uid="uid://ot236wwf7883" path="res://data/demons/demon_4.tres" id="7_5b14r"]
 [ext_resource type="PackedScene" uid="uid://bb0jfvecfuu5d" path="res://prefabs/ui/battle_layer.tscn" id="7_eow3j"]
 [ext_resource type="PackedScene" uid="uid://bkyvhm730cnkh" path="res://prefabs/ui/hud_layer.tscn" id="12_hb5m1"]
 [ext_resource type="PackedScene" uid="uid://cmfhmrtalei7j" path="res://prefabs/item/item_spawn_manager.tscn" id="15_7sc4i"]
@@ -103,7 +106,8 @@ size = Vector3(10, 4, 12)
 [node name="Game" type="Node3D"]
 physics_interpolation_mode = 1
 script = ExtResource("1_hve3p")
-demons = Array[ExtResource("2_mfdv2")]([ExtResource("3_iotsf"), ExtResource("5_e36ub"), ExtResource("5_e36ub"), ExtResource("5_e36ub"), ExtResource("5_e36ub"), ExtResource("4_iotsf")])
+demons = Array[ExtResource("2_mfdv2")]([ExtResource("3_iotsf"), ExtResource("5_e36ub"), ExtResource("5_vaj68"), ExtResource("6_xa8c5"), ExtResource("7_5b14r"), ExtResource("4_iotsf")])
+demon_index = 4
 time_between_demons = 60.0
 
 [node name="Environment" parent="." instance=ExtResource("5_215e1")]
