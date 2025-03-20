@@ -4,9 +4,16 @@ class_name ItemSpawnManager extends Node
 var _spawn_pools: Array[Array] = []
 
 func _ready() -> void:
+	var spawn_pool_item_count: Array = []
+	var spawn_pool_spawns_count: Array = []
+	var spawn_pool_spawns_used: Array = []
+	
 	for spawn_pool: ItemSpawnPool in spawn_pools:
 		var _spawn_pool: Array[Item] = spawn_pool.create_items()
 		_spawn_pools.push_back(_spawn_pool)
+		spawn_pool_item_count.push_back(_spawn_pool.size())
+		spawn_pool_spawns_count.push_back(0)
+		spawn_pool_spawns_used.push_back(0)
 	
 	var item_spawns: Array[Node] = get_tree().get_nodes_in_group("item_spawn")
 	item_spawns.shuffle()
@@ -33,8 +40,12 @@ func _ready() -> void:
 		
 		var item_spawn: ItemSpawn = item_spawn_node as ItemSpawn
 		
+		spawn_pool_spawns_count[item_spawn.pool] += 1
+		
 		if _spawn_pools[item_spawn.pool].size() <= 0:
 			continue
+		
+		spawn_pool_spawns_used[item_spawn.pool] += 1
 		
 		var item: Item = _spawn_pools[item_spawn.pool].pop_back()
 		if item_spawn.floating:
@@ -45,3 +56,10 @@ func _ready() -> void:
 				item.rotation_degrees.x = -90.0
 		item_spawn.add_child(item)
 		item.global_position += Vector3(randf_range(-item_spawn.random_position.x * 0.5, item_spawn.random_position.x * 0.5), randf_range(-item_spawn.random_position.y * 0.5, item_spawn.random_position.y * 0.5), randf_range(-item_spawn.random_position.z * 0.5, item_spawn.random_position.z * 0.5))
+	for pool: int in spawn_pool_spawns_count.size():
+		var item_count: int = spawn_pool_item_count[pool]
+		var spawns_count: int = spawn_pool_spawns_count[pool]
+		var spawns_used: int = spawn_pool_spawns_used[pool]
+		print("Pool %d has spawns for %d/%d items" % [pool, spawns_used, item_count])
+		if spawns_used < item_count:
+			print("Not enough spawns for pool %d!" % pool)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://8kopfml7fq3t"]
+
+[ext_resource type="PackedScene" uid="uid://dh06h1470o4mg" path="res://assets/models/props/coffee_shop/table.glb" id="1_xwbiy"]
+[ext_resource type="PackedScene" uid="uid://dk6fxydvaa5xi" path="res://assets/models/props/coffee_shop/chair.tscn" id="2_k32p4"]
+
+[node name="TableWithChairs" instance=ExtResource("1_xwbiy")]
+
+[node name="Chair" parent="." index="2" instance=ExtResource("2_k32p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, -0.9)
+
+[node name="Chair2" parent="." index="3" instance=ExtResource("2_k32p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, -0.9)
+
+[node name="Chair3" parent="." index="4" instance=ExtResource("2_k32p4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.45, 0, 0.9)
+
+[node name="Chair4" parent="." index="5" instance=ExtResource("2_k32p4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.45, 0, 0.9)

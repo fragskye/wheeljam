@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemSpawnPool" load_steps=2 format=3 uid="uid://cosecpu6t6cwp"]
+
+[ext_resource type="Script" uid="uid://ckctay6gbi6sb" path="res://src/item/item_spawn_pool.gd" id="1_e65eu"]
+
+[resource]
+script = ExtResource("1_e65eu")
+page_start = 51
+page_end = 65
+free_spins = 0
+metadata/_custom_type_script = "uid://ckctay6gbi6sb"

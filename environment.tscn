@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://duy00aiwunpfy"]
+[gd_scene load_steps=64 format=3 uid="uid://duy00aiwunpfy"]
 
 [ext_resource type="PackedScene" uid="uid://dnv40hmfea5s5" path="res://assets/models/ground.tscn" id="1_pk5nr"]
 [ext_resource type="VoxelGIData" uid="uid://dcwtun2dcij3a" path="res://environment.VoxelGI_data.res" id="1_poig3"]
@@ -44,7 +44,6 @@
 [ext_resource type="PackedScene" uid="uid://dgveri6qcmshl" path="res://assets/models/buildings/diner.tscn" id="33_blbou"]
 [ext_resource type="PackedScene" uid="uid://c86c7qhuy0fsf" path="res://assets/models/buildings/closed_building.tscn" id="34_blbou"]
 [ext_resource type="PackedScene" uid="uid://dy7lmv7xh3ua6" path="res://prefabs/progress_barrier.tscn" id="40_n24yn"]
-[ext_resource type="PackedScene" uid="uid://ckyrccaeq6a8h" path="res://prefabs/enemy.tscn" id="42_k4png"]
 [ext_resource type="PackedScene" uid="uid://0urbdb1xsx0a" path="res://prefabs/enemy_exit.tscn" id="43_e4ptm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_xjwhs"]
@@ -497,9 +496,6 @@ demon_requirement = 3
 [node name="ProgressBarrier5" parent="." instance=ExtResource("40_n24yn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -46.5, 0, 0)
 demon_requirement = 3
-
-[node name="Enemy" parent="." instance=ExtResource("42_k4png")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5, 0, -1)
 
 [node name="EnemyExit" parent="." instance=ExtResource("43_e4ptm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99, 0, 0)

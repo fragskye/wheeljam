@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dskh38i8xpv18"]
+[gd_scene load_steps=37 format=3 uid="uid://dskh38i8xpv18"]
 
 [ext_resource type="PackedScene" uid="uid://fxwwwabbrtv" path="res://prefabs/player.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dpeyf7gihu6qk" path="res://src/game.gd" id="1_hve3p"]
@@ -21,6 +21,8 @@
 [ext_resource type="Resource" uid="uid://cesk022ld4qbv" path="res://data/item_spawn_pools/pool_0.tres" id="16_rvswv"]
 [ext_resource type="Resource" uid="uid://cficv3skkd8ni" path="res://data/item_spawn_pools/pool_1.tres" id="17_rvswv"]
 [ext_resource type="Resource" uid="uid://c3mhgc7hilvhl" path="res://data/item_spawn_pools/pool_2.tres" id="18_boyg6"]
+[ext_resource type="Resource" uid="uid://cosecpu6t6cwp" path="res://data/item_spawn_pools/pool_3.tres" id="22_qhcbd"]
+[ext_resource type="Resource" uid="uid://dmxe4ohscm4ia" path="res://data/item_spawn_pools/pool_4.tres" id="23_f1jbl"]
 
 [sub_resource type="Resource" id="Resource_215e1"]
 script = ExtResource("4_vef74")
@@ -171,7 +173,7 @@ data = SubResource("Resource_x5p1p")
 unique_name_in_owner = true
 
 [node name="ItemSpawnManager" parent="." instance=ExtResource("15_7sc4i")]
-spawn_pools = Array[ExtResource("15_e8heu")]([ExtResource("16_rvswv"), ExtResource("17_rvswv"), ExtResource("18_boyg6")])
+spawn_pools = Array[ExtResource("15_e8heu")]([ExtResource("16_rvswv"), ExtResource("17_rvswv"), ExtResource("18_boyg6"), ExtResource("22_qhcbd"), ExtResource("23_f1jbl")])
 
 [node name="SpawnDemonArea" type="Area3D" parent="."]
 unique_name_in_owner = true
