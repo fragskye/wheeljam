@@ -80,7 +80,7 @@ func _get_face() -> DemonFace:
 	var faces_size: int = data.faces.size()
 	if faces_size == 1:
 		return data.faces[0]
-	var opinion_index: float = float(_verdict.opinion) / float(DemonVerdict.MAX_OPINION) * (faces_size - 1)
+	var opinion_index: float = float(_verdict.opinion) / float(data.max_verdict_opinion) * (faces_size - 1)
 	var lower_index: int = floor(opinion_index)
 	var upper_index: int = ceil(opinion_index)
 	if lower_index == upper_index:

@@ -7,31 +7,31 @@
 [sub_resource type="Resource" id="Resource_o3uug"]
 script = ExtResource("1_tfqnj")
 opinion = 0
-multiplier = -0.5
+multiplier = -1.0
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_k4ob8"]
 script = ExtResource("1_tfqnj")
 opinion = 1
-multiplier = -0.25
+multiplier = -0.5
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_4e171"]
 script = ExtResource("1_tfqnj")
-opinion = 2
-multiplier = 1.5
+opinion = 3
+multiplier = 1.0
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_ke858"]
 script = ExtResource("1_tfqnj")
-opinion = 3
-multiplier = 3.0
+opinion = 4
+multiplier = 2.0
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_tfqnj"]
 script = ExtResource("1_tfqnj")
-opinion = 3
-multiplier = 5.0
+opinion = 2
+multiplier = 0.0
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_5t3bf"]
@@ -97,6 +97,7 @@ health_drain = 3.0
 health_drain_outside_battle = 0.5
 faces = Array[ExtResource("2_6vcuj")]([SubResource("Resource_5t3bf"), SubResource("Resource_scfcj")])
 default_verdicts = Array[ExtResource("1_tfqnj")]([SubResource("Resource_o3uug"), SubResource("Resource_k4ob8"), SubResource("Resource_4e171"), SubResource("Resource_ke858"), SubResource("Resource_tfqnj")])
+max_verdict_opinion = 4
 lower_mouth_inner_outer_curve = SubResource("Curve_tfqnj")
 upper_mouth_inner_outer_curve = SubResource("Curve_6vcuj")
 metadata/_custom_type_script = "uid://dtlro6n6x0vt4"

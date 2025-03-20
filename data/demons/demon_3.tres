@@ -7,25 +7,25 @@
 [sub_resource type="Resource" id="Resource_o3uug"]
 script = ExtResource("1_w6ml0")
 opinion = 0
-multiplier = -0.5
+multiplier = -1.0
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_k4ob8"]
 script = ExtResource("1_w6ml0")
 opinion = 1
-multiplier = -0.25
+multiplier = -0.5
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_4e171"]
 script = ExtResource("1_w6ml0")
 opinion = 2
-multiplier = 1.5
+multiplier = 1.0
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_ke858"]
 script = ExtResource("1_w6ml0")
 opinion = 3
-multiplier = 3.0
+multiplier = 2.0
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_5t3bf"]
