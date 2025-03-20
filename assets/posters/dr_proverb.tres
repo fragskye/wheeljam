@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cw70s21jlrmgg"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_w70mp"]
+[ext_resource type="Texture2D" uid="uid://dyjlmhpmdgmcc" path="res://assets/posters/dr_proverb.png" id="2_w70mp"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_w70mp")
+shader_parameter/albedo_texture = ExtResource("2_w70mp")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

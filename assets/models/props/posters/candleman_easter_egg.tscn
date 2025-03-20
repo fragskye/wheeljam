@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://0libc4cqdhtm"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_lryl3"]
+[ext_resource type="Material" uid="uid://dyvxvxguwj5al" path="res://assets/posters/candleman_easter_egg.tres" id="2_lryl3"]
+
+[node name="CandlemanEasterEgg" instance=ExtResource("1_lryl3")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_lryl3")

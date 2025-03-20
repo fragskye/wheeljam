@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpyldwgw8gvtf"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_8i3ia"]
+[ext_resource type="Material" uid="uid://bubun6jwr3iui" path="res://assets/posters/game_ad.tres" id="2_8i3ia"]
+
+[node name="GameAd" instance=ExtResource("1_8i3ia")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_8i3ia")

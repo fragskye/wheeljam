@@ -25,6 +25,9 @@ func _process(_delta: float) -> void:
 		spawn_next_demon()
 
 func spawn_next_demon() -> void:
+	if demon_index >= demons.size():
+		return
+	
 	_can_spawn_demon = false
 	
 	# SHHHHHHHHHHHHHHHHHH i don't want to think how to reset the wheel properly right now, it has a lot of state in it

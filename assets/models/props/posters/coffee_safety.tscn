@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccrfrvvsj50a5"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_bm4wa"]
+[ext_resource type="Material" uid="uid://cybl2kw3fcjld" path="res://assets/posters/coffee_safety.tres" id="2_bm4wa"]
+
+[node name="CoffeeSafety" instance=ExtResource("1_bm4wa")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_bm4wa")

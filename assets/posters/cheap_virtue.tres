@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://u48a5f8a2fhb"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_nfxtd"]
+[ext_resource type="Texture2D" uid="uid://irwv70kjw546" path="res://assets/posters/cheap_virtue.png" id="2_nfxtd"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nfxtd")
+shader_parameter/albedo_texture = ExtResource("2_nfxtd")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

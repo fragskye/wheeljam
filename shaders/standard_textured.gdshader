@@ -32,7 +32,9 @@ void fragment() {
 	vec4 albedo = texture(albedo_texture, UV);
 	ALBEDO = albedo.rgb;
 	ALBEDO *= remap(value_random.x, 0.0, 1.0, 1.0 - noise, 1.0);
-	ALPHA = albedo.a;
+	if (albedo.a < 0.5) {
+		discard;
+	}
 	if (emissive) {
 		EMISSION = ALBEDO;
 	}

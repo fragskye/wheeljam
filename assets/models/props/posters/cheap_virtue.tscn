@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://borpd5kmoq8cl"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_xn2m3"]
+[ext_resource type="Material" uid="uid://u48a5f8a2fhb" path="res://assets/posters/cheap_virtue.tres" id="2_xn2m3"]
+
+[node name="CheapVirtue" instance=ExtResource("1_xn2m3")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_xn2m3")

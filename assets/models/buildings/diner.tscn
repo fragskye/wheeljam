@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgveri6qcmshl"]
+[gd_scene load_steps=15 format=3 uid="uid://dgveri6qcmshl"]
 
 [ext_resource type="PackedScene" uid="uid://dcbe2gu11t4j1" path="res://assets/models/buildings/diner.glb" id="1_abf47"]
 [ext_resource type="PackedScene" uid="uid://8kopfml7fq3t" path="res://assets/models/props/coffee_shop/table_with_chairs.tscn" id="2_1kbba"]
@@ -6,6 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://cv5jwhx1ugi8t" path="res://assets/models/props/book_store/counter.tscn" id="4_hjne7"]
 [ext_resource type="PackedScene" uid="uid://dk6fxydvaa5xi" path="res://assets/models/props/coffee_shop/chair.tscn" id="5_13v5t"]
 [ext_resource type="PackedScene" uid="uid://lg6btqew2gfg" path="res://prefabs/item/item_spawn.tscn" id="6_eotyw"]
+[ext_resource type="PackedScene" uid="uid://4fe0fb555h6b" path="res://assets/models/props/posters/diner_ad_1.tscn" id="7_i31x2"]
+[ext_resource type="PackedScene" uid="uid://bmjs7sf5d02wt" path="res://assets/models/props/posters/diner_ad_2.tscn" id="8_dr5e1"]
+[ext_resource type="PackedScene" uid="uid://b7732huqd3kkl" path="res://assets/models/props/posters/diner_pasta.tscn" id="9_7ss7m"]
+[ext_resource type="PackedScene" uid="uid://dfll7pn0e7v5k" path="res://assets/models/props/posters/diner_wings.tscn" id="10_3ukaf"]
+[ext_resource type="PackedScene" uid="uid://bt053lf4udggh" path="res://assets/models/props/posters/diner_safety.tscn" id="11_pljts"]
+[ext_resource type="PackedScene" uid="uid://dmgox4gepq8ql" path="res://assets/models/props/posters/diner_menu.tscn" id="12_3ukaf"]
+[ext_resource type="PackedScene" uid="uid://63u1fu45hh0m" path="res://assets/models/props/posters/bathroom_angel.tscn" id="13_whg0h"]
+[ext_resource type="PackedScene" uid="uid://c7pub3bgaarte" path="res://assets/models/props/posters/bathroom_devil.tscn" id="14_kyk0l"]
 
 [node name="Diner" instance=ExtResource("1_abf47")]
 
@@ -212,3 +220,45 @@ pool = 1
 [node name="ItemSpawn15" parent="." index="56" instance=ExtResource("6_eotyw")]
 transform = Transform3D(-0.968588, 0, -0.248673, 0, 1, 0, 0.248673, 0, -0.968588, -4.81892, 2.38419e-07, -7.87494)
 pool = 1
+
+[node name="DinerAd1" parent="." index="57" instance=ExtResource("7_i31x2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3, 0.9, -10.2)
+
+[node name="DinerAd2" parent="." index="58" instance=ExtResource("8_dr5e1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 0.9, -10.2)
+
+[node name="DinerPasta" parent="." index="59" instance=ExtResource("9_7ss7m")]
+transform = Transform3D(0.999465, -0.0327191, 0, 0.0327191, 0.999465, 0, 0, 0, 1, -2.3699, 1.23891, 2.38419e-07)
+
+[node name="DinerWings" parent="." index="60" instance=ExtResource("10_3ukaf")]
+transform = Transform3D(0.999821, 0.0189008, 0, -0.0189008, 0.999821, 0, 0, 0, 1, 7.07678, 1.27978, 0)
+
+[node name="DinerSafety" parent="." index="61" instance=ExtResource("11_pljts")]
+transform = Transform3D(0.999953, -0.00965152, 0, 0.00965152, 0.999953, 0, 0, 0, 1, -5.83568, 1.11158, 0)
+
+[node name="DinerMenu" parent="." index="62" instance=ExtResource("12_3ukaf")]
+transform = Transform3D(-0.962218, 0.27228, 1.19017e-08, 0, -4.37114e-08, 1, 0.27228, 0.962218, 4.20599e-08, -5.00345, 1, -7.14501)
+
+[node name="DinerMenu2" parent="." index="63" instance=ExtResource("12_3ukaf")]
+transform = Transform3D(-0.53702, -0.84357, -3.68736e-08, -8.54621e-16, -4.37114e-08, 1, -0.84357, 0.53702, 2.34739e-08, 0.920741, 1, -14.2953)
+
+[node name="DinerMenu3" parent="." index="64" instance=ExtResource("12_3ukaf")]
+transform = Transform3D(0.26128, 0.965263, 4.2193e-08, -8.54621e-16, -4.37114e-08, 1, 0.965263, -0.26128, -1.14209e-08, 7.82231, 1, -13.0682)
+
+[node name="DinerMenu4" parent="." index="65" instance=ExtResource("12_3ukaf")]
+transform = Transform3D(-0.491877, 0.870665, 3.8058e-08, 7.36303e-17, -4.37114e-08, 1, 0.870665, 0.491877, 2.15006e-08, 7.96727, 1, -2.44362)
+
+[node name="DinerMenu5" parent="." index="66" instance=ExtResource("12_3ukaf")]
+transform = Transform3D(-0.999405, 0.0344806, 1.5072e-09, 7.36303e-17, -4.37114e-08, 1, 0.0344806, 0.999405, 4.36854e-08, -16.8642, 1.1, -8.0876)
+
+[node name="DinerMenu6" parent="." index="67" instance=ExtResource("12_3ukaf")]
+transform = Transform3D(-0.996762, -0.0804079, -3.51474e-09, -1.59826e-16, -4.37114e-08, 1, -0.0804079, 0.996762, 4.35698e-08, -16.8945, 1.101, -8.05798)
+
+[node name="DinerMenu7" parent="." index="68" instance=ExtResource("12_3ukaf")]
+transform = Transform3D(-0.971147, -0.238483, -1.04244e-08, -1.59826e-16, -4.37114e-08, 1, -0.238483, 0.971147, 4.24502e-08, -16.9289, 1.102, -8.0748)
+
+[node name="BathroomAngel" parent="." index="69" instance=ExtResource("13_whg0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45, 1.5, -20)
+
+[node name="BathroomDevil" parent="." index="70" instance=ExtResource("14_kyk0l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45, 1.5, -20)

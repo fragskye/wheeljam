@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq1xtmepo4okg"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_pwucc"]
+[ext_resource type="Material" uid="uid://x5wel5olp2rx" path="res://assets/posters/heavenly_deals.tres" id="2_pwucc"]
+
+[node name="HeavenlyDeals" instance=ExtResource("1_pwucc")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_pwucc")

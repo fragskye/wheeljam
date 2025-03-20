@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmjs7sf5d02wt"]
+
+[ext_resource type="PackedScene" uid="uid://bcq3mg8gjdrj0" path="res://assets/models/props/posters/poster_big.glb" id="1_ibwqg"]
+[ext_resource type="Material" uid="uid://bq2ps5pgqu4ii" path="res://assets/posters/diner_ad_2.tres" id="2_ibwqg"]
+
+[node name="DinerAd2" instance=ExtResource("1_ibwqg")]
+
+[node name="PosterBig" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ibwqg")

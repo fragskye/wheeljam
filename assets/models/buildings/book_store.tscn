@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtlr4fnfqrp1s"]
+[gd_scene load_steps=12 format=3 uid="uid://dtlr4fnfqrp1s"]
 
 [ext_resource type="PackedScene" uid="uid://b6sakjckgrwg1" path="res://assets/models/buildings/book_store.glb" id="1_yrsso"]
 [ext_resource type="PackedScene" uid="uid://c3fegp2nkjxk0" path="res://assets/models/props/book_store/random_book_shelf.tscn" id="3_1dewe"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://d21gwgvpaspum" path="res://assets/models/props/book_store/random_book.tscn" id="6_7ffvk"]
 [ext_resource type="PackedScene" uid="uid://dl4av7gyci7fs" path="res://assets/models/props/book_store/ceiling_light_off.tscn" id="6_b3px7"]
 [ext_resource type="PackedScene" uid="uid://4as8ptuj4lje" path="res://assets/models/props/posters/summon_story.tscn" id="7_b7k30"]
+[ext_resource type="PackedScene" uid="uid://dpyldwgw8gvtf" path="res://assets/models/props/posters/game_ad.tscn" id="10_8ixxu"]
+[ext_resource type="PackedScene" uid="uid://ckpjkfri55ger" path="res://assets/models/props/posters/music_fest.tscn" id="11_h4sff"]
 
 [node name="BookStore" instance=ExtResource("1_yrsso")]
 
@@ -316,3 +318,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8, 0, 5)
 
 [node name="SummonStory" parent="." index="19" instance=ExtResource("7_b7k30")]
 transform = Transform3D(-0.999463, 0.032754, 8.73759e-08, 0.032754, 0.999463, -2.86344e-09, -8.74228e-08, 0, -1, -3.21657, 1.28667, -10)
+
+[node name="GameAd" parent="." index="20" instance=ExtResource("10_8ixxu")]
+transform = Transform3D(-0.999882, 0.0153408, -8.74125e-08, 0.0153408, 0.999882, 1.34114e-09, 8.74228e-08, 0, -1, -4.68469, 1.2366, 9.8)
+
+[node name="MusicFest" parent="." index="21" instance=ExtResource("11_h4sff")]
+transform = Transform3D(-0.998836, -0.0482396, -8.7321e-08, -0.0482396, 0.998836, -4.21724e-09, 8.74228e-08, 0, -1, -6.1022, 1.1689, 9.8)

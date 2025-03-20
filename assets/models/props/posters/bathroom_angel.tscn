@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://63u1fu45hh0m"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_bx3cx"]
+[ext_resource type="Material" uid="uid://3nta40snoa6y" path="res://assets/posters/bathroom_angel.tres" id="2_bx3cx"]
+
+[node name="BathroomAngel" instance=ExtResource("1_bx3cx")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_bx3cx")

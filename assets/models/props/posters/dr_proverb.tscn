@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbsks4l5j5c43"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_ttbxt"]
+[ext_resource type="Material" uid="uid://cw70s21jlrmgg" path="res://assets/posters/dr_proverb.tres" id="2_ttbxt"]
+
+[node name="DrProverb" instance=ExtResource("1_ttbxt")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ttbxt")

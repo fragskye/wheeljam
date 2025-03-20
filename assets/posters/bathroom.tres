@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://daw5bd50p07ee"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_lylev"]
+[ext_resource type="Texture2D" uid="uid://cf32j8cduynsq" path="res://assets/posters/bathroom.png" id="2_lylev"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lylev")
+shader_parameter/albedo_texture = ExtResource("2_lylev")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

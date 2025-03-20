@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cybl2kw3fcjld"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_3ag6a"]
+[ext_resource type="Texture2D" uid="uid://cgxpcfvoi2kep" path="res://assets/posters/coffee_safety.png" id="2_3ag6a"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3ag6a")
+shader_parameter/albedo_texture = ExtResource("2_3ag6a")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

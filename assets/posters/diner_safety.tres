@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cdi7iawd3o7jv"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_aqva8"]
+[ext_resource type="Texture2D" uid="uid://bx3r75txrnme1" path="res://assets/posters/diner_safety.png" id="2_aqva8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_aqva8")
+shader_parameter/albedo_texture = ExtResource("2_aqva8")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

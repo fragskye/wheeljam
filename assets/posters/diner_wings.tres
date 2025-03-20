@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bk3i6b8gbaac4"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_c3l8p"]
+[ext_resource type="Texture2D" uid="uid://cq6qf6pqqvuh5" path="res://assets/posters/diner_wings.png" id="2_c3l8p"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_c3l8p")
+shader_parameter/albedo_texture = ExtResource("2_c3l8p")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1
