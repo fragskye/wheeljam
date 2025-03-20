@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1ehc2xbhw124"]
+[gd_scene load_steps=3 format=3 uid="uid://d1ehc2xbhw124"]
 
 [ext_resource type="PackedScene" uid="uid://c8yvpvfcvrjks" path="res://assets/models/props/posters/poster_big_wide.glb" id="1_6rb32"]
+[ext_resource type="Material" uid="uid://cw14qk8885wxi" path="res://assets/posters/coffee_menu.tres" id="2_6rb32"]
 
 [node name="CoffeeMenu" instance=ExtResource("1_6rb32")]
+
+[node name="PosterBigWide" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_6rb32")
