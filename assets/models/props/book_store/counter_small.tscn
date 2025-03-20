@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckoc25eokgkbp"]
+
+[ext_resource type="PackedScene" uid="uid://ctjd6f2p704va" path="res://assets/models/props/book_store/counter_small.glb" id="1_62hyo"]
+
+[node name="CounterSmall" instance=ExtResource("1_62hyo")]
