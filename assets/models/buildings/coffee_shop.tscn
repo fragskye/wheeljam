@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c43vjhmnrvhra"]
+
+[ext_resource type="PackedScene" uid="uid://coyo25u8r85fa" path="res://assets/models/buildings/coffee_shop.glb" id="1_3ql2s"]
+
+[node name="CoffeeShop" instance=ExtResource("1_3ql2s")]
