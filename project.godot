@@ -23,7 +23,7 @@ resources_spreadsheet_view/freeze_first_column=true
 
 [application]
 
-config/name="grimoire_of_oblivion"
+config/name="Grimoire of Oblivion"
 config/version="1.0.1"
 run/main_scene="uid://dskh38i8xpv18"
 config/features=PackedStringArray("4.4", "Forward Plus")
