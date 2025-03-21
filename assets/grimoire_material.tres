@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c8ikpttpqqegs"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_540sh"]
+[ext_resource type="Texture2D" uid="uid://dq2a8e81wdim2" path="res://assets/grimoire.png" id="2_540sh"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_540sh")
+shader_parameter/albedo_texture = ExtResource("2_540sh")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

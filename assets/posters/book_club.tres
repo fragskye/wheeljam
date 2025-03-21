@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bo8kppn5o77jv"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_ynivq"]
+[ext_resource type="Texture2D" uid="uid://citv8x2v7ja5q" path="res://assets/posters/book_club.png" id="2_ynivq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ynivq")
+shader_parameter/albedo_texture = ExtResource("2_ynivq")
+shader_parameter/emissive = false
+shader_parameter/noise = 0.1

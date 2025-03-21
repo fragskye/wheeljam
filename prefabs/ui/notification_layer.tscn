@@ -338,8 +338,8 @@ texture = ExtResource("2_yisdb")
 [node name="Control" type="Control" parent="NotificationMenu/Control"]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
-offset_left = 300.0
-offset_right = 300.0
+offset_left = -10.0
+offset_right = -10.0
 mouse_filter = 2
 
 [node name="ToastLabel" type="Label" parent="NotificationMenu/Control/Control"]
@@ -380,7 +380,6 @@ libraries = {
 
 [node name="ImpactSFX" type="AudioStreamPlayer2D" parent="NotificationMenu/HurtAnimationPlayer"]
 stream = ExtResource("4_0kxqq")
-volume_db = -3.0
 pitch_scale = 0.8
 panning_strength = 0.0
 

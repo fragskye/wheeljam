@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ghdrivuuy2ys"]
+
+[ext_resource type="PackedScene" uid="uid://bcuqmd6cs0b5u" path="res://assets/models/grimoire.glb" id="1_7wiui"]
+
+[node name="Grimoire" instance=ExtResource("1_7wiui")]

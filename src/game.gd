@@ -8,6 +8,8 @@ const WIN_SCREEN: PackedScene = preload("res://prefabs/ui/win_screen.tscn")
 
 @onready var battle_layer: BattleLayer = %BattleLayer
 @onready var spawn_demon_area: Area3D = %SpawnDemonArea
+@onready var intro_animation_player: AnimationPlayer = %IntroAnimationPlayer
+@onready var cutscene_fade: ColorRect = %CutsceneFade
 
 @export var demons: Array[DemonData] = []
 @export var demon_index: int = 0
@@ -22,6 +24,12 @@ func _ready() -> void:
 	SignalBus.battle_won.connect(_on_battle_won)
 	SignalBus.battle_lost.connect(_on_battle_lost)
 	Global.game = self
+	InputManager.push_input_state(InputManager.InputState.CUTSCENE)
+	intro_animation_player.play("intro")
+	await intro_animation_player.animation_finished
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(cutscene_fade, "color", Color(0.0, 0.0, 0.0, 0.0), 1.0)
+	InputManager.pop_input_state()
 
 func _process(_delta: float) -> void:
 	if _can_spawn_demon && _in_spawn_demon_area:

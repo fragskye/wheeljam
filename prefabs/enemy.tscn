@@ -71,7 +71,6 @@ collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_u6on0")
 move_slow_speed = 3.5
-move_fast_speed = 4.5
 los_blocker_mask = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

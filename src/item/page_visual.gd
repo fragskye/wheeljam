@@ -9,7 +9,10 @@ class_name PageVisual extends ItemVisual
 @onready var burning_1_particles: GPUParticles3D = %Burning1Particles
 @onready var burning_2_particles: GPUParticles3D = %Burning2Particles
 
-var _page_data: PageData = null
+@export var _page_data: PageData = null
+
+func _ready() -> void:
+	update_visual()
 
 func _on_item_data_set() -> void:
 	_page_data = _item_data as PageData

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://8kklnwpcqglv"]
+
+[ext_resource type="PackedScene" uid="uid://d0cu8mkdic5vt" path="res://assets/models/props/posters/poster.glb" id="1_bjp4x"]
+[ext_resource type="Material" uid="uid://bo8kppn5o77jv" path="res://assets/posters/book_club.tres" id="2_bjp4x"]
+
+[node name="BookClub" instance=ExtResource("1_bjp4x")]
+
+[node name="Poster" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_bjp4x")
