@@ -57,6 +57,12 @@ func _on_battle_player_action_previewed(index: int) -> void:
 
 func _on_battle_player_action_selected(index: int, multiplier: float) -> void:
 	_verdict = data.evaluate(index)
+	if !Global.battle_layer._tutorial_bad_seen && _verdict.multiplier <= 0.0:
+		Global.battle_layer._tutorial_bad_seen = true
+		NotificationLayer.show_toast("The demon didn't like that action...")
+	if !Global.battle_layer._tutorial_good_seen && _verdict.multiplier > 0.0:
+		Global.battle_layer._tutorial_good_seen = true
+		NotificationLayer.show_toast("The demon liked that action!")
 	var result: float = _verdict.multiplier * multiplier
 	SignalBus.battle_demon_verdict.emit(multiplier, _verdict.multiplier, result)
 	health = clampf(health + result, 0.0, data.max_health)

@@ -16,6 +16,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func show_toast(text: String) -> void:
+	toast_animation_player.stop()
 	var short: bool = text.length() <= 30
 	background_1.texture = TOAST_BACKGROUND_SHORT if short else TOAST_BACKGROUND
 	background_2.texture = TOAST_BACKGROUND_SHORT if short else TOAST_BACKGROUND

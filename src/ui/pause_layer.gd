@@ -36,3 +36,6 @@ func _on_resume_button_pressed() -> void:
 		return
 	
 	InputManager.pop_input_state()
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

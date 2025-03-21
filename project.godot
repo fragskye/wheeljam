@@ -24,7 +24,7 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="grimoire_of_oblivion"
-config/version="1.0.0"
+config/version="1.0.1"
 run/main_scene="uid://dskh38i8xpv18"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -52,6 +52,7 @@ gdscript/warnings/unsafe_void_return=2
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

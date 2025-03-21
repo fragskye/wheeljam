@@ -50,6 +50,12 @@ var _wheel_rotation_visual_offset: float = 0.0
 var _needs_more_pages: bool = true
 var _moves_in_turn: int = 0
 
+static var _tutorial_step: int = 0
+static var _tutorial_bad_seen: bool = false
+static var _tutorial_good_seen: bool = false
+
+var actions: Array[String] = ["Bargain", "Beg", "Grieve", "Condemn", "Cry", "Curse"]
+
 func _ready() -> void:
 	update_slices()
 	battle_menu.hide()
@@ -62,6 +68,7 @@ func _ready() -> void:
 	SignalBus.battle_demon_verdict.connect(_on_battle_demon_verdict)
 	explanation.modulate = Color.TRANSPARENT
 	Global.battle_layer = self
+	actions.shuffle()
 
 func rotate_wheel(slices: int) -> void:
 	wheel_turn_sfx.stream = wheel_turn_audio.pick_random()
@@ -111,6 +118,9 @@ func _on_input_state_changed(old_state: InputManager.InputState, new_state: Inpu
 			battle_menu.show()
 			for enemy: Node in get_tree().get_nodes_in_group("enemy"):
 				enemy.queue_free()
+			if _tutorial_step == 0:
+				_tutorial_step += 1
+				NotificationLayer.show_toast("The pages say to put them in a wheel arrangement...?")
 
 func _on_close_button_pressed() -> void:
 	if InputManager.get_input_state() != InputManager.InputState.BATTLE:
@@ -161,6 +171,7 @@ func update_slices() -> void:
 		wheel_slice.scale = slice_scale * Vector2(1.0, 1.0)
 		wheel_slice.angle = slice_angle
 		wheel_slice.selected_highlight = _needs_more_pages && wheel_slice_idx == _selected_wheel_slice
+		wheel_slice.action_label.text = actions[wheel_slice_idx]
 		
 		wheel_wedge.position = (wheel.size.y * 0.3) * Vector2(cos(wedge_angle), sin(wedge_angle))
 		wheel_wedge.scale = slice_scale * Vector2(1.0, 1.0)

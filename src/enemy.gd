@@ -72,7 +72,7 @@ func _on_navigation_agent_3d_target_reached() -> void:
 func _on_hurt_box_body_entered(_body: Node3D) -> void:
 	if !dismissed:
 		NotificationLayer.hurt_flash()
-		for i: int in range(0, 3):
+		for i: int in range(0, 5):
 			if Global.player.inventory[0] != null:
 				var item: ItemData = null
 				var item_idx: int = 0

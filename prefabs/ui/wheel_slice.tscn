@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbe8xh5x4nagu"]
+[gd_scene load_steps=6 format=3 uid="uid://dbe8xh5x4nagu"]
 
 [ext_resource type="Script" uid="uid://cgcaq2isobnhk" path="res://src/ui/wheel_slice.gd" id="1_n0ds1"]
 [ext_resource type="Texture2D" uid="uid://clc3bupff8p6" path="res://icon.svg" id="2_5hteh"]
 [ext_resource type="Script" uid="uid://dii85i5vkg2sb" path="res://src/ui/wheel_slice_background.gd" id="3_flcn6"]
+[ext_resource type="FontFile" uid="uid://d3j2sq1rf3cg4" path="res://assets/fonts/not_jam/slab_serif_11/NotJamSlabSerif11.ttf" id="4_flcn6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p6uq4"]
+font = ExtResource("4_flcn6")
+font_size = 110
+outline_size = 40
+outline_color = Color(0, 0, 0, 1)
 
 [node name="WheelSlice" type="Control"]
 layout_mode = 3
@@ -37,6 +44,23 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("3_flcn6")
 color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="ActionLabel" type="Label" parent="Background"]
+unique_name_in_owner = true
+z_index = 10
+texture_filter = 1
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 0
+offset_left = -48.0
+offset_top = -256.0
+offset_right = 464.0
+offset_bottom = 256.0
+rotation = 1.5708
+pivot_offset = Vector2(256, 256)
+text = "Action"
+label_settings = SubResource("LabelSettings_p6uq4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HoverOutline" type="Control" parent="."]
 unique_name_in_owner = true

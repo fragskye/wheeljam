@@ -6,6 +6,7 @@ signal pressed(index: int)
 @onready var hover_outline: WheelSliceBackground = %HoverOutline
 @onready var selected_outline: WheelSliceBackground = %SelectedOutline
 @onready var tint: WheelSliceBackground = %Tint
+@onready var action_label: Label = %ActionLabel
 
 var index: int = 0
 var angle: float = 0.0
@@ -18,6 +19,8 @@ func _process(_delta: float) -> void:
 	hover_outline.rotation = angle
 	selected_outline.rotation = angle
 	tint.rotation = angle
+	if abs(angle - PI * 0.5) <= PI * 0.333:
+		action_label.rotation_degrees = -90.0
 	
 	if hover_highlight:
 		hover_outline.show()

@@ -67,6 +67,7 @@ func _on_battle_won() -> void:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property(cutscene_fade, "color", Color(0.0, 0.0, 0.0, 1.0), 2.0)
 		await get_tree().create_timer(2.5).timeout
+		InputManager.switch_input_state(InputManager.InputState.MENU)
 		get_tree().change_scene_to_packed(WIN_SCREEN)
 		return
 	await spawn_demon_area.body_exited
@@ -78,6 +79,7 @@ func _on_battle_lost() -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(cutscene_fade, "color", Color(0.0, 0.0, 0.0, 1.0), 2.0)
 	await get_tree().create_timer(2.5).timeout
+	InputManager.switch_input_state(InputManager.InputState.MENU)
 	get_tree().change_scene_to_packed(LOSE_SCREEN)
 
 func _on_spawn_demon_area_body_entered(_body: Node3D) -> void:
