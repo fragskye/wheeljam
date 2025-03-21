@@ -35,6 +35,8 @@ text = "YOU WIN!
 
 Thanks for playing!
 
+Made in 1 week for WHEELJAM
+
 A game by fragskye"
 label_settings = SubResource("LabelSettings_p0qn8")
 horizontal_alignment = 1

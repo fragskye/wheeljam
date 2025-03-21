@@ -33,7 +33,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "GAME OVER!
 
-You failed to beat the demon.
+You failed to beat the demon
+with the pages you had recovered.
+
 Better luck next time!
 
 A game by fragskye"

@@ -57,17 +57,27 @@ func spawn_next_demon() -> void:
 
 func _on_battle_won() -> void:
 	await battle_layer.demon_verdict_anim_finished
+	InputManager.pop_input_state()
 	demon.queue_free()
 	demon_index += 1
 	if demon_index < demons.size():
 		NotificationLayer.show_toast("More demons will be back soon. I need to prepare.")
 	else:
+		Global.game_complete = true
+		var tween: Tween = get_tree().create_tween()
+		tween.tween_property(cutscene_fade, "color", Color(0.0, 0.0, 0.0, 1.0), 2.0)
+		await get_tree().create_timer(2.5).timeout
 		get_tree().change_scene_to_packed(WIN_SCREEN)
+		return
 	await spawn_demon_area.body_exited
 	await get_tree().create_timer(time_between_demons).timeout
 	_can_spawn_demon = true
 
 func _on_battle_lost() -> void:
+	Global.game_complete = true
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(cutscene_fade, "color", Color(0.0, 0.0, 0.0, 1.0), 2.0)
+	await get_tree().create_timer(2.5).timeout
 	get_tree().change_scene_to_packed(LOSE_SCREEN)
 
 func _on_spawn_demon_area_body_entered(_body: Node3D) -> void:

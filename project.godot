@@ -27,6 +27,7 @@ config/name="grimoire_of_oblivion"
 config/version="1.0.0"
 run/main_scene="uid://dskh38i8xpv18"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [autoload]
@@ -172,6 +173,7 @@ common/physics_interpolation=true
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
 lights_and_shadows/directional_shadow/16_bits=false
 textures/default_filters/anisotropic_filtering_level=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 anti_aliasing/quality/use_debanding=true
 occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_quadrant_0_subdiv=4

@@ -2,7 +2,7 @@ class_name BattleLayer extends CanvasLayer
 
 const WHEEL_SLICE: PackedScene = preload("res://prefabs/ui/wheel_slice.tscn")
 const INVENTORY_ITEM: PackedScene = preload("res://prefabs/ui/inventory_item.tscn")
-const MOVES_PER_TURN: int = 3
+var moves_per_turn: int = 3
 
 signal demon_verdict_anim_finished()
 
@@ -95,6 +95,9 @@ func _process(_delta: float) -> void:
 func _on_input_state_changed(old_state: InputManager.InputState, new_state: InputManager.InputState) -> void:
 	_input_state_changed_this_frame = true
 	
+	if Global.game_complete:
+		return
+	
 	match old_state:
 		InputManager.InputState.BATTLE:
 			battle_menu.hide()
@@ -178,23 +181,29 @@ func _on_inventory_carousel_item_pressed(data: ItemData) -> void:
 		wheel_place_sfx.stream = wheel_place_audio.pick_random()
 		wheel_place_sfx.play()
 		
-		var empty_slot: bool = false
-		var empty_slot_idx: int = 0
-		for wheel_slice_idx: int in wheel_slice_count:
-			var wheel_wedge: InventoryItem = _wheel_wedges[wheel_slice_idx]
-			if wheel_wedge.data == null:
-				empty_slot = true
-				empty_slot_idx = wheel_slice_idx + _wheel_rotation
-				break
-		if !empty_slot:
+		select_empty()
+
+func select_empty() -> void:
+	var empty_slot: bool = false
+	var empty_slot_idx: int = 0
+	for wheel_slice_idx: int in wheel_slice_count:
+		if wheel_slice_idx >= _wheel_wedges.size():
+			continue
+		var wheel_wedge: InventoryItem = _wheel_wedges[wheel_slice_idx]
+		if wheel_wedge.data == null:
+			empty_slot = true
+			empty_slot_idx = wheel_slice_idx + _wheel_rotation
+			break
+	if !empty_slot:
+		if _wheel_wedges.size() >= wheel_slice_count:
 			_needs_more_pages = false
-			Global.player.flush_inventory()
-		else:
-			while empty_slot_idx < 0:
-				empty_slot_idx += wheel_slice_count
-			while empty_slot_idx >= wheel_slice_count:
-				empty_slot_idx -= wheel_slice_count
-			_selected_wheel_slice = empty_slot_idx
+		Global.player.flush_inventory()
+	else:
+		while empty_slot_idx < 0:
+			empty_slot_idx += wheel_slice_count
+		while empty_slot_idx >= wheel_slice_count:
+			empty_slot_idx -= wheel_slice_count
+		_selected_wheel_slice = empty_slot_idx
 
 func _on_wheel_slice_pressed(index: int) -> void:
 	if get_wedge_page(index) == null:
@@ -207,12 +216,13 @@ func _on_wheel_slice_pressed(index: int) -> void:
 		SignalBus.battle_player_action_selected.emit(index, page.multiplier)
 		page.pending_burn = true
 		rotate_wheel(cycles_per_turn)
-		if _moves_in_turn >= MOVES_PER_TURN:
+		if _moves_in_turn >= moves_per_turn:
 			SignalBus.battle_player_turn_complete.emit()
 			_moves_in_turn = 0
 
 func _on_battle_player_turn_complete() -> void:
 	var pages_burned: int = 0
+	var pages_needed: int = 0
 	for wheel_slice_idx: int in wheel_slice_count:
 		var wheel_slice: WheelSlice = _wheel_slices[wheel_slice_idx]
 		wheel_slice.disabled = false
@@ -229,14 +239,22 @@ func _on_battle_player_turn_complete() -> void:
 					_selected_wheel_slice -= wheel_slice_count
 				pages_burned += 1
 				_needs_more_pages = true
+				pages_needed += 1
 			else:
 				page.burning = true
 				page.pending_burn = false
 	if _needs_more_pages && !_battle_ending:
-		if pages_burned == 1:
-			NotificationLayer.show_toast("That page burned up. I need a new one...")
+		var page_count: int = 0
+		for item: ItemData in Global.player.inventory:
+			if item is PageData:
+				page_count += 1
+		if page_count < pages_needed:
+			SignalBus.battle_lost.emit()
 		else:
-			NotificationLayer.show_toast("Those pages burned up. I need new ones...")
+			if pages_burned == 1:
+				NotificationLayer.show_toast("That page burned up. I need a new one...")
+			else:
+				NotificationLayer.show_toast("Those pages burned up. I need new ones...")
 
 func get_wedge_page(slice: int) -> PageData:
 	slice -= _wheel_rotation
