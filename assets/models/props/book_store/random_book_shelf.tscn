@@ -14,3 +14,6 @@ width = 1.8
 depth = 0.1
 book_width = 0.1
 book_spacing_curve = SubResource("Curve_vkws5")
+
+[node name="BookShelf" parent="." index="0"]
+layers = 1024

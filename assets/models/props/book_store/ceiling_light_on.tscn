@@ -8,12 +8,21 @@
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.137, 0)
-light_indirect_energy = 2.0
+light_color = Color(0.960784, 1, 1, 1)
+light_energy = 3.0
+light_indirect_energy = 3.0
+light_size = 0.5
 light_bake_mode = 1
-distance_fade_shadow = 20.0
+shadow_enabled = true
+shadow_normal_bias = 0.5
+distance_fade_enabled = true
+distance_fade_begin = 32.0
+distance_fade_shadow = 14.0
+distance_fade_length = 2.0
 spot_range = 20.0
 spot_attenuation = 1.5
 spot_angle = 70.0
+spot_angle_attenuation = 2.0
 
 [node name="HumSFX" type="AudioStreamPlayer3D" parent="." index="2"]
 stream = ExtResource("2_h3rha")

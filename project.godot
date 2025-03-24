@@ -163,6 +163,12 @@ inventory_speed_modifier={
 3d_physics/layer_5="player_blocker"
 3d_physics/layer_24="environmental_ambience"
 
+[navigation]
+
+3d/default_cell_size=0.05
+3d/default_cell_height=0.05
+3d/merge_rasterizer_cell_scale=0.05
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -172,14 +178,11 @@ common/physics_interpolation=true
 [rendering]
 
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
-lights_and_shadows/directional_shadow/16_bits=false
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=4
 textures/default_filters/anisotropic_filtering_level=0
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 anti_aliasing/quality/use_debanding=true
 occlusion_culling/use_occlusion_culling=true
-lights_and_shadows/positional_shadow/atlas_quadrant_0_subdiv=4
-lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=4
-lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=4
+lights_and_shadows/positional_shadow/atlas_size=8192
 
 [shader_globals]
 
@@ -194,4 +197,52 @@ value_noise_texture={
 value_noise_texture_size={
 "type": "float",
 "value": 2048.0
+}
+fog_base_color={
+"type": "color",
+"value": Color(0.00392157, 0.00392157, 0.00392157, 1)
+}
+fog_light_color={
+"type": "color",
+"value": Color(0.12549, 0.12549, 0.12549, 1)
+}
+fog_density={
+"type": "float",
+"value": 0.15
+}
+fog_light_intensity={
+"type": "float",
+"value": 1.0
+}
+fog_light_density={
+"type": "float",
+"value": 0.4
+}
+fog_plane_bottom={
+"type": "float",
+"value": 50.0
+}
+fog_plane_top={
+"type": "float",
+"value": 60.0
+}
+fog_texture={
+"type": "sampler2D",
+"value": "res://fog_texture.tres"
+}
+fog_ray_max_depth={
+"type": "float",
+"value": 256.0
+}
+fog_ray_sample_curve={
+"type": "float",
+"value": 2.0
+}
+fog_ray_sample_count={
+"type": "int",
+"value": 256
+}
+fog_top_density_falloff={
+"type": "float",
+"value": 2.0
 }

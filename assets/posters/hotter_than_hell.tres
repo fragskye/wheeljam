@@ -8,4 +8,5 @@ render_priority = 0
 shader = ExtResource("1_wg1rc")
 shader_parameter/albedo_texture = ExtResource("2_wg1rc")
 shader_parameter/emissive = false
+shader_parameter/emissive_intensity = 1.0
 shader_parameter/noise = 0.1

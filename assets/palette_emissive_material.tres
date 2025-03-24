@@ -8,3 +8,4 @@ render_priority = 0
 shader = ExtResource("1_agia7")
 shader_parameter/palette = ExtResource("2_iihv6")
 shader_parameter/emissive = true
+shader_parameter/emissive_intensity = 5.0

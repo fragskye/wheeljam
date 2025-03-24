@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://coeqsubat881h" path="res://assets/models/props/wreckage_2.glb" id="1_kvu3e"]
 
 [node name="Wreckage2" instance=ExtResource("1_kvu3e")]
+
+[node name="Wreckage2" parent="." index="0"]
+gi_mode = 0

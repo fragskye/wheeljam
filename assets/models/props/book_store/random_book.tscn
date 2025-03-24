@@ -13,3 +13,4 @@ min_scale = 0.8
 
 [node name="Book" parent="." index="0"]
 unique_name_in_owner = true
+layers = 1024

@@ -1,8 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bgf6prgy0ghog"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bgf6prgy0ghog"]
 
 [ext_resource type="Shader" uid="uid://c1h2dbuji7wll" path="res://shaders/page.gdshader" id="1_vjx63"]
 [ext_resource type="Texture2D" uid="uid://cmjxjjtk37hut" path="res://assets/page_base.png" id="2_aj0qr"]
 [ext_resource type="Texture2D" uid="uid://tsuo3jutd1vb" path="res://assets/page_illustration.png" id="3_bv2i3"]
+[ext_resource type="Texture2D" uid="uid://co1fatd3acpuc" path="res://assets/page_number.png" id="4_843ms"]
 [ext_resource type="Texture2D" uid="uid://5mqbfy3kwp7a" path="res://assets/page_text.png" id="4_bv2i3"]
 
 [resource]
@@ -11,4 +12,5 @@ shader = ExtResource("1_vjx63")
 shader_parameter/page_base_texture = ExtResource("2_aj0qr")
 shader_parameter/page_illustration_texture = ExtResource("3_bv2i3")
 shader_parameter/page_text_texture = ExtResource("4_bv2i3")
+shader_parameter/page_number_texture = ExtResource("4_843ms")
 shader_parameter/noise = 0.1

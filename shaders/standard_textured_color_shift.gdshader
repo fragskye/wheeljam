@@ -1,8 +1,9 @@
 shader_type spatial;
 
-render_mode cull_disabled, diffuse_lambert, specular_disabled, vertex_lighting;
+render_mode cull_disabled, diffuse_lambert, specular_disabled;//, vertex_lighting;
 
 #include "util.gdshaderinc"
+#include "volumetric_fog.gdshaderinc"
 
 global uniform float texel_density;
 global uniform sampler2D value_noise_texture : filter_nearest;
@@ -10,6 +11,7 @@ global uniform float value_noise_texture_size;
 
 uniform sampler2D albedo_texture : hint_default_white, filter_nearest, source_color, repeat_enable;
 uniform bool emissive = false;
+uniform float emissive_intensity = 1.0;
 uniform float noise = 0.1;
 
 instance uniform float hue_shift = 0.0;
@@ -18,10 +20,14 @@ instance uniform float value_scalar = 1.0;
 
 varying vec3 local_pos;
 varying vec3 local_normal;
+varying vec3 world_pos;
+varying vec3 world_normal;
 
 void vertex() {
 	local_pos = VERTEX;
 	local_normal = NORMAL;
+	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	world_normal = (MODEL_MATRIX * vec4(NORMAL, 0.0)).xyz;
 }
 
 void fragment() {
@@ -37,8 +43,14 @@ void fragment() {
 	ALBEDO = albedo.rgb;
 	ALBEDO *= remap(value_random.x, 0.0, 1.0, 1.0 - noise, 1.0);
 	ALBEDO = hsv_to_rgb(rgb_to_hsv(ALBEDO) * vec3(1.0, saturation_scalar, value_scalar) + vec3(hue_shift, 0.0, 0.0));
-	ALPHA = albedo.a;
-	if (emissive) {
-		EMISSION = ALBEDO;
+	if (albedo.a < 0.5) {
+		discard;
 	}
+	if (emissive) {
+		EMISSION = emissive_intensity * ALBEDO;
+	}
+	
+	//LIGHT_VERTEX = (VIEW_MATRIX * vec4(floor(world_pos * texel_density + 0.001) * inv_texel_density, 1.0)).xyz;
+	FOG = volumetric_fog(world_pos, CAMERA_POSITION_WORLD);
+	EMISSION *= 1.0 - FOG.a;
 }

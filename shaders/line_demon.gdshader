@@ -4,6 +4,7 @@ render_mode skip_vertex_transform;
 render_mode unshaded;
 
 #include "res://addons/godot-polyliner/shaders/include/polyliner_inc.gdshaderinc"
+#include "volumetric_fog.gdshaderinc"
 
 global uniform sampler2D value_noise_texture : repeat_enable, filter_linear;
 
@@ -52,6 +53,12 @@ void fragment() {
 	roundededge = max(roundededge,smoothstep(lw-softner,lw,dist));
 
 	ALBEDO = mix(color.rgb,vec3(1.0),roundededge);
+	ALBEDO *= 8.0;
 	ALPHA = color.a * roundededge;// * smoothstep(1.0, 0.7, abs(uv.x * 2.0 - 1.0));
 //	ALPHA *= hider;
+	
+	FOG = simple_fog(VERTEX, CAMERA_POSITION_WORLD);
+	if (FOG.a < 0.6) {
+		FOG.a = remap_clamp(FOG.a, 0.4, 0.6, 0.0, 0.6);
+	}
 }

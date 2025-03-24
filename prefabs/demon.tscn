@@ -1,12 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://iv1sljhrecsc"]
+[gd_scene load_steps=22 format=3 uid="uid://iv1sljhrecsc"]
 
 [ext_resource type="Script" uid="uid://dy1abvq1gxe7j" path="res://addons/godot-polyliner/Line3D/Line3D.gd" id="1_f34ap"]
 [ext_resource type="Script" uid="uid://cjnwh8o0g71pb" path="res://src/demon/demon.gd" id="1_tsgxh"]
 [ext_resource type="Script" uid="uid://upkyanp4bx8x" path="res://src/demon/demon_interact.gd" id="3_h6laj"]
 [ext_resource type="Script" uid="uid://dtn6jcikyjhjk" path="res://src/demon/demon_face_visual.gd" id="4_6x10w"]
 [ext_resource type="Material" uid="uid://cq7ehqwsowtx7" path="res://assets/demon/line_demon.tres" id="4_jg002"]
-[ext_resource type="Texture2D" uid="uid://cc4ovrbdnj8dt" path="res://assets/ui/drop_shadow.png" id="5_4ginn"]
 [ext_resource type="Script" uid="uid://bh6wq1q5fxuey" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="6_d7vdu"]
+[ext_resource type="Material" uid="uid://bfvcj17emcmaj" path="res://assets/demon/smoke_particle_material.tres" id="6_mhmxw"]
 [ext_resource type="Script" uid="uid://boel5hma2thn2" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_h6laj"]
 [ext_resource type="Script" uid="uid://cbjrdq7ived0u" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="9_6x10w"]
 [ext_resource type="AudioStream" uid="uid://bc7su3i3i1rhi" path="res://audio/demon/Demonic Flow Short 001 edit.wav" id="10_mhmxw"]
@@ -35,18 +35,8 @@ radial_velocity_curve = SubResource("CurveTexture_4ginn")
 gravity = Vector3(0, 0.5, 0)
 alpha_curve = SubResource("CurveTexture_bl6dq")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl6dq"]
-transparency = 1
-depth_draw_mode = 2
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("5_4ginn")
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
 [sub_resource type="QuadMesh" id="QuadMesh_4ginn"]
-material = SubResource("StandardMaterial3D_bl6dq")
+material = ExtResource("6_mhmxw")
 size = Vector2(4, 4)
 
 [sub_resource type="Resource" id="Resource_mhmxw"]
