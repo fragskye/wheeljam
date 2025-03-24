@@ -201,7 +201,7 @@ value_noise_texture_size={
 }
 fog_base_color={
 "type": "color",
-"value": Color(0.00392157, 0.00392157, 0.00392157, 1)
+"value": Color(0.0117647, 0.0117647, 0.0117647, 1)
 }
 fog_light_color={
 "type": "color",

@@ -2448,7 +2448,6 @@ size = Vector3(10, 4, 12)
 physics_interpolation_mode = 1
 script = ExtResource("1_hve3p")
 demons = Array[ExtResource("2_mfdv2")]([ExtResource("3_iotsf"), ExtResource("5_e36ub"), ExtResource("5_vaj68"), ExtResource("6_xa8c5"), ExtResource("7_5b14r"), ExtResource("4_iotsf")])
-demon_index = 5
 time_between_demons = 40.0
 
 [node name="Environment" parent="." instance=ExtResource("5_215e1")]
@@ -2624,7 +2623,6 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_36jdj")
 }
-speed_scale = 10.0
 
 [node name="PostProcessLayer" parent="." instance=ExtResource("3_ryrav")]
 
