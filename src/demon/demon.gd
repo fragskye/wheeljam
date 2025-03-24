@@ -3,6 +3,7 @@ class_name Demon extends Node3D
 @onready var demon_face_visual: DemonFaceVisual = %DemonFaceVisual
 @onready var demon_pcam: PhantomCamera3D = %DemonPhantomCamera
 @onready var next_phase_pcam: PhantomCamera3D = %NextPhasePhantomCamera
+@onready var demon_particles: GPUParticles3D = %DemonParticles
 
 @export var data: DemonData = null
 @export var debug_face: bool = false
@@ -26,6 +27,7 @@ func _ready() -> void:
 	SignalBus.battle_player_action_previewed.connect(_on_battle_player_action_previewed)
 	SignalBus.battle_player_action_selected.connect(_on_battle_player_action_selected)
 	demon_face_visual.data = data
+	RenderingServer.global_shader_parameter_set("line_demon_cutoff", 0.5)
 
 func _process(delta: float) -> void:
 	if debug_face:
@@ -72,6 +74,15 @@ func _on_battle_player_action_selected(index: int, multiplier: float) -> void:
 		SignalBus.battle_lost.emit()
 	elif health >= data.max_health:
 		SignalBus.battle_won.emit()
+		await Global.battle_layer.demon_verdict_anim_finished
+		demon_particles.emitting = false
+		var tween: Tween = get_tree().create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.tween_method((func(value: float) -> void:
+			RenderingServer.global_shader_parameter_set("line_demon_cutoff", value)
+		), 0.5, 0.0, 2.0)
+		tween.tween_callback(SignalBus.demon_animation_end.emit)
 	elif !_in_next_phase && health >= _next_phase_health:
 		next_phase = true
 	print("index", index)

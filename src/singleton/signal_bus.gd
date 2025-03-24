@@ -1,5 +1,6 @@
 extends Node
 
+signal demon_animation_end()
 signal camera_rig_updated(camera_rig: PlayerCameraRig)
 signal item_picked_up(item: Item)
 signal inventory_flushed()

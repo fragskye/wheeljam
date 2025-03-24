@@ -7,6 +7,7 @@ render_mode unshaded;
 #include "volumetric_fog.gdshaderinc"
 
 global uniform sampler2D value_noise_texture : repeat_enable, filter_linear;
+global uniform float line_demon_cutoff;
 
 uniform float line_width = 0.0;
 uniform float glow_width = 0.4;
@@ -41,7 +42,7 @@ uniform vec4 color : source_color = vec4(vec3(0.0,0.4,1.0),1.0);
 uniform float glow_curve : hint_range(0.0,1.0) = 0.05;
 void fragment() {
 	vec4 value_noise = texture(value_noise_texture, SCREEN_UV);// * 2.0 - 1.0;
-	if (value_noise.x < 0.5) {
+	if (value_noise.x > line_demon_cutoff) {
 		discard;
 	}
 	vec2 uv = UV;// + jitter_amount * value_noise.xy;

@@ -57,6 +57,7 @@ func spawn_next_demon() -> void:
 
 func _on_battle_won() -> void:
 	await battle_layer.demon_verdict_anim_finished
+	await SignalBus.demon_animation_end
 	InputManager.pop_input_state()
 	demon.queue_free()
 	demon_index += 1

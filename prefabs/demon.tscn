@@ -220,7 +220,8 @@ material = ExtResource("4_jg002")
 points = PackedVector3Array(0, -0.25, 0, 0, 0.25, 0)
 metadata/_custom_type_script = "uid://dy1abvq1gxe7j"
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="DemonFaceVisual"]
+[node name="DemonParticles" type="GPUParticles3D" parent="DemonFaceVisual"]
+unique_name_in_owner = true
 sorting_offset = -2.0
 amount = 128
 process_material = SubResource("ParticleProcessMaterial_jg002")

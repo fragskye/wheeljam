@@ -302,6 +302,8 @@ func _on_battle_won() -> void:
 	if _playing_demon_verdict:
 		await demon_verdict_anim_finished
 	
+	await SignalBus.demon_animation_end
+	
 	SignalBus.battle_end.emit()
 	InputManager.pop_input_state()
 

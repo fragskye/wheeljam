@@ -247,3 +247,7 @@ fog_top_density_falloff={
 "type": "float",
 "value": 2.0
 }
+line_demon_cutoff={
+"type": "float",
+"value": 0.5
+}
