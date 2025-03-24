@@ -251,3 +251,11 @@ line_demon_cutoff={
 "type": "float",
 "value": 0.5
 }
+grunge_highlight={
+"type": "color",
+"value": Color(0.168627, 0.0509804, 0.254902, 1)
+}
+grunge_noise_texture={
+"type": "sampler2D",
+"value": "res://grunge_noise_texture.tres"
+}

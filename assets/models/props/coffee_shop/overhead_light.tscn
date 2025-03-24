@@ -8,16 +8,17 @@
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
-visible = false
-light_energy = 0.01
+light_energy = 0.05
 light_bake_mode = 1
 distance_fade_enabled = true
 distance_fade_begin = 32.0
 distance_fade_length = 4.0
-omni_attenuation = 3.0
+omni_range = 10.0
+omni_attenuation = 2.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+visible = false
 light_energy = 1.25
 light_indirect_energy = 0.1
 light_bake_mode = 1
@@ -45,10 +46,10 @@ distance_fade_length = 2.0
 spot_range = 20.0
 spot_attenuation = 1.5
 spot_angle = 85.0
-spot_angle_attenuation = 0.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.2, 0)
+visible = false
 light_energy = 1.25
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
@@ -61,7 +62,6 @@ distance_fade_length = 4.0
 spot_range = 20.0
 spot_attenuation = 1.5
 spot_angle = 85.0
-spot_angle_attenuation = 0.0
 
 [node name="HumSFX" type="AudioStreamPlayer3D" parent="." index="5"]
 stream = ExtResource("2_pushs")
