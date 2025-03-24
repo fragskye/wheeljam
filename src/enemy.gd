@@ -7,6 +7,9 @@ class_name Enemy extends CharacterBody3D
 @export var move_slow_speed: float = 5.0
 @export var move_fast_speed: float = 5.0
 @export var move_smoothing: float = 0.1
+@export var return_chance: float = 0.3
+@export var return_delay_min: float = 5.0
+@export var return_delay_max: float = 5.0
 
 @export_flags_3d_physics var los_blocker_mask: int = 0xFFFFFFFF
 
@@ -52,6 +55,8 @@ func recalculate_path() -> void:
 	navigation_agent_3d.target_position = target.global_position
 
 func interact() -> void:
+	if dismissed:
+		return
 	dismissed = true
 	var player_to_enemy_dir: Vector3 = (global_position - Global.player.global_position).normalized()
 	var best: float = -1.0
@@ -63,6 +68,12 @@ func interact() -> void:
 		if dot_product > best:
 			best = dot_product
 			target = enemy_exit
+	recalculate_path()
+	if randf() > return_chance:
+		return
+	await get_tree().create_timer(randf_range(return_delay_min, return_delay_max)).timeout
+	dismissed = false
+	target = Global.player
 	recalculate_path()
 
 func _on_navigation_agent_3d_target_reached() -> void:
