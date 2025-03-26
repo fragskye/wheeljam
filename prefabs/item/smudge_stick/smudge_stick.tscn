@@ -1,0 +1,37 @@
+[gd_scene load_steps=10 format=3 uid="uid://kyvoxkfax84n"]
+
+[ext_resource type="Script" uid="uid://dqbdr2liid05t" path="res://src/item/smudge_stick.gd" id="1_cq1po"]
+[ext_resource type="AudioStream" uid="uid://c3o8k1cq6eyc0" path="res://audio/item/smudge_stick/Pick Up Foliage A.wav" id="2_cq1po"]
+[ext_resource type="AudioStream" uid="uid://cb7c5t5g0shxr" path="res://audio/item/smudge_stick/Pick Up Foliage B.wav" id="3_suj5d"]
+[ext_resource type="AudioStream" uid="uid://d3k5yg3mjh2mc" path="res://audio/item/smudge_stick/Pick Up Foliage C.wav" id="4_r41fh"]
+[ext_resource type="AudioStream" uid="uid://b7msekxbpvclv" path="res://audio/item/smudge_stick/Pick Up Foliage D.wav" id="5_txpg1"]
+[ext_resource type="Resource" uid="uid://dx6uivrwnadns" path="res://prefabs/item/smudge_stick/smudge_stick_data.tres" id="6_suj5d"]
+[ext_resource type="PackedScene" uid="uid://b0n2efgu527lu" path="res://prefabs/item/smudge_stick/smudge_stick_visual.tscn" id="7_suj5d"]
+[ext_resource type="Script" uid="uid://dih3swr18jk1u" path="res://addons/OvaniAmbiencePlugin/MovingAudioSource.gd" id="8_wv8d8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_suj5d"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="SmudgeStick" type="Area3D" node_paths=PackedStringArray("visual")]
+physics_interpolation_mode = 2
+collision_layer = 4
+script = ExtResource("1_cq1po")
+pick_up_audio = Array[AudioStream]([ExtResource("2_cq1po"), ExtResource("3_suj5d"), ExtResource("4_r41fh"), ExtResource("5_txpg1")])
+data = ExtResource("6_suj5d")
+visual = NodePath("SmudgeStickVisual")
+metadata/_custom_type_script = "uid://dtu0a8hypmrm"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_suj5d")
+
+[node name="SmudgeStickVisual" parent="." instance=ExtResource("7_suj5d")]
+
+[node name="PickUpSFX" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+attenuation_model = 3
+volume_db = -8.0
+
+[node name="PickUpSFXMovingAudioSource" type="Node3D" parent="PickUpSFX"]
+unique_name_in_owner = true
+script = ExtResource("8_wv8d8")
+metadata/_custom_type_script = "uid://dih3swr18jk1u"

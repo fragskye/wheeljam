@@ -46,7 +46,7 @@ void fragment() {
 	ALBEDO = mix(ALBEDO, page_text.rgb, page_text.a);
 	ALBEDO = mix(ALBEDO, page_number.rgb, page_number.a);
 	ALBEDO *= remap(value_random.x, 0.0, 1.0, 1.0 - noise, 1.0);
-	EMISSION = mix(vec3(0.0), page_illustration.rgb, page_illustration.a * 0.5);
+	EMISSION = mix(ALBEDO * 0.1, page_illustration.rgb, page_illustration.a * 0.5);
 	ALPHA = page_base.a;
 	
 	//LIGHT_VERTEX = (VIEW_MATRIX * vec4(floor(world_pos * texel_density + 0.001) * inv_texel_density, 1.0)).xyz;

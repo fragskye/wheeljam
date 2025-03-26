@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://2wn28i471bhe"]
+
+[ext_resource type="Shader" uid="uid://xr7lt7yrv3o4" path="res://shaders/standard_textured.gdshader" id="1_aiu07"]
+[ext_resource type="Texture2D" uid="uid://bhh7udbeico53" path="res://assets/smudge_stick.png" id="2_ga0wh"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_aiu07")
+shader_parameter/albedo_texture = ExtResource("2_ga0wh")
+shader_parameter/emissive = true
+shader_parameter/emissive_intensity = 0.1
+shader_parameter/noise_intensity = 0.1

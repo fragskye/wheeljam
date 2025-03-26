@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0n2efgu527lu"]
+
+[ext_resource type="PackedScene" uid="uid://dtnv06c5wmwgs" path="res://prefabs/item/smudge_stick/smudge_stick.glb" id="1_28rke"]
+[ext_resource type="Script" uid="uid://dg0yi6olqbpof" path="res://src/item/smudge_stick_visual.gd" id="2_yy408"]
+
+[node name="SmudgeStickVisual" instance=ExtResource("1_28rke")]
+script = ExtResource("2_yy408")

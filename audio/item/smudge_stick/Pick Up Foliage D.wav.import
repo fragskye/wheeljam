@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7msekxbpvclv"
+path="res://.godot/imported/Pick Up Foliage D.wav-c69c1e06537e75c3d4dfaa47dfc6cd89.sample"
+
+[deps]
+
+source_file="res://audio/item/smudge_stick/Pick Up Foliage D.wav"
+dest_files=["res://.godot/imported/Pick Up Foliage D.wav-c69c1e06537e75c3d4dfaa47dfc6cd89.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

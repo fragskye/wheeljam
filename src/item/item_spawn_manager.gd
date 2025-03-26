@@ -47,7 +47,7 @@ func _ready() -> void:
 		
 		spawn_pool_spawns_used[item_spawn.pool] += 1
 		
-		var item: Item = _spawn_pools[item_spawn.pool].pop_back()
+		var item: Item = _spawn_pools[item_spawn.pool].pop_front()
 		if item_spawn.floating:
 			item.rotation_degrees.z += randf_range(-item_spawn.random_angle * 0.5, item_spawn.random_angle * 0.5)
 		else:

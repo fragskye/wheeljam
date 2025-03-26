@@ -9,4 +9,4 @@ shader = ExtResource("1_sypv2")
 shader_parameter/albedo_texture = ExtResource("2_sypv2")
 shader_parameter/emissive = false
 shader_parameter/emissive_intensity = 1.0
-shader_parameter/noise = 0.1
+shader_parameter/noise_intensity = 0.1

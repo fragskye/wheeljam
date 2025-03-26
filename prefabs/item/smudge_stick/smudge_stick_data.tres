@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SmudgeStickData" load_steps=3 format=3 uid="uid://dx6uivrwnadns"]
+
+[ext_resource type="Script" uid="uid://fri14eqbpctf" path="res://src/item/smudge_stick_data.gd" id="1_sh42a"]
+[ext_resource type="PackedScene" uid="uid://b0n2efgu527lu" path="res://prefabs/item/smudge_stick/smudge_stick_visual.tscn" id="2_xg5dt"]
+
+[resource]
+script = ExtResource("1_sh42a")
+visual_scene = ExtResource("2_xg5dt")
+metadata/_custom_type_script = "uid://fri14eqbpctf"

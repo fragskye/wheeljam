@@ -20,6 +20,7 @@ signal demon_verdict_anim_finished()
 @onready var wheel_select_sfx: AudioStreamPlayer2D = %WheelSelectSFX
 @onready var wheel_place_sfx: AudioStreamPlayer2D = %WheelPlaceSFX
 @onready var wheel_turn_sfx: AudioStreamPlayer2D = %WheelTurnSFX
+@onready var smudge_stick_burn_sfx: AudioStreamPlayer2D = %SmudgeStickBurnSFX
 @onready var explanation_sfx: AudioStreamPlayer2D = %ExplanationSFX
 
 @export var wheel_slice_count: int = 0
@@ -30,6 +31,7 @@ signal demon_verdict_anim_finished()
 
 @export var wheel_place_audio: Array[AudioStream] = []
 @export var wheel_turn_audio: Array[AudioStream] = []
+@export var smudge_stick_burn_audio: Array[AudioStream] = []
 
 var cycles_per_turn: int = 1
 
@@ -177,6 +179,14 @@ func update_slices() -> void:
 		wheel_wedge.scale = slice_scale * Vector2(1.0, 1.0)
 
 func _on_inventory_carousel_item_pressed(data: ItemData) -> void:
+	if !_needs_more_pages && data is SmudgeStickData:
+		rotate_wheel(1)
+		Global.player.inventory[Global.player.inventory.find(data)] = null
+		inventory_carousel.update_inventory_items()
+		smudge_stick_burn_sfx.stream = smudge_stick_burn_audio.pick_random()
+		smudge_stick_burn_sfx.play()
+		return
+	
 	if data is not PageData:
 		return
 	

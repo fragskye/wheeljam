@@ -201,5 +201,9 @@ transform = Transform3D(0.576218, 0, 0.817296, 0, 1, 0, -0.817296, 0, 0.576218, 
 transform = Transform3D(-0.489093, 0, 0.872232, 0, 1, 0, -0.872232, 0, -0.489093, -5.88013, -1.19209e-07, -1.26012)
 pool = 1
 
-[node name="ConvenienceStoreSign" parent="." index="47" instance=ExtResource("14_131jd")]
+[node name="ItemSpawn9" parent="." index="47" instance=ExtResource("12_dvo48")]
+transform = Transform3D(0.925541, 0, -0.378649, 0, 1, 0, 0.378649, 0, 0.925541, -10.6486, -1.19209e-07, -1.36355)
+pool = 1
+
+[node name="ConvenienceStoreSign" parent="." index="48" instance=ExtResource("14_131jd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0.2)
