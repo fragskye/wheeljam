@@ -1,8 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7gdbiqwjhgj8"]
+[gd_scene load_steps=9 format=3 uid="uid://b7gdbiqwjhgj8"]
 
 [ext_resource type="PackedScene" uid="uid://dlynqyur7utd6" path="res://assets/models/props/coffee_shop/overhead_light.glb" id="1_j5ugr"]
 [ext_resource type="AudioStream" uid="uid://cybj8prdbs1jm" path="res://audio/ambient/Electric Hum Loop D.wav" id="2_pushs"]
 [ext_resource type="Script" uid="uid://dih3swr18jk1u" path="res://addons/OvaniAmbiencePlugin/MovingAudioSource.gd" id="3_0bkn8"]
+[ext_resource type="Material" uid="uid://dxmql51ib835a" path="res://assets/vfx/dust_mote.tres" id="4_0bkn8"]
+
+[sub_resource type="Curve" id="Curve_0bkn8"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sltsv"]
+curve = SubResource("Curve_0bkn8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qb6f8"]
+emission_shape_offset = Vector3(0, -1.5, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 3.0
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 80.0
+spread = 180.0
+initial_velocity_min = 0.05
+initial_velocity_max = 0.05
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.01
+alpha_curve = SubResource("CurveTexture_sltsv")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rsr4o"]
+material = ExtResource("4_0bkn8")
 
 [node name="OverheadLight" instance=ExtResource("1_j5ugr")]
 
@@ -45,7 +72,7 @@ distance_fade_shadow = 14.0
 distance_fade_length = 2.0
 spot_range = 20.0
 spot_attenuation = 1.5
-spot_angle = 85.0
+spot_angle = 80.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.2, 0)
@@ -72,3 +99,12 @@ autoplay = true
 [node name="MovingAudioSource" type="Node3D" parent="HumSFX" index="0"]
 script = ExtResource("3_0bkn8")
 metadata/_custom_type_script = "uid://dih3swr18jk1u"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="6"]
+amount = 32
+lifetime = 8.0
+preprocess = 8.0
+visibility_aabb = AABB(-3, -3.5, -3, 6, 5, 6)
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_qb6f8")
+draw_pass_1 = SubResource("QuadMesh_rsr4o")
