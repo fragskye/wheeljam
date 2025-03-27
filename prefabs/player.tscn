@@ -1,12 +1,12 @@
 [gd_scene load_steps=21 format=3 uid="uid://fxwwwabbrtv"]
 
 [ext_resource type="Script" uid="uid://5jsevxsehuo8" path="res://src/player/player.gd" id="1_1txc5"]
-[ext_resource type="Script" uid="uid://bh6wq1q5fxuey" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_r66lb"]
-[ext_resource type="Script" uid="uid://boel5hma2thn2" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_1txc5"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_r66lb"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_1txc5"]
 [ext_resource type="Script" uid="uid://dnai1tqqessum" path="res://src/player/player_camera_rig.gd" id="2_ht1c8"]
 [ext_resource type="Script" uid="uid://p3rffxq11yq4" path="res://src/camera_shake.gd" id="5_u51tk"]
 [ext_resource type="Script" uid="uid://dj5wa11rc1q6d" path="res://src/player/interaction_system.gd" id="6_g2jcq"]
-[ext_resource type="Script" uid="uid://cbjrdq7ived0u" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="6_u51tk"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="6_u51tk"]
 [ext_resource type="Script" uid="uid://ckfxwo28lrgnu" path="res://addons/OvaniAmbiencePlugin/AmbienceListener.gd" id="8_kbsxf"]
 [ext_resource type="Script" uid="uid://cwfd25cby8bo8" path="res://src/foostep_controller.gd" id="9_rgeog"]
 [ext_resource type="AudioStream" uid="uid://d0gyailrfb2eq" path="res://audio/player/Shoe Step Stone Medium A.wav" id="10_llb5v"]
@@ -32,6 +32,7 @@ ease = 2
 
 [sub_resource type="Resource" id="Resource_kbsxf"]
 script = ExtResource("6_u51tk")
+keep_aspect = 1
 cull_mask = 1048575
 h_offset = 0.0
 v_offset = 0.0
@@ -85,7 +86,6 @@ tween_resource = SubResource("Resource_g2jcq")
 tween_on_load = false
 camera_3d_resource = SubResource("Resource_kbsxf")
 _preview_noise = false
-metadata/_custom_type_script = "uid://bh6wq1q5fxuey"
 
 [node name="ItemPickupTargetStart" type="Node3D" parent="PlayerCameraRig"]
 transform = Transform3D(0.984808, -0.0151344, -0.172987, 0, 0.996195, -0.0871557, 0.173648, 0.0858316, 0.98106, 0, 0, -0.5)

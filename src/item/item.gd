@@ -22,8 +22,6 @@ func play_pickup_anim(target_start: Node3D, target_end: Node3D) -> void:
 	tween.tween_callback(queue_free)
 
 func _pickup_anim(progress: float, original_transform: Transform3D, target_start: Node3D, target_end: Node3D) -> void:
-	# TODO: why the hell is this flickering when you turn the camera mid-animation
-	# TODO update: oh dear god it appears PhantomCamera does not like physics interpolation and is making my camera rotation lag behind one frame 
 	if progress < 1.0:
 		global_transform = original_transform.interpolate_with(target_start.get_global_transform_interpolated(), progress)
 	else:

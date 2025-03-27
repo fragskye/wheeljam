@@ -21,7 +21,7 @@
 [ext_resource type="Material" uid="uid://c8ikpttpqqegs" path="res://assets/grimoire_material.tres" id="15_5b14r"]
 [ext_resource type="PackedScene" uid="uid://cmfhmrtalei7j" path="res://prefabs/item/item_spawn_manager.tscn" id="15_7sc4i"]
 [ext_resource type="Script" uid="uid://ckctay6gbi6sb" path="res://src/item/item_spawn_pool.gd" id="15_e8heu"]
-[ext_resource type="Script" uid="uid://drx004wv0kjc5" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_80cx4"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_80cx4"]
 [ext_resource type="Resource" uid="uid://cesk022ld4qbv" path="res://data/item_spawn_pools/pool_0.tres" id="16_rvswv"]
 [ext_resource type="Resource" uid="uid://cficv3skkd8ni" path="res://data/item_spawn_pools/pool_1.tres" id="17_rvswv"]
 [ext_resource type="Resource" uid="uid://c3mhgc7hilvhl" path="res://data/item_spawn_pools/pool_2.tres" id="18_boyg6"]
@@ -2465,7 +2465,6 @@ process_mode = 4
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("16_80cx4")
-metadata/_custom_type_script = "uid://drx004wv0kjc5"
 
 [node name="PageVisual" parent="." instance=ExtResource("5_hve3p")]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.256027, 0.560719, 11.5459)
