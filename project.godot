@@ -259,3 +259,7 @@ grunge_noise_texture={
 "type": "sampler2D",
 "value": "res://grunge_noise_texture.tres"
 }
+inv_texel_density={
+"type": "float",
+"value": 0.01
+}

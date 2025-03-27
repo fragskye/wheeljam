@@ -2,14 +2,10 @@ shader_type spatial;
 
 render_mode cull_disabled, diffuse_lambert, specular_disabled;//, vertex_lighting;
 
+#include "shared_global_uniforms.gdshaderinc"
 #include "util.gdshaderinc"
 #include "volumetric_fog.gdshaderinc"
-
-global uniform float texel_density;
-global uniform sampler2D value_noise_texture : filter_nearest, repeat_enable;
-global uniform float value_noise_texture_size;
-global uniform vec4 grunge_highlight;
-global uniform sampler2D grunge_noise_texture : filter_linear, repeat_enable;
+#include "grunge.gdshaderinc"
 
 uniform sampler2D albedo_texture : hint_default_white, filter_nearest, source_color, repeat_enable;
 uniform bool emissive = false;
@@ -33,7 +29,6 @@ void vertex() {
 }
 
 void fragment() {
-	float inv_texel_density = 1.0 / texel_density;
 	float inv_value_noise_texture_size = 1.0 / value_noise_texture_size;
 
 	vec3 abs_local_normal = abs(local_normal);
@@ -49,13 +44,7 @@ void fragment() {
 		discard;
 	}
 	
-	vec3 quantized_world_pos = floor(world_pos * texel_density + 0.01) * inv_texel_density;
-	float grunge_noise = texture(grunge_noise_texture, quantized_world_pos.xz * 0.01).r * 3.0 - 1.5;
-	if (quantized_world_pos.y + value_random.y < grunge_noise) {
-		float grunge_noise_2 = texture(grunge_noise_texture, quantized_world_pos.xz * 0.01 + vec2(0.0, TIME * 0.01)).r;
-		float amt = -(quantized_world_pos.y + value_random.y - grunge_noise) * 0.666;
-		ALBEDO = mix(ALBEDO * (1.0 - amt), grunge_highlight.rgb, remap_clamp(amt, 0.3, 1.0, 0.0, 1.0) * value_random.z * grunge_noise_2);
-	}
+	ALBEDO = grunge(ALBEDO, world_pos, value_random);
 	
 	if (emissive) {
 		EMISSION = emissive_intensity * ALBEDO;
