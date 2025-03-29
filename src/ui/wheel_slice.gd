@@ -19,8 +19,10 @@ func _process(_delta: float) -> void:
 	hover_outline.rotation = angle
 	selected_outline.rotation = angle
 	tint.rotation = angle
-	if abs(angle - PI * 0.5) <= PI * 0.333:
+	if abs(angle - PI * 0.5) < PI * 0.49:
 		action_label.rotation_degrees = -90.0
+	else:
+		action_label.rotation_degrees = 90.0
 	
 	if hover_highlight:
 		hover_outline.show()

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FinalDemonData" load_steps=12 format=3 uid="uid://cj8qs5jdusig"]
+[gd_resource type="Resource" script_class="FinalDemonData" load_steps=13 format=3 uid="uid://cj8qs5jdusig"]
 
 [ext_resource type="Script" uid="uid://0vtxy5taq1hf" path="res://src/demon/demon_verdict.gd" id="1_fdn17"]
 [ext_resource type="Script" uid="uid://cot7e077uk6a" path="res://src/demon/demon_face.gd" id="2_o8kyo"]
@@ -6,32 +6,38 @@
 
 [sub_resource type="Resource" id="Resource_gx135"]
 script = ExtResource("1_fdn17")
-opinion = 0
+opinion = 2
 multiplier = -2.5
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_g8c6a"]
 script = ExtResource("1_fdn17")
-opinion = 1
+opinion = 3
 multiplier = -2.0
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_njhek"]
 script = ExtResource("1_fdn17")
-opinion = 2
+opinion = 4
 multiplier = -1.0
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_72y6n"]
 script = ExtResource("1_fdn17")
-opinion = 3
-multiplier = 9.0
+opinion = 5
+multiplier = 6.5
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_fdn17"]
 script = ExtResource("1_fdn17")
-opinion = 3
-multiplier = 0.0
+opinion = 1
+multiplier = -3.5
+metadata/_custom_type_script = "uid://0vtxy5taq1hf"
+
+[sub_resource type="Resource" id="Resource_o8kyo"]
+script = ExtResource("1_fdn17")
+opinion = 0
+multiplier = -3.0
 metadata/_custom_type_script = "uid://0vtxy5taq1hf"
 
 [sub_resource type="Resource" id="Resource_jg002"]
@@ -68,12 +74,12 @@ point_count = 2
 
 [resource]
 script = ExtResource("3_dxm5x")
-max_health = 2500.0
+max_health = 3000.0
 health_drain = 7.0
 health_drain_outside_battle = 2.5
 faces = Array[ExtResource("2_o8kyo")]([SubResource("Resource_jg002")])
-default_verdicts = Array[ExtResource("1_fdn17")]([SubResource("Resource_gx135"), SubResource("Resource_g8c6a"), SubResource("Resource_njhek"), SubResource("Resource_72y6n"), SubResource("Resource_fdn17")])
-max_verdict_opinion = 3
+default_verdicts = Array[ExtResource("1_fdn17")]([SubResource("Resource_gx135"), SubResource("Resource_g8c6a"), SubResource("Resource_njhek"), SubResource("Resource_72y6n"), SubResource("Resource_fdn17"), SubResource("Resource_o8kyo")])
+max_verdict_opinion = 5
 lower_mouth_inner_outer_curve = SubResource("Curve_8vg5x")
 upper_mouth_inner_outer_curve = SubResource("Curve_k1bno")
 metadata/_custom_type_script = "uid://wnm2xf7dr5ej"
