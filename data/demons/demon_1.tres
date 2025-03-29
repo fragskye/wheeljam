@@ -48,8 +48,8 @@ variance = 0.05
 variance_spike = 0.175
 variance_spike_duration_min = 8
 variance_spike_duration_max = 20
-variance_spike_delay_min = 3.0
-variance_spike_delay_max = 7.0
+variance_spike_delay_min = 3.5
+variance_spike_delay_max = 7.5
 metadata/_custom_type_script = "uid://cot7e077uk6a"
 
 [sub_resource type="Resource" id="Resource_scfcj"]
@@ -72,8 +72,8 @@ variance = 0.05
 variance_spike = 0.175
 variance_spike_duration_min = 8
 variance_spike_duration_max = 20
-variance_spike_delay_min = 3.0
-variance_spike_delay_max = 7.0
+variance_spike_delay_min = 3.5
+variance_spike_delay_max = 7.5
 metadata/_custom_type_script = "uid://cot7e077uk6a"
 
 [sub_resource type="Curve" id="Curve_o3uug"]

@@ -35,7 +35,7 @@ func lerp(to: DemonFace, weight: float) -> DemonFace:
 	result.lower_mouth_inner_bottom = lerpf(lower_mouth_inner_bottom, to.lower_mouth_inner_bottom, weight)
 	result.lower_mouth_inner_top = lerpf(lower_mouth_inner_top, to.lower_mouth_inner_top, weight)
 	result.lower_mouth_outer_bottom = lerpf(lower_mouth_outer_bottom, to.lower_mouth_outer_bottom, weight)
-	result.upper_mouth_outer_top = lerpf(lower_mouth_outer_top, to.lower_mouth_outer_top, weight)
+	result.lower_mouth_outer_top = lerpf(lower_mouth_outer_top, to.lower_mouth_outer_top, weight)
 	result.upper_mouth_scale = lerpf(upper_mouth_scale, to.upper_mouth_scale, weight)
 	result.upper_mouth_inner_bottom = lerpf(upper_mouth_inner_bottom, to.upper_mouth_inner_bottom, weight)
 	result.upper_mouth_inner_top = lerpf(upper_mouth_inner_top, to.upper_mouth_inner_top, weight)
