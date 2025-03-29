@@ -14,7 +14,6 @@ func next_phase() -> bool:
 		wheel_slice.disabled = false
 	Global.battle_layer.wheel_slice_count = 5
 	Global.battle_layer._needs_more_pages = true
-	var tween: Tween = Global.battle_layer.get_tree().create_tween()
-	tween.tween_interval(0.1)
-	tween.tween_callback(Global.battle_layer.select_empty)
+	Global.battle_layer.update_slices()
+	Global.battle_layer.select_empty()
 	return true

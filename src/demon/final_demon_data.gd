@@ -21,9 +21,8 @@ func next_phase() -> bool:
 	Global.battle_layer.wheel_slice_count = 6
 	Global.battle_layer._needs_more_pages = true
 	Global.battle_layer.moves_per_turn = 6
-	var tween: Tween = Global.battle_layer.get_tree().create_tween()
-	tween.tween_interval(0.1)
-	tween.tween_callback(Global.battle_layer.select_empty)
+	Global.battle_layer.update_slices()
+	Global.battle_layer.select_empty()
 	return true
 
 func evaluate(index: int) -> DemonVerdict:
