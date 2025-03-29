@@ -65,6 +65,7 @@ func _ready() -> void:
 	InputManager.input_state_changed.connect(_on_input_state_changed)
 	SignalBus.battle_player_turn_complete.connect(_on_battle_player_turn_complete)
 	SignalBus.battle_demon_health_changed.connect(_on_battle_demon_health_changed)
+	SignalBus.battle_begin.connect(_on_battle_begin)
 	SignalBus.battle_lost.connect(_on_battle_lost)
 	SignalBus.battle_won.connect(_on_battle_won)
 	SignalBus.battle_demon_verdict.connect(_on_battle_demon_verdict)
@@ -287,6 +288,14 @@ func get_wedge_page(slice: int) -> PageData:
 
 func _on_battle_demon_health_changed(percentage: float, _absolute: float, _delta: float, _from_action: bool) -> void:
 	battle_health_fill.custom_minimum_size.x = battle_health.size.x * percentage
+
+func _on_battle_begin() -> void:
+	var page_count: int = 0
+	for item: ItemData in Global.player.inventory:
+		if item is PageData:
+			page_count += 1
+	if page_count < wheel_slice_count:
+		SignalBus.battle_lost.emit() # player started a battle without enough pages...
 
 func _on_battle_lost() -> void:
 	_battle_ending = true
