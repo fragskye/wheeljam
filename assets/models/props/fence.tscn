@@ -1,5 +1,73 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm63tpq5brvgq"]
+[gd_scene load_steps=6 format=4 uid="uid://bm63tpq5brvgq"]
 
-[ext_resource type="PackedScene" uid="uid://m0rajcpmr5iu" path="res://assets/models/props/fence.glb" id="1_7317h"]
+[ext_resource type="Material" uid="uid://cdsbt6x5l774a" path="res://assets/palette_material.tres" id="1_2iy7q"]
+[ext_resource type="Material" uid="uid://d4f5wbau3u0ml" path="res://assets/fence_material.tres" id="2_16c1o"]
 
-[node name="Fence" instance=ExtResource("1_7317h")]
+[sub_resource type="ArrayMesh" id="ArrayMesh_srac3"]
+_surfaces = [{
+"aabb": AABB(-0.025, 0, -0.025, 0.05, 2, 0.05),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Palette",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("0MzMvAAAAADQzMw80MzMvAAAAEDQzMy80MzMvAAAAEDQzMw80MzMvAAAAADQzMy80MzMPAAAAEDQzMy80MzMPAAAAADQzMw80MzMPAAAAEDQzMw80MzMPAAAAADQzMy8")
+}, {
+"aabb": AABB(5.96046e-08, 0.1, 0, 2, 1.8, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Fence",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AACAM83MzD0AAACAAAAAQDMz8z8AAACAAAAAQM3MzD0AAACAAACAMzMz8z8AAACA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d3n87"]
+resource_name = "fence_Fence-col"
+_surfaces = [{
+"aabb": AABB(-0.025, 0, -0.025, 0.05, 2, 0.05),
+"attribute_data": PackedByteArray("AAC4PgAAwD4AALg+AAAAAAAAuD4AAAAAAAC4PgAAwD4AALg+AADAPgAAuD4AAAAAAAC4PgAAAAAAALg+AADAPgAAuD4AAMA+AAC4PgAAAAAAALg+AAAAAAAAuD4AAMA+AAC4PgAAwD4AALg+AAAAAAAAuD4AAAAAAAC4PgAAwD4AALg+AADAPgAAuD4AAMA+AAC4PgAAwD4AALg+AADAPgAAuD4AAAAAAAC4PgAAAAAAALg+AAAAAAAAuD4AAAAA"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": ExtResource("1_2iy7q"),
+"name": "Palette",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("0MzMvAAAAADQzMw80MzMvAAAAEDQzMy80MzMvAAAAEDQzMw80MzMvAAAAADQzMy80MzMvAAAAADQzMy80MzMPAAAAEDQzMy80MzMvAAAAEDQzMy80MzMPAAAAADQzMy80MzMPAAAAADQzMy80MzMPAAAAEDQzMw80MzMPAAAAEDQzMy80MzMPAAAAADQzMw80MzMPAAAAADQzMw80MzMvAAAAEDQzMw80MzMPAAAAEDQzMw80MzMvAAAAADQzMw80MzMvAAAAADQzMy80MzMPAAAAADQzMw80MzMPAAAAADQzMy80MzMvAAAAADQzMw80MzMPAAAAEDQzMy80MzMvAAAAEDQzMw80MzMvAAAAEDQzMy80MzMPAAAAEDQzMw8AAD/f////78AAP9/////vwAA/3////+/AAD/f////7//////////v/////////+//////////7//////////v////3////+/////f////7////9/////v////3////+//3//f////z//f/9/////P/9//3////8//3//f////z//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9///////+//3///////7//f///////v/9///////+/")
+}, {
+"aabb": AABB(5.96046e-08, 0.1, 0, 2, 1.8, 1e-05),
+"attribute_data": PackedByteArray("6PcLwKiXtz7o90tAMjQkPyw0JD/o90tAnJe3Puj3C8A="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": ExtResource("2_16c1o"),
+"name": "Fence",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AACAM83MzD0AAACAAAAAQDMz8z8AAACAAAAAQM3MzD0AAACAAACAMzMz8z8AAACA/3//f/+//9//f/9//7//3/9//3//v//f/3//f/+//98=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_srac3")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_52awf"]
+data = PackedVector3Array(-0.025, 0, 0.025, -0.025, 2, -0.025, -0.025, 2, 0.025, -0.025, 0, 0.025, -0.025, 0, -0.025, -0.025, 2, -0.025, -0.025, 0, -0.025, 0.025, 2, -0.025, -0.025, 2, -0.025, -0.025, 0, -0.025, 0.025, 0, -0.025, 0.025, 2, -0.025, 0.025, 0, -0.025, 0.025, 2, 0.025, 0.025, 2, -0.025, 0.025, 0, -0.025, 0.025, 0, 0.025, 0.025, 2, 0.025, 0.025, 0, 0.025, -0.025, 2, 0.025, 0.025, 2, 0.025, 0.025, 0, 0.025, -0.025, 0, 0.025, -0.025, 2, 0.025, -0.025, 0, -0.025, 0.025, 0, 0.025, 0.025, 0, -0.025, -0.025, 0, -0.025, -0.025, 0, 0.025, 0.025, 0, 0.025, 0.025, 2, -0.025, -0.025, 2, 0.025, -0.025, 2, -0.025, 0.025, 2, -0.025, 0.025, 2, 0.025, -0.025, 2, 0.025, 5.96046e-08, 0.1, 0, 2, 1.9, 0, 2, 0.1, 0, 5.96046e-08, 0.1, 0, 5.96046e-08, 1.9, 0, 2, 1.9, 0)
+backface_collision = true
+
+[node name="Fence" type="Node3D"]
+
+[node name="Fence" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_d3n87")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Fence"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fence/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_52awf")
