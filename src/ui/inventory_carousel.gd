@@ -8,6 +8,7 @@ signal item_pressed(item: ItemData)
 @onready var carousel_target_left: Control = %CarouselTargetLeft
 @onready var carousel_target_right: Control = %CarouselTargetRight
 @onready var scroll_sfx: AudioStreamPlayer2D = %ScrollSFX
+@onready var item_name_label: Label = %ItemNameLabel
 
 @export var cycle_duration: float = 0.3
 @export var cycle_fast_duration: float = 0.15
@@ -52,6 +53,13 @@ func cycle_left(fast: bool) -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(self, "_carousel_rotation_percentage", 1.0, cycle_fast_duration if fast else cycle_duration)
 	tween.tween_callback(_post_cycle_left)
+	
+	var left_item: InventoryItem = carousel.get_child(floori(float(carousel_items) * 0.5 - 1.0))
+	var left_item_data: ItemData = left_item.data
+	if left_item_data != null:
+		item_name_label.text = left_item_data.get_item_name()
+	else:
+		item_name_label.text = ""
 
 func _post_cycle_left() -> void:
 	Global.player.set_inventory_selected(Global.player.inventory_selected - 1)
@@ -70,6 +78,13 @@ func cycle_right(fast: bool) -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(self, "_carousel_rotation_percentage", -1.0, cycle_fast_duration if fast else cycle_duration)
 	tween.tween_callback(_post_cycle_right)
+	
+	var right_item: InventoryItem = carousel.get_child(floori(float(carousel_items) * 0.5 + 1.0))
+	var right_item_data: ItemData = right_item.data
+	if right_item_data != null:
+		item_name_label.text = right_item_data.get_item_name()
+	else:
+		item_name_label.text = ""
 
 func _post_cycle_right() -> void:
 	Global.player.set_inventory_selected(Global.player.inventory_selected + 1)
@@ -105,6 +120,11 @@ func update_inventory_items() -> void:
 				middle_item.item_renderer.start_animating()
 		else:
 			carousel_item.item_renderer.stop_animating()
+	
+	if middle_item.data != null:
+		item_name_label.text = middle_item.data.get_item_name()
+	else:
+		item_name_label.text = ""
 
 func _get_middle_carousel_item() -> InventoryItem:
 	return carousel.get_child(floori(float(carousel_items) * 0.5))

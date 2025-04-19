@@ -38,13 +38,13 @@ void fragment() {
 	if (albedo.a < 0.5) {
 		discard;
 	}
-	
+
 	ALBEDO = grunge(ALBEDO, world_pos, value_random);
-	
+
 	if (emissive) {
 		EMISSION = emissive_intensity * ALBEDO;
 	}
-	
+
 	//LIGHT_VERTEX = (VIEW_MATRIX * vec4(floor(world_pos * texel_density + 0.001) * inv_texel_density, 1.0)).xyz;
 	FOG = volumetric_fog(world_pos, CAMERA_POSITION_WORLD);
 	EMISSION *= 1.0 - FOG.a;

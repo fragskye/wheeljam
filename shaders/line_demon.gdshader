@@ -57,7 +57,7 @@ void fragment() {
 	ALBEDO *= 8.0;
 	ALPHA = color.a * roundededge;// * smoothstep(1.0, 0.7, abs(uv.x * 2.0 - 1.0));
 //	ALPHA *= hider;
-	
+
 	FOG = simple_fog(VERTEX, CAMERA_POSITION_WORLD);
 	if (FOG.a < 0.6) {
 		FOG.a = remap_clamp(FOG.a, 0.4, 0.6, 0.0, 0.6);

@@ -37,13 +37,13 @@ void fragment() {
 	vec4 value_random = texture(value_noise_texture, local_planar_uv * inv_value_noise_texture_size * texel_density);
 	ALBEDO = texture(palette, UV + vec2(0.0, 0.00005 + value_random.x * 0.1249)).rgb;
 	ALBEDO = hsv_to_rgb(rgb_to_hsv(ALBEDO) * vec3(1.0, saturation_scalar, value_scalar) + vec3(hue_shift, 0.0, 0.0));
-	
+
 	ALBEDO = grunge(ALBEDO, world_pos, value_random);
-	
+
 	if (emissive) {
 		EMISSION = emissive_intensity * ALBEDO;
 	}
-	
+
 	//LIGHT_VERTEX = (VIEW_MATRIX * vec4(floor(world_pos * texel_density + 0.001) * inv_texel_density, 1.0)).xyz;
 	FOG = volumetric_fog(world_pos, CAMERA_POSITION_WORLD);
 	EMISSION *= 1.0 - FOG.a;
