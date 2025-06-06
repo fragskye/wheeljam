@@ -235,7 +235,6 @@ transform = Transform3D(0.991445, 0.028251, 0.127432, 0, 0.976296, -0.21644, -0.
 script = ExtResource("6_d7vdu")
 tween_resource = SubResource("Resource_mhmxw")
 camera_3d_resource = SubResource("Resource_n73ql")
-metadata/_custom_type_script = "uid://bh6wq1q5fxuey"
 
 [node name="NextPhasePhantomCamera" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -243,7 +242,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 4)
 script = ExtResource("6_d7vdu")
 tween_resource = SubResource("Resource_8ldxu")
 camera_3d_resource = SubResource("Resource_k3y6h")
-metadata/_custom_type_script = "uid://bh6wq1q5fxuey"
 
 [node name="SummonSFX" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_mhmxw")

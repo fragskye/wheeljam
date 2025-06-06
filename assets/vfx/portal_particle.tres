@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b8p5b0eo4uf3d"]
+
+[ext_resource type="Texture2D" uid="uid://csrc8ril37agl" path="res://assets/ui/white_halo.png" id="1_7rfqg"]
+[ext_resource type="Shader" uid="uid://bypmuegau76g5" path="res://shaders/vfx/portal_particle.gdshader" id="1_cy6sv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cy6sv")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("1_7rfqg")
+shader_parameter/proximity_fade_distance = 1.0
+shader_parameter/alpha_scissor_threshold = 0.2
+shader_parameter/albedo_texture_size = Vector2i(512, 512)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
